@@ -159,8 +159,8 @@
 <fieldset>
 
     <input type="checkbox" id="switch-checkbox" indeterminate>
-    <div class="switch">
-        <div class="thumb indeterminate">
+    <div class="switch" onclick="setState()">
+        <div class="thumb indeterminate" onclick="setState()">
             <div></div>
         </div>
     </div>
@@ -181,6 +181,10 @@
     switchCheckbox.indeterminate = true;
 
     thumb.addEventListener("click", (e) => {
+        setState()
+    });
+
+    const setState = () => {
         if (switchCheckbox.indeterminate === true) {
             switchCheckbox.indeterminate = false;
             switchCheckbox.checked = true;
@@ -189,7 +193,7 @@
         }
 
         setClasses();
-    });
+    }
 
     const setThreeState = () => {
         switchCheckbox.indeterminate = true;
