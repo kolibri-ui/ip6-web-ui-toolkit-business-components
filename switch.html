@@ -8,18 +8,223 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet">
     <link href="assets/kolibri/kolibri.css"/>
+
     <style>
-        html, body {
-            font-family: 'Poppins', sans-serif;
+
+        label {
+            cursor: pointer;
+            text-indent: -9999px;
+            width: 250px;
+            height: 100px;
+            background: #bdbdbd;
+            display: block;
+            border-radius: 100px;
+            position: relative;
         }
 
-        .label {
-            font-weight: 700;
+        #switch label:before, #switch label:after {
+            color: #4e4e4e;
+            z-index: 1;
+        }
+
+        .label-off:after {
+            content: 'l';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 90px;
+            height: 90px;
+            background: #fcfcfc;
+            border-radius: 90px;
+            transition: 0.3s;
+        }
+
+        .label-on:after {
+            content: 'l';
+            position: absolute;
+            top: 5px;
+            left: 155px;
+            width: 90px;
+            height: 90px;
+            background: #fcfcfc;
+            border-radius: 90px;
+            transition: 0.3s;
+        }
+
+        input:checked + label {
+            background: #2a8708;
+        }
+
+        input:checked + label:after {
+            left: calc(100% - 5px);
+            transform: translateX(-100%);
+        }
+
+        label:active:after {
+            width: 130px;
+        }
+
+        .switch-label {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 2.0em;
+        }
+
+        .on {
+            transform: translateX(2.5em);
+            z-index: 1;
+            color: #fcfcfc;
+        }
+
+        .off {
+            transform: translate(5em, -2.5em);
+            color: #333333;
+        }
+
+        .indeterminate {
+            transform: translateX(-2.5em);
+        }
+
+        .switch {
+            cursor: pointer;
+            text-indent: -9999px;
+            width: 250px;
+            height: 100px;
+            background: #bdbdbd;
+            display: block;
+            border-radius: 100px;
+            position: relative;
+        }
+
+        .switch-on{
+            background: #2a8708;
+            box-shadow: 0 0 15px 0 #2a8708;
+        }
+
+        .thumb {
+            position: absolute;
+            top: 5px;
+            width: 90px;
+            height: 90px;
+            background: #fcfcfc;
+            border-radius: 90px;
+        }
+
+        .thumb > div {
+            position: relative;
+            border-radius: 3px;
+            background-color: #333333;
+        }
+
+
+        .off {
+            top: 45px;
+            left: -75px;
+        }
+
+        .off > div {
+            left: 5px;
+            top: 42px;
+            height: 5px;
+            width: 30px;
+        }
+
+        .on {
+            left: 115px;
+        }
+
+        .on > div {
+            left: 55px;
+            top: 42px;
+            height: 5px;
+            width: 30px;
+        }
+
+        .indeterminate {
+            background: #f2f2f2;
+            left: 120px;
+        }
+
+        .indeterminate > div {
+            left: 42px;
+            top: 5px;
+            height: 30px;
+            width: 5px;
         }
 
     </style>
 </head>
 <body>
-<input type="checkbox">
+
+<fieldset>
+
+    <input type="checkbox" id="switch-checkbox" indeterminate>
+    <div class="switch">
+        <div class="thumb indeterminate">
+            <div></div>
+        </div>
+    </div>
+
+
+</fieldset>
+
+<div>
+    <button onclick="setThreeState()">set 3-state to indeterminate</button>
+</div>
+
+
+<script>
+
+    const thumb = document.getElementsByClassName("thumb")[0];
+    const switchDiv = document.getElementsByClassName("switch")[0];
+    const switchCheckbox = document.getElementById("switch-checkbox");
+    switchCheckbox.indeterminate = true;
+
+    thumb.addEventListener("click", (e) => {
+        if (switchCheckbox.indeterminate === true) {
+            switchCheckbox.indeterminate = false;
+            switchCheckbox.checked = true;
+        } else {
+            switchCheckbox.checked = !switchCheckbox.checked;
+        }
+
+        setClasses();
+    });
+
+    const setThreeState = () => {
+        switchCheckbox.indeterminate = true;
+        setClasses();
+    }
+
+    const setClasses = () => {
+
+        if(switchCheckbox.indeterminate === true){
+            thumb.classList.remove('off');
+            thumb.classList.remove('on');
+            switchDiv.classList.remove('switch-on');
+            thumb.classList.add('indeterminate');
+        }else {
+            thumb.classList.remove('indeterminate');
+
+            switch (switchCheckbox.checked) {
+                case true:
+                    thumb.classList.remove('off');
+                    thumb.classList.add('on');
+                    switchDiv.classList.add('switch-on');
+                    break;
+                case false:
+                    thumb.classList.add('off');
+                    thumb.classList.remove('on');
+                    switchDiv.classList.remove('switch-on');
+                    break;
+            }
+        }
+
+
+    }
+
+</script>
+
+</body>
 </body>
 </html>
