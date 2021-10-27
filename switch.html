@@ -120,6 +120,7 @@
         .off {
             top: 45px;
             left: -75px;
+            transition: all 0.2s linear;
         }
 
         .off > div {
@@ -127,10 +128,12 @@
             top: 42px;
             height: 5px;
             width: 30px;
+
         }
 
         .on {
             left: 115px;
+            transition: all 0.2s linear;
         }
 
         .on > div {
@@ -138,11 +141,13 @@
             top: 42px;
             height: 5px;
             width: 30px;
+
         }
 
         .indeterminate {
             background: #f2f2f2;
             left: 120px;
+            transition: all 0.2s linear;
         }
 
         .indeterminate > div {
@@ -150,6 +155,7 @@
             top: 5px;
             height: 30px;
             width: 5px;
+
         }
 
     </style>
@@ -180,7 +186,7 @@
     const switchCheckbox = document.getElementById("switch-checkbox");
     switchCheckbox.indeterminate = true;
 
-    thumb.addEventListener("click", (e) => {
+    thumb.addEventListener("click", () => {
         setState()
     });
 
@@ -223,12 +229,8 @@
                     break;
             }
         }
-
-
     }
-
 </script>
-
 </body>
 </body>
 </html>
