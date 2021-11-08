@@ -14,11 +14,9 @@
 
 <fieldset>
     <label for="switch-checkbox"></label><input type="checkbox" id="switch-checkbox" indeterminate>
-    <div class="switch">
-        <!-- onclick="setState()"-->
+    <div class="switch" id="switch">
 
         <div class="thumb indeterminate">
-            <!-- onclick="setState()" -->
         </div>
 
         <div class="cross"></div>
@@ -26,12 +24,13 @@
         <div class="checkmark"></div>
     </div>
 
+    <label>
+        Disabled
+        <input type="checkbox" class="disabled">
+    </label>
+
 
 </fieldset>
-
-<!--<div>
-    <button onclick="setThreeState()">set 3-state to indeterminate</button>
-</div>-->
 
 
 <script>
@@ -42,7 +41,10 @@
     const thumb = document.getElementsByClassName("thumb")[0];
     const switchDiv = document.getElementsByClassName("switch")[0];
     const switchCheckbox = document.getElementById("switch-checkbox");
-     switchCheckbox.indeterminate = true;
+    switchCheckbox.indeterminate = true;
+
+    let disabled = document.getElementsByClassName("disabled")[0];
+    const switch1 = document.getElementById("switch");
 
 
     cross.addEventListener("click", () => {
@@ -60,6 +62,10 @@
 
     thumb.addEventListener("click", () => {
 
+    });
+
+    disabled.addEventListener("click", () => {
+        setDisabled();
     });
 
     const setState = (state) => {
@@ -87,40 +93,14 @@
             thumb.classList.add('indeterminate');
         }
 
-        /*    if (switchCheckbox.indeterminate === true) {
-                switchCheckbox.indeterminate = false;
-                switchCheckbox.checked = true;
-            } else {
-                switchCheckbox.checked = !switchCheckbox.checked;
-            }*/
-
-       // setClasses();
     }
-
-    /*    const setThreeState = () => {
-            switchCheckbox.indeterminate = true;
-            setClasses();
-        }*/
-
-/*    const setClasses = () => {
-
-        if (switchCheckbox.indeterminate === true) {
-
+    const setDisabled = () => {
+        if (disabled.checked) {
+            switch1.classList.add("disabled")
         } else {
-            thumb.classList.remove('indeterminate');
+            switch1.classList.remove("disabled")
         }
-
-        switch (switchCheckbox.checked) {
-            case true:
-
-                //thumb.classList.remove('indeterminate');
-                break;
-            case false:
-
-               // thumb.classList.remove('indeterminate');
-                break;
-        }
-    }*/
+    }
 
 
 </script>
