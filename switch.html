@@ -21,33 +21,42 @@
             <!-- onclick="setState()" -->
         </div>
 
-        <div class="checkmark"></div>
         <div class="cross"></div>
+        <div class="dot"></div>
+        <div class="checkmark"></div>
     </div>
 
 
 </fieldset>
 
-<div>
+<!--<div>
     <button onclick="setThreeState()">set 3-state to indeterminate</button>
-</div>
+</div>-->
 
 
 <script>
-    const checkmark = document.getElementsByClassName("checkmark")[0];
     const cross = document.getElementsByClassName("cross")[0];
+    const dot = document.getElementsByClassName("dot")[0];
+    const checkmark = document.getElementsByClassName("checkmark")[0];
+
     const thumb = document.getElementsByClassName("thumb")[0];
     const switchDiv = document.getElementsByClassName("switch")[0];
     const switchCheckbox = document.getElementById("switch-checkbox");
-    switchCheckbox.indeterminate = true;
+     switchCheckbox.indeterminate = true;
+
+
+    cross.addEventListener("click", () => {
+        setState("off")
+    });
+
+    dot.addEventListener("click", () => {
+        setState("indeterminate")
+    });
 
     checkmark.addEventListener("click", () => {
         setState("on")
     });
 
-    cross.addEventListener("click", () => {
-        setState("off")
-    });
 
     thumb.addEventListener("click", () => {
 
@@ -56,10 +65,26 @@
     const setState = (state) => {
         if (state === "on") {
             switchCheckbox.checked = true;
+            switchCheckbox.indeterminate = false;
+            thumb.classList.remove('indeterminate');
+            thumb.classList.remove('off');
+            thumb.classList.add('on');
+            switchDiv.classList.add('switch-on');
+
         } else if (state === "off") {
             switchCheckbox.checked = false;
+            switchCheckbox.indeterminate = false;
+            thumb.classList.remove('indeterminate');
+            thumb.classList.add('off');
+            thumb.classList.remove('on');
+            switchDiv.classList.remove('switch-on');
+
         } else if (state === "indeterminate") {
             switchCheckbox.indeterminate = true;
+            thumb.classList.remove('off');
+            thumb.classList.remove('on');
+            switchDiv.classList.remove('switch-on');
+            thumb.classList.add('indeterminate');
         }
 
         /*    if (switchCheckbox.indeterminate === true) {
@@ -69,39 +94,33 @@
                 switchCheckbox.checked = !switchCheckbox.checked;
             }*/
 
-        setClasses();
+       // setClasses();
     }
 
-    const setThreeState = () => {
-        switchCheckbox.indeterminate = true;
-        setClasses();
-    }
+    /*    const setThreeState = () => {
+            switchCheckbox.indeterminate = true;
+            setClasses();
+        }*/
 
-    const setClasses = () => {
+/*    const setClasses = () => {
 
-        /*        if (switchCheckbox.indeterminate === true) {
-                    thumb.classList.remove('off');
-                    thumb.classList.remove('on');
-                    switchDiv.classList.remove('switch-on');
-                    thumb.classList.add('indeterminate');
-                } else {
-                    thumb.classList.remove('indeterminate');*/
+        if (switchCheckbox.indeterminate === true) {
+
+        } else {
+            thumb.classList.remove('indeterminate');
+        }
 
         switch (switchCheckbox.checked) {
             case true:
-                thumb.classList.remove('off');
-                thumb.classList.add('on');
-                switchDiv.classList.add('switch-on');
-                thumb.classList.remove('indeterminate');
+
+                //thumb.classList.remove('indeterminate');
                 break;
             case false:
-                thumb.classList.add('off');
-                thumb.classList.remove('on');
-                switchDiv.classList.remove('switch-on');
-                thumb.classList.remove('indeterminate');
+
+               // thumb.classList.remove('indeterminate');
                 break;
         }
-    }
+    }*/
 
 
 </script>

@@ -114,7 +114,7 @@ label:active:after {
 
 .off > div {
     left: 5px;
-    top: 42px;
+    top: 45px;
     height: 5px;
     width: 30px;
 
@@ -129,7 +129,7 @@ label:active:after {
 
 .on > div {
     left: 55px;
-    top: 42px;
+    top: 45px;
     height: 5px;
     width: 30px;
 
@@ -142,24 +142,11 @@ label:active:after {
 }
 
 .indeterminate > div {
-    left: 42px;
+    left: 55px;
     top: 5px;
     height: 30px;
     width: 5px;
 
-}
-
-.checkmark {
-    cursor: pointer;
-    z-index: 5;
-    position: absolute;
-    left: 240px;
-    top: 40px;
-    transform: rotate(45deg);
-    height: 24px;
-    width: 12px;
-    border-bottom: 7px solid #14142B;
-    border-right: 7px solid #14142B;
 }
 
 .cross {
@@ -179,17 +166,46 @@ label:active:after {
     width: 3px;
     background-color: #14142B;
 }
+
 .cross:before {
     transform: rotate(45deg);
 }
+
 .cross:after {
     transform: rotate(-45deg);
 }
 
-#switch-checkbox {
-
+.dot {
+    cursor: pointer;
+    position: absolute;
+    left: 145px;
+    top: 40px;
+    height: 20px;
+    width: 20px;
+    background-color: #14142B;
+    border-radius: 50%;
+    display: inline-block;
 }
+
+.checkmark {
+    cursor: pointer;
+    z-index: 5;
+    position: absolute;
+    left: 240px;
+    top: 40px;
+    transform: rotate(45deg);
+    height: 24px;
+    width: 12px;
+    border-bottom: 7px solid #14142B;
+    border-right: 7px solid #14142B;
+}
+
 
 label[for="switch-checkbox"] {
     display: none;
 }
+
+#switch-checkbox {
+    display: none;
+}
+
