@@ -98,6 +98,7 @@ label:active:after {
 }
 
 .thumb {
+    z-index: 0;
     position: absolute;
     top: 5px;
     width: 90px;
@@ -208,8 +209,64 @@ label:active:after {
     border-right: 7px solid #14142B;
 }
 
-
 #switch-checkbox {
     display: none;
+}
+
+.arrow {
+    z-index: 1;
+    border: solid #C7D1EB;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+
+}
+
+.right {
+    z-index: 1;
+    position: absolute;
+    top: 40px;
+    left: 200px;
+    width: 20px;
+    height: 20px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+
+    animation: moveToRight 4s infinite;
+}
+@keyframes moveToRight {
+    0%,
+    100% {
+        left: 170px;
+    }
+
+    50% {
+        left: 200px;
+    }
+}
+
+
+.left {
+    z-index: 1;
+    position: absolute;
+    top: 40px;
+    left: 90px;
+    width: 20px;
+    height: 20px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+
+    animation: moveToLeft 4s infinite;
+}
+
+@keyframes moveToLeft {
+    0%,
+    100% {
+        left: 120px;
+    }
+
+    50% {
+        left: 90px;
+    }
 }
 
