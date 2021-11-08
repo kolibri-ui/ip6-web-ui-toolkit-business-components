@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Switch Component - Florian</title>
+    <title>Switch Component</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -14,7 +14,7 @@
 
 <fieldset>
     <label for="switch-checkbox"></label><input type="checkbox" id="switch-checkbox" indeterminate>
-    <div class="switch" id="switch">
+    <div class="switch" id="switch" tabindex="0">
 
         <div class="thumb indeterminate">
         </div>
@@ -39,12 +39,12 @@
     const checkmark = document.getElementsByClassName("checkmark")[0];
 
     const thumb = document.getElementsByClassName("thumb")[0];
-    const switchDiv = document.getElementsByClassName("switch")[0];
+    const switchDivClass = document.getElementsByClassName("switch")[0];
+    const switchDivId = document.getElementById("switch");
     const switchCheckbox = document.getElementById("switch-checkbox");
     switchCheckbox.indeterminate = true;
 
     let disabled = document.getElementsByClassName("disabled")[0];
-    const switch1 = document.getElementById("switch");
 
 
     cross.addEventListener("click", () => {
@@ -68,6 +68,10 @@
         setDisabled();
     });
 
+    switchDivId.addEventListener("click", () => {
+        setFocus();
+    });
+
     const setState = (state) => {
         if (state === "on") {
             switchCheckbox.checked = true;
@@ -75,7 +79,7 @@
             thumb.classList.remove('indeterminate');
             thumb.classList.remove('off');
             thumb.classList.add('on');
-            switchDiv.classList.add('switch-on');
+            switchDivClass.classList.add('switch-on');
 
         } else if (state === "off") {
             switchCheckbox.checked = false;
@@ -83,23 +87,27 @@
             thumb.classList.remove('indeterminate');
             thumb.classList.add('off');
             thumb.classList.remove('on');
-            switchDiv.classList.remove('switch-on');
+            switchDivClass.classList.remove('switch-on');
 
         } else if (state === "indeterminate") {
             switchCheckbox.indeterminate = true;
             thumb.classList.remove('off');
             thumb.classList.remove('on');
-            switchDiv.classList.remove('switch-on');
+            switchDivClass.classList.remove('switch-on');
             thumb.classList.add('indeterminate');
         }
-
     }
+
     const setDisabled = () => {
         if (disabled.checked) {
-            switch1.classList.add("disabled")
+            switchDivId.classList.add("disabled")
         } else {
-            switch1.classList.remove("disabled")
+            switchDivId.classList.remove("disabled")
         }
+    }
+
+    const setFocus = () => {
+        switchDivId.focus();
     }
 
 
