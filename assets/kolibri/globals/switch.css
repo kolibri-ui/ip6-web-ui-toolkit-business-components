@@ -1,0 +1,195 @@
+label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 250px;
+    height: 100px;
+    background: #bdbdbd;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+#switch label:before, #switch label:after {
+    color: #4e4e4e;
+    z-index: 1;
+}
+
+.label-off:after {
+    content: 'l';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 90px;
+    height: 90px;
+    background: #fcfcfc;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+.label-on:after {
+    content: 'l';
+    position: absolute;
+    top: 5px;
+    left: 155px;
+    width: 90px;
+    height: 90px;
+    background: #fcfcfc;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input:checked + label {
+    /*background: #2a8708;*/
+}
+
+input:checked + label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+label:active:after {
+    width: 130px;
+}
+
+.switch-label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 2.0em;
+}
+
+.on {
+    transform: translateX(2.5em);
+    z-index: 1;
+    color: #fcfcfc;
+}
+
+.off {
+    transform: translate(5em, -2.5em);
+    color: #333333;
+}
+
+.indeterminate {
+    transform: translateX(-2.5em);
+}
+
+.switch {
+    z-index: 4;
+
+    text-indent: -9999px;
+    width: 300px;
+    height: 100px;
+    background: #bdbdbd;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+.switch-on {
+    /*    background: #2a8708;
+        box-shadow: 0 0 15px 0 #2a8708;*/
+}
+
+.thumb {
+    position: absolute;
+    top: 5px;
+    width: 90px;
+    height: 90px;
+
+    border-radius: 90px;
+}
+
+.thumb > div {
+    position: relative;
+    border-radius: 3px;
+    background-color: #333333;
+}
+
+
+.off {
+    border: 4px solid #184BCD;
+    top: 45px;
+    left: -75px;
+    transition: all 0.2s linear;
+}
+
+.off > div {
+    left: 5px;
+    top: 42px;
+    height: 5px;
+    width: 30px;
+
+}
+
+.on {
+    border: 4px solid #184BCD;
+    left: 160px;
+    transition: all 0.2s linear;
+
+}
+
+.on > div {
+    left: 55px;
+    top: 42px;
+    height: 5px;
+    width: 30px;
+
+}
+
+.indeterminate {
+    border: 4px solid #184BCD;
+    left: 150px;
+    transition: all 0.2s linear;
+}
+
+.indeterminate > div {
+    left: 42px;
+    top: 5px;
+    height: 30px;
+    width: 5px;
+
+}
+
+.checkmark {
+    cursor: pointer;
+    z-index: 5;
+    position: absolute;
+    left: 240px;
+    top: 40px;
+    transform: rotate(45deg);
+    height: 24px;
+    width: 12px;
+    border-bottom: 7px solid #14142B;
+    border-right: 7px solid #14142B;
+}
+
+.cross {
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 40px;
+    width: 32px;
+    height: 32px;
+}
+
+.cross:before, .cross:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 3px;
+    background-color: #14142B;
+}
+.cross:before {
+    transform: rotate(45deg);
+}
+.cross:after {
+    transform: rotate(-45deg);
+}
+
+#switch-checkbox {
+
+}
+
+label[for="switch-checkbox"] {
+    display: none;
+}
