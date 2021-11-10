@@ -8,25 +8,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet">
     <link rel=stylesheet type="text/css" href="assets/kolibri/kolibri.css"/>
-
 </head>
 <body>
-<fieldset>
-    <label for="switch-checkbox"></label><input type="checkbox" id="switch-checkbox" indeterminate>
-    <div class="switch" id="switch" tabindex="0">
-        <div class="arrow left">Left arrow: ></div>
-        <div class="thumb indeterminate">
-        </div>
-        <div>Right arrow: <i class="arrow right"></i></div>
-        <div class="cross"></div>
-        <div class="dot"></div>
-        <div class="checkmark"></div>
+
+
+<div class="switch" id="switch" tabindex="0">
+    <div class="cross"></div>
+    <div class="dot"></div>
+    <div class="checkmark"></div>
+
+    <div class="thumb-outer">
+        <div class="arrow arrow-left"></div>
+        <div class="thumb indeterminate"></div>
+        <div class="arrow arrow-right"></div>
     </div>
-    <label>
-        Disabled
-        <input type="checkbox" class="disabled">
-    </label>
-</fieldset>
+</div>
+
+
+<div>
+    <label for="switch-checkbox" style="display: none">switch-checkbox</label><input type="checkbox"
+                                                                                     id="switch-checkbox" indeterminate>
+    <label for="disable-switch">disable</label><input type="checkbox" class="disabled" id="disable-switch">
+</div>
+
 
 <script>
     const cross = document.getElementsByClassName("cross")[0];
@@ -34,13 +38,16 @@
     const checkmark = document.getElementsByClassName("checkmark")[0];
 
     const thumb = document.getElementsByClassName("thumb")[0];
+
+    const indicatorLeft = document.getElementsByClassName("arrow-left")[0];
+    const indicatorRight = document.getElementsByClassName("arrow-right")[0];
+
     const switchDivClass = document.getElementsByClassName("switch")[0];
     const switchDivId = document.getElementById("switch");
     const switchCheckbox = document.getElementById("switch-checkbox");
     switchCheckbox.indeterminate = true;
 
     let disabled = document.getElementsByClassName("disabled")[0];
-    let cState = "indeterminate"
 
     const State = {
         ON: 0,
@@ -48,80 +55,111 @@
         INDETERMINATE: 2
     }
 
-    cross.addEventListener("click", () => {
-        setState("off")
-    });
+    let switchState = new Observable(State.INDETERMINATE);
+    switchState.onChange(state => setState(state));
 
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowRight" && cState === "off" || cState === "indeterminate") {
-            setState("on")
+    // Drag Control
+    let mousePos = 0;
+
+    switchDivId.onmousedown = (e) => mousePos = e.x;
+    switchDivId.onmouseup = (e) => calcMovement(e.x);
+
+    const calcMovement = (ex) => {
+        if (mousePos > ex) {
+            switchState.setValue(State.OFF);
+        } else if (mousePos < ex) {
+            switchState.setValue(State.ON);
         }
-        if (e.key === "ArrowLeft" && cState === "on" || cState === "indeterminate") {
-            setState("off")
+    }
+
+    //Keyboard Control
+    document.onkeydown = (e) => {
+        if (e.key === "ArrowRight" && switchState === State.OFF || switchState === State.INDETERMINATE) {
+            switchState.setValue(State.ON);
+        }
+        if (e.key === "ArrowLeft" && switchState === State.ON || switchState === State.INDETERMINATE) {
+            switchState.setValue(State.OFF);
         }
         if (e.key === "Delete") {
-            setState("indeterminate")
+            switchState.setValue(State.INDETERMINATE);
         }
-    });
+
+    };
 
 
-    dot.addEventListener("mouseup", () => {
-        setState("indeterminate")
-    });
+    // Click Control
+    cross.onmouseup = () => switchState.setValue(State.OFF);
+    dot.onmouseup = () => switchState.setValue(State.INDETERMINATE);
+    checkmark.onmouseup = () => switchState.setValue(State.ON);
+    disabled.onclick = () => (disabled.checked) ? switchDivId.classList.add("disabled") : switchDivId.classList.remove("disabled");
+    switchDivId.onclick = () => switchDivId.focus();
 
-    checkmark.addEventListener("click", () => {
-        setState("on")
-    });
 
-    disabled.addEventListener("click", () => {
-        setDisabled();
-    });
-
-    switchDivId.addEventListener("click", () => {
-        setFocus();
-    });
-
-    const setState = (state) => {
-
-        cState = state;
-
-        if (state === "on") {
-            switchCheckbox.checked = true;
-            switchCheckbox.indeterminate = false;
-            thumb.classList.remove('indeterminate');
-            thumb.classList.remove('off');
-            thumb.classList.add('on');
-            switchDivClass.classList.add('switch-on');
-
-        } else if (state === "off") {
-            switchCheckbox.checked = false;
-            switchCheckbox.indeterminate = false;
-            thumb.classList.remove('indeterminate');
-            thumb.classList.add('off');
-            thumb.classList.remove('on');
-            switchDivClass.classList.remove('switch-on');
-
-        } else if (state === "indeterminate") {
-            switchCheckbox.indeterminate = true;
-            thumb.classList.remove('off');
-            thumb.classList.remove('on');
-            switchDivClass.classList.remove('switch-on');
-            thumb.classList.add('indeterminate');
+    thumb.onmouseover = () => {
+        switch (switchState.getValue()) {
+            case State.OFF:
+                indicatorRight.style.display = 'block';
+                break;
+            case State.ON:
+                indicatorLeft.style.display = 'block';
+                break;
+            default:
+                indicatorLeft.style.display = 'block';
+                indicatorRight.style.display = 'block';
         }
     }
 
-    const setDisabled = () => {
-        if (disabled.checked) {
-            switchDivId.classList.add("disabled")
-        } else {
-            switchDivId.classList.remove("disabled")
+    thumb.onmouseout = () => {
+        indicatorLeft.style.display = 'none';
+        indicatorRight.style.display = 'none';
+    }
+
+    const setState = () => {
+        switch (switchState.getValue()) {
+            case State.OFF:
+                switchCheckbox.checked = false;
+                switchCheckbox.indeterminate = false;
+                thumb.className = '';
+                thumb.classList.add('thumb', 'off');
+                switchDivClass.classList.remove('switch-on');
+                break;
+            case State.ON:
+                switchCheckbox.checked = true;
+                switchCheckbox.indeterminate = false;
+                thumb.className = '';
+                thumb.classList.add('thumb', 'on');
+                switchDivClass.classList.add('switch-on');
+                break;
+            default:
+                switchCheckbox.indeterminate = true;
+                thumb.className = '';
+                switchDivClass.classList.remove('switch-on');
+                thumb.classList.add('thumb', 'indeterminate');
         }
     }
 
-    const setFocus = () => {
-        switchDivId.focus();
-    }
 
+    function Observable(v) {
+        this.value = v;
+        this.valueChangedCallback = null;
+        this.setValue = function (v) {
+            if (this.value !== v) {
+                this.value = v;
+                this.raiseChangedEvent(v);
+            }
+        };
+        this.getValue = function () {
+            return this.value;
+        };
+        this.onChange = function (callback) {
+            this.valueChangedCallback = callback;
+        };
+        this.raiseChangedEvent = function (v) {
+            if (this.valueChangedCallback) {
+                this.valueChangedCallback(v);
+            }
+        };
+    }
 
 </script>
 </body>
