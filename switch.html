@@ -11,11 +11,9 @@
 
 </head>
 <body>
-
 <fieldset>
     <label for="switch-checkbox"></label><input type="checkbox" id="switch-checkbox" indeterminate>
     <div class="switch" id="switch" tabindex="0">
-
         <div class="arrow left">Left arrow: ></div>
         <div class="thumb indeterminate">
         </div>
@@ -24,15 +22,11 @@
         <div class="dot"></div>
         <div class="checkmark"></div>
     </div>
-
     <label>
         Disabled
         <input type="checkbox" class="disabled">
     </label>
-
-
 </fieldset>
-
 
 <script>
     const cross = document.getElementsByClassName("cross")[0];
@@ -46,23 +40,37 @@
     switchCheckbox.indeterminate = true;
 
     let disabled = document.getElementsByClassName("disabled")[0];
+    let cState = "indeterminate"
 
+    const State = {
+        ON: 0,
+        OFF: 1,
+        INDETERMINATE: 2
+    }
 
     cross.addEventListener("click", () => {
         setState("off")
     });
 
-    dot.addEventListener("click", () => {
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" && cState === "off" || cState === "indeterminate") {
+            setState("on")
+        }
+        if (e.key === "ArrowLeft" && cState === "on" || cState === "indeterminate") {
+            setState("off")
+        }
+        if (e.key === "Delete") {
+            setState("indeterminate")
+        }
+    });
+
+
+    dot.addEventListener("mouseup", () => {
         setState("indeterminate")
     });
 
     checkmark.addEventListener("click", () => {
         setState("on")
-    });
-
-
-    thumb.addEventListener("click", () => {
-
     });
 
     disabled.addEventListener("click", () => {
@@ -74,6 +82,9 @@
     });
 
     const setState = (state) => {
+
+        cState = state;
+
         if (state === "on") {
             switchCheckbox.checked = true;
             switchCheckbox.indeterminate = false;
