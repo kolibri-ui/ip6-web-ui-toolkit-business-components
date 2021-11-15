@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Switch Component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link rel=stylesheet type="text/css" href="assets/kolibri/kolibri.css"/>
+</head>
+<body>
+
+<!-- 3 State Switch -->
+<div class="switch" id="switch" tabindex="0">
+    <div class="cross"></div>
+
+    <div class="arrow arrow-left"></div>
+    <div class="dot"></div>
+
+    <div class="thumb indeterminate"></div>
+
+    <div class="arrow arrow-right"></div>
+
+    <div class="checkmark"></div>
+
+
+</div>
+
+
+<div>
+    <label for="switch-checkbox" style="display: none">switch-checkbox</label>
+    <input type="checkbox" id="switch-checkbox" indeterminate>
+    <label for="disable-switch">disable</label><input type="checkbox" class="disabled" id="disable-switch">
+
+    <p>Thumb Color:</p>
+    <div>
+        <input type="color" id="switchColor" name="switchColor"
+               value="#184BCD">
+        <label for="switchColor"></label>
+    </div>
+</div>
+
+
+<br><br>
+
+
+<!-- 2 State Switch -->
+<!--<div class="switch" id="switch2" tabindex="0">
+    <div class="cross"></div>
+
+    <div class="arrow arrow-left"></div>
+
+
+    <div class="thumb indeterminate"></div>
+
+    <div class="arrow arrow-right"></div>
+
+    <div class="checkmark"></div>
+
+
+</div>
+
+
+<div>
+    <label for="switch-checkbox2" style="display: none">switch-checkbox</label>
+    <input type="checkbox" id="switch-checkbox2" indeterminate>
+    <label for="disable-switch2">disable</label><input type="checkbox" class="disabled" id="disable-switch2">
+</div>-->
+
+
+<script>
+    const cross = document.getElementsByClassName("cross")[0];
+    const dot = document.getElementsByClassName("dot")[0];
+    const checkmark = document.getElementsByClassName("checkmark")[0];
+
+    const thumb = document.getElementsByClassName("thumb")[0];
+    const color = document.getElementById("switchColor");
+
+    const indicatorLeft = document.getElementsByClassName("arrow-left")[0];
+    const indicatorRight = document.getElementsByClassName("arrow-right")[0];
+
+    const switchDivClass = document.getElementsByClassName("switch")[0];
+    const switchDivId = document.getElementById("switch");
+    const switchCheckbox = document.getElementById("switch-checkbox");
+    switchCheckbox.indeterminate = true;
+
+    let disabled = document.getElementsByClassName("disabled")[0];
+
+    const State = {
+        ON: 0,
+        OFF: 1,
+        INDETERMINATE: 2
+    }
+
+    let switchState = new Observable(State.INDETERMINATE);
+    switchState.onChange(state => setState(state));
+
+    // Drag Control
+    let mousePos = 0;
+    let mouseOffset = 10;
+
+    switchDivId.onmousedown = (e) => mousePos = e.x;
+    switchDivId.onmouseup = (e) => calcMovement(e.x);
+
+    const calcMovement = (ex) => {
+        if (mousePos > ex+mouseOffset) {
+            switchState.setValue(State.OFF);
+        } else if (mousePos < ex) {
+            switchState.setValue(State.ON);
+        }
+    }
+
+    //Keyboard Control
+    document.onkeydown = (e) => {
+        //&& switchState === State.OFF
+        if (e.key === "ArrowRight" || switchState === State.INDETERMINATE) {
+            switchState.setValue(State.ON);
+            //&& switchState === State.ON
+        } else if (e.key === "ArrowLeft" || switchState === State.INDETERMINATE) {
+            switchState.setValue(State.OFF);
+        } else if (e.key === "Delete") {
+            switchState.setValue(State.INDETERMINATE);
+        }
+
+    };
+
+
+    // Click Control
+    cross.onmouseup = () => switchState.setValue(State.OFF);
+    dot.onmouseup = () => switchState.setValue(State.INDETERMINATE);
+    checkmark.onmouseup = () => switchState.setValue(State.ON);
+    disabled.onclick = () => (disabled.checked) ? switchDivId.classList.add("disabled") : switchDivId.classList.remove("disabled");
+    switchDivId.onclick = () => switchDivId.focus();
+
+    // Color of the thumb circle
+    color.addEventListener("input", updateFirst, false);
+    color.addEventListener("change", updateFirst, false);
+
+    function updateFirst() {
+        thumb.style.boxShadow = '0 0 0 4px' + event.target.value;
+
+    }
+
+
+    thumb.onmouseover = () => {
+        switch (switchState.getValue()) {
+            case State.OFF:
+                indicatorRight.style.display = 'block';
+                indicatorRight.style.transform = 'translateX(-4.5em) rotate(-45deg)';
+                break;
+            case State.ON:
+                indicatorLeft.style.display = 'block';
+                indicatorLeft.style.transform = 'translateX(4.5em) rotate(135deg)';
+                break;
+            case State.INDETERMINATE:
+                indicatorRight.style.transform = 'translateX(0) rotate(-45deg)';
+                indicatorLeft.style.transform = 'translateX(0) rotate(135deg)';
+                indicatorLeft.style.display = 'block';
+                indicatorRight.style.display = 'block';
+                break;
+            default:
+
+
+        }
+    }
+
+    thumb.onmouseout = () => {
+        indicatorLeft.style.display = 'none';
+        indicatorRight.style.display = 'none';
+    }
+
+    const setState = () => {
+        switch (switchState.getValue()) {
+            case State.OFF:
+                switchCheckbox.checked = false;
+                switchCheckbox.indeterminate = false;
+                thumb.className = '';
+                thumb.classList.add('thumb', 'off');
+                switchDivClass.classList.remove('switch-on');
+
+                break;
+            case State.ON:
+                switchCheckbox.checked = true;
+                switchCheckbox.indeterminate = false;
+                thumb.className = '';
+                thumb.classList.add('thumb', 'on');
+                switchDivClass.classList.add('switch-on');
+                break;
+
+            //default..?
+            default:
+                switchCheckbox.indeterminate = true;
+                thumb.className = '';
+                switchDivClass.classList.remove('switch-on');
+                thumb.classList.add('thumb', 'indeterminate');
+        }
+    }
+
+
+    function Observable(v) {
+        this.value = v;
+        this.valueChangedCallback = null;
+        this.setValue = function (v) {
+            if (this.value !== v) {
+                this.value = v;
+                this.raiseChangedEvent(v);
+            }
+        };
+        this.getValue = function () {
+            return this.value;
+        };
+        this.onChange = function (callback) {
+            this.valueChangedCallback = callback;
+        };
+        this.raiseChangedEvent = function (v) {
+            if (this.valueChangedCallback) {
+                this.valueChangedCallback(v);
+            }
+        };
+    }
+
+</script>
+</body>
+</html>
