@@ -42,12 +42,11 @@
 </div>
 
 
-
 <br><br>
 
 
 <!-- 2 State Switch -->
-<div class="switch" id="switch2" tabindex="0">
+<!--<div class="switch" id="switch2" tabindex="0">
     <div class="cross"></div>
 
     <div class="arrow arrow-left"></div>
@@ -67,7 +66,7 @@
     <label for="switch-checkbox2" style="display: none">switch-checkbox</label>
     <input type="checkbox" id="switch-checkbox2" indeterminate>
     <label for="disable-switch2">disable</label><input type="checkbox" class="disabled" id="disable-switch2">
-</div>
+</div>-->
 
 
 <script>
@@ -136,8 +135,9 @@
     // Color of the thumb circle
     color.addEventListener("input", updateFirst, false);
     color.addEventListener("change", updateFirst, false);
-    function updateFirst(){
-        thumb.style.boxShadow = '0 0 0 4px'+ event.target.value;
+
+    function updateFirst() {
+        thumb.style.boxShadow = '0 0 0 4px' + event.target.value;
 
     }
 
@@ -146,14 +146,21 @@
         switch (switchState.getValue()) {
             case State.OFF:
                 indicatorRight.style.display = 'block';
-
+                indicatorRight.style.transform = 'translateX(-4.5em) rotate(-45deg)';
                 break;
             case State.ON:
                 indicatorLeft.style.display = 'block';
+                indicatorLeft.style.transform = 'translateX(4.5em) rotate(135deg)';
                 break;
-            default:
+            case State.INDETERMINATE:
+                indicatorRight.style.transform = 'translateX(0) rotate(-45deg)';
+                indicatorLeft.style.transform = 'translateX(0) rotate(135deg)';
                 indicatorLeft.style.display = 'block';
                 indicatorRight.style.display = 'block';
+                break;
+            default:
+
+
         }
     }
 

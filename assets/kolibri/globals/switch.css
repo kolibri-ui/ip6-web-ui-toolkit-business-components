@@ -51,7 +51,8 @@ html, body {
     width: 20px;
     background-color: #14142B;
     border-radius: 50%;
-    margin-left: 30px;
+    margin-left: 50px;
+
 
 }
 
@@ -163,7 +164,7 @@ label:active:after {
 
 
 .off {
-    transform: translate(-8.5em);
+    transform: translateX(-9em);
     color: #333333;
 
 
@@ -179,7 +180,7 @@ label:active:after {
 }
 
 .on {
-    transform: translate(5em);
+    transform: translate(3.6em);
 
 
     margin-right: auto;
@@ -263,7 +264,7 @@ label:active:after {
     z-index: 1;
     position: absolute;
 
-    left: 90px;
+
     width: 20px;
     height: 20px;
     transform: rotate(135deg);
@@ -275,10 +276,10 @@ label:active:after {
 @keyframes moveToLeft {
     0%,
     50% {
-        left: 30px;
+        left: 110px;
     }
     100% {
-        left: 0px;
+        left: 80px;
     }
 
 
