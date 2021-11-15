@@ -8,20 +8,29 @@ html, body {
     background: #bdbdbd;
     border-radius: 50px;
     position: relative;
-    display: grid;
-    grid-template-columns: auto auto auto;
+    /* display: grid; */
+    /*  grid-template-columns: auto auto auto; */
+
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+
+
 }
 
 .cross {
-    grid-column-start: 1;
-    grid-column-end: 1;
-    margin:auto;
+    width: 40px;
+    height: 40px;
 
+    margin-top: 10px;
+    margin-left: 40px;
 }
 
 .cross:before, .cross:after {
     position: absolute;
-    left: 15px;
+
     content: ' ';
     height: 33px;
     width: 5px;
@@ -38,45 +47,29 @@ html, body {
 }
 
 .dot {
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
     background-color: #14142B;
     border-radius: 50%;
-    grid-column-start: 2;
-    grid-column-end: 2;
-    margin:auto;
-    horiz-align: center;
-    vertical-align: center;
+    margin-left: 30px;
+
 }
 
 .checkmark {
-    z-index: 5;
+    width: 20px;
+    height: 30px;
+
+
+    margin-right: 40px;
     transform: rotate(45deg);
-    height: 28px;
-    width: 12px;
+
     border-bottom: 5px solid #14142B;
     border-right: 5px solid #14142B;
-    grid-column-start: 3;
-    grid-column-end: 3;
-    margin:auto;
+
+
     border-radius: 3px;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 label[for="switch-checkbox"] {
@@ -127,22 +120,6 @@ label:active:after {
     font-size: 2.0em;
 }
 
-.on {
-    transform: translateX(2.5em);
-    z-index: 1;
-    color: #fcfcfc;
-}
-
-.off {
-    transform: translate(5em, -2.5em);
-    color: #333333;
-}
-
-.indeterminate {
-    transform: translateX(-2.5em);
-}
-
-
 
 .switch.disabled {
     pointer-events: none;
@@ -153,7 +130,7 @@ label:active:after {
 
 .switch:focus {
     box-shadow: 0 0 15px rgba(24, 75, 205, 0.7);
-    outline:none;
+    outline: none;
 }
 
 .switch-on {
@@ -162,61 +139,77 @@ label:active:after {
 }
 
 .thumb {
+
     z-index: 0;
-    position: absolute;
-    top: 5px;
+
     width: 90px;
     height: 90px;
 
     border-radius: 90px;
+
+    box-shadow: 0 0 0 4px #184BCD;
 }
 
 .thumb > div {
     position: relative;
     border-radius: 3px;
-    background-color: #333333;
+
+}
+
+#switchColor {
+    width: 50px;
+    height: 50px;
 }
 
 
 .off {
-    border: 4px solid #184BCD;
-    top: 45px;
-    left: -75px;
+    transform: translate(-8.5em);
+    color: #333333;
+
+
+
     transition: all 0.2s linear;
 }
 
 .off > div {
-    left: 5px;
-    top: 45px;
+
     height: 5px;
     width: 30px;
 
 }
 
 .on {
-    border: 4px solid #184BCD;
-    left: 160px;
+    transform: translate(5em);
+
+
+    margin-right: auto;
+
     transition: all 0.2s linear;
+
+
+    z-index: 1;
+    color: #fcfcfc;
 
 }
 
 .on > div {
-    left: 55px;
-    top: 45px;
+
     height: 5px;
     width: 30px;
 
 }
 
 .indeterminate {
-    border: 4px solid #184BCD;
-    left: 150px;
+    transform: translateX(-2.5em);
+
+
+
     transition: all 0.2s linear;
 }
 
 .indeterminate > div {
-    left: 55px;
-    top: 5px;
+
+
     height: 30px;
     width: 5px;
 
@@ -229,19 +222,21 @@ label:active:after {
 }
 
 .arrow {
+
     z-index: 1;
+
     border: solid #C7D1EB;
     border-width: 0 3px 3px 0;
-    display: inline-block;
+
     padding: 3px;
 
 }
 
 .arrow-right {
     z-index: 1;
-    position: relative;
+    position: absolute;
 
-    left: 10px;
+
     width: 20px;
     height: 20px;
     transform: rotate(-45deg);
@@ -253,8 +248,12 @@ label:active:after {
 
 @keyframes moveToRight {
     0%,
-    50% { left: 160px; }
-    100% { left: 190px; }
+    50% {
+        left: 160px;
+    }
+    100% {
+        left: 190px;
+    }
 
 
 }
@@ -275,8 +274,12 @@ label:active:after {
 
 @keyframes moveToLeft {
     0%,
-    50% { left: 120px; }
-    100% { left: 90px; }
+    50% {
+        left: 30px;
+    }
+    100% {
+        left: 0px;
+    }
 
 
 }

@@ -11,24 +11,62 @@
 </head>
 <body>
 
-
+<!-- 3 State Switch -->
 <div class="switch" id="switch" tabindex="0">
     <div class="cross"></div>
+
+    <div class="arrow arrow-left"></div>
     <div class="dot"></div>
+
+    <div class="thumb indeterminate"></div>
+
+    <div class="arrow arrow-right"></div>
+
     <div class="checkmark"></div>
 
-    <div class="thumb-outer">
-        <div class="arrow arrow-left"></div>
-        <div class="thumb indeterminate"></div>
-        <div class="arrow arrow-right"></div>
-    </div>
+
 </div>
 
 
 <div>
-    <label for="switch-checkbox" style="display: none">switch-checkbox</label><input type="checkbox"
-                                                                                     id="switch-checkbox" indeterminate>
+    <label for="switch-checkbox" style="display: none">switch-checkbox</label>
+    <input type="checkbox" id="switch-checkbox" indeterminate>
     <label for="disable-switch">disable</label><input type="checkbox" class="disabled" id="disable-switch">
+
+    <p>Thumb Color:</p>
+    <div>
+        <input type="color" id="switchColor" name="switchColor"
+               value="#184BCD">
+        <label for="switchColor"></label>
+    </div>
+</div>
+
+
+
+<br><br>
+
+
+<!-- 2 State Switch -->
+<div class="switch" id="switch2" tabindex="0">
+    <div class="cross"></div>
+
+    <div class="arrow arrow-left"></div>
+
+
+    <div class="thumb indeterminate"></div>
+
+    <div class="arrow arrow-right"></div>
+
+    <div class="checkmark"></div>
+
+
+</div>
+
+
+<div>
+    <label for="switch-checkbox2" style="display: none">switch-checkbox</label>
+    <input type="checkbox" id="switch-checkbox2" indeterminate>
+    <label for="disable-switch2">disable</label><input type="checkbox" class="disabled" id="disable-switch2">
 </div>
 
 
@@ -38,6 +76,7 @@
     const checkmark = document.getElementsByClassName("checkmark")[0];
 
     const thumb = document.getElementsByClassName("thumb")[0];
+    const color = document.getElementById("switchColor");
 
     const indicatorLeft = document.getElementsByClassName("arrow-left")[0];
     const indicatorRight = document.getElementsByClassName("arrow-right")[0];
@@ -74,13 +113,13 @@
 
     //Keyboard Control
     document.onkeydown = (e) => {
-
-        if (e.key === "ArrowRight" && switchState === State.OFF || switchState === State.INDETERMINATE) {
+        //&& switchState === State.OFF
+        if (e.key === "ArrowRight" || switchState === State.INDETERMINATE) {
             switchState.setValue(State.ON);
-            console.log("hey");
-        }else if (e.key === "ArrowLeft" && switchState === State.ON || switchState === State.INDETERMINATE) {
+            //&& switchState === State.ON
+        } else if (e.key === "ArrowLeft" || switchState === State.INDETERMINATE) {
             switchState.setValue(State.OFF);
-        }else if (e.key === "Delete") {
+        } else if (e.key === "Delete") {
             switchState.setValue(State.INDETERMINATE);
         }
 
@@ -94,11 +133,20 @@
     disabled.onclick = () => (disabled.checked) ? switchDivId.classList.add("disabled") : switchDivId.classList.remove("disabled");
     switchDivId.onclick = () => switchDivId.focus();
 
+    // Color of the thumb circle
+    color.addEventListener("input", updateFirst, false);
+    color.addEventListener("change", updateFirst, false);
+    function updateFirst(){
+        thumb.style.boxShadow = '0 0 0 4px'+ event.target.value;
+
+    }
+
 
     thumb.onmouseover = () => {
         switch (switchState.getValue()) {
             case State.OFF:
                 indicatorRight.style.display = 'block';
+
                 break;
             case State.ON:
                 indicatorLeft.style.display = 'block';
@@ -122,6 +170,7 @@
                 thumb.className = '';
                 thumb.classList.add('thumb', 'off');
                 switchDivClass.classList.remove('switch-on');
+
                 break;
             case State.ON:
                 switchCheckbox.checked = true;
@@ -130,6 +179,8 @@
                 thumb.classList.add('thumb', 'on');
                 switchDivClass.classList.add('switch-on');
                 break;
+
+            //default..?
             default:
                 switchCheckbox.indeterminate = true;
                 thumb.className = '';
