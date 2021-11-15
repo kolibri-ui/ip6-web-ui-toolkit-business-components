@@ -74,13 +74,13 @@
 
     //Keyboard Control
     document.onkeydown = (e) => {
+
         if (e.key === "ArrowRight" && switchState === State.OFF || switchState === State.INDETERMINATE) {
             switchState.setValue(State.ON);
-        }
-        if (e.key === "ArrowLeft" && switchState === State.ON || switchState === State.INDETERMINATE) {
+            console.log("hey");
+        }else if (e.key === "ArrowLeft" && switchState === State.ON || switchState === State.INDETERMINATE) {
             switchState.setValue(State.OFF);
-        }
-        if (e.key === "Delete") {
+        }else if (e.key === "Delete") {
             switchState.setValue(State.INDETERMINATE);
         }
 

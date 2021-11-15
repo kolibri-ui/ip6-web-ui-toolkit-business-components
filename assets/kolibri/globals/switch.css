@@ -16,6 +16,7 @@ html, body {
     grid-column-start: 1;
     grid-column-end: 1;
     margin:auto;
+
 }
 
 .cross:before, .cross:after {
@@ -37,25 +38,29 @@ html, body {
 }
 
 .dot {
-    height: 10px;
-    width: 10px;
+    height: 30px;
+    width: 30px;
     background-color: #14142B;
     border-radius: 50%;
     grid-column-start: 2;
     grid-column-end: 2;
     margin:auto;
+    horiz-align: center;
+    vertical-align: center;
 }
 
 .checkmark {
     z-index: 5;
     transform: rotate(45deg);
-    height: 24px;
+    height: 28px;
     width: 12px;
-    border-bottom: 7px solid #14142B;
-    border-right: 7px solid #14142B;
+    border-bottom: 5px solid #14142B;
+    border-right: 5px solid #14142B;
     grid-column-start: 3;
     grid-column-end: 3;
     margin:auto;
+    border-radius: 3px;
+
 }
 
 
@@ -215,6 +220,7 @@ label:active:after {
     height: 30px;
     width: 5px;
 
+
 }
 
 
@@ -234,20 +240,21 @@ label:active:after {
 .arrow-right {
     z-index: 1;
     position: relative;
+
     left: 10px;
     width: 20px;
     height: 20px;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
-    animation: moveToRight 4s infinite;
-
+    animation: moveToRight 2s infinite;
+    display: none;
 }
 
 
 @keyframes moveToRight {
     0%,
-    50% { left: 15px; }
-    100% { left: 20px; }
+    50% { left: 160px; }
+    100% { left: 190px; }
 
 
 }
@@ -256,20 +263,20 @@ label:active:after {
 .arrow-left {
     z-index: 1;
     position: absolute;
-    top: 40px;
+
     left: 90px;
     width: 20px;
     height: 20px;
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
-    animation: moveToLeft 4s infinite;
+    animation: moveToLeft 2s infinite;
     display: none;
 }
 
 @keyframes moveToLeft {
     0%,
-    50% { left: 90px; }
-    100% { left: 120px; }
+    50% { left: 120px; }
+    100% { left: 90px; }
 
 
 }
