@@ -98,12 +98,13 @@
 
     // Drag Control
     let mousePos = 0;
+    let mouseOffset = 10;
 
     switchDivId.onmousedown = (e) => mousePos = e.x;
     switchDivId.onmouseup = (e) => calcMovement(e.x);
 
     const calcMovement = (ex) => {
-        if (mousePos > ex) {
+        if (mousePos > ex+mouseOffset) {
             switchState.setValue(State.OFF);
         } else if (mousePos < ex) {
             switchState.setValue(State.ON);
