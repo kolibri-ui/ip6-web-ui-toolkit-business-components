@@ -104,7 +104,7 @@
     switchDivId.onmouseup = (e) => calcMovement(e.x);
 
     const calcMovement = (ex) => {
-        if (mousePos > ex+mouseOffset) {
+        if (mousePos > ex + mouseOffset) {
             switchState.setValue(State.OFF);
         } else if (mousePos < ex) {
             switchState.setValue(State.ON);
@@ -113,14 +113,18 @@
 
     //Keyboard Control
     document.onkeydown = (e) => {
-        //&& switchState === State.OFF
-        if (e.key === "ArrowRight" || switchState === State.INDETERMINATE) {
-            switchState.setValue(State.ON);
-            //&& switchState === State.ON
-        } else if (e.key === "ArrowLeft" || switchState === State.INDETERMINATE) {
-            switchState.setValue(State.OFF);
-        } else if (e.key === "Delete") {
-            switchState.setValue(State.INDETERMINATE);
+        if (!disabled.checked) {
+
+            //&& switchState === State.OFF
+            if (e.key === "ArrowRight" || switchState === State.INDETERMINATE) {
+                switchState.setValue(State.ON);
+                //&& switchState === State.ON
+            } else if (e.key === "ArrowLeft" || switchState === State.INDETERMINATE && !disabled.checked) {
+                switchState.setValue(State.OFF);
+            } else if (e.key === "Delete" && !disabled.checked) {
+                switchState.setValue(State.INDETERMINATE);
+            }
+
         }
 
     };

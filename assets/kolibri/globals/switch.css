@@ -237,7 +237,6 @@ label:active:after {
     z-index: 1;
     position: absolute;
 
-
     width: 20px;
     height: 20px;
     transform: rotate(-45deg);
@@ -255,7 +254,6 @@ label:active:after {
     100% {
         left: 190px;
     }
-
 
 }
 
@@ -281,7 +279,6 @@ label:active:after {
     100% {
         left: 80px;
     }
-
 
 }
 
