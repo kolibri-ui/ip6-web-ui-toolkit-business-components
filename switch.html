@@ -11,261 +11,245 @@
 </head>
 <body>
 
-<!-- 3 State Switch -->
-<div class="switch" id="switch" tabindex="0">
-    <div class="cross"></div>
+<h1 class="special-header">
+    Switch Component
+</h1>
 
-    <div class="arrow arrow-left"></div>
-    <div class="dot"></div>
-
-    <div class="thumb indeterminate"></div>
-
-    <div class="arrow arrow-right"></div>
-
-    <div class="checkmark"></div>
-
-</div>
-
-<br>
-
-<div>
-    <label for="switch-checkbox" style="display: none">switch-checkbox</label>
-    <input type="checkbox" id="switch-checkbox" indeterminate>
-    <label for="disable-switch">Disable</label><input type="checkbox" class="disabled" id="disable-switch">
-
-    <label for="readonly-switch">Read Only</label><input type="checkbox" class="readonly" id="readonly-switch">
-    <label for="required-switch">Required</label><input type="checkbox" class="required" id="required-switch">
-
-    <br><br>
-
-    <label for="switchColor">Thumb Color</label>
-    <input type="color" id="switchColor" name="switchColor" value="#184BCD">
-
-    <label for="switchColorBG">Background Color</label>
-    <input type="color" id="switchColorBG" name="switchColorBG" value="#bdbdbd">
-
-    <label for="switchColorIcons">IconsColor</label>
-    <input type="color" id="switchColorIcons" name="switchColorIcons" value="#14142B">
-
+<div class="switch-div-frame">
+    <h1>3-State Switch</h1>
+    <label class="switch three-state">
+        <input type="checkbox" id="three-state">
+        <span class="thumb"></span>
+        <img alt="off" class="switch-icon off" id="three-state-off" src="assets/kolibri/icons/cross.svg"
+             draggable="false">
+        <img alt="indeterminate" class="switch-icon indeterminate" id="three-state-indeterminate"
+             src="assets/kolibri/icons/dot.svg" draggable="false">
+        <img alt="on" class="switch-icon on" id="three-state-on" src="assets/kolibri/icons/checkmark.svg"
+             draggable="false">
+    </label>
+    <br>
+    <div>
+        <h4> States</h4>
+        <label for="disable-three-state">
+            <input type="checkbox" class="disabled" id="disable-three-state">Disabled</label><br/>
+        <label for="readonly-three-state">
+            <input type="checkbox" class="readonly" id="readonly-three-state">Read-Only</label><br/>
+        <label for="required-three-state">
+            <input type="checkbox" class="required" id="required-three-state">Required</label><br/>
+        <label for="focus-three-state">
+            <input type="checkbox" id="focus-three-state">Focused</label>
+    </div>
 </div>
 
 
-<br><br>
+<div class="switch-div-frame">
+    <h1>2-State Switch</h1>
+    <label class="switch">
+        <input type="checkbox" id="two-state">
+        <span class="thumb">
+            <span class="arrow arrow-left" id="arrow-right-two-state"></span>
+            <span class="arrow arrow-right" id="arrow-left-two-state"></span>
+        </span>
+        <img alt="off" class="switch-icon off" id="two-state-off" src="assets/kolibri/icons/cross.svg"
+             draggable="false">
+        <img alt="on" class="switch-icon on" id="two-state-on" src="assets/kolibri/icons/checkmark.svg"
+             draggable="false">
 
 
-<!-- 2 State Switch -->
-<!--<div class="switch" id="switch2" tabindex="0">
-    <div class="cross"></div>
-
-    <div class="arrow arrow-left"></div>
+    </label>
 
 
-    <div class="thumb indeterminate"></div>
-
-    <div class="arrow arrow-right"></div>
-
-    <div class="checkmark"></div>
-
-
+    <div>
+        <h4> States</h4>
+        <label for="disable-two-state">
+            <input type="checkbox" id="disable-two-state">Disabled</label><br/>
+        <label for="readonly-two-state">
+            <input type="checkbox" id="readonly-two-state">Read-Only</label><br/>
+        <label for="focus-two-state">
+            <input type="checkbox" id="focus-two-state">Focused</label>
+    </div>
 </div>
 
-
-<div>
-    <label for="switch-checkbox2" style="display: none">switch-checkbox</label>
-    <input type="checkbox" id="switch-checkbox2" indeterminate>
-    <label for="disable-switch2">disable</label><input type="checkbox" class="disabled" id="disable-switch2">
+<!--
+<div class="switch-div-frame">
+    <h1>Colors</h1>
+    <div>
+        <ul class="color-ul">
+            <li>
+                <label for="switchColor">Thumb Color</label>
+                <input type="color" id="switchColor" name="switchColor" value="#184BCD">
+            </li>
+            <li>
+                <label for="switchColorBG">Background Color</label><br/>
+                <input type="color" id="switchColorBG" name="switchColorBG" value="#bdbdbd">
+            </li>
+            <li>
+                <label for="switchColorIcons">IconsColor</label><br/>
+                <input type="color" id="switchColorIcons" name="switchColorIcons" value="#14142B">
+            </li>
+        </ul>
+    </div>
 </div>-->
 
-
 <script>
-    const cross = document.getElementsByClassName("cross")[0];
-    const dot = document.getElementsByClassName("dot")[0];
-    const checkmark = document.getElementsByClassName("checkmark")[0];
 
-    const thumb = document.getElementsByClassName("thumb")[0];
-    const colorThumb = document.getElementById("switchColor");
-    const colorBG = document.getElementById("switchColorBG");
-    const colorIcons = document.getElementById("switchColorIcons");
+    const threeState = document.getElementById("three-state");
+    const threeStateOuter = threeState.parentNode;
+    const threeStateIndeterminate = document.getElementById("three-state-indeterminate");
+    const threeStateOff = document.getElementById("three-state-off");
+    const threeStateOn = document.getElementById("three-state-on");
 
-    const indicatorLeft = document.getElementsByClassName("arrow-left")[0];
-    const indicatorRight = document.getElementsByClassName("arrow-right")[0];
+    const disableThreeState = document.getElementById("disable-three-state");
+    const readOnlyThreeState = document.getElementById("readonly-three-state");
+    const requiredThreeState = document.getElementById("required-three-state");
+    const focusThreeState = document.getElementById("focus-three-state");
 
-    const switchDivClass = document.getElementsByClassName("switch")[0];
-    const switchDivId = document.getElementById("switch");
-    const switchCheckbox = document.getElementById("switch-checkbox");
-    switchCheckbox.indeterminate = true;
 
-    let disabled = document.getElementsByClassName("disabled")[0];
-    let readonly = document.getElementsByClassName("readonly")[0];
-    let required = document.getElementsByClassName("required")[0];
+    const twoState = document.getElementById("two-state");
+    const twoStateOuter = twoState.parentNode;
+    const disableTwoState = document.getElementById("disable-two-state");
+    const readOnlyTwoState = document.getElementById("readonly-two-state");
+    const focusTwoState = document.getElementById("focus-two-state");
+    const twoStateOn = document.getElementById("two-state-on");
+    const twoStateOff = document.getElementById("two-state-off");
 
-    const State = {
-        ON: 0,
-        OFF: 1,
-        INDETERMINATE: 2
+
+    const arrowLeftTwoState = document.getElementById("arrow-left-two-state");
+    const arrowRightTwoState = document.getElementById("arrow-right-two-state");
+
+
+    twoState.onclick = e => e.preventDefault();
+    threeState.onclick = e => e.preventDefault();
+
+    threeStateIndeterminate.onclick = _ => threeState.indeterminate = true;
+
+    threeStateOff.onclick = _ => {
+        threeStateOuter.classList.remove("required");
+        requiredThreeState.checked = false;
+        threeState.indeterminate = false;
+        threeState.checked = false;
     }
 
-    let switchState = new Observable(State.INDETERMINATE);
-    switchState.onChange(state => setState(state));
+    threeStateOn.onclick = _ => {
+        threeStateOuter.classList.remove("required");
+        threeState.indeterminate = false;
+        requiredThreeState.checked = false;
+        threeState.checked = true;
+    }
 
-    // Drag Control
+    disableThreeState.onchange = e => {
+        threeState.disabled = e.target.checked;
+        if (e.target.checked) {
+            threeStateOuter.classList.add("disabled");
+        } else {
+            threeStateOuter.classList.remove("disabled");
+        }
+    }
+
+    readOnlyThreeState.onchange = e => {
+        threeState.readOnly = e.target.checked;
+        if (e.target.checked) {
+            threeStateOuter.classList.add("read-only");
+        } else {
+            threeStateOuter.classList.remove("read-only");
+        }
+    }
+
+    requiredThreeState.onchange = e => {
+        threeState.required = e.target.checked;
+        threeState.indeterminate = true;
+        if (e.target.checked) {
+            threeStateOuter.classList.add("required");
+        } else {
+            threeStateOuter.classList.remove("required");
+        }
+    }
+
+    focusThreeState.onchange = e => {
+        if (e.target.checked) {
+            threeState.focus();
+            threeStateOuter.classList.add("focus");
+        } else {
+            threeState.blur();
+            threeStateOuter.classList.remove("focus");
+        }
+    }
+
+    /**
+     * Two State
+     */
+
+    twoStateOn.onclick = _ => twoState.checked = true;
+    twoStateOff.onclick = _ => twoState.checked = false;
+
+    disableTwoState.onchange = e => {
+        twoState.disabled = e.target.checked;
+        if (e.target.checked) {
+            twoStateOuter.classList.add("disabled");
+        } else {
+            twoStateOuter.classList.remove("disabled");
+        }
+    }
+
+    readOnlyTwoState.onchange = e => {
+        twoState.readOnly = e.target.checked;
+        if (e.target.checked) {
+            twoStateOuter.classList.add("read-only");
+        } else {
+            twoStateOuter.classList.remove("read-only");
+        }
+    }
+
+    focusTwoState.onchange = e => {
+        if (e.target.checked) {
+            twoState.focus();
+            twoStateOuter.classList.add("focus");
+        } else {
+            twoState.blur();
+            twoStateOuter.classList.remove("focus");
+        }
+    }
+
+    twoState.onfocus = _ => {
+        twoStateOuter.classList.add("focus");
+        twoStateOuter.focus();
+    }
+
+    twoState.onblur = _ => {
+        twoStateOuter.classList.remove("focus");
+        twoStateOuter.blur();
+    }
+
+
+    twoStateOuter.onmouseout = () => {
+        arrowLeftTwoState.style.display = 'none';
+        arrowRightTwoState.style.display = 'none';
+    }
+
+    twoStateOuter.onmouseover = () => {
+        if (!twoState.disabled && !twoState.readOnly) {
+            if (twoState.checked) {
+                arrowLeftTwoState.style.display = 'none';
+                arrowRightTwoState.style.display = 'block';
+            } else {
+                arrowRightTwoState.style.display = 'none';
+                arrowLeftTwoState.style.display = 'block';
+            }
+        }
+    }
+
     let mousePos = 0;
-    let mouseOffset = 10;
+    let mouseOffset = 20;
 
-    switchDivId.onmousedown = (e) => mousePos = e.x;
-    switchDivId.onmouseup = (e) => calcMovement(e.x);
+    twoStateOuter.onmousedown = e => mousePos = e.x;
+    twoStateOuter.onmouseup = (e) => calcMovement(e.x);
 
     const calcMovement = (ex) => {
         if (mousePos > ex + mouseOffset) {
-            switchState.setValue(State.OFF);
+            twoState.checked = false;
         } else if (mousePos < ex) {
-            switchState.setValue(State.ON);
+            twoState.checked = true;
         }
-    }
-
-    //Keyboard Control
-    document.onkeydown = (e) => {
-        if (!disabled.checked && !readonly.checked) {
-
-            //&& switchState === State.OFF
-            if (e.key === "ArrowRight" || switchState === State.INDETERMINATE) {
-                switchState.setValue(State.ON);
-                //&& switchState === State.ON
-            } else if (e.key === "ArrowLeft" || switchState === State.INDETERMINATE && !disabled.checked) {
-                switchState.setValue(State.OFF);
-            } else if (e.key === "Delete" && !disabled.checked) {
-                switchState.setValue(State.INDETERMINATE);
-            }
-
-            if (required.checked) {
-                required.checked = false;
-                switchDivId.classList.remove("required");
-            }
-        }
-
-    };
-
-
-    // Click Control
-    cross.onmouseup = () => switchState.setValue(State.OFF);
-    dot.onmouseup = () => switchState.setValue(State.INDETERMINATE);
-    checkmark.onmouseup = () => switchState.setValue(State.ON);
-    //&& switchDivId.classList.remove("readonly")
-    disabled.onclick = () => (disabled.checked) ? switchDivId.classList.add("disabled") : switchDivId.classList.remove("disabled");
-    //&& switchDivId.classList.remove("disabled")
-    readonly.onclick = () => (readonly.checked) ? switchDivId.classList.add("readonly") : switchDivId.classList.remove("readonly");
-    required.onclick = () => (required.checked) ? switchDivId.classList.add("required") : switchDivId.classList.remove("required");
-    switchDivId.onclick = () => switchDivId.focus();
-
-    // Color of the thumb circle
-    colorThumb.addEventListener("input", changeColorThumb, false);
-    colorThumb.addEventListener("change", changeColorThumb, false);
-
-    function changeColorThumb() {
-        thumb.style.boxShadow = '0 0 0 4px' + event.target.value;
-
-    }
-
-    // Color of the background
-    colorBG.addEventListener("input", changeColorBG, false);
-    colorBG.addEventListener("change", changeColorBG, false);
-
-    function changeColorBG() {
-        switchDivId.style.background = event.target.value;
-
-    }
-
-    //Color of the Icons
-    colorIcons.addEventListener("input", changeColorIcons, false);
-    colorIcons.addEventListener("change", changeColorIcons, false);
-
-    function changeColorIcons() {
-        dot.style.background = event.target.value;
-        checkmark.style.borderBottom = '5px solid' + event.target.value;
-        checkmark.style.borderRight = '5px solid' + event.target.value;
-        // cross.style.backgroundColor = event.target.value;
-
-    }
-
-
-    thumb.onmouseover = () => {
-        switch (switchState.getValue()) {
-            case State.OFF:
-                indicatorRight.style.display = 'block';
-                indicatorRight.style.transform = 'translateX(-4.5em) rotate(-45deg)';
-                break;
-            case State.ON:
-                indicatorLeft.style.display = 'block';
-                indicatorLeft.style.transform = 'translateX(4.5em) rotate(135deg)';
-                break;
-            case State.INDETERMINATE:
-                indicatorRight.style.transform = 'translateX(0) rotate(-45deg)';
-                indicatorLeft.style.transform = 'translateX(0) rotate(135deg)';
-                indicatorLeft.style.display = 'block';
-                indicatorRight.style.display = 'block';
-                break;
-
-        }
-
-        if (required.checked) {
-            required.checked = false;
-            switchDivId.classList.remove("required");
-        }
-    }
-
-    thumb.onmouseout = () => {
-        indicatorLeft.style.display = 'none';
-        indicatorRight.style.display = 'none';
-    }
-
-    const setState = () => {
-        switch (switchState.getValue()) {
-            case State.OFF:
-                switchCheckbox.checked = false;
-                switchCheckbox.indeterminate = false;
-                thumb.className = '';
-                thumb.classList.add('thumb', 'off');
-                switchDivClass.classList.remove('switch-on');
-
-                break;
-            case State.ON:
-                switchCheckbox.checked = true;
-                switchCheckbox.indeterminate = false;
-                thumb.className = '';
-                thumb.classList.add('thumb', 'on');
-                switchDivClass.classList.add('switch-on');
-                break;
-
-            //default..?
-            default:
-                switchCheckbox.indeterminate = true;
-                thumb.className = '';
-                switchDivClass.classList.remove('switch-on');
-                thumb.classList.add('thumb', 'indeterminate');
-        }
-    }
-
-
-    function Observable(v) {
-        this.value = v;
-        this.valueChangedCallback = null;
-        this.setValue = function (v) {
-            if (this.value !== v) {
-                this.value = v;
-                this.raiseChangedEvent(v);
-            }
-        };
-        this.getValue = function () {
-            return this.value;
-        };
-        this.onChange = function (callback) {
-            this.valueChangedCallback = callback;
-        };
-        this.raiseChangedEvent = function (v) {
-            if (this.valueChangedCallback) {
-                this.valueChangedCallback(v);
-            }
-        };
     }
 
 </script>

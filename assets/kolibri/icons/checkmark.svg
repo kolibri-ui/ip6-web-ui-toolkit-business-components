@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 414 414" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-466,0)">
+        <g id="checkmark" transform="matrix(0.621698,0,0,0.6954,-1743.43,-331.001)">
+            <rect x="3554.41" y="475.986" width="664.93" height="594.457" style="fill:none;"/>
+            <g id="checkmark1" serif:id="checkmark" transform="matrix(7.10671,0,0,6.3535,3531.54,445.536)">
+                <path d="M92.059,19.7C89.326,16.967 84.894,16.966 82.159,19.7L33.258,68.6L17.841,53.183C15.107,50.451 10.675,50.45 7.942,53.184C5.208,55.917 5.208,60.349 7.942,63.083L28.309,83.449C29.676,84.815 31.467,85.499 33.259,85.499C35.051,85.499 36.842,84.815 38.209,83.449L92.059,29.599C94.792,26.866 94.792,22.434 92.059,19.7Z" style="fill:rgb(20,20,43);fill-rule:nonzero;"/>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,32 @@
+:root {
+
+    --switch-background: #bdbdbd;
+    --switch-disabled: #767676;
+    --switch-icon-color: #14142B;
+    --switch-thumb-color: #184BCD;
+    --switch-thumb-background: rgba(24, 75, 205, 0.4);
+
+    --three-state-width: 166px;
+    --two-state-width: 105px;
+    --switch-height: 38px;
+    --switch-icon-height: 24px;
+
+}
+
+html, body {
+    padding: 0 40px;
+}
+
+
+.special-header {
+    font-size: 4em;
+    margin-left: 20px;
+}
+
+.switch-div-frame {
+    border: 1px solid black;
+    padding: 30px;
+    margin: 20px;
+    max-width: 625px;
+}
+
