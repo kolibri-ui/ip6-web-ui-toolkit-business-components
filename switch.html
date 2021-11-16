@@ -36,8 +36,16 @@
     <label for="readonly-switch">Read Only</label><input type="checkbox" class="readonly" id="readonly-switch">
     <label for="required-switch">Required</label><input type="checkbox" class="required" id="required-switch">
 
+    <br><br>
+
     <label for="switchColor">Thumb Color</label>
     <input type="color" id="switchColor" name="switchColor" value="#184BCD">
+
+    <label for="switchColorBG">Background Color</label>
+    <input type="color" id="switchColorBG" name="switchColorBG" value="#bdbdbd">
+
+    <label for="switchColorIcons">IconsColor</label>
+    <input type="color" id="switchColorIcons" name="switchColorIcons" value="#14142B">
 
 </div>
 
@@ -75,7 +83,9 @@
     const checkmark = document.getElementsByClassName("checkmark")[0];
 
     const thumb = document.getElementsByClassName("thumb")[0];
-    const color = document.getElementById("switchColor");
+    const colorThumb = document.getElementById("switchColor");
+    const colorBG = document.getElementById("switchColorBG");
+    const colorIcons = document.getElementById("switchColorIcons");
 
     const indicatorLeft = document.getElementsByClassName("arrow-left")[0];
     const indicatorRight = document.getElementsByClassName("arrow-right")[0];
@@ -127,6 +137,10 @@
                 switchState.setValue(State.INDETERMINATE);
             }
 
+            if (required.checked) {
+                required.checked = false;
+                switchDivId.classList.remove("required");
+            }
         }
 
     };
@@ -144,11 +158,32 @@
     switchDivId.onclick = () => switchDivId.focus();
 
     // Color of the thumb circle
-    color.addEventListener("input", updateFirst, false);
-    color.addEventListener("change", updateFirst, false);
+    colorThumb.addEventListener("input", changeColorThumb, false);
+    colorThumb.addEventListener("change", changeColorThumb, false);
 
-    function updateFirst() {
+    function changeColorThumb() {
         thumb.style.boxShadow = '0 0 0 4px' + event.target.value;
+
+    }
+
+    // Color of the background
+    colorBG.addEventListener("input", changeColorBG, false);
+    colorBG.addEventListener("change", changeColorBG, false);
+
+    function changeColorBG() {
+        switchDivId.style.background = event.target.value;
+
+    }
+
+    //Color of the Icons
+    colorIcons.addEventListener("input", changeColorIcons, false);
+    colorIcons.addEventListener("change", changeColorIcons, false);
+
+    function changeColorIcons() {
+        dot.style.background = event.target.value;
+        checkmark.style.borderBottom = '5px solid' + event.target.value;
+        checkmark.style.borderRight = '5px solid' + event.target.value;
+        // cross.style.backgroundColor = event.target.value;
 
     }
 

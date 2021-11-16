@@ -7,7 +7,7 @@ input {
 }
 
 label {
-    margin-left: 50px;
+    margin-left: 30px;
 }
 
 .switch {
@@ -187,7 +187,19 @@ label:active:after {
 #switchColor {
     width: 50px;
     height: 50px;
-    margin-left: 50px;
+    margin-left: 30px;
+}
+
+#switchColorBG {
+    width: 50px;
+    height: 50px;
+    margin-left: 30px;
+}
+
+#switchColorIcons {
+    width: 50px;
+    height: 50px;
+    margin-left: 30px;
 }
 
 
