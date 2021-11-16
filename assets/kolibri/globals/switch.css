@@ -2,6 +2,14 @@ html, body {
     padding: 40px;
 }
 
+input {
+    width: 5%;
+}
+
+label {
+    margin-left: 50px;
+}
+
 .switch {
     width: 300px;
     height: 100px;
@@ -129,6 +137,25 @@ label:active:after {
     opacity: 60%;
 }
 
+.switch.readonly {
+    pointer-events: none;
+}
+
+.switch.readonly > .thumb {
+    pointer-events: none;
+    background-color: rgba(24, 75, 205, 0.4);
+    box-shadow: #184BCD;
+}
+
+.switch.required {
+    box-shadow: 0 0 15px rgb(169, 31, 31);
+}
+
+.switch.required > .thumb{
+    box-shadow: 0 0 0 4px #a91f1f;
+
+}
+
 .switch:focus {
     box-shadow: 0 0 15px rgba(24, 75, 205, 0.7);
     outline: none;
@@ -160,13 +187,13 @@ label:active:after {
 #switchColor {
     width: 50px;
     height: 50px;
+    margin-left: 50px;
 }
 
 
 .off {
     transform: translateX(-9em);
     color: #333333;
-
 
 
     transition: all 0.2s linear;
@@ -202,7 +229,6 @@ label:active:after {
 
 .indeterminate {
     transform: translateX(-2.5em);
-
 
 
     transition: all 0.2s linear;

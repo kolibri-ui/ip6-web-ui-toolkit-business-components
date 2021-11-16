@@ -24,21 +24,21 @@
 
     <div class="checkmark"></div>
 
-
 </div>
 
+<br>
 
 <div>
     <label for="switch-checkbox" style="display: none">switch-checkbox</label>
     <input type="checkbox" id="switch-checkbox" indeterminate>
-    <label for="disable-switch">disable</label><input type="checkbox" class="disabled" id="disable-switch">
+    <label for="disable-switch">Disable</label><input type="checkbox" class="disabled" id="disable-switch">
 
-    <p>Thumb Color:</p>
-    <div>
-        <input type="color" id="switchColor" name="switchColor"
-               value="#184BCD">
-        <label for="switchColor"></label>
-    </div>
+    <label for="readonly-switch">Read Only</label><input type="checkbox" class="readonly" id="readonly-switch">
+    <label for="required-switch">Required</label><input type="checkbox" class="required" id="required-switch">
+
+    <label for="switchColor">Thumb Color</label>
+    <input type="color" id="switchColor" name="switchColor" value="#184BCD">
+
 </div>
 
 
@@ -86,6 +86,8 @@
     switchCheckbox.indeterminate = true;
 
     let disabled = document.getElementsByClassName("disabled")[0];
+    let readonly = document.getElementsByClassName("readonly")[0];
+    let required = document.getElementsByClassName("required")[0];
 
     const State = {
         ON: 0,
@@ -113,7 +115,7 @@
 
     //Keyboard Control
     document.onkeydown = (e) => {
-        if (!disabled.checked) {
+        if (!disabled.checked && !readonly.checked) {
 
             //&& switchState === State.OFF
             if (e.key === "ArrowRight" || switchState === State.INDETERMINATE) {
@@ -134,7 +136,11 @@
     cross.onmouseup = () => switchState.setValue(State.OFF);
     dot.onmouseup = () => switchState.setValue(State.INDETERMINATE);
     checkmark.onmouseup = () => switchState.setValue(State.ON);
+    //&& switchDivId.classList.remove("readonly")
     disabled.onclick = () => (disabled.checked) ? switchDivId.classList.add("disabled") : switchDivId.classList.remove("disabled");
+    //&& switchDivId.classList.remove("disabled")
+    readonly.onclick = () => (readonly.checked) ? switchDivId.classList.add("readonly") : switchDivId.classList.remove("readonly");
+    required.onclick = () => (required.checked) ? switchDivId.classList.add("required") : switchDivId.classList.remove("required");
     switchDivId.onclick = () => switchDivId.focus();
 
     // Color of the thumb circle
@@ -163,9 +169,12 @@
                 indicatorLeft.style.display = 'block';
                 indicatorRight.style.display = 'block';
                 break;
-            default:
 
+        }
 
+        if (required.checked) {
+            required.checked = false;
+            switchDivId.classList.remove("required");
         }
     }
 
