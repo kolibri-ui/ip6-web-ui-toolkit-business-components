@@ -86,10 +86,6 @@
                 <label for="switchColorBG">Background</label><br/>
                 <input type="color" class="color-picker" id="switchColorBG" name="switchColorBG" value="#bdbdbd">
             </li>
-            <li>
-                <label for="switchColorIcons">Icons</label><br/>
-                <input type="color" class="color-picker" id="switchColorIcons" name="switchColorIcons" value="#14142B">
-            </li>
         </ul>
     </div>
 </div>
@@ -129,9 +125,6 @@
     const featureToggle = document.getElementById("featureToggle");
     const switchColor = document.getElementById("switchColor");
     const switchColorBG = document.getElementById("switchColorBG");
-    const switchColorIcons = document.getElementById("switchColorIcons");
-
-
 
     switchColorBG.addEventListener("input", changeColorBG, false);
     switchColorBG.addEventListener("change", changeColorBG, false);
@@ -140,14 +133,22 @@
 
         const thumbs = document.getElementsByClassName("thumb");
 
-  
-
         for(let i = 0; i<thumbs.length;i++){
             thumbs[i].style.backgroundColor = event.target.value;
         }
 
     }
 
+
+    switchColor.addEventListener("input", changeColor, false);
+    switchColor.addEventListener("change", changeColor, false);
+
+    function changeColor() {
+
+        const r = document.querySelector(":root");
+        r.style.setProperty('--switch-thumb-color', event.target.value);
+
+    }
 
     featureToggle.onchange = (e) => {
         if (e.target.checked) {
@@ -371,6 +372,7 @@
                     document.activeElement.indeterminate = true;
                 }
             }
+            switchTheme(twoState.checked);
         }
     };
 
