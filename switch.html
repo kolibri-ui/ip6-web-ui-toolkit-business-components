@@ -124,6 +124,19 @@
     const arrowLeftTwoState = document.getElementById("arrow-left-two-state");
     const arrowRightTwoState = document.getElementById("arrow-right-two-state");
 
+    const featureToggle = document.getElementById("featureToggle");
+
+
+    featureToggle.onchange = (e) =>{
+        if(e.target.checked){
+            twoStateOn.src = 'assets/kolibri/icons/moon.svg';
+            twoStateOff.src = 'assets/kolibri/icons/sun.svg';
+        } else {
+            twoStateOn.src = 'assets/kolibri/icons/cross.svg';
+            twoStateOff.src = 'assets/kolibri/icons/checkmark.svg';
+        }
+    }
+
 
     twoState.onclick = e => e.preventDefault();
     threeState.onclick = e => e.preventDefault();
@@ -221,7 +234,7 @@
 
     const switchTheme = state => {
 
-        const featureToggle = document.getElementById("featureToggle");
+
 
         if (featureToggle.checked) {
             if (state) {
