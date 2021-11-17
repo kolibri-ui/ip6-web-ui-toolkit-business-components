@@ -334,7 +334,7 @@
     threeStateOuter.onmousedown = e => mousePos = e.x;
     threeStateOuter.onmouseup = (e) => {
         let cmove = calcMovement(e.x);
-        threeState.setAttribute('checked', cmove.toString());
+        threeState.setAttribute('checked', `${cmove}`);
         threeState.checked = cmove;
         switchTheme(cmove);
     }
@@ -342,7 +342,7 @@
     twoStateOuter.onmousedown = e => mousePos = e.x;
     twoStateOuter.onmouseup = (e) => {
         let cmove = calcMovement(e.x);
-        twoState.setAttribute('checked', cmove.toString());
+        twoState.setAttribute('checked', `${cmove}`);
         twoState.checked = cmove;
         switchTheme(cmove);
     };
