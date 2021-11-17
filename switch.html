@@ -18,8 +18,15 @@
 <div class="switch-div-frame">
     <h1>3-State Switch</h1>
     <label class="switch three-state">
-        <input type="checkbox" id="three-state">
-        <span class="thumb"></span>
+        <input type="checkbox" id="three-state" data-type="switch" data-threestate="true">
+        <span class="thumb">
+            <span class="arrow arrow-left" id="arrow-right-three-state"></span>
+            <span class="arrow arrow-right" id="arrow-left-three-state"></span>
+
+            <span class="arrow arrow-indeterminate-left" id="arrow-indeterminate-left-three-state"></span>
+            <span class="arrow arrow-indeterminate-right" id="arrow-indeterminate-right-three-state"></span>
+
+        </span>
         <img alt="off" class="switch-icon off" id="three-state-off" src="assets/kolibri/icons/cross.svg"
              draggable="false">
         <img alt="indeterminate" class="switch-icon indeterminate" id="three-state-indeterminate"
@@ -36,8 +43,6 @@
             <input type="checkbox" class="readonly" id="readonly-three-state">Read-Only</label><br/>
         <label for="required-three-state">
             <input type="checkbox" class="required" id="required-three-state">Required</label><br/>
-        <label for="focus-three-state">
-            <input type="checkbox" id="focus-three-state">Focused</label>
     </div>
 </div>
 
@@ -45,7 +50,7 @@
 <div class="switch-div-frame">
     <h1>2-State Switch</h1>
     <label class="switch">
-        <input type="checkbox" id="two-state">
+        <input type="checkbox" id="two-state" data-type="switch">
         <span class="thumb">
             <span class="arrow arrow-left" id="arrow-right-two-state"></span>
             <span class="arrow arrow-right" id="arrow-left-two-state"></span>
@@ -65,8 +70,6 @@
             <input type="checkbox" id="disable-two-state">Disabled</label><br/>
         <label for="readonly-two-state">
             <input type="checkbox" id="readonly-two-state">Read-Only</label><br/>
-        <label for="focus-two-state">
-            <input type="checkbox" id="focus-two-state">Focused</label>
     </div>
 </div>
 
@@ -102,17 +105,21 @@
     const disableThreeState = document.getElementById("disable-three-state");
     const readOnlyThreeState = document.getElementById("readonly-three-state");
     const requiredThreeState = document.getElementById("required-three-state");
-    const focusThreeState = document.getElementById("focus-three-state");
 
 
     const twoState = document.getElementById("two-state");
     const twoStateOuter = twoState.parentNode;
     const disableTwoState = document.getElementById("disable-two-state");
     const readOnlyTwoState = document.getElementById("readonly-two-state");
-    const focusTwoState = document.getElementById("focus-two-state");
     const twoStateOn = document.getElementById("two-state-on");
     const twoStateOff = document.getElementById("two-state-off");
 
+
+    const arrowLeftThreeState = document.getElementById("arrow-left-three-state");
+    const arrowRightThreeState = document.getElementById("arrow-right-three-state");
+
+    const arrowIndeterminateLeftThreeState = document.getElementById("arrow-indeterminate-left-three-state");
+    const arrowIndeterminateRightThreeState = document.getElementById("arrow-indeterminate-right-three-state");
 
     const arrowLeftTwoState = document.getElementById("arrow-left-two-state");
     const arrowRightTwoState = document.getElementById("arrow-right-two-state");
@@ -165,22 +172,59 @@
         }
     }
 
-    focusThreeState.onchange = e => {
-        if (e.target.checked) {
-            threeState.focus();
-            threeStateOuter.classList.add("focus");
-        } else {
-            threeState.blur();
-            threeStateOuter.classList.remove("focus");
+    threeStateOuter.onmouseover = () => {
+        threeStateOuter.classList.remove("required");
+        requiredThreeState.checked = false;
+
+        if (!threeState.disabled && !threeState.readOnly) {
+            if (threeState.checked) {
+                arrowLeftThreeState.style.display = 'none';
+                arrowRightThreeState.style.display = 'block';
+            } else {
+                arrowRightThreeState.style.display = 'none';
+                arrowLeftThreeState.style.display = 'block';
+            }
+
+            if (threeState.indeterminate) {
+                arrowRightThreeState.style.display = 'none';
+                arrowLeftThreeState.style.display = 'none';
+                arrowIndeterminateLeftThreeState.style.display = 'block';
+                arrowIndeterminateRightThreeState.style.display = 'block';
+
+            }
         }
     }
+
+    threeStateOuter.onmouseout = () => {
+        arrowRightThreeState.style.display = 'none';
+        arrowLeftThreeState.style.display = 'none';
+        arrowIndeterminateLeftThreeState.style.display = 'none';
+        arrowIndeterminateRightThreeState.style.display = 'none';
+    }
+
+
+    threeState.onfocus = e => {
+        threeStateOuter.classList.remove("required");
+        threeStateOuter.classList.add("focus");
+        threeStateOuter.focus();
+    }
+
+    threeState.onblur = e => {
+        threeStateOuter.classList.remove("focus");
+        threeStateOuter.blur();
+    }
+
 
     /**
      * Two State
      */
 
     twoStateOn.onclick = _ => twoState.checked = true;
-    twoStateOff.onclick = _ => twoState.checked = false;
+    twoStateOff.onclick = _ => {
+        twoStateOuter.classList.add("focus");
+        twoStateOuter.focus();
+        twoState.checked = false;
+    }
 
     disableTwoState.onchange = e => {
         twoState.disabled = e.target.checked;
@@ -200,15 +244,6 @@
         }
     }
 
-    focusTwoState.onchange = e => {
-        if (e.target.checked) {
-            twoState.focus();
-            twoStateOuter.classList.add("focus");
-        } else {
-            twoState.blur();
-            twoStateOuter.classList.remove("focus");
-        }
-    }
 
     twoState.onfocus = _ => {
         twoStateOuter.classList.add("focus");
@@ -241,16 +276,39 @@
     let mousePos = 0;
     let mouseOffset = 20;
 
+    threeStateOuter.onmousedown = e => mousePos = e.x;
+    threeStateOuter.onmouseup = (e) => threeState.checked = calcMovement(e.x);
+
     twoStateOuter.onmousedown = e => mousePos = e.x;
-    twoStateOuter.onmouseup = (e) => calcMovement(e.x);
+    twoStateOuter.onmouseup = (e) => twoState.checked = calcMovement(e.x);
 
     const calcMovement = (ex) => {
         if (mousePos > ex + mouseOffset) {
-            twoState.checked = false;
+            return false;
         } else if (mousePos < ex) {
-            twoState.checked = true;
+            return true;
         }
     }
+
+
+    //Keyboard Control
+    document.onkeydown = (e) => {
+        if (document.activeElement.dataset.type === "switch") {
+
+            if (e.key === "ArrowRight") {
+                document.activeElement.indeterminate = false;
+                document.activeElement.checked = true;
+            } else if (e.key === "ArrowLeft") {
+                document.activeElement.indeterminate = false;
+                document.activeElement.checked = false;
+            }
+            if (e.key === "Delete") {
+                if (document.activeElement.dataset.threestate === "true") {
+                    document.activeElement.indeterminate = true;
+                }
+            }
+        }
+    };
 
 </script>
 </body>

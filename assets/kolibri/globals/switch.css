@@ -37,12 +37,12 @@
 
 /* Todo make it invisible*/
 .switch input {
-    /*position: absolute;
+    position: absolute;
     left: 200px;
     width: 20px;
     height: 20px;
-    */
-    display: none;
+
+    opacity: 0;
 }
 
 .thumb {
@@ -108,6 +108,10 @@ States
     outline: none;
 }
 
+.disabled {
+    pointer-events: none;
+}
+
 .disabled > .thumb {
     background-color: #767676;
     opacity: 60%;
@@ -147,24 +151,36 @@ States
     height: 10px;
     border: solid #C7D1EB;
     border-width: 0 3px 3px 0;
-    padding: 3px;
 
 }
 
 .arrow-right {
-    left: 34px;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
     animation: moveToRight 1s infinite ease-in-out;
     display: none;
 }
 .arrow-left {
-    right: 34px;
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
     animation: moveToLeft 1s infinite ease-in-out;
     display: none;
+}
 
+.arrow-indeterminate-right {
+    position: absolute;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    animation: moveToRightIndeterminate 1s infinite ease-in-out;
+    border-width: 0 3px 3px 0;
+    display: none;
+}
+.arrow-indeterminate-left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    animation: moveToLeftIndeterminate 1s infinite ease-in-out;
+    border-width: 0 3px 3px 0;
+    display: none;
 }
 
 @keyframes moveToRight {
@@ -176,11 +192,30 @@ States
     }
 }
 
+@keyframes moveToRightIndeterminate {
+    0%{
+        left: 100px;
+    }
+    100% {
+        left: 103px;
+    }
+}
+
+
 @keyframes moveToLeft {
     0%{
         right: 34px;
     }
     100% {
         right: 37px;
+    }
+}
+
+@keyframes moveToLeftIndeterminate {
+    0%{
+        right: 100px;
+    }
+    100% {
+        right: 103px;
     }
 }
