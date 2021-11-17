@@ -9,13 +9,13 @@
           rel="stylesheet">
     <link rel=stylesheet type="text/css" href="assets/kolibri/kolibri.css"/>
 </head>
-<body>
+<body data-theme="light">
 
 <h1 class="special-header">
     Switch Component
 </h1>
 
-<div class="switch-div-frame">
+<div class="switch-div-frame  login">
     <h1>3-State Switch</h1>
     <label class="switch three-state">
         <input type="checkbox" id="three-state" data-type="switch" data-threestate="true">
@@ -38,11 +38,11 @@
     <div>
         <h4> States</h4>
         <label for="disable-three-state">
-            <input type="checkbox" class="disabled" id="disable-three-state">Disabled</label><br/>
+            <input type="checkbox" class="disabled" id="disable-three-state"> Disabled</label><br/>
         <label for="readonly-three-state">
-            <input type="checkbox" class="readonly" id="readonly-three-state">Read-Only</label><br/>
+            <input type="checkbox" class="readonly" id="readonly-three-state"> Read-Only</label><br/>
         <label for="required-three-state">
-            <input type="checkbox" class="required" id="required-three-state">Required</label><br/>
+            <input type="checkbox" class="required" id="required-three-state"> Required</label><br/>
     </div>
 </div>
 
@@ -59,20 +59,20 @@
              draggable="false">
         <img alt="on" class="switch-icon on" id="two-state-on" src="assets/kolibri/icons/checkmark.svg"
              draggable="false">
-
-
     </label>
-
 
     <div>
         <h4> States</h4>
         <label for="disable-two-state">
-            <input type="checkbox" id="disable-two-state">Disabled</label><br/>
+            <input type="checkbox" id="disable-two-state"> Disabled</label><br/>
         <label for="readonly-two-state">
-            <input type="checkbox" id="readonly-two-state">Read-Only</label><br/>
+            <input type="checkbox" id="readonly-two-state"> Read-Only</label><br/>
     </div>
 </div>
 
+<label for="featureToggle" class="featureToggle">
+    <input type="checkbox" id="featureToggle"> Feature Toggle
+</label>
 <!--
 <div class="switch-div-frame">
     <h1>Colors</h1>
@@ -95,7 +95,7 @@
 </div>-->
 
 <script>
-
+    const body = document.getElementsByTagName("body");
     const threeState = document.getElementById("three-state");
     const threeStateOuter = threeState.parentNode;
     const threeStateIndeterminate = document.getElementById("three-state-indeterminate");
@@ -219,11 +219,31 @@
      * Two State
      */
 
-    twoStateOn.onclick = _ => twoState.checked = true;
+    const switchTheme = state => {
+
+        const featureToggle = document.getElementById("featureToggle");
+
+        if (featureToggle.checked) {
+            if (state) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark'); //add this
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light'); //add this
+            }
+        }
+    }
+
+
+    twoStateOn.onclick = _ => {
+        twoState.checked = true;
+        switchTheme(twoState.checked);
+    }
     twoStateOff.onclick = _ => {
         twoStateOuter.classList.add("focus");
         twoStateOuter.focus();
         twoState.checked = false;
+        switchTheme(twoState.checked);
     }
 
     disableTwoState.onchange = e => {
@@ -277,10 +297,20 @@
     let mouseOffset = 20;
 
     threeStateOuter.onmousedown = e => mousePos = e.x;
-    threeStateOuter.onmouseup = (e) => threeState.checked = calcMovement(e.x);
+    threeStateOuter.onmouseup = (e) => {
+        let cmove = calcMovement(e.x);
+        threeState.setAttribute('checked', cmove.toString());
+        threeState.checked = cmove;
+        switchTheme(cmove);
+    }
 
     twoStateOuter.onmousedown = e => mousePos = e.x;
-    twoStateOuter.onmouseup = (e) => twoState.checked = calcMovement(e.x);
+    twoStateOuter.onmouseup = (e) => {
+        let cmove = calcMovement(e.x);
+        twoState.setAttribute('checked', cmove.toString());
+        twoState.checked = cmove;
+        switchTheme(cmove);
+    };
 
     const calcMovement = (ex) => {
         if (mousePos > ex + mouseOffset) {
@@ -309,6 +339,7 @@
             }
         }
     };
+
 
 </script>
 </body>
