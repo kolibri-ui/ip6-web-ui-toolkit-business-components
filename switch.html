@@ -73,29 +73,30 @@
 <label for="featureToggle" class="featureToggle">
     <input type="checkbox" id="featureToggle"> Dark Mode Toggle
 </label>
-<!--
+
 <div class="switch-div-frame">
     <h1>Colors</h1>
     <div>
         <ul class="color-ul">
             <li>
-                <label for="switchColor">Thumb Color</label>
-                <input type="color" id="switchColor" name="switchColor" value="#184BCD">
+                <label for="switchColor">Thumb</label><br/>
+                <input type="color" class="color-picker" id="switchColor" name="switchColor" value="#184BCD">
             </li>
             <li>
-                <label for="switchColorBG">Background Color</label><br/>
-                <input type="color" id="switchColorBG" name="switchColorBG" value="#bdbdbd">
+                <label for="switchColorBG">Background</label><br/>
+                <input type="color" class="color-picker" id="switchColorBG" name="switchColorBG" value="#bdbdbd">
             </li>
             <li>
-                <label for="switchColorIcons">IconsColor</label><br/>
-                <input type="color" id="switchColorIcons" name="switchColorIcons" value="#14142B">
+                <label for="switchColorIcons">Icons</label><br/>
+                <input type="color" class="color-picker" id="switchColorIcons" name="switchColorIcons" value="#14142B">
             </li>
         </ul>
     </div>
-</div>-->
+</div>
+
 
 <script>
-    const body = document.getElementsByTagName("body");
+
     const threeState = document.getElementById("three-state");
     const threeStateOuter = threeState.parentNode;
     const threeStateIndeterminate = document.getElementById("three-state-indeterminate");
@@ -124,11 +125,32 @@
     const arrowLeftTwoState = document.getElementById("arrow-left-two-state");
     const arrowRightTwoState = document.getElementById("arrow-right-two-state");
 
+
     const featureToggle = document.getElementById("featureToggle");
+    const switchColor = document.getElementById("switchColor");
+    const switchColorBG = document.getElementById("switchColorBG");
+    const switchColorIcons = document.getElementById("switchColorIcons");
 
 
-    featureToggle.onchange = (e) =>{
-        if(e.target.checked){
+
+    switchColorBG.addEventListener("input", changeColorBG, false);
+    switchColorBG.addEventListener("change", changeColorBG, false);
+
+    function changeColorBG() {
+
+        const thumbs = document.getElementsByClassName("thumb");
+
+  
+
+        for(let i = 0; i<thumbs.length;i++){
+            thumbs[i].style.backgroundColor = event.target.value;
+        }
+
+    }
+
+
+    featureToggle.onchange = (e) => {
+        if (e.target.checked) {
             twoStateOn.src = 'assets/kolibri/icons/moon.svg';
             twoStateOff.src = 'assets/kolibri/icons/sun.svg';
         } else {
@@ -233,7 +255,6 @@
      */
 
     const switchTheme = state => {
-
 
 
         if (featureToggle.checked) {
