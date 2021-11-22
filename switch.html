@@ -133,7 +133,7 @@
 
         const thumbs = document.getElementsByClassName("thumb");
 
-        for(let i = 0; i<thumbs.length;i++){
+        for (let i = 0; i < thumbs.length; i++) {
             thumbs[i].style.backgroundColor = event.target.value;
         }
 
@@ -184,6 +184,8 @@
         threeState.disabled = e.target.checked;
         if (e.target.checked) {
             threeStateOuter.classList.add("disabled");
+            readOnlyThreeState.checked = false;
+            threeStateOuter.classList.remove("read-only");
         } else {
             threeStateOuter.classList.remove("disabled");
         }
@@ -193,6 +195,8 @@
         threeState.readOnly = e.target.checked;
         if (e.target.checked) {
             threeStateOuter.classList.add("read-only");
+            disableThreeState.checked = false;
+            threeStateOuter.classList.remove("disabled");
         } else {
             threeStateOuter.classList.remove("read-only");
         }
@@ -203,13 +207,17 @@
         threeState.indeterminate = true;
         if (e.target.checked) {
             threeStateOuter.classList.add("required");
+            readOnlyThreeState.checked = false;
+            threeStateOuter.classList.remove("read-only");
+            disableThreeState.checked = false;
+            threeStateOuter.classList.remove("disabled");
         } else {
             threeStateOuter.classList.remove("required");
         }
     }
 
     threeStateOuter.onmouseover = () => {
-        threeStateOuter.classList.remove("required");
+        //threeStateOuter.classList.remove("required");
         requiredThreeState.checked = false;
 
         if (!threeState.disabled && !threeState.readOnly) {
@@ -240,7 +248,7 @@
 
 
     threeState.onfocus = e => {
-        threeStateOuter.classList.remove("required");
+        //threeStateOuter.classList.remove("required");
         threeStateOuter.classList.add("focus");
         threeStateOuter.focus();
     }
@@ -285,6 +293,8 @@
         twoState.disabled = e.target.checked;
         if (e.target.checked) {
             twoStateOuter.classList.add("disabled");
+            readOnlyTwoState.checked = false;
+            twoStateOuter.classList.remove("read-only");
         } else {
             twoStateOuter.classList.remove("disabled");
         }
@@ -294,6 +304,8 @@
         twoState.readOnly = e.target.checked;
         if (e.target.checked) {
             twoStateOuter.classList.add("read-only");
+            disableTwoState.checked = false;
+            twoStateOuter.classList.remove("disabled");
         } else {
             twoStateOuter.classList.remove("read-only");
         }

@@ -136,7 +136,7 @@ States
 }
 
 .required > .thumb {
-    box-shadow: 0 0 15px rgb(169, 31, 31);
+  /*  box-shadow: 0 0 15px rgb(169, 31, 31); */
 }
 
 .required > .thumb:before {
