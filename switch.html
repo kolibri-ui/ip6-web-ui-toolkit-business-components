@@ -60,7 +60,7 @@
         <img alt="on" class="switch-icon on" id="two-state-on" src="assets/kolibri/icons/checkmark.svg"
              draggable="false">
     </label>
-
+<br/>
     <div>
         <h4> States</h4>
         <label for="disable-two-state">
@@ -204,7 +204,7 @@
 
     requiredThreeState.onchange = e => {
         threeState.required = e.target.checked;
-        threeState.indeterminate = true;
+        //threeState.indeterminate = true;
         if (e.target.checked) {
             threeStateOuter.classList.add("required");
             readOnlyThreeState.checked = false;

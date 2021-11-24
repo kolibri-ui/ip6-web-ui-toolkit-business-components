@@ -1,0 +1,127 @@
+body {
+    background-color: var(--background);
+}
+
+.monolog-list {
+    position: fixed;
+    width: 350px;
+}
+
+.monolog-list.top {
+    top: 10px;
+}
+
+.monolog-list.bottom {
+    bottom: 10px;
+}
+
+.monolog-list.left {
+    left: 10px;
+}
+
+.monolog-list.right {
+    right: 10px;
+}
+
+.monolog {
+    position: relative;
+    width: 350px;
+    min-height: 35px;
+    max-height: 95px;
+    border: 5px solid var(--default);
+    border-radius: var(--border-radius);
+    background-color: var(--default-background);
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.monolog.shake {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both infinite;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.monolog.shake:hover {
+    animation: 0;
+    -webkit-animation: 0;
+}
+
+.monolog.info {
+    border-color: var(--primary);
+    background-color: var(--primary-background);
+}
+
+.monolog.warning {
+    border-color: var(--warning);
+    background-color: var(--warning-background);
+}
+
+.monolog.error {
+    border-color: var(--error);
+    background-color: var(--error-background);
+}
+
+.monolog.success {
+    border-color: var(--success);
+    background-color: var(--success-background);
+}
+
+.monolog.dnd{
+    left: 320px;
+}
+
+.monolog.dnd:hover{
+    animation: dnd-in 0.52s cubic-bezier(.36, .07, .19, .97) both ;
+}
+
+
+.monolog-title {
+    font-weight: 600;
+    color: var(--text);
+}
+
+
+.monolog-close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    height: 15px;
+    width: 15px;
+    border-radius: 8px;
+    line-height: 15px;
+}
+
+.monolog.out{
+    animation: out-right 0.52s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+
+
+@keyframes dnd-in{
+    from { left: 320px;}
+    to {left:0;}
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+@keyframes out-right{
+    from {left: 0;}
+    to{ left: 400px;}
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monolog Component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link rel=stylesheet type="text/css" href="assets/kolibri/kolibri-monolog.css"/>
+
+</head>
+<body data-theme="light">
+
+
+<div class="monolog-list top right">
+
+    <div class="monolog">
+        <i class="monolog-icon"></i>
+        <div class="monolog-body">
+            <div class="monolog-title">Title</div>
+            <div class="monolog-body"></div>
+        </div>
+        <div class="monolog-close">
+            <img src="assets/kolibri/icons/cross.svg" alt="close">
+        </div>
+    </div>
+
+    <div class="monolog info">
+        <i class="monolog-icon"></i>
+        <div class="monolog-body">
+            <div class="monolog-title"></div>
+            <div class="monolog-body"></div>
+        </div>
+        <div class="monolog-close">
+            <img src="assets/kolibri/icons/cross.svg" alt="close">
+        </div>
+    </div>
+
+    <div class="monolog success">
+        <i class="monolog-icon"></i>
+        <div class="monolog-body">
+            <div class="monolog-title">Profil gespeichert.</div>
+            <div class="monolog-body"></div>
+        </div>
+        <div class="monolog-close">
+            <img src="assets/kolibri/icons/cross.svg" alt="close">
+        </div>
+    </div>
+
+    <div class="monolog warning">
+        <i class="monolog-icon"></i>
+        <div class="monolog-body">
+            <div class="monolog-title"></div>
+            <div class="monolog-body"></div>
+        </div>
+        <div class="monolog-close">
+            <img src="assets/kolibri/icons/cross.svg" alt="close">
+        </div>
+    </div>
+
+    <div class="monolog error shake">
+        <i class="monolog-icon"></i>
+        <div class="monolog-body">
+            <div class="monolog-title"></div>
+            <div class="monolog-body"></div>
+        </div>
+        <div class="monolog-close">
+            <img src="assets/kolibri/icons/cross.svg" alt="close">
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const closeButton = document.getElementsByClassName("monolog-close");
+    const monolog = document.getElementsByClassName("monolog");
+
+    for (let i = 0; i < closeButton.length; i++) {
+        closeButton[i].onclick = e => {
+            e.target.parentElement.parentElement.classList.add("out");
+            setTimeout(() => {
+                e.target.parentElement.parentElement.remove();
+            }, 520);
+        }
+    }
+
+    for (let i = 0; i < monolog.length; i++) {
+        monolog[i].onclick = e => {
+            e.target.classList.remove("shake");
+            e.target.classList.remove("dnd");
+        }
+    }
+
+
+    class Monolog {
+        constructor(element) {
+
+        }
+
+    }
+
+
+</script>
+
+</body>
+</html>
