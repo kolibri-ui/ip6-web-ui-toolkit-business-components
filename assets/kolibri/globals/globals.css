@@ -157,3 +157,91 @@ input[type="button"].secondary:disabled {
   --transition-quick: all 0.15s ease-in-out;
   --transition-slow:  all 0.25s ease-in-out;
 }
+
+
+
+
+
+/**
+New UI Styles
+ */
+.card{
+  margin: 3rem;
+  min-width: 23rem;
+  max-width: 45rem;
+  background: var(--background);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*align-items: center;*/
+  border-radius: 0.75rem;
+  box-shadow: rgba(0, 0, 0, 0.36) 5px 3px 6px,
+  rgba(0, 0, 0, 0.43) 0px 3px 6px;
+}
+
+.card-title{
+  font-size: 1.5em;
+  font-weight:600;
+}
+
+.card-body{
+  padding-top: 1em;
+}
+
+
+.button{
+  padding: 0.5em 1em;
+  font-size: 1.1em;
+  border: none;
+  border-radius: var(--border-radius);
+}
+
+.button.button-default{
+  background-color: var(--default);
+  color: var(--text-contrast)
+}
+.button.button-default:hover{
+  background-color: var(--default-hover);
+  color: var(--text-contrast)
+}
+
+.button.button-info{
+  background-color: var(--primary);
+  color: var(--text-contrast)
+}
+.button.button-info:hover{
+  background-color: var(--primary-hover);
+  color: var(--text-contrast)
+}
+
+.button.button-success{
+  background-color: var(--success);
+  color: var(--text-contrast);
+}
+
+.button.button-success:hover{
+  background-color: var(--success-hover);
+  color: var(--text-contrast);
+}
+
+
+.button.button-warning{
+  background-color: var(--warning);
+  color: var(--text-contrast);
+}
+
+.button.button-warning:hover{
+  background-color: var(--warning-hover);
+  color: var(--text-contrast);
+}
+
+.button.button-error{
+  background-color: var(--error);
+  color: var(--text-contrast);
+}
+
+.button.button-error:hover{
+  background-color: var(--error-hover);
+  color: var(--text-contrast);
+}

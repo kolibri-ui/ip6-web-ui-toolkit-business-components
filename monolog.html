@@ -13,68 +13,38 @@
 <body data-theme="light">
 
 
-<div class="monolog-list top right">
-
-    <div class="monolog">
-        <i class="monolog-icon"></i>
-        <div class="monolog-body">
-            <div class="monolog-title">Title</div>
-            <div class="monolog-body"></div>
-        </div>
-        <div class="monolog-close">
-            <img src="assets/kolibri/icons/cross.svg" alt="close">
-        </div>
+<div class="card">
+    <div class="card-title">Monolog non-sticky</div>
+    <div class="card-body">
+        <button class="button button-default" onclick="Monolog('default', false)">Default</button>
+        <button class="button button-info" onclick="Monolog('info', false)">Info</button>
+        <button class="button button-success" onclick="Monolog('success', false)">Success</button>
+        <button class="button button-warning" onclick="Monolog('warning', false)">Warning</button>
+        <button class="button button-error" onclick="Monolog('error', false)">Error</button>
+        <label for="monolog-timeout"> Timeout: <input type="number" id="monolog-timeout" value="5" class="monolog-timeout"> sec</label>
     </div>
-
-    <div class="monolog info">
-        <i class="monolog-icon"></i>
-        <div class="monolog-body">
-            <div class="monolog-title"></div>
-            <div class="monolog-body"></div>
-        </div>
-        <div class="monolog-close">
-            <img src="assets/kolibri/icons/cross.svg" alt="close">
-        </div>
-    </div>
-
-    <div class="monolog success">
-        <i class="monolog-icon"></i>
-        <div class="monolog-body">
-            <div class="monolog-title">Profil gespeichert.</div>
-            <div class="monolog-body"></div>
-        </div>
-        <div class="monolog-close">
-            <img src="assets/kolibri/icons/cross.svg" alt="close">
-        </div>
-    </div>
-
-    <div class="monolog warning">
-        <i class="monolog-icon"></i>
-        <div class="monolog-body">
-            <div class="monolog-title"></div>
-            <div class="monolog-body"></div>
-        </div>
-        <div class="monolog-close">
-            <img src="assets/kolibri/icons/cross.svg" alt="close">
-        </div>
-    </div>
-
-    <div class="monolog error shake">
-        <i class="monolog-icon"></i>
-        <div class="monolog-body">
-            <div class="monolog-title"></div>
-            <div class="monolog-body"></div>
-        </div>
-        <div class="monolog-close">
-            <img src="assets/kolibri/icons/cross.svg" alt="close">
-        </div>
-    </div>
-
 </div>
 
+
+<div class="card">
+    <div class="card-title">Monolog sticky</div>
+    <div class="card-body">
+        <button class="button button-default" onclick="Monolog('default', true)">Default</button>
+        <button class="button button-info" onclick="Monolog('info', true)">Info</button>
+        <button class="button button-success" onclick="Monolog('success', true)">Success</button>
+        <button class="button button-warning" onclick="Monolog('warning', true)">Warning</button>
+        <button class="button button-error" onclick="Monolog('error', true)">Error</button>
+        <button class="button button-error" onclick="Monolog('error', true, true)">Error shake</button>
+    </div>
+</div>
+
+<div id="monolog-list" class="monolog-list top right"></div>
+
 <script>
-    const closeButton = document.getElementsByClassName("monolog-close");
+    const monologList = document.getElementById("monolog-list");
+    let closeButton = document.getElementsByClassName("monolog-close");
     const monolog = document.getElementsByClassName("monolog");
+
 
     for (let i = 0; i < closeButton.length; i++) {
         closeButton[i].onclick = e => {
@@ -88,18 +58,62 @@
     for (let i = 0; i < monolog.length; i++) {
         monolog[i].onclick = e => {
             e.target.classList.remove("shake");
-            e.target.classList.remove("dnd");
         }
     }
 
-
-    class Monolog {
-        constructor(element) {
-
-        }
-
+    function closeMonolog(item) {
+        item.classList.add("out");
+        setTimeout(() => {
+            item.remove();
+        }, 520);
     }
 
+
+    function Monolog(type = "default", sticky = false, attention = false) {
+
+        const timeout = document.getElementById("monolog-timeout").value * 1000;
+        let sticky_template = "";
+        if (sticky) {
+            sticky_template = `
+            <div class="monolog-close">
+                <img src="assets/kolibri/icons/cross.svg" alt="close">
+            </div>`;
+        }
+
+
+        const monolog_template = `
+                <i class="monolog-icon"></i>
+                <div class="monolog-body">
+                    <div class="monolog-title"></div>
+                    <div class="monolog-body"></div>
+                </div>
+                ${sticky_template}
+        `;
+
+        const newMonolog = document.createElement('div');
+        newMonolog.classList.add("monolog", type);
+        newMonolog.innerHTML = monolog_template;
+
+        monologList.append(newMonolog);
+
+        if (!sticky) {
+            setTimeout(() => {
+                newMonolog.classList.add("out");
+                setTimeout(() => {
+                    newMonolog.remove();
+                }, 520);
+            }, timeout);
+        } else {
+            const closeButton = newMonolog.getElementsByClassName("monolog-close")[0];
+            closeButton.onclick = _ => closeMonolog(newMonolog);
+        }
+
+        if (sticky && attention) {
+            newMonolog.classList.add("shake");
+        }
+
+
+    }
 
 </script>
 

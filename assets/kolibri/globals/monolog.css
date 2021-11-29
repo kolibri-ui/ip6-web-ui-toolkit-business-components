@@ -28,7 +28,7 @@ body {
     width: 350px;
     min-height: 35px;
     max-height: 95px;
-    border: 5px solid var(--default);
+    border: 3px solid var(--default);
     border-radius: var(--border-radius);
     background-color: var(--default-background);
     margin-bottom: 10px;
@@ -124,4 +124,10 @@ body {
 @keyframes out-right{
     from {left: 0;}
     to{ left: 400px;}
+}
+
+
+
+.monolog-timeout{
+    max-width: 50px;
 }

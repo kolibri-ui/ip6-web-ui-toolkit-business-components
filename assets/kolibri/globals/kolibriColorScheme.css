@@ -10,14 +10,18 @@
   --primary-opac:         hsla(223,  79%,  45%, 0.1);
   --primary-hover:        hsl(233,   79%,  56%);
   --success:              hsl(104,   89%,  28%);
+  --success-hover:        hsl(103,    87%, 32%);
   --success-background:   hsla(104,   89%,  28%, 0.3);
   --error:                hsl(0,     79%,  63%);
+  --error-hover:          hsl(0, 100%, 70%);
   --error-background:     hsla(0,     79%,  63%, 0.3);
   --warning:              hsl(36,   100%,  48%);
+  --warning-hover:        hsl(34, 97%, 58%);
   --warning-background:   hsla(36,   100%,  48%, 0.3);
 
 
   --default:              hsl(0,      0%,   62%);
+  --default-hover:        hsl(0, 0%, 79%);
   --default-background:   hsla(0,      0%,   62%, 0.3);
   --border-radius:        5px;
 
