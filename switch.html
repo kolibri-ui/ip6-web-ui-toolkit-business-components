@@ -15,11 +15,13 @@
     Switch Component
 </h1>
 
-<div class="switch-div-frame  login">
-    <h1>3-State Switch</h1>
-    <label class="switch three-state">
-        <input type="checkbox" id="three-state" data-type="switch" data-threestate="true">
-        <span class="thumb">
+<div id="switch">
+
+    <div class="switch-div-frame ">
+        <h1>3-State Switch</h1>
+        <label class="switch three-state">
+            <input type="checkbox" id="three-state" data-type="switch" data-threestate="true">
+            <span class="thumb">
             <span class="arrow arrow-left" id="arrow-right-three-state"></span>
             <span class="arrow arrow-right" id="arrow-left-three-state"></span>
 
@@ -27,70 +29,73 @@
             <span class="arrow arrow-indeterminate-right" id="arrow-indeterminate-right-three-state"></span>
 
         </span>
-        <img alt="off" class="switch-icon off" id="three-state-off" src="assets/kolibri/icons/cross.svg"
-             draggable="false">
-        <img alt="indeterminate" class="switch-icon indeterminate" id="three-state-indeterminate"
-             src="assets/kolibri/icons/dot.svg" draggable="false">
-        <img alt="on" class="switch-icon on" id="three-state-on" src="assets/kolibri/icons/checkmark.svg"
-             draggable="false">
-    </label>
-    <br>
-    <div>
-        <h4> States</h4>
-        <label for="disable-three-state">
-            <input type="checkbox" class="disabled" id="disable-three-state"> Disabled</label><br/>
-        <label for="readonly-three-state">
-            <input type="checkbox" class="readonly" id="readonly-three-state"> Read-Only</label><br/>
-        <label for="required-three-state">
-            <input type="checkbox" class="required" id="required-three-state"> Required</label><br/>
+            <img alt="off" class="switch-icon off" id="three-state-off" src="assets/kolibri/icons/cross.svg"
+                 draggable="false">
+            <img alt="indeterminate" class="switch-icon indeterminate" id="three-state-indeterminate"
+                 src="assets/kolibri/icons/dot.svg" draggable="false">
+            <img alt="on" class="switch-icon on" id="three-state-on" src="assets/kolibri/icons/checkmark.svg"
+                 draggable="false">
+        </label>
+        <br>
+        <div>
+            <h4> States</h4>
+            <label for="disable-three-state">
+                <input type="checkbox" class="disabled" id="disable-three-state"> Disabled</label><br/>
+            <label for="readonly-three-state">
+                <input type="checkbox" class="readonly" id="readonly-three-state"> Read-Only</label><br/>
+            <label for="required-three-state">
+                <input type="checkbox" class="required" id="required-three-state"> Required</label><br/>
+        </div>
     </div>
-</div>
 
 
-<div class="switch-div-frame">
-    <h1>2-State Switch</h1>
-    <label class="switch">
-        <input type="checkbox" id="two-state" data-type="switch">
-        <span class="thumb">
+    <div class="switch-div-frame">
+        <h1>2-State Switch</h1>
+        <label class="switch">
+            <input type="checkbox" id="two-state" data-type="switch">
+            <span class="thumb">
             <span class="arrow arrow-left" id="arrow-right-two-state"></span>
             <span class="arrow arrow-right" id="arrow-left-two-state"></span>
         </span>
-        <img alt="off" class="switch-icon off" id="two-state-off" src="assets/kolibri/icons/cross.svg"
-             draggable="false">
-        <img alt="on" class="switch-icon on" id="two-state-on" src="assets/kolibri/icons/checkmark.svg"
-             draggable="false">
+            <img alt="off" class="switch-icon off" id="two-state-off" src="assets/kolibri/icons/cross.svg"
+                 draggable="false">
+            <img alt="on" class="switch-icon on" id="two-state-on" src="assets/kolibri/icons/checkmark.svg"
+                 draggable="false">
+        </label>
+        <br/>
+        <div>
+            <h4> States</h4>
+            <label for="disable-two-state">
+                <input type="checkbox" id="disable-two-state"> Disabled</label><br/>
+            <label for="readonly-two-state">
+                <input type="checkbox" id="readonly-two-state"> Read-Only</label><br/>
+        </div>
+    </div>
+
+    <label for="featureToggle" class="featureToggle">
+        <input type="checkbox" id="featureToggle"> Dark Mode Toggle
     </label>
-<br/>
-    <div>
-        <h4> States</h4>
-        <label for="disable-two-state">
-            <input type="checkbox" id="disable-two-state"> Disabled</label><br/>
-        <label for="readonly-two-state">
-            <input type="checkbox" id="readonly-two-state"> Read-Only</label><br/>
-    </div>
-</div>
 
-<label for="featureToggle" class="featureToggle">
-    <input type="checkbox" id="featureToggle"> Dark Mode Toggle
-</label>
-
-<div class="switch-div-frame">
-    <h1>Colors</h1>
-    <div>
-        <ul class="color-ul">
-            <li>
-                <label for="switchColor">Thumb</label><br/>
-                <input type="color" class="color-picker" id="switchColor" name="switchColor" value="#184BCD">
-            </li>
-            <li>
-                <label for="switchColorBG">Background</label><br/>
-                <input type="color" class="color-picker" id="switchColorBG" name="switchColorBG" value="#bdbdbd">
-            </li>
-        </ul>
+    <div class="switch-div-frame">
+        <h1>Colors</h1>
+        <div>
+            <ul class="color-ul">
+                <li>
+                    <label for="switchColor">Thumb</label><br/>
+                    <input type="color" class="color-picker" id="switchColor" name="switchColor" value="#184BCD">
+                </li>
+                <li>
+                    <label for="switchColorBG">Background</label><br/>
+                    <input type="color" class="color-picker" id="switchColorBG" name="switchColorBG" value="#bdbdbd">
+                </li>
+            </ul>
+        </div>
     </div>
+
 </div>
 
 <script type="module" src="./starter.js"></script>
+<script type="module" src="./controller/switchController.js"></script>
 
 <!--<script>
 
