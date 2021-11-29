@@ -1,8 +1,10 @@
-import {Controller, View} from "./controller/controller.js";
-import {playgroundService} from "./service/service.js";
+import { SwitchController, View } from "./controller/switchController.js";
 
-const service = playgroundService()
-const controller = Controller(service)
+import { switchService } from "./service/switchService.js";
 
-View(controller, document.getElementById('linktest'))
+const service = switchService()
+
+const controller = SwitchController(service)
+
+View(controller, document.getElementById('switch'))
 controller.addSwitch()
