@@ -1,4 +1,4 @@
-import {switchProjector} from "../projector/switchProjector";
+import {switchProjector} from "../mainProjector/switchProjector";
 import {ObservableList} from "../observable/observable";
 
 export {SwitchController, View}
@@ -104,7 +104,7 @@ const SwitchController = () => {
 }
 
 const View = (controller, rootElement) => {
-    const render = switchComponent => switchProjector(controller, rootElement, switchComponent)
+    const render = () => switchProjector(controller, rootElement)
     controller.onSwitchAdd(render)
 }
 
@@ -119,6 +119,7 @@ function changeColorBG() {
 
 }
 
+/* Needs to be in projector */
 
 SwitchColor.addEventListener("input", changeColor, false);
 SwitchColor.addEventListener("change", changeColor, false);
@@ -367,4 +368,6 @@ document.onkeydown = (e) => {
         switchTheme(TwoState.checked);
     }
 };
+/* Needs to be in projector */
+
 
