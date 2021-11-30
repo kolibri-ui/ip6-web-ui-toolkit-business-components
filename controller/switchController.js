@@ -1,5 +1,5 @@
-import {switchProjector} from "../mainProjector/switchProjector";
-import {ObservableList} from "../observable/observable";
+import {switchProjector} from "../mainProjector/switchProjector.js";
+import {ObservableList} from "../observable/observable.js";
 
 export {SwitchController, View}
 
@@ -19,7 +19,7 @@ const SwitchController = () => {
 
         /* Three-State Switch Attributes */
         const threeState = document.getElementById("three-state");
-        const threeStateOuter = threeState.parentNode;
+        const threeStateOuter = threeState.parentNode.nodeName;
         const threeStateIndeterminate = document.getElementById("three-state-indeterminate");
         const threeStateOff = document.getElementById("three-state-off");
         const threeStateOn = document.getElementById("three-state-on");
@@ -52,8 +52,8 @@ const SwitchController = () => {
         const switchColor = document.getElementById("switchColor");
         const switchColorBG = document.getElementById("switchColorBG");
 
-        switchColorBG.addEventListener("input", changeColorBG, false);
-        switchColorBG.addEventListener("change", changeColorBG, false);
+/*        switchColorBG.addEventListener("input", changeColorBG, false);
+        switchColorBG.addEventListener("change", changeColorBG, false);*/
 
 
         return {
@@ -109,6 +109,12 @@ const View = (controller, rootElement) => {
 }
 
 
+
+
+/*********** Needs to be in projector **********/
+
+/*
+
 function changeColorBG() {
 
     const thumbs = document.getElementsByClassName("thumb");
@@ -119,7 +125,6 @@ function changeColorBG() {
 
 }
 
-/* Needs to be in projector */
 
 SwitchColor.addEventListener("input", changeColor, false);
 SwitchColor.addEventListener("change", changeColor, false);
@@ -240,9 +245,9 @@ ThreeState.onblur = e => {
 }
 
 
-/**
+/!**
  * Two State
- */
+ *!/
 
 const switchTheme = state => {
 
@@ -263,6 +268,7 @@ TwoStateOn.onclick = _ => {
     TwoState.checked = true;
     switchTheme(TwoState.checked);
 }
+
 TwoStateOff.onclick = _ => {
     TwoStateOuter.classList.add("focus");
     TwoStateOuter.focus();
@@ -347,6 +353,9 @@ const calcMovement = (ex) => {
         return true;
     }
 }
+*/
+
+
 
 
 //Keyboard Control

@@ -81,5 +81,5 @@ const switchLabelProjector = (switchObject, label) => {
 
     switchObject.onEmailChanged(() => inputElement.value = switchObject.getEmail())*/
 
-    return [labelElement]
+    return labelElement
 }
