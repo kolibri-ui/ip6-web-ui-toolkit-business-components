@@ -14,6 +14,16 @@
 
 
 <div class="card">
+    <div class="card-title">
+        Monolog Content
+    </div>
+    <div class="card-body">
+        <label for="title"><span class="label">Title:</span><input type="text" id="title" value="Hello"></label><br/>
+        <label for="message"><span class="label">Message:</span><input type="text" id="message" value="World"></label>
+    </div>
+</div>
+
+<div class="card">
     <div class="card-title">Monolog non-sticky</div>
     <div class="card-body">
         <button class="button button-default" onclick="Monolog('default', false)">Default</button>
@@ -21,7 +31,7 @@
         <button class="button button-success" onclick="Monolog('success', false)">Success</button>
         <button class="button button-warning" onclick="Monolog('warning', false)">Warning</button>
         <button class="button button-error" onclick="Monolog('error', false)">Error</button>
-        <label for="monolog-timeout"> Timeout: <input type="number" id="monolog-timeout" value="5"
+        <label for="monolog-timeout"> Timeout: <input type="number" id="monolog-timeout" value="1"
                                                       class="monolog-timeout"> sec</label>
     </div>
 </div>
@@ -33,16 +43,16 @@
         <button class="button button-default" onclick="Monolog('default', true)">Default</button>
         <button class="button button-info" onclick="Monolog('info', true)">Info</button>
         <button class="button button-success" onclick="Monolog('success', true)">Success</button>
-        <button class="button button-warning" onclick="Monolog('warning', true, true)">Warning</button>
+        <button class="button button-warning" onclick="Monolog('warning', true)">Warning</button>
         <button class="button button-error" onclick="Monolog('error', true)">Error</button>
         <button class="button button-error" onclick="Monolog('error', true, true)">Error shake</button>
     </div>
 </div>
 
-<div id="monolog-list" class="monolog-list top right"></div>
+<div class="monolog-list top right"></div>
 
 <script>
-    const monologList = document.getElementById("monolog-list");
+    const monologList = document.getElementsByClassName("monolog-list")[0];
     let closeButton = document.getElementsByClassName("monolog-close");
     const monolog = document.getElementsByClassName("monolog");
 
@@ -73,6 +83,10 @@
     function Monolog(type = "default", sticky = false, attention = false, title = null, text = null, icon = false) {
 
         const timeout = document.getElementById("monolog-timeout").value * 1000;
+
+        title = document.getElementById("title").value;
+        text = document.getElementById("message").value;
+
         let sticky_template = "";
         if (sticky) {
             sticky_template = `
@@ -85,8 +99,8 @@
         const monolog_template = `
                 <i class="monolog-icon"></i>
                 <div class="monolog-body">
-                    <div class="monolog-title"></div>
-                    <div class="monolog-body"></div>
+                    <div class="monolog-title">${title}</div>
+                    <div class="monolog-message">${text}</div>
                 </div>
                 ${sticky_template}
         `;
@@ -112,8 +126,6 @@
         if (sticky && attention) {
             newMonolog.classList.add("shake");
         }
-
-
     }
 
 </script>
