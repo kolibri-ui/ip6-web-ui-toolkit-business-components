@@ -1,5 +1,7 @@
-import {switchProjector} from "../mainProjector/switchProjector.js";
-import {ObservableList} from "../observable/observable.js";
+import { switchProjector } from "../mainProjector/switchProjector.js";
+import { switchLabelProjector } from "../subProjectors/switchLabelProjector.js";
+import { ObservableList } from "../observable/observable.js";
+
 
 export {SwitchController, View}
 
@@ -18,7 +20,7 @@ const SwitchController = () => {
     const SwitchModel = () => {
 
         /* Three-State Switch Attributes */
-        const threeState = document.getElementById("three-state");
+/*        const threeState = document.getElementById("three-state");
         const threeStateOuter = threeState.parentNode.nodeName;
         const threeStateIndeterminate = document.getElementById("three-state-indeterminate");
         const threeStateOff = document.getElementById("three-state-off");
@@ -32,11 +34,17 @@ const SwitchController = () => {
         const arrowRightThreeState = document.getElementById("arrow-right-three-state");
 
         const arrowIndeterminateLeftThreeState = document.getElementById("arrow-indeterminate-left-three-state");
-        const arrowIndeterminateRightThreeState = document.getElementById("arrow-indeterminate-right-three-state");
+        const arrowIndeterminateRightThreeState = document.getElementById("arrow-indeterminate-right-three-state");*/
 
 
         /* Two-State Switch Attributes */
-        const twoState = document.getElementById("two-state");
+
+        console.log(switchLabelProjector().querySelector('input'));
+
+        //const twoState = document.getElementById("two-state");
+        const twoState = switchLabelProjector().querySelector('input');
+
+
         const twoStateOuter = twoState.parentNode;
         const disableTwoState = document.getElementById("disable-two-state");
         const readOnlyTwoState = document.getElementById("readonly-two-state");
@@ -57,7 +65,7 @@ const SwitchController = () => {
 
 
         return {
-            ThreeState: threeState,
+/*            ThreeState: threeState,
             ThreeStateOuter: threeStateOuter,
             ThreeStateIndeterminate: threeStateIndeterminate,
             ThreeStateOff:threeStateOff,
@@ -66,6 +74,14 @@ const SwitchController = () => {
             ReadOnlyThreeState:readOnlyThreeState,
             RequiredThreeState:requiredThreeState,
 
+            ArrowLeftThreeState:arrowLeftThreeState,
+            ArrowRightThreeState:arrowRightThreeState,
+
+            ArrowIndeterminateLeftThreeState:arrowIndeterminateLeftThreeState,
+            ArrowIndeterminateRightThreeState:arrowIndeterminateRightThreeState,*/
+
+
+
             TwoState:twoState,
             TwoStateOuter:twoStateOuter,
             DisableTwoState:disableTwoState,
@@ -73,11 +89,6 @@ const SwitchController = () => {
             TwoStateOn:twoStateOn,
             TwoStateOff:twoStateOff,
 
-            ArrowLeftThreeState:arrowLeftThreeState,
-            ArrowRightThreeState:arrowRightThreeState,
-
-            ArrowIndeterminateLeftThreeState:arrowIndeterminateLeftThreeState,
-            ArrowIndeterminateRightThreeState:arrowIndeterminateRightThreeState,
 
             ArrowLeftTwoState:arrowLeftTwoState,
             ArrowRightTwoState:arrowRightTwoState,
@@ -108,6 +119,7 @@ const View = (controller, rootElement) => {
     controller.onSwitchAdd(render)
 }
 
+// console.log(switchLabelProjector().children);
 
 
 

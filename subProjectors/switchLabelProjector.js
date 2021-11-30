@@ -22,6 +22,7 @@ const switchLabelProjector = (switchObject, label) => {
     labelElement.classList.add('switch');
 
     const checkBoxElement = document.createElement('input');
+    //checkBoxElement.id = 'two-state';
     checkBoxElement.type = 'checkbox';
     checkBoxElement.setAttribute('data-type', 'switch');
 
@@ -29,21 +30,25 @@ const switchLabelProjector = (switchObject, label) => {
     thumbElement.classList.add('thumb');
 
     const arrowLeftElement = document.createElement('span');
+    //arrowLeftElement.id = 'arrow-left-two-state';
     arrowLeftElement.classList.add('arrow', 'arrow-left');
 
     const arrowRightElement = document.createElement('span');
+    //arrowRightElement.id = 'arrow-right-two-state';
     arrowRightElement.classList.add('arrow', 'arrow-right');
 
     thumbElement.appendChild(arrowLeftElement);
     thumbElement.appendChild(arrowRightElement);
 
     const crossImgElement = document.createElement('img');
+    //crossImgElement.id = 'two-state-off';
     crossImgElement.alt = 'off';
     crossImgElement.classList.add('switch-icon', 'off');
     crossImgElement.src = 'assets/kolibri/icons/cross.svg';
     crossImgElement.draggable = false;
 
     const checkmarkImgElement = document.createElement('img');
+    //crossImgElement.id = 'two-state-on';
     checkmarkImgElement.alt = 'on';
     checkmarkImgElement.classList.add('switch-icon', 'on');
     checkmarkImgElement.src = 'assets/kolibri/icons/checkmark.svg';
