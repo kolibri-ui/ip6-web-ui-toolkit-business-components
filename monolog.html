@@ -21,7 +21,8 @@
         <button class="button button-success" onclick="Monolog('success', false)">Success</button>
         <button class="button button-warning" onclick="Monolog('warning', false)">Warning</button>
         <button class="button button-error" onclick="Monolog('error', false)">Error</button>
-        <label for="monolog-timeout"> Timeout: <input type="number" id="monolog-timeout" value="5" class="monolog-timeout"> sec</label>
+        <label for="monolog-timeout"> Timeout: <input type="number" id="monolog-timeout" value="5"
+                                                      class="monolog-timeout"> sec</label>
     </div>
 </div>
 
@@ -32,7 +33,7 @@
         <button class="button button-default" onclick="Monolog('default', true)">Default</button>
         <button class="button button-info" onclick="Monolog('info', true)">Info</button>
         <button class="button button-success" onclick="Monolog('success', true)">Success</button>
-        <button class="button button-warning" onclick="Monolog('warning', true)">Warning</button>
+        <button class="button button-warning" onclick="Monolog('warning', true, true)">Warning</button>
         <button class="button button-error" onclick="Monolog('error', true)">Error</button>
         <button class="button button-error" onclick="Monolog('error', true, true)">Error shake</button>
     </div>
@@ -69,7 +70,7 @@
     }
 
 
-    function Monolog(type = "default", sticky = false, attention = false) {
+    function Monolog(type = "default", sticky = false, attention = false, title = null, text = null, icon = false) {
 
         const timeout = document.getElementById("monolog-timeout").value * 1000;
         let sticky_template = "";
