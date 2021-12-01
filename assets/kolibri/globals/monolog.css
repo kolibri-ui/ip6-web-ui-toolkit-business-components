@@ -136,3 +136,12 @@ body {
 .monolog-click{
     background: #FE2EA8;
 }
+
+
+.monolog-message{
+    overflow: hidden;
+    white-space: normal;
+    max-height: 3.6em;
+    line-break: auto;
+    text-overflow: ellipsis;
+}
