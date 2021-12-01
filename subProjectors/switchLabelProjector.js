@@ -18,7 +18,10 @@ const switchLabelProjector = switchModel => {
 
     const switchLabelElement = document.createElement('label');
     switchLabelElement.classList.add('switch');
-    switchLabelElement.onclick= e => e.preventDefault();
+    switchLabelElement.onclick= e => {
+        e.preventDefault();
+        switchLabelElement.focus();
+    }
 
 
     const checkBoxElement = document.createElement('input');
@@ -105,13 +108,13 @@ const switchLabelProjector = switchModel => {
     let mouseOffset = 20;
 
 
-   /* switchLabelElement.onmousedown = e => mousePos = e.x;
+    switchLabelElement.onmousedown = e => mousePos = e.x;
     switchLabelElement.onmouseup = (e) => {
         let cmove = calcMovement(e.x);
         checkBoxElement.setAttribute('checked', `${cmove}`);
         checkBoxElement.checked = cmove;
         switchTheme(cmove);
-    };*/
+    };
 
     const calcMovement = (ex) => {
         if (mousePos > ex + mouseOffset) {
