@@ -6,13 +6,11 @@ const switchLabelProjector = switchModel => {
     const switchTheme = state => {
         if(switchModel.isDark.getValue()){
             if (state) {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light'); //add this
-            } else {
-
-
                 document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark'); //add this
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
             }
         }
     }
@@ -20,6 +18,8 @@ const switchLabelProjector = switchModel => {
 
     const switchLabelElement = document.createElement('label');
     switchLabelElement.classList.add('switch');
+    switchLabelElement.onclick= e => e.preventDefault();
+
 
     const checkBoxElement = document.createElement('input');
     checkBoxElement.type = 'checkbox';
@@ -57,14 +57,15 @@ const switchLabelProjector = switchModel => {
 
     checkmarkImgElement.onclick = _ => {
         checkBoxElement.checked  = true;
+        checkBoxElement.setAttribute("checked", "true");
         switchTheme(checkBoxElement.checked);
     }
 
 
     crossImgElement.onclick = _ => {
         switchLabelElement.classList.add("focus");
-        switchLabelElement.focus();
         checkBoxElement.checked = false;
+        checkBoxElement.setAttribute("checked", "false");
         switchTheme(checkBoxElement.checked);
     }
 
@@ -104,13 +105,13 @@ const switchLabelProjector = switchModel => {
     let mouseOffset = 20;
 
 
-    switchLabelElement.onmousedown = e => mousePos = e.x;
+   /* switchLabelElement.onmousedown = e => mousePos = e.x;
     switchLabelElement.onmouseup = (e) => {
         let cmove = calcMovement(e.x);
         checkBoxElement.setAttribute('checked', `${cmove}`);
         checkBoxElement.checked = cmove;
         switchTheme(cmove);
-    };
+    };*/
 
     const calcMovement = (ex) => {
         if (mousePos > ex + mouseOffset) {
