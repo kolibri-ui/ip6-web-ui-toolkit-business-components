@@ -131,3 +131,8 @@ body {
 .monolog-timeout{
     max-width: 50px;
 }
+
+
+.monolog-click{
+    background: #FE2EA8;
+}

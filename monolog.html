@@ -53,8 +53,8 @@
 
 <script>
     const monologList = document.getElementsByClassName("monolog-list")[0];
-    let closeButton = document.getElementsByClassName("monolog-close");
     const monolog = document.getElementsByClassName("monolog");
+    let closeButton = document.getElementsByClassName("monolog-close");
 
 
     for (let i = 0; i < closeButton.length; i++) {
@@ -83,7 +83,6 @@
     function Monolog(type = "default", sticky = false, attention = false, title = null, text = null, icon = false) {
 
         const timeout = document.getElementById("monolog-timeout").value * 1000;
-
         title = document.getElementById("title").value;
         text = document.getElementById("message").value;
 
@@ -126,6 +125,10 @@
         if (sticky && attention) {
             newMonolog.classList.add("shake");
         }
+
+
+
+
     }
 
 </script>
