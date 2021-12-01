@@ -62,38 +62,6 @@ const switchLabelProjector = () => {
 
     //console.log(switchLabelElement);
 
-/*    const inputElement = document.createElement('input')
-    inputElement.type = 'email'
-    inputElement.id = label.toLowerCase()
-    inputElement.placeholder = 'example@mail.com'
-
-
-    inputElement.onchange = () => switchObject.setEmail(inputElement.value)
-
-    inputElement.addEventListener('change', () => {
-
-        if (switchObject.getEmailValidity()) {
-            inputElement.classList.add('valid')
-            inputElement.classList.remove('invalid')
-        } else {
-            inputElement.classList.remove('valid')
-            inputElement.classList.add('invalid')
-        }
-
-        // Reset classes when input field is empty
-        if (!switchObject.getEmail()) {
-            inputElement.classList.remove('valid')
-            inputElement.classList.remove('invalid')
-        }
-    })
-
-    switchObject.onEmailChanged(() => inputElement.value = switchObject.getEmail())*/
-
-
-
-
-
-
 
 /*    /!* Dark-/Light-Mode Toggle *!/
     const switchTheme = state => {
@@ -146,11 +114,11 @@ const switchLabelProjector = () => {
     switchLabelElement.onmouseover = () => {
         if (!checkBoxElement.disabled && !checkBoxElement.readOnly) {
             if (checkBoxElement.checked) {
-                arrowLeftElement.style.display = 'none';
-                arrowRightElement.style.display = 'block';
-            } else {
-                arrowRightElement.style.display = 'none';
                 arrowLeftElement.style.display = 'block';
+                arrowRightElement.style.display = 'none';
+            } else {
+                arrowRightElement.style.display = 'block';
+                arrowLeftElement.style.display = 'none';
             }
         }
     }
