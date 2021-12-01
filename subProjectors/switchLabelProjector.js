@@ -18,12 +18,26 @@ const switchLabelProjector = () => {
 
      */
 
+    const switchTheme = state => {
+        console.log(state);
+       // if (toggleLabelElement.checked) {
+            if (state) {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light'); //add this
+            } else {
+
+
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark'); //add this
+            }
+     //   }
+    }
+
 
     const switchLabelElement = document.createElement('label');
     switchLabelElement.classList.add('switch');
 
     const checkBoxElement = document.createElement('input');
-    //checkBoxElement.id = 'two-state';
     checkBoxElement.type = 'checkbox';
     checkBoxElement.setAttribute('data-type', 'switch');
 
@@ -31,25 +45,21 @@ const switchLabelProjector = () => {
     thumbElement.classList.add('thumb');
 
     const arrowLeftElement = document.createElement('span');
-    //arrowLeftElement.id = 'arrow-left-two-state';
     arrowLeftElement.classList.add('arrow', 'arrow-left');
 
     const arrowRightElement = document.createElement('span');
-    //arrowRightElement.id = 'arrow-right-two-state';
     arrowRightElement.classList.add('arrow', 'arrow-right');
 
     thumbElement.appendChild(arrowLeftElement);
     thumbElement.appendChild(arrowRightElement);
 
     const crossImgElement = document.createElement('img');
-    //crossImgElement.id = 'two-state-off';
     crossImgElement.alt = 'off';
     crossImgElement.classList.add('switch-icon', 'off');
     crossImgElement.src = 'assets/kolibri/icons/cross.svg';
     crossImgElement.draggable = false;
 
     const checkmarkImgElement = document.createElement('img');
-    //crossImgElement.id = 'two-state-on';
     checkmarkImgElement.alt = 'on';
     checkmarkImgElement.classList.add('switch-icon', 'on');
     checkmarkImgElement.src = 'assets/kolibri/icons/checkmark.svg';
@@ -80,7 +90,7 @@ const switchLabelProjector = () => {
 
     checkmarkImgElement.onclick = _ => {
         checkBoxElement.checked  = true;
-        //switchTheme(checkbox.checked);
+        switchTheme(checkBoxElement.checked);
     }
 
 
@@ -88,7 +98,7 @@ const switchLabelProjector = () => {
         switchLabelElement.classList.add("focus");
         switchLabelElement.focus();
         checkBoxElement.checked = false;
-        //switchTheme(switchModel.TwoState.checked);
+        switchTheme(checkBoxElement.checked);
     }
 
 
@@ -132,7 +142,7 @@ const switchLabelProjector = () => {
         let cmove = calcMovement(e.x);
         checkBoxElement.setAttribute('checked', `${cmove}`);
         checkBoxElement.checked = cmove;
-        //switchTheme(cmove);
+        switchTheme(cmove);
     };
 
     const calcMovement = (ex) => {
@@ -167,5 +177,5 @@ const switchLabelProjector = () => {
     /* Needs to be in projector */
 
     //console.log(switchLabelElement);
-    return switchLabelElement
+    return switchLabelElement;
 }

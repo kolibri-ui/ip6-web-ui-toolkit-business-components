@@ -12,17 +12,17 @@ const configurationProjector = (switchLabel) => {
 
     const labelForDisableElement = document.createElement('label');
     labelForDisableElement.htmlFor = 'disable-two-state';
-    labelForDisableElement.textContent = 'Disabled';
+    labelForDisableElement.textContent = 'Disabled ';
 
     const inputDisableElement = document.createElement('input');
     inputDisableElement.id = 'disable-two-state';
     inputDisableElement.type = 'checkbox';
 
-
+    const brElement = document.createElement('br');
 
     const labelForReadonlyElement = document.createElement('label');
     labelForReadonlyElement.htmlFor = 'readonly-two-state';
-    labelForReadonlyElement.textContent = 'Read-Only';
+    labelForReadonlyElement.textContent = 'Read-Only ';
 
     const inputReadonlyElement = document.createElement('input');
     inputReadonlyElement.id = 'readonly-two-state';
@@ -32,6 +32,7 @@ const configurationProjector = (switchLabel) => {
     statesDivElement.appendChild(h4Element);
     statesDivElement.appendChild(labelForDisableElement);
     labelForDisableElement.appendChild(inputDisableElement);
+    labelForDisableElement.appendChild(brElement);
     statesDivElement.appendChild(labelForReadonlyElement);
     statesDivElement.appendChild(inputReadonlyElement);
 
