@@ -1,5 +1,4 @@
 import { switchLabelProjector } from '../subProjectors/switchLabelProjector.js';
-import { twoStateProjector } from "../subProjectors/twoStateProjector.js";
 import { configurationProjector } from "../subProjectors/configurationProjector.js";
 import { switchBoxProjector } from "../subProjectors/switchBoxProjector.js";
 import { featureToggleProjector } from "../subProjectors/featureToggleProjector.js";
@@ -20,22 +19,6 @@ const switchProjector = (controller, rootElement, switchModel) => {
     const switchBoxDivElement = switchBoxProjector();
 
     //const featureToggleLabelElement = featureToggleProjector(switchLabelElement)[0];
-
-    //const twoStateElement = twoStateProjector();
-
-
-    const switchTheme = state => {
-
-        if (toggleLabelElement.checked) {
-            if (state) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark'); //add this
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light'); //add this
-            }
-        }
-    }
 
 
     switchBoxDivElement.appendChild(switchLabelElement);

@@ -28,22 +28,9 @@ const featureToggleProjector = (switchLabel, switchModel) => {
         }
     }
 
-/*    const switchTheme = state => {
-
-        if (toggleInputElement.checked) {
-            if (state) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark'); //add this
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light'); //add this
-            }
-        }
-    }*/
 
     toggleLabelElement.appendChild(toggleInputElement);
 
-    // console.log(switchTheme);
     return toggleLabelElement;
 
 }

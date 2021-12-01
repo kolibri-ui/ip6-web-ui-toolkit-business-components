@@ -3,21 +3,6 @@ export { switchLabelProjector }
 
 const switchLabelProjector = switchModel => {
 
-    /*
-        <label class="switch">
-            <input type="checkbox" id="two-state" data-type="switch">
-            <span class="thumb">
-            <span class="arrow arrow-left" id="arrow-right-two-state"></span>
-            <span class="arrow arrow-right" id="arrow-left-two-state"></span>
-        </span>
-            <img alt="off" class="switch-icon off" id="two-state-off" src="assets/kolibri/icons/cross.svg"
-                 draggable="false">
-            <img alt="on" class="switch-icon on" id="two-state-on" src="assets/kolibri/icons/checkmark.svg"
-                 draggable="false">
-        </label>
-
-     */
-
     const switchTheme = state => {
         if(switchModel.isDark.getValue()){
             if (state) {
@@ -68,23 +53,6 @@ const switchLabelProjector = switchModel => {
     switchLabelElement.appendChild(thumbElement);
     switchLabelElement.appendChild(crossImgElement);
     switchLabelElement.appendChild(checkmarkImgElement);
-
-    //console.log(switchLabelElement);
-
-
-/*    /!* Dark-/Light-Mode Toggle *!/
-    const switchTheme = state => {
-
-        if (switchModel.FeatureToggle.checked) {
-            if (state) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark'); //add this
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light'); //add this
-            }
-        }
-    }*/
 
 
     checkmarkImgElement.onclick = _ => {
@@ -173,8 +141,6 @@ const switchLabelProjector = switchModel => {
         }
     };
 
-    /* Needs to be in projector */
 
-    //console.log(switchLabelElement);
     return switchLabelElement;
 }
