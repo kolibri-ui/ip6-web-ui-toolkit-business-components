@@ -7,11 +7,11 @@ import { featureToggleProjector } from "../subProjectors/featureToggleProjector.
 export { switchProjector }
 
 /* Build main switch projector, combine all sub projectors */
-const switchProjector = (controller, rootElement) => {
+const switchProjector = (controller, rootElement, switchModel) => {
 
-    const switchLabelElement = switchLabelProjector();
+    const switchLabelElement = switchLabelProjector(switchModel);
 
-    const toggleLabelElement = featureToggleProjector(switchLabelElement);
+    const toggleLabelElement = featureToggleProjector(switchLabelElement, switchModel);
    // const switchThemeElement = featureToggleProjector(switchLabelElement)[1];
 
 

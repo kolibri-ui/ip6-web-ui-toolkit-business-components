@@ -7,8 +7,8 @@ export { Observable, ObservableList }
  */
 
 /**
- * Manages the observability of a value and informs all listener as soon as the calue gets changed
- * @param {*} value - The value this Observable should listen to and notify whenever it changes
+ * Manages the observability of a value and informs all listener as soon as the value gets changed.
+ * @param {*} value - The value this Observable should listen to and notify whenever it changes.
  * @returns {{
  *  onChange: function(callback): void,
  *  getValue: function(): *,

@@ -1,7 +1,7 @@
 export { switchLabelProjector }
 
 
-const switchLabelProjector = () => {
+const switchLabelProjector = switchModel => {
 
     /*
         <label class="switch">
@@ -19,8 +19,7 @@ const switchLabelProjector = () => {
      */
 
     const switchTheme = state => {
-        console.log(state);
-       // if (toggleLabelElement.checked) {
+        if(switchModel.isDark.getValue()){
             if (state) {
                 document.documentElement.setAttribute('data-theme', 'light');
                 localStorage.setItem('theme', 'light'); //add this
@@ -30,7 +29,7 @@ const switchLabelProjector = () => {
                 document.documentElement.setAttribute('data-theme', 'dark');
                 localStorage.setItem('theme', 'dark'); //add this
             }
-     //   }
+        }
     }
 
 
@@ -155,7 +154,7 @@ const switchLabelProjector = () => {
 
 
     //Keyboard Control
-/*    document.onkeydown = (e) => {
+    document.onkeydown = (e) => {
         if (document.activeElement.dataset.type === "switch") {
 
             if (e.key === "ArrowRight") {
@@ -170,9 +169,9 @@ const switchLabelProjector = () => {
                     document.activeElement.indeterminate = true;
                 }
             }
-            switchTheme(switchModel.TwoState.checked);
+            switchTheme(checkBoxElement.checked);
         }
-    };*/
+    };
 
     /* Needs to be in projector */
 

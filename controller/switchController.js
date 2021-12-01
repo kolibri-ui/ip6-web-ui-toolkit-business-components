@@ -1,6 +1,7 @@
 import { switchProjector } from "../mainProjector/switchProjector.js";
 import { switchLabelProjector } from "../subProjectors/switchLabelProjector.js";
 import { ObservableList } from "../observable/observable.js";
+import {Attribute, VALUE} from "../presentationModel/presentationModel.js";
 
 
 export {SwitchController, View}
@@ -19,86 +20,11 @@ const SwitchController = () => {
      */
     const SwitchModel = () => {
 
-        /* Three-State Switch Attributes */
-/*        const threeState = document.getElementById("three-state");
-        const threeStateOuter = threeState.parentNode.nodeName;
-        const threeStateIndeterminate = document.getElementById("three-state-indeterminate");
-        const threeStateOff = document.getElementById("three-state-off");
-        const threeStateOn = document.getElementById("three-state-on");
-
-        const disableThreeState = document.getElementById("disable-three-state");
-        const readOnlyThreeState = document.getElementById("readonly-three-state");
-        const requiredThreeState = document.getElementById("required-three-state");
-
-        const arrowLeftThreeState = document.getElementById("arrow-left-three-state");
-        const arrowRightThreeState = document.getElementById("arrow-right-three-state");
-
-        const arrowIndeterminateLeftThreeState = document.getElementById("arrow-indeterminate-left-three-state");
-        const arrowIndeterminateRightThreeState = document.getElementById("arrow-indeterminate-right-three-state");*/
-
-
-        /* Two-State Switch Attributes */
-
-      /*  console.log(switchLabelProjector().querySelector('input'));
-        console.log(switchLabelProjector()) */
-
-        //const twoState = document.getElementById("two-state");
-
-
-/*        const twoState = switchLabelProjector().querySelector('input');
-
-
-        const twoStateOuter = twoState.parentNode;
-        const disableTwoState = document.getElementById("disable-two-state");
-        const readOnlyTwoState = document.getElementById("readonly-two-state");
-        const twoStateOn = document.getElementById("two-state-on");
-        const twoStateOff = document.getElementById("two-state-off");
-
-        const arrowLeftTwoState = document.getElementById("arrow-left-two-state");
-        const arrowRightTwoState = document.getElementById("arrow-right-two-state");
-
-
-        /!* Configuration Attributes *!/
-        const featureToggle = document.getElementById("featureToggle");
-        const switchColor = document.getElementById("switchColor");
-        const switchColorBG = document.getElementById("switchColorBG");*/
-
-/*        switchColorBG.addEventListener("input", changeColorBG, false);
-        switchColorBG.addEventListener("change", changeColorBG, false);*/
+        const darkModeAttr = Attribute(false);
 
 
         return {
-/*            ThreeState: threeState,
-            ThreeStateOuter: threeStateOuter,
-            ThreeStateIndeterminate: threeStateIndeterminate,
-            ThreeStateOff:threeStateOff,
-            ThreeStateOn:threeStateOn,
-            DisableThreeState:disableThreeState,
-            ReadOnlyThreeState:readOnlyThreeState,
-            RequiredThreeState:requiredThreeState,
-
-            ArrowLeftThreeState:arrowLeftThreeState,
-            ArrowRightThreeState:arrowRightThreeState,
-
-            ArrowIndeterminateLeftThreeState:arrowIndeterminateLeftThreeState,
-            ArrowIndeterminateRightThreeState:arrowIndeterminateRightThreeState,*/
-
-
-
-       /*     TwoState:twoState,
-            TwoStateOuter:twoStateOuter,
-            DisableTwoState:disableTwoState,
-            ReadOnlyTwoState:readOnlyTwoState,
-            TwoStateOn:twoStateOn,
-            TwoStateOff:twoStateOff,
-
-
-            ArrowLeftTwoState:arrowLeftTwoState,
-            ArrowRightTwoState:arrowRightTwoState,
-
-            FeatureToggle:featureToggle,
-            SwitchColor:switchColor,
-            SwitchColorBG:switchColorBG*/
+            isDark : darkModeAttr.getObs(VALUE)
 
         }
     }
@@ -120,7 +46,7 @@ const SwitchController = () => {
 }
 
 const View = (controller, rootElement) => {
-    const render = () => switchProjector(controller, rootElement)
+    const render = switchModel => switchProjector(controller, rootElement, switchModel)
     controller.onSwitchAdd(render)
 }
 
