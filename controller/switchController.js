@@ -39,10 +39,13 @@ const SwitchController = () => {
 
         /* Two-State Switch Attributes */
 
-        console.log(switchLabelProjector().querySelector('input'));
+      /*  console.log(switchLabelProjector().querySelector('input'));
+        console.log(switchLabelProjector()) */
 
         //const twoState = document.getElementById("two-state");
-        const twoState = switchLabelProjector().querySelector('input');
+
+
+/*        const twoState = switchLabelProjector().querySelector('input');
 
 
         const twoStateOuter = twoState.parentNode;
@@ -55,10 +58,10 @@ const SwitchController = () => {
         const arrowRightTwoState = document.getElementById("arrow-right-two-state");
 
 
-        /* Configuration Attributes */
+        /!* Configuration Attributes *!/
         const featureToggle = document.getElementById("featureToggle");
         const switchColor = document.getElementById("switchColor");
-        const switchColorBG = document.getElementById("switchColorBG");
+        const switchColorBG = document.getElementById("switchColorBG");*/
 
 /*        switchColorBG.addEventListener("input", changeColorBG, false);
         switchColorBG.addEventListener("change", changeColorBG, false);*/
@@ -82,7 +85,7 @@ const SwitchController = () => {
 
 
 
-            TwoState:twoState,
+       /*     TwoState:twoState,
             TwoStateOuter:twoStateOuter,
             DisableTwoState:disableTwoState,
             ReadOnlyTwoState:readOnlyTwoState,
@@ -95,10 +98,12 @@ const SwitchController = () => {
 
             FeatureToggle:featureToggle,
             SwitchColor:switchColor,
-            SwitchColorBG:switchColorBG
+            SwitchColorBG:switchColorBG*/
 
         }
     }
+
+   // const twoState = switchLabelProjector().querySelector('input');
 
     const switchModel = ObservableList([])
 
@@ -370,25 +375,6 @@ const calcMovement = (ex) => {
 
 
 
-//Keyboard Control
-document.onkeydown = (e) => {
-    if (document.activeElement.dataset.type === "switch") {
 
-        if (e.key === "ArrowRight") {
-            document.activeElement.indeterminate = false;
-            document.activeElement.checked = true;
-        } else if (e.key === "ArrowLeft") {
-            document.activeElement.indeterminate = false;
-            document.activeElement.checked = false;
-        }
-        if (e.key === "Delete") {
-            if (document.activeElement.dataset.threestate === "true") {
-                document.activeElement.indeterminate = true;
-            }
-        }
-        switchTheme(TwoState.checked);
-    }
-};
-/* Needs to be in projector */
 
 

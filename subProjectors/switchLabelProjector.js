@@ -1,7 +1,7 @@
-export {switchLabelProjector}
+export { switchLabelProjector }
 
 
-const switchLabelProjector = (switchObject, label) => {
+const switchLabelProjector = () => {
 
     /*
         <label class="switch">
@@ -18,8 +18,9 @@ const switchLabelProjector = (switchObject, label) => {
 
      */
 
-    const labelElement = document.createElement('label');
-    labelElement.classList.add('switch');
+
+    const switchLabelElement = document.createElement('label');
+    switchLabelElement.classList.add('switch');
 
     const checkBoxElement = document.createElement('input');
     //checkBoxElement.id = 'two-state';
@@ -54,10 +55,12 @@ const switchLabelProjector = (switchObject, label) => {
     checkmarkImgElement.src = 'assets/kolibri/icons/checkmark.svg';
     checkmarkImgElement.draggable = false;
 
-    labelElement.appendChild(checkBoxElement);
-    labelElement.appendChild(thumbElement);
-    labelElement.appendChild(crossImgElement);
-    labelElement.appendChild(checkmarkImgElement);
+    switchLabelElement.appendChild(checkBoxElement);
+    switchLabelElement.appendChild(thumbElement);
+    switchLabelElement.appendChild(crossImgElement);
+    switchLabelElement.appendChild(checkmarkImgElement);
+
+    //console.log(switchLabelElement);
 
 /*    const inputElement = document.createElement('input')
     inputElement.type = 'email'
@@ -86,5 +89,115 @@ const switchLabelProjector = (switchObject, label) => {
 
     switchObject.onEmailChanged(() => inputElement.value = switchObject.getEmail())*/
 
-    return labelElement
+
+
+
+
+
+
+/*    /!* Dark-/Light-Mode Toggle *!/
+    const switchTheme = state => {
+
+        if (switchModel.FeatureToggle.checked) {
+            if (state) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark'); //add this
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light'); //add this
+            }
+        }
+    }*/
+
+
+    checkmarkImgElement.onclick = _ => {
+        checkBoxElement.checked  = true;
+        //switchTheme(checkbox.checked);
+    }
+
+
+    crossImgElement.onclick = _ => {
+        switchLabelElement.classList.add("focus");
+        switchLabelElement.focus();
+        checkBoxElement.checked = false;
+        //switchTheme(switchModel.TwoState.checked);
+    }
+
+
+
+    /* On Focus */
+    checkBoxElement.onfocus = _ => {
+        switchLabelElement.classList.add("focus");
+        switchLabelElement.focus();
+    }
+
+    /* On Blur */
+    checkBoxElement.onblur = _ => {
+        switchLabelElement.classList.remove("focus");
+        switchLabelElement.blur();
+    }
+
+
+    switchLabelElement.onmouseout = () => {
+        arrowLeftElement.style.display = 'none';
+        arrowRightElement.style.display = 'none';
+    }
+
+    switchLabelElement.onmouseover = () => {
+        if (!checkBoxElement.disabled && !checkBoxElement.readOnly) {
+            if (checkBoxElement.checked) {
+                arrowLeftElement.style.display = 'none';
+                arrowRightElement.style.display = 'block';
+            } else {
+                arrowRightElement.style.display = 'none';
+                arrowLeftElement.style.display = 'block';
+            }
+        }
+    }
+
+    let mousePos = 0;
+    let mouseOffset = 20;
+
+
+    switchLabelElement.onmousedown = e => mousePos = e.x;
+    switchLabelElement.onmouseup = (e) => {
+        let cmove = calcMovement(e.x);
+        checkBoxElement.setAttribute('checked', `${cmove}`);
+        checkBoxElement.checked = cmove;
+        //switchTheme(cmove);
+    };
+
+    const calcMovement = (ex) => {
+        if (mousePos > ex + mouseOffset) {
+            return false;
+        } else if (mousePos < ex) {
+            return true;
+        }
+    }
+
+
+    //Keyboard Control
+/*    document.onkeydown = (e) => {
+        if (document.activeElement.dataset.type === "switch") {
+
+            if (e.key === "ArrowRight") {
+                document.activeElement.indeterminate = false;
+                document.activeElement.checked = true;
+            } else if (e.key === "ArrowLeft") {
+                document.activeElement.indeterminate = false;
+                document.activeElement.checked = false;
+            }
+            if (e.key === "Delete") {
+                if (document.activeElement.dataset.threestate === "true") {
+                    document.activeElement.indeterminate = true;
+                }
+            }
+            switchTheme(switchModel.TwoState.checked);
+        }
+    };*/
+
+    /* Needs to be in projector */
+
+    //console.log(switchLabelElement);
+    return switchLabelElement
 }

@@ -5,9 +5,9 @@ export { twoStateProjector }
  * ...
  * @param {object} switchModel - Holds all attributes of the Switch model
  */
-const twoStateProjector = switchModel => {
+const twoStateProjector = () => {
 
-    /* Dark-/Light-Mode Toggle */
+    /*/!* Dark-/Light-Mode Toggle *!/
     const switchTheme = state => {
 
         if (switchModel.FeatureToggle.checked) {
@@ -27,7 +27,7 @@ const twoStateProjector = switchModel => {
         switchTheme(checkbox.checked);
     }
 
-    /* Focus State */
+    /!* Focus State *!/
     switchModel.TwoStateOff.onclick = _ => {
         switchModel.TwoStateOuter.classList.add("focus");
         switchModel.TwoStateOuter.focus();
@@ -35,7 +35,7 @@ const twoStateProjector = switchModel => {
         switchTheme(switchModel.TwoState.checked);
     }
 
-    /* Disabled State */
+    /!* Disabled State *!/
     switchModel.DisableTwoState.onchange = e => {
         switchModel.TwoState.disabled = e.target.checked;
         if (e.target.checked) {
@@ -47,7 +47,7 @@ const twoStateProjector = switchModel => {
         }
     }
 
-    /* Read Only State */
+    /!* Read Only State *!/
     switchModel.ReadOnlyTwoState.onchange = e => {
         switchModel.TwoState.readOnly = e.target.checked;
         if (e.target.checked) {
@@ -59,13 +59,13 @@ const twoStateProjector = switchModel => {
         }
     }
 
-    /* On Focus */
+    /!* On Focus *!/
     switchModel.TwoState.onfocus = _ => {
         switchModel.TwoStateOuter.classList.add("focus");
         switchModel.TwoStateOuter.focus();
     }
 
-    /* On Blur */
+    /!* On Blur *!/
     switchModel.TwoState.onblur = _ => {
         switchModel.TwoStateOuter.classList.remove("focus");
         switchModel.TwoStateOuter.blur();
@@ -109,5 +109,27 @@ const twoStateProjector = switchModel => {
         }
     }
 
+
+    //Keyboard Control
+    document.onkeydown = (e) => {
+        if (document.activeElement.dataset.type === "switch") {
+
+            if (e.key === "ArrowRight") {
+                document.activeElement.indeterminate = false;
+                document.activeElement.checked = true;
+            } else if (e.key === "ArrowLeft") {
+                document.activeElement.indeterminate = false;
+                document.activeElement.checked = false;
+            }
+            if (e.key === "Delete") {
+                if (document.activeElement.dataset.threestate === "true") {
+                    document.activeElement.indeterminate = true;
+                }
+            }
+            switchTheme(switchModel.TwoState.checked);
+        }
+    };
+    /!* Needs to be in projector *!/
+*/
 
 }

@@ -1,5 +1,7 @@
-import { switchLabelProjector } from '../subProjectors/switchLabelProjector.js'
+import { switchLabelProjector } from '../subProjectors/switchLabelProjector.js';
 import { twoStateProjector } from "../subProjectors/twoStateProjector.js";
+import { configurationProjector } from "../subProjectors/configurationProjector.js";
+import { switchBoxProjector } from "../subProjectors/switchBoxProjector.js";
 
 export { switchProjector }
 
@@ -8,9 +10,16 @@ const switchProjector = (controller, rootElement) => {
 
 const switchLabelElement = switchLabelProjector();
 
-const twoStateElement = twoStateProjector();
+const statesDivElement = configurationProjector(switchLabelElement);
 
-rootElement.appendChild(switchLabelElement);
-rootElement.appendChild(twoStateElement);
+const switchBoxDivElement = switchBoxProjector();
+
+//const twoStateElement = twoStateProjector();
+
+switchBoxDivElement.appendChild(switchLabelElement);
+switchBoxDivElement.appendChild(statesDivElement);
+
+rootElement.appendChild(switchBoxDivElement);
+
 
 }
