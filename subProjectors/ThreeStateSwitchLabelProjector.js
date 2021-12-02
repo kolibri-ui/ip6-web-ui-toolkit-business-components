@@ -26,10 +26,10 @@ const ThreeStateSwitchLabelProjector = switchModel => {
     arrowRightElement.classList.add('arrow', 'arrow-right');
 
     const arrowIndeterminateLeftElement = document.createElement('span');
-    arrowRightElement.classList.add('arrow', 'arrow-indeterminate-left');
+    arrowIndeterminateLeftElement.classList.add('arrow', 'arrow-indeterminate-left');
 
     const arrowIndeterminateRightElement = document.createElement('span');
-    arrowRightElement.classList.add('arrow', 'arrow-indeterminate-right');
+    arrowIndeterminateRightElement.classList.add('arrow', 'arrow-indeterminate-right');
 
     thumbElement.appendChild(arrowLeftElement);
     thumbElement.appendChild(arrowRightElement);
@@ -99,9 +99,12 @@ const ThreeStateSwitchLabelProjector = switchModel => {
     ThreeStateSwitchLabelElement.onmouseout = () => {
         arrowLeftElement.style.display = 'none';
         arrowRightElement.style.display = 'none';
+        arrowIndeterminateLeftElement.style.display = 'none';
+        arrowIndeterminateRightElement.style.display = 'none';
     }
 
     ThreeStateSwitchLabelElement.onmouseover = () => {
+        //requiredThreeState.checked = false;
         if (!checkBoxElement.disabled && !checkBoxElement.readOnly) {
             if (checkBoxElement.checked) {
                 arrowLeftElement.style.display = 'block';
@@ -109,6 +112,14 @@ const ThreeStateSwitchLabelProjector = switchModel => {
             } else {
                 arrowRightElement.style.display = 'block';
                 arrowLeftElement.style.display = 'none';
+            }
+
+            if (checkBoxElement.indeterminate) {
+                arrowLeftElement.style.display = 'none';
+                arrowRightElement.style.display = 'none';
+                arrowIndeterminateLeftElement.style.display = 'block';
+                arrowIndeterminateRightElement.style.display = 'block';
+
             }
         }
     }

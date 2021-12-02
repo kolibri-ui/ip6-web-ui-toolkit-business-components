@@ -129,16 +129,9 @@ const TwoStateSwitchLabelProjector = switchModel => {
         if (document.activeElement.dataset.type === "switch") {
 
             if (e.key === "ArrowRight") {
-                document.activeElement.indeterminate = false;
                 document.activeElement.checked = true;
             } else if (e.key === "ArrowLeft") {
-                document.activeElement.indeterminate = false;
                 document.activeElement.checked = false;
-            }
-            if (e.key === "Delete") {
-                if (document.activeElement.dataset.threestate === "true") {
-                    document.activeElement.indeterminate = true;
-                }
             }
             switchTheme(checkBoxElement.checked);
         }
