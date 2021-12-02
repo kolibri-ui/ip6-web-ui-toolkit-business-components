@@ -1,18 +1,19 @@
-import {linkProjector} from "../baseProjectors/linkProjector"
-import {cardProjector} from "../baseProjectors/cardProjector"
-import {monologProjector} from "../baseProjectors/monologProjector"
+import {cardProjector} from "../baseProjectors/cardProjector.js";
+import {monologProjector} from "../baseProjectors/monologProjector.js";
+import {buttonProjector} from "../baseProjectors/buttonProjector.js";
+
 
 export {playground}
 
 
 const playground = (controller, rootElement) => {
 
-
-    const buttonCard = cardProjector('Non-Sticky', [link])
-    const link = linkProjector("https://www.google-.com")
-    buttonCard.appendChild(link);
-
     const monologList = monologProjector();
+
+
+    const defaultButton = buttonProjector('Default', null);
+    const buttonCard = cardProjector('Non-Sticky', [defaultButton]);
+
 
     rootElement.appendChild(buttonCard);
     rootElement.appendChild(monologList);
