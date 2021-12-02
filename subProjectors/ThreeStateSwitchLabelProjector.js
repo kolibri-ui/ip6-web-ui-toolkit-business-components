@@ -1,7 +1,9 @@
+import {ThreeStateConfigurationProjector} from "./ThreeStateConfigurationProjector.js";
+
 export { ThreeStateSwitchLabelProjector }
 
 
-const ThreeStateSwitchLabelProjector = switchModel => {
+const ThreeStateSwitchLabelProjector = () => {
 
     const ThreeStateSwitchLabelElement = document.createElement('label');
     ThreeStateSwitchLabelElement.classList.add('switch', 'three-state');
@@ -104,7 +106,6 @@ const ThreeStateSwitchLabelProjector = switchModel => {
     }
 
     ThreeStateSwitchLabelElement.onmouseover = () => {
-        //requiredThreeState.checked = false;
         if (!checkBoxElement.disabled && !checkBoxElement.readOnly) {
             if (checkBoxElement.checked) {
                 arrowLeftElement.style.display = 'block';

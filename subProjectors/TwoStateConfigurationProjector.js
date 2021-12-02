@@ -1,6 +1,6 @@
-export {configurationProjector}
+export {TwoStateConfigurationProjector}
 
-const configurationProjector = (switchLabel) => {
+const TwoStateConfigurationProjector = (switchLabel) => {
 
     const statesDivElement = document.createElement('div');
 
