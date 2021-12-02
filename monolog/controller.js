@@ -15,8 +15,9 @@ const Controller = service => {
     }
 
     return {
+        notification: service.notification,
         onMonologAdd: monologModel.onAdd,
-        addMonolog: addView,
+        addMonolog: addView
     }
 }
 

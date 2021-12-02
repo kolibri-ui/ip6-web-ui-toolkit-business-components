@@ -2,16 +2,17 @@ export {buttonProjector}
 
 /**
  * Creates a <button> Element
- * @param text
- * @param {string} classlist - Describes class list for element
+ * @param text {string}
+ * @param type {string[]}
  * @param callback
  * @returns {HTMLElement} - Returns the anchor Element
  */
-const buttonProjector = (text = "Change this", callback) => {
+const buttonProjector = (text = "Change this", type= ["button-default"], callback=(()=>{}) ) => {
 
     const buttonElement = document.createElement('button');
     buttonElement.innerText = text;
-    buttonElement.classList.add('button', "button-default");
+    buttonElement.classList.add('button');
+    buttonElement.classList.add(...type);
 
     buttonElement.onclick = _ => callback();
 

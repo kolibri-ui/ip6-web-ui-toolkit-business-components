@@ -40,8 +40,8 @@ const notificationProjector = (type = "default",
     notificationMessage.classList.add('monolog-body');
     notificationBody.innerText = message;
 
-    notificationBody.appendChild(notificationTitle);
     notificationBody.appendChild(notificationMessage);
+    notificationBody.appendChild(notificationTitle);
 
     if (sticky) {
         const closeElement = document.createElement('div');
@@ -73,6 +73,8 @@ const notificationProjector = (type = "default",
             }, 520);
         }, timeout);
     }
+
+    notificationElement.appendChild(notificationBody);
 
     return notificationElement;
 }
