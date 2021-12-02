@@ -1,5 +1,3 @@
-import {switchLabelProjector} from "./switchLabelProjector.js";
-
 export {configurationProjector}
 
 const configurationProjector = (switchLabel) => {

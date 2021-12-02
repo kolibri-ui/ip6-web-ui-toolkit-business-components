@@ -1,32 +1,20 @@
-export { switchLabelProjector }
+export { ThreeStateSwitchLabelProjector }
 
 
-const switchLabelProjector = switchModel => {
+const ThreeStateSwitchLabelProjector = switchModel => {
 
-    const switchTheme = state => {
-        if(switchModel.isDark.getValue()){
-            if (state) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-            }
-        }
-    }
-
-
-    const switchLabelElement = document.createElement('label');
-    switchLabelElement.classList.add('switch');
-    switchLabelElement.onclick= e => {
+    const ThreeStateSwitchLabelElement = document.createElement('label');
+    ThreeStateSwitchLabelElement.classList.add('switch', 'three-state');
+    ThreeStateSwitchLabelElement.onclick= e => {
         e.preventDefault();
-        switchLabelElement.focus();
+        ThreeStateSwitchLabelElement.focus();
     }
 
 
     const checkBoxElement = document.createElement('input');
     checkBoxElement.type = 'checkbox';
     checkBoxElement.setAttribute('data-type', 'switch');
+    checkBoxElement.setAttribute('data-threestate', 'true');
 
     const thumbElement = document.createElement('span');
     thumbElement.classList.add('thumb');
@@ -37,8 +25,17 @@ const switchLabelProjector = switchModel => {
     const arrowRightElement = document.createElement('span');
     arrowRightElement.classList.add('arrow', 'arrow-right');
 
+    const arrowIndeterminateLeftElement = document.createElement('span');
+    arrowRightElement.classList.add('arrow', 'arrow-indeterminate-left');
+
+    const arrowIndeterminateRightElement = document.createElement('span');
+    arrowRightElement.classList.add('arrow', 'arrow-indeterminate-right');
+
     thumbElement.appendChild(arrowLeftElement);
     thumbElement.appendChild(arrowRightElement);
+    thumbElement.appendChild(arrowIndeterminateLeftElement);
+    thumbElement.appendChild(arrowIndeterminateRightElement);
+
 
     const crossImgElement = document.createElement('img');
     crossImgElement.alt = 'off';
@@ -46,53 +43,65 @@ const switchLabelProjector = switchModel => {
     crossImgElement.src = 'assets/kolibri/icons/cross.svg';
     crossImgElement.draggable = false;
 
+    const dotImgElement = document.createElement('img');
+    dotImgElement.alt = 'indeterminate';
+    dotImgElement.classList.add('switch-icon', 'indeterminate');
+    dotImgElement.src = 'assets/kolibri/icons/dot.svg';
+    dotImgElement.draggable = false;
+
     const checkmarkImgElement = document.createElement('img');
     checkmarkImgElement.alt = 'on';
     checkmarkImgElement.classList.add('switch-icon', 'on');
     checkmarkImgElement.src = 'assets/kolibri/icons/checkmark.svg';
     checkmarkImgElement.draggable = false;
 
-    switchLabelElement.appendChild(checkBoxElement);
-    switchLabelElement.appendChild(thumbElement);
-    switchLabelElement.appendChild(crossImgElement);
-    switchLabelElement.appendChild(checkmarkImgElement);
+    ThreeStateSwitchLabelElement.appendChild(checkBoxElement);
+    ThreeStateSwitchLabelElement.appendChild(thumbElement);
+    ThreeStateSwitchLabelElement.appendChild(crossImgElement);
+    ThreeStateSwitchLabelElement.appendChild(dotImgElement);
+    ThreeStateSwitchLabelElement.appendChild(checkmarkImgElement);
 
 
     checkmarkImgElement.onclick = _ => {
+        ThreeStateSwitchLabelElement.classList.remove("required");
         checkBoxElement.checked  = true;
         checkBoxElement.setAttribute("checked", "true");
-        switchTheme(checkBoxElement.checked);
+        checkBoxElement.indeterminate = false;
+    }
+
+    dotImgElement.onclick = _ => {
+        checkBoxElement.indeterminate = true;
     }
 
 
     crossImgElement.onclick = _ => {
-        switchLabelElement.classList.add("focus");
+        ThreeStateSwitchLabelElement.classList.remove("required");
         checkBoxElement.checked = false;
         checkBoxElement.setAttribute("checked", "false");
-        switchTheme(checkBoxElement.checked);
+        checkBoxElement.indeterminate = false;
     }
 
 
 
     /* On Focus */
     checkBoxElement.onfocus = _ => {
-        switchLabelElement.classList.add("focus");
-        switchLabelElement.focus();
+        ThreeStateSwitchLabelElement.classList.add("focus");
+        ThreeStateSwitchLabelElement.focus();
     }
 
     /* On Blur */
     checkBoxElement.onblur = _ => {
-        switchLabelElement.classList.remove("focus");
-        switchLabelElement.blur();
+        ThreeStateSwitchLabelElement.classList.remove("focus");
+        ThreeStateSwitchLabelElement.blur();
     }
 
 
-    switchLabelElement.onmouseout = () => {
+    ThreeStateSwitchLabelElement.onmouseout = () => {
         arrowLeftElement.style.display = 'none';
         arrowRightElement.style.display = 'none';
     }
 
-    switchLabelElement.onmouseover = () => {
+    ThreeStateSwitchLabelElement.onmouseover = () => {
         if (!checkBoxElement.disabled && !checkBoxElement.readOnly) {
             if (checkBoxElement.checked) {
                 arrowLeftElement.style.display = 'block';
@@ -108,12 +117,11 @@ const switchLabelProjector = switchModel => {
     let mouseOffset = 20;
 
 
-    switchLabelElement.onmousedown = e => mousePos = e.x;
-    switchLabelElement.onmouseup = (e) => {
+    ThreeStateSwitchLabelElement.onmousedown = e => mousePos = e.x;
+    ThreeStateSwitchLabelElement.onmouseup = (e) => {
         let cmove = calcMovement(e.x);
         checkBoxElement.setAttribute('checked', `${cmove}`);
         checkBoxElement.checked = cmove;
-        switchTheme(cmove);
     };
 
     const calcMovement = (ex) => {
@@ -141,10 +149,9 @@ const switchLabelProjector = switchModel => {
                     document.activeElement.indeterminate = true;
                 }
             }
-            switchTheme(checkBoxElement.checked);
         }
     };
 
 
-    return switchLabelElement;
+    return ThreeStateSwitchLabelElement;
 }

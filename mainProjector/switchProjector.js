@@ -1,32 +1,34 @@
-import { switchLabelProjector } from '../subProjectors/switchLabelProjector.js';
+import { TwoStateSwitchLabelProjector } from '../subProjectors/TwoStateSwitchLabelProjector.js';
 import { configurationProjector } from "../subProjectors/configurationProjector.js";
 import { switchBoxProjector } from "../subProjectors/switchBoxProjector.js";
-import { featureToggleProjector } from "../subProjectors/featureToggleProjector.js";
+import { twoStateFeatureToggleProjector } from "../subProjectors/TwoStateFeatureToggleProjector.js";
+import { ThreeStateSwitchLabelProjector } from "../subProjectors/ThreeStateSwitchLabelProjector.js";
 
 export { switchProjector }
 
 /* Build main switch projector, combine all sub projectors */
 const switchProjector = (controller, rootElement, switchModel) => {
 
-    const switchLabelElement = switchLabelProjector(switchModel);
+    const TwoStateSwitchLabelElement = TwoStateSwitchLabelProjector(switchModel);
+    const ThreeStateSwitchLabelElement = ThreeStateSwitchLabelProjector(switchModel);
 
-    const toggleLabelElement = featureToggleProjector(switchLabelElement, switchModel);
-   // const switchThemeElement = featureToggleProjector(switchLabelElement)[1];
-
-
-    const statesDivElement = configurationProjector(switchLabelElement);
-
-    const switchBoxDivElement = switchBoxProjector();
-
-    //const featureToggleLabelElement = featureToggleProjector(switchLabelElement)[0];
+    const toggleLabelElement = twoStateFeatureToggleProjector(TwoStateSwitchLabelElement, switchModel);
 
 
-    switchBoxDivElement.appendChild(switchLabelElement);
-    switchBoxDivElement.appendChild(statesDivElement);
+    const statesDivElement = configurationProjector(TwoStateSwitchLabelElement);
 
-    rootElement.appendChild(switchBoxDivElement);
+    const TwoStateSwitchBoxDivElement = switchBoxProjector('2-State Switch');
+    const ThreeStateSwitchBoxDivElement = switchBoxProjector('3-State Switch');
+
+
+    TwoStateSwitchBoxDivElement.appendChild(TwoStateSwitchLabelElement);
+    TwoStateSwitchBoxDivElement.appendChild(statesDivElement);
+
+    ThreeStateSwitchBoxDivElement.appendChild(ThreeStateSwitchLabelElement);
+
+    rootElement.appendChild(TwoStateSwitchBoxDivElement);
+    rootElement.appendChild(ThreeStateSwitchBoxDivElement);
     rootElement.appendChild(toggleLabelElement);
-    //rootElement.appendChild(switchThemeElement);
 
 
 }

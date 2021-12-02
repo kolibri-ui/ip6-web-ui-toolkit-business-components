@@ -1,7 +1,6 @@
 import { switchProjector } from "../mainProjector/switchProjector.js";
-import { switchLabelProjector } from "../subProjectors/switchLabelProjector.js";
 import { ObservableList } from "../observable/observable.js";
-import {Attribute, VALUE} from "../presentationModel/presentationModel.js";
+import { Attribute, VALUE } from "../presentationModel/presentationModel.js";
 
 
 export {SwitchController, View}

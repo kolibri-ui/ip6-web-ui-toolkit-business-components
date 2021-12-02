@@ -1,8 +1,6 @@
-export { featureToggleProjector }
+export { twoStateFeatureToggleProjector }
 
-const featureToggleProjector = (switchLabel, switchModel) => {
-    console.log(switchLabel);
-
+const twoStateFeatureToggleProjector = (switchLabel, switchModel) => {
 
     const twoStateOn = switchLabel.querySelector(".on");
     const twoStateOff = switchLabel.querySelector(".off");
