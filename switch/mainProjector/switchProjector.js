@@ -10,23 +10,26 @@ export { switchProjector }
 /* Build main switch projector, combine all sub projectors */
 const switchProjector = (controller, rootElement, switchModel) => {
 
-    /* 2-State Switch */
-    const TwoStateSwitchLabelElement = TwoStateSwitchLabelProjector(switchModel);
-    const TwoStateConfigurationElement = TwoStateConfigurationProjector(TwoStateSwitchLabelElement);
-    const BoxTwoStateSwitchElement = switchBoxProjector('2-State Switch');
-    BoxTwoStateSwitchElement.appendChild(TwoStateSwitchLabelElement);
-    BoxTwoStateSwitchElement.appendChild(TwoStateConfigurationElement);
-    const toggleLabelElement = featureToggleProjector(TwoStateSwitchLabelElement, switchModel);
-    rootElement.appendChild(BoxTwoStateSwitchElement);
-    rootElement.appendChild(toggleLabelElement);
+    switchModel.isThreeState.setValue(true);
 
-
-    /* 3-State Switch */
-    const ThreeStateSwitchLabelElement = ThreeStateSwitchLabelProjector();
-    const ThreeStateConfigurationElement = ThreeStateConfigurationProjector(ThreeStateSwitchLabelElement);
-    const BoxThreeStateSwitchElement = switchBoxProjector('3-State Switch');
-    BoxThreeStateSwitchElement.appendChild(ThreeStateSwitchLabelElement);
-    BoxThreeStateSwitchElement.appendChild(ThreeStateConfigurationElement);
-    rootElement.appendChild(BoxThreeStateSwitchElement);
+    if (switchModel.isThreeState.getValue() === true) {
+        /* 3-State Switch */
+        const ThreeStateSwitchLabelElement = ThreeStateSwitchLabelProjector();
+        const ThreeStateConfigurationElement = ThreeStateConfigurationProjector(ThreeStateSwitchLabelElement);
+        const BoxThreeStateSwitchElement = switchBoxProjector('3-State Switch');
+        BoxThreeStateSwitchElement.appendChild(ThreeStateSwitchLabelElement);
+        BoxThreeStateSwitchElement.appendChild(ThreeStateConfigurationElement);
+        rootElement.appendChild(BoxThreeStateSwitchElement);
+    } else {
+        /* 2-State Switch */
+        const TwoStateSwitchLabelElement = TwoStateSwitchLabelProjector(switchModel);
+        const TwoStateConfigurationElement = TwoStateConfigurationProjector(TwoStateSwitchLabelElement);
+        const BoxTwoStateSwitchElement = switchBoxProjector('2-State Switch');
+        BoxTwoStateSwitchElement.appendChild(TwoStateSwitchLabelElement);
+        BoxTwoStateSwitchElement.appendChild(TwoStateConfigurationElement);
+        const toggleLabelElement = featureToggleProjector(TwoStateSwitchLabelElement, switchModel);
+        rootElement.appendChild(BoxTwoStateSwitchElement);
+        rootElement.appendChild(toggleLabelElement);
+    }
 
 }

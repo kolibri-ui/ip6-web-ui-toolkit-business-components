@@ -18,12 +18,12 @@ const SwitchController = () => {
      * @returns {object} - Switch Model
      */
     const SwitchModel = () => {
-
         const darkModeAttr = Attribute(false);
-
+        const switchTypeAttribute = Attribute(false);
 
         return {
-            isDark : darkModeAttr.getObs(VALUE)
+            isDark : darkModeAttr.getObs(VALUE),
+            isThreeState : switchTypeAttribute.getObs(VALUE)
 
         }
     }
