@@ -1,5 +1,3 @@
-import {ThreeStateConfigurationProjector} from "./ThreeStateConfigurationProjector.js";
-
 export { ThreeStateSwitchLabelProjector }
 
 
@@ -130,11 +128,6 @@ const ThreeStateSwitchLabelProjector = () => {
 
 
     ThreeStateSwitchLabelElement.onmousedown = e => mousePos = e.x;
-    ThreeStateSwitchLabelElement.onmouseup = (e) => {
-        let cmove = calcMovement(e.x);
-        checkBoxElement.setAttribute('checked', `${cmove}`);
-        checkBoxElement.checked = cmove;
-    };
 
     const calcMovement = (ex) => {
         if (mousePos > ex + mouseOffset) {
@@ -143,6 +136,13 @@ const ThreeStateSwitchLabelProjector = () => {
             return true;
         }
     }
+    ThreeStateSwitchLabelElement.onmouseup = (e) => {
+        let calc_movement = calcMovement(e.x);
+        checkBoxElement.setAttribute('checked', `${calc_movement}`);
+        checkBoxElement.checked = calc_movement;
+    };
+
+
 
 
     //Keyboard Control

@@ -4,16 +4,14 @@ export { TwoStateSwitchLabelProjector }
 const TwoStateSwitchLabelProjector = switchModel => {
 
     const switchTheme = state => {
+        const themeName = state ? 'dark' : 'light';
         if(switchModel.isDark.getValue()){
-            if (state) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-            }
+            document.documentElement.setAttribute('data-theme', themeName);
+            localStorage.setItem('theme', themeName);
         }
     }
+
+
 
 
     const TwoStateSwitchLabelElement = document.createElement('label');
@@ -108,12 +106,6 @@ const TwoStateSwitchLabelProjector = switchModel => {
 
 
     TwoStateSwitchLabelElement.onmousedown = e => mousePos = e.x;
-    TwoStateSwitchLabelElement.onmouseup = (e) => {
-        let cmove = calcMovement(e.x);
-        checkBoxElement.setAttribute('checked', `${cmove}`);
-        checkBoxElement.checked = cmove;
-        switchTheme(cmove);
-    };
 
     const calcMovement = (ex) => {
         if (mousePos > ex + mouseOffset) {
@@ -122,6 +114,13 @@ const TwoStateSwitchLabelProjector = switchModel => {
             return true;
         }
     }
+
+    TwoStateSwitchLabelElement.onmouseup = e => {
+        let calc_movement = calcMovement(e.x);
+        checkBoxElement.setAttribute('checked', `${calc_movement}`);
+        checkBoxElement.checked = calc_movement;
+        switchTheme(calc_movement);
+    };
 
 
     //Keyboard Control
