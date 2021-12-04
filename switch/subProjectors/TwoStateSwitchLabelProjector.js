@@ -12,8 +12,6 @@ const TwoStateSwitchLabelProjector = switchModel => {
     }
 
 
-
-
     const TwoStateSwitchLabelElement = document.createElement('label');
     TwoStateSwitchLabelElement.classList.add('switch');
     TwoStateSwitchLabelElement.onclick= e => {
