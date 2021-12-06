@@ -1,6 +1,29 @@
+import {gridOverlayProjector} from "./gridOverlayProjector.js";
+import {ThreeStateSwitchLabelProjector} from "./ThreeStateSwitchLabelProjector.js";
+
 export { gridProjector }
 
 const gridProjector = (switchModel, switchLabel, state) => {
+
+    const gridOverlayDivElement = document.createElement('div');
+    gridOverlayDivElement.classList.add('grid-div-overlay');
+
+    const h1Element = document.createElement('h1');
+    h1Element.textContent = 'Switch Component';
+
+    const title2StateElement = document.createElement('h3');
+    title2StateElement.textContent = '2 State';
+
+    const title3StateElement = document.createElement('h3');
+    title3StateElement.textContent = '3 State';
+
+    gridOverlayDivElement.appendChild(h1Element);
+    gridOverlayDivElement.appendChild(title2StateElement);
+    gridOverlayDivElement.appendChild(title3StateElement);
+
+    //return gridOverlayDivElement;
+
+
 
     const showGridButton = document.createElement('button');
     showGridButton.type = 'button';
@@ -8,16 +31,13 @@ const gridProjector = (switchModel, switchLabel, state) => {
     showGridButton.textContent = "Show possible states";
     showGridButton.style.margin = '3rem';
 
-    showGridButton.onclick = function() {
-        switchModel.isGridActive.setValue(true);
-    };
 
     switch(state) {
      case 'activeOff':
-        switchLabel.querySelector('input').checked = false;
+         switchLabel.querySelector('input').checked = false;
          break;
      case 'activeIndet':
-
+         switchLabel.querySelector('input').indeterminate = true;
          break;
 
      case 'activeOn':
@@ -61,6 +81,6 @@ const gridProjector = (switchModel, switchLabel, state) => {
          break;
  }
 
- return [showGridButton, switchLabel];
+ return [showGridButton, gridOverlayDivElement, switchLabel];
 
 }

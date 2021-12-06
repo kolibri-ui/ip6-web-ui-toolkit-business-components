@@ -64,6 +64,21 @@ html, body {
     rgba(0, 0, 0, 0.43) 0px 3px 6px;
 }
 
+.switch-div-overlay {
+    margin: 3rem;
+    min-width: 63rem;
+    max-width: 65rem;
+    background: var(--background);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.75rem;
+    box-shadow: rgba(0, 0, 0, 0.36) 5px 3px 6px,
+    rgba(0, 0, 0, 0.43) 0px 3px 6px;
+}
+
 .featureToggle {
     position: fixed;
     bottom: 5px;

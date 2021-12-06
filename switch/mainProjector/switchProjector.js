@@ -11,7 +11,7 @@ export { switchProjector }
 /* Build main switch projector, combine all sub projectors */
 const switchProjector = (controller, rootElement, switchModel) => {
 
-    switchModel.isThreeState.setValue(true);
+
 
     /* 3-State Switch */
     const ThreeStateSwitchLabelElement = ThreeStateSwitchLabelProjector();
@@ -26,15 +26,17 @@ const switchProjector = (controller, rootElement, switchModel) => {
     /* Dark- / Light-Mode Toggle */
     const toggleLabelElement = featureToggleProjector(TwoStateSwitchLabelElement, switchModel);
 
-    /* Show Grid Toggle */
+/*    /!* Show Grid Toggle *!/
     const gridElement = gridProjector(switchModel, ThreeStateSwitchLabelElement, '');
-    rootElement.appendChild(gridElement[0]);
+    rootElement.appendChild(gridElement[0]);*/
 
-    if (switchModel.isGridActive.getValue() === true) {
+/*    if (switchModel.isGridActive.getValue() === true) {
         const gridElement1 = gridProjector(switchModel, ThreeStateSwitchLabelElement, 'activeOn');
         rootElement.appendChild(gridElement1[1]);
 
-    } else {
+    } else {*/
+
+    switchModel.isThreeState.setValue(true);
 
         if (switchModel.isThreeState.getValue() === true) {
             BoxThreeStateSwitchElement.appendChild(ThreeStateSwitchLabelElement);
@@ -48,6 +50,6 @@ const switchProjector = (controller, rootElement, switchModel) => {
             rootElement.appendChild(toggleLabelElement);
         }
 
-    }
+    // }
 
 }
