@@ -35,6 +35,14 @@
     left: 71px;
 }
 
+.closeOverlay-icon {
+    position: relative;
+    cursor: pointer;
+    height: var(--switch-icon-height);
+    z-index: 1;
+    align-self: end;
+}
+
 /* Todo make it invisible*/
 .switch input {
     position: absolute;
