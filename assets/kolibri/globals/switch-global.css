@@ -64,9 +64,9 @@ html, body {
     rgba(0, 0, 0, 0.43) 0px 3px 6px;
 }
 
-.switch-div-overlay {
+.grid-div-overlay {
     margin: 3rem;
-    min-width: 63rem;
+    min-width: 103rem;
     max-width: 65rem;
     background: var(--background);
     padding: 2rem;

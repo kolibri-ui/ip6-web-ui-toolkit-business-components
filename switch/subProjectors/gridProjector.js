@@ -1,7 +1,7 @@
 import {gridOverlayProjector} from "./gridOverlayProjector.js";
 import {ThreeStateSwitchLabelProjector} from "./ThreeStateSwitchLabelProjector.js";
 
-export { gridProjector }
+export {gridProjector}
 
 const gridProjector = (switchModel, switchLabel, state) => {
 
@@ -21,9 +21,6 @@ const gridProjector = (switchModel, switchLabel, state) => {
     gridOverlayDivElement.appendChild(title2StateElement);
     gridOverlayDivElement.appendChild(title3StateElement);
 
-    //return gridOverlayDivElement;
-
-
 
     const showGridButton = document.createElement('button');
     showGridButton.type = 'button';
@@ -32,55 +29,65 @@ const gridProjector = (switchModel, switchLabel, state) => {
     showGridButton.style.margin = '3rem';
 
 
-    switch(state) {
-     case 'activeOff':
-         switchLabel.querySelector('input').checked = false;
-         break;
-     case 'activeIndet':
-         switchLabel.querySelector('input').indeterminate = true;
-         break;
+    switch (state) {
+        case 'activeOff':
+            switchLabel.querySelector('input').checked = false;
+            break;
+        case 'activeIndet':
+            switchLabel.querySelector('input').indeterminate = true;
+            break;
 
-     case 'activeOn':
-         switchLabel.querySelector('input').checked = true;
-         break;
-     case 'disabledOff':
+        case 'activeOn':
+            switchLabel.querySelector('input').checked = true;
+            break;
+        case 'focusedOff':
+           switchLabel.classList.add("focus");
+            break;
+        case 'focusIndet':
+            switchLabel.classList.add("focus");
+            switchLabel.querySelector('input').indeterminate = true;
+            break;
 
-         break;
+        case 'focusOn':
+            switchLabel.classList.add("focus");
+            switchLabel.querySelector('input').checked = true;
+            break;
 
-     case 'disabledIndet':
+        case 'disabledOff':
+            switchLabel.classList.add("disabled");
+            break;
 
-         break;
-     case 'disabledOn':
+        case 'disabledIndet':
+            switchLabel.classList.add("disabled");
+            switchLabel.querySelector('input').indeterminate = true;
+            break;
+        case 'disabledOn':
+            switchLabel.classList.add("disabled");
+            switchLabel.querySelector('input').checked = true;
+            break;
 
-         break;
+        case 'readonlyOff':
+            switchLabel.classList.add("read-only");
+            break;
+        case 'readonlyIndet':
+            switchLabel.classList.add("read-only");
+            switchLabel.querySelector('input').indeterminate = true;
+            break;
+        case 'readonlyOn':
+            switchLabel.classList.add("read-only");
+            switchLabel.querySelector('input').checked = true;
+            break;
+        case 'requiredInvalid':
+            switchLabel.classList.add("required");
+            switchLabel.querySelector('input').indeterminate = true;
+            break;
+        case 'requiredFocused':
+            switchLabel.classList.add("required");
+            switchLabel.classList.add("focus");
+            switchLabel.querySelector('input').indeterminate = true;
+            break;
+    }
 
-     case 'focusedOff':
-
-         break;
-     case 'focusIndet':
-
-         break;
-
-     case 'focusOn':
-
-         break;
-     case 'readonlyOff':
-
-         break;
-     case 'readonlyIndet':
-
-         break;
-     case 'readonlyOn':
-
-         break;
-     case 'requiredInvalid':
-
-         break;
-     case 'requiredFocused':
-
-         break;
- }
-
- return [showGridButton, gridOverlayDivElement, switchLabel];
+    return [showGridButton, gridOverlayDivElement, switchLabel];
 
 }

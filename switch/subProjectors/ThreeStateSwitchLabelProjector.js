@@ -82,7 +82,6 @@ const ThreeStateSwitchLabelProjector = () => {
     }
 
 
-
     /* On Focus */
     checkBoxElement.onfocus = _ => {
         ThreeStateSwitchLabelElement.classList.add("focus");

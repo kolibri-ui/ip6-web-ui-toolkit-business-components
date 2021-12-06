@@ -11,8 +11,6 @@ export { switchProjector }
 /* Build main switch projector, combine all sub projectors */
 const switchProjector = (controller, rootElement, switchModel) => {
 
-
-
     /* 3-State Switch */
     const ThreeStateSwitchLabelElement = ThreeStateSwitchLabelProjector();
     const ThreeStateConfigurationElement = ThreeStateConfigurationProjector(ThreeStateSwitchLabelElement);
