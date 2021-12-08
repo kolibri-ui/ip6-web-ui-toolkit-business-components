@@ -3,10 +3,9 @@ import {notificationProjector} from "../baseProjectors/notificationProjector.js"
 export {monologService}
 
 /**
- * Playground Service. Add some Checks like a login check or other functionalities
+ * Monolog Service.
  */
 const monologService = () => {
-
 
     const notification = (elem ,
                           type,
@@ -19,6 +18,7 @@ const monologService = () => {
         const notification = notificationProjector(type, sticky, attention, icon, title, message, timeout);
         elem.appendChild(notification);
     }
+
     return {
         notification
     }
