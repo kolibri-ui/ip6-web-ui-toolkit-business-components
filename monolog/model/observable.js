@@ -9,11 +9,8 @@ export {Observable, ObservableList}
 /**
  * Manages the observability of a value and informs all listener as soon as the calue gets changed
  * @param {*} value - The value this Observable should listen to and notify whenever it changes
- * @returns {{
- *  onChange: function(callback): void,
- *  getValue: function(): *,
- *  setValue: function(newValue): void
- * }}
+ * @returns {{getValue: (function(): *), onChange: onChange, setValue: setValue}}
+ * @constructor
  */
 const Observable = value => {
     const listeners = []
@@ -34,16 +31,17 @@ const Observable = value => {
 
 /**
  *
- * @param {*[]} list - A list of listeners
+ * @param list
  * @returns {{
- *  onAdd: function(listener): number,
- *  onDel: function(listener): number,
- *  add: function(item): item,
- *  del: function(item): void,
- *  removeDeleteListener: function(delListeners),
- *  count: function(): number,
- *  countIf: function(pred): number
+ * add: (function(*): *),
+ * removeDeleteListener: ((function(*): void)|*),
+ * onDel: (function(*): number),
+ * count: (function(): *),
+ * del: del,
+ * countIf: (function(*): *),
+ * onAdd: (function(*): number)
  * }}
+ * @constructor
  */
 const ObservableList = list => {
     const addListeners = []
