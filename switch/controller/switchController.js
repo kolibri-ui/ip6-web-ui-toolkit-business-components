@@ -9,8 +9,9 @@ export {SwitchController, View, Grid }
 const SwitchController = () => {
 
     /**
+     * -> Typen gross, typedef kein return
      * Holds all the Attributes of the Login component and makes them partially externally available
-     * @typedef {object} switch
+     * @typedef {object} Switch
      * @property threeState - threeState
      * @property threeStateOuter - threeStateOuter
 
@@ -19,30 +20,30 @@ const SwitchController = () => {
      * @returns {object} - Switch Model
      */
     const SwitchModel = () => {
-        const darkModeAttr = Attribute(false);
-        const switchTypeAttribute = Attribute(false);
-        const showGridAttribute = Attribute(false);
+        const darkModeAttr          = Attribute(false);
+        const switchTypeAttribute   = Attribute(false);
+        const showGridAttribute     = Attribute(false);
 
         return {
-            isDark : darkModeAttr.getObs(VALUE),
-            isThreeState : switchTypeAttribute.getObs(VALUE),
-            isGridActive: showGridAttribute.getObs(VALUE)
+            isDark          : darkModeAttr          .getObs(VALUE),
+            isThreeState    : switchTypeAttribute   .getObs(VALUE),
+            isGridActive    : showGridAttribute     .getObs(VALUE)
         }
     }
 
 
-    const switchModel = ObservableList([])
+    const switchModel = ObservableList([]);
 
     const addSwitch = () => {
-        const newSwitch = SwitchModel()
-        switchModel.add(newSwitch)
-        return newSwitch
+        const newSwitch = SwitchModel();
+        switchModel.add(newSwitch);
+        return newSwitch;
     }
 
     const showGrid = () => {
         const showGrid = SwitchModel();
-        switchModel.add(showGrid)
-        return showGrid
+        switchModel.add(showGrid);
+        return showGrid;
     }
 
     return {
