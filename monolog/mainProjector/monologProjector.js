@@ -17,10 +17,10 @@ const monologProjector = (controller, rootElement) => {
         nonStickyButtons.push(
             buttonProjector(b, ["button-" + b.toLowerCase()], () => {
                 controller.notification(monologList,
-                    b.toLowerCase(),
+                    b,
                     false,
                     false,
-                    false,
+                    true,
                     b + " Title",
                     "and a " + b.toLowerCase() + " Message, 1 sec", 1000
                 );
@@ -38,7 +38,7 @@ const monologProjector = (controller, rootElement) => {
                     b,
                     true,
                     false,
-                    false,
+                    true,
                     b + " Title",
                     "and a " + b.toLowerCase() + " Message", 5000
                 );

@@ -23,9 +23,36 @@ const notificationProjector = (type = "default",
     notificationElement.classList.add('monolog', type.toLowerCase());
 
     if (icon) {
-        const iconElement = document.createElement('i');
+        const iconElement = document.createElement('div');
         iconElement.classList.add('monolog-icon');
-        // Todo add Icon as Background Image
+
+        const iconImgElement = document.createElement('img');
+
+        switch (type){
+            //'Default', 'Info', 'Success', 'Warning', 'Error'
+            case 'Default':
+
+                break;
+
+            case 'Info':
+                iconImgElement.src = '../styles/kolibri/icons/info-icon.svg';
+                break;
+
+            case 'Success':
+                iconImgElement.src = '../styles/kolibri/icons/success-icon.svg';
+                break;
+
+            case 'Warning' :
+                iconImgElement.src = '../styles/kolibri/icons/warning-icon.svg';
+                break;
+
+            case 'Error':
+                iconImgElement.src = '../styles/kolibri/icons/error-icon.svg';
+                break;
+        }
+
+
+        iconElement.appendChild(iconImgElement);
         notificationElement.appendChild(iconElement);
     }
 

@@ -15,10 +15,11 @@
   --error:                hsl(0,     79%,  63%);
   --error-hover:          hsl(0, 100%, 70%);
   --error-background:     hsla(0,     79%,  63%, 0.3);
+  --error-monolog-background: hsla(0,     79%,  63%, 0.6);
   --warning:              hsl(36,   100%,  48%);
   --warning-hover:        hsl(34, 97%, 58%);
   --warning-background:   hsla(36,   100%,  48%, 0.3);
-  --warning-monolog-background: hsla(36,   100%,  48%, 0.3);
+  --warning-monolog-background: hsla(36,   100%,  48%, 0.6);
 
 
   --default:              hsl(0,      0%,   62%);

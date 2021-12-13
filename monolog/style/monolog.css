@@ -25,14 +25,25 @@ body {
 
 .monolog {
     position: relative;
-    width: 350px;
+    /*width: 350px;*/
     min-height: 35px;
     max-height: 95px;
     border: 3px solid var(--default);
     border-radius: var(--border-radius);
-  /*  background-color: var(--default-background); */
+    /*background-color: var(--default-background); */
     margin-bottom: 10px;
-    padding: 5px;
+    /*padding: 5px;*/
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+
+    /*position: absolute;*/
+    /*width: 395px;*/
+    /*height: 88px;*/
+    /*left: 364px;*/
+    /*top: 928px;*/
 }
 
 .monolog.shake {
@@ -57,15 +68,19 @@ body {
     border: 1px solid var(--warning);
     background-color: var(--warning-monolog-background);
     color: var(--background);
+    font-weight: bold;
 }
 
 .monolog.error {
     border-color: var(--error);
-    background-color: var(--error-background);
+    background-color: var(--error-monolog-background);
+    color: var(--background);
+    font-weight: bold;
 }
 
 .monolog.success {
-    border-color: var(--success);
+    border: 1px solid var(--success);
+    color: var(--success);
 }
 
 .monolog.dnd{
@@ -91,10 +106,27 @@ body {
     width: 15px;
     border-radius: 8px;
     line-height: 15px;
+    fill: var(--default);
 }
 
 .monolog.out{
     animation: out-right 0.52s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.monolog-icon {
+    /* icon */
+    position: static;
+    width: 40px;
+    height: 40px;
+    left: 24px;
+    top: 24px;
+
+
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 24px;
 }
 
 
