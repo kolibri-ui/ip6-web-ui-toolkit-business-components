@@ -40,19 +40,19 @@ const ThreeStateSwitchLabelProjector = () => {
     const crossImgElement = document.createElement('img');
     crossImgElement.alt = 'off';
     crossImgElement.classList.add('switch-icon', 'off');
-    crossImgElement.src = '../assets/kolibri/icons/cross.svg';
+    crossImgElement.src = '../styles/kolibri/icons/cross.svg';
     crossImgElement.draggable = false;
 
     const dotImgElement = document.createElement('img');
     dotImgElement.alt = 'indeterminate';
     dotImgElement.classList.add('switch-icon', 'indeterminate');
-    dotImgElement.src = '../assets/kolibri/icons/dot.svg';
+    dotImgElement.src = '../styles/kolibri/icons/dot.svg';
     dotImgElement.draggable = false;
 
     const checkmarkImgElement = document.createElement('img');
     checkmarkImgElement.alt = 'on';
     checkmarkImgElement.classList.add('switch-icon', 'on');
-    checkmarkImgElement.src = '../assets/kolibri/icons/checkmark.svg';
+    checkmarkImgElement.src = '../styles/kolibri/icons/checkmark.svg';
     checkmarkImgElement.draggable = false;
 
     ThreeStateSwitchLabelElement.appendChild(checkBoxElement);

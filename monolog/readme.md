@@ -1,3 +1,3 @@
 # Projector Playground
 
-A playground to test the projector pattern
+A monologProjector to test the projector pattern

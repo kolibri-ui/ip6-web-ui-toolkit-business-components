@@ -20,12 +20,11 @@ const notificationProjector = (type = "default",
                                timeout = 5000) => {
 
     const notificationElement = document.createElement('div');
-    notificationElement.classList.add('monolog', type);
+    notificationElement.classList.add('old_monolog.html', type);
 
     if (icon) {
         const iconElement = document.createElement('i');
         iconElement.classList.add('monolog-icon');
-        // Todo add Icon as Background Image
         notificationElement.appendChild(iconElement);
     }
 
@@ -61,7 +60,7 @@ const notificationProjector = (type = "default",
             }, 520);
         }
 
-        if(attention){
+        if (attention) {
             notificationElement.classList.add('shake');
         }
 

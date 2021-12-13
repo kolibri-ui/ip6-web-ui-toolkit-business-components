@@ -1,4 +1,4 @@
-import {playground} from "./projector/playground.js";
+import {monologProjector} from "./mainProjector/monologProjector.js";
 import {ObservableList} from "./model/observable.js";
 
 export {Controller, View}
@@ -22,6 +22,6 @@ const Controller = service => {
 }
 
 const View = (controller, rootElement) => {
-    const render = () => playground(controller, rootElement);
+    const render = () => monologProjector(controller, rootElement);
     controller.onMonologAdd(render);
 }

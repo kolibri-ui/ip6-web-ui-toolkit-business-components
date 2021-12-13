@@ -1,14 +1,14 @@
-import {cardProjector} from "../baseProjectors/cardProjector.js";
-import {monologProjector} from "../baseProjectors/monologProjector.js";
-import {buttonProjector} from "../baseProjectors/buttonProjector.js";
+import {cardProjector} from "../subProjectors/cardProjector.js";
+import {monologListProjector} from "../subProjectors/monologListProjector.js";
+import {buttonProjector} from "../subProjectors/buttonProjector.js";
 
 
-export {playground}
+export {monologProjector}
 
 
-const playground = (controller, rootElement) => {
+const monologProjector = (controller, rootElement) => {
 
-    const monologList = monologProjector();
+    const monologList = monologListProjector();
 
     const buttonTypes = ['Default', 'Info', 'Success', 'Warning', 'Error'];
     const nonStickyButtons = [];

@@ -30,7 +30,7 @@ body {
     max-height: 95px;
     border: 3px solid var(--default);
     border-radius: var(--border-radius);
-    background-color: var(--default-background);
+  /*  background-color: var(--default-background); */
     margin-bottom: 10px;
     padding: 5px;
 }
@@ -48,13 +48,15 @@ body {
 }
 
 .monolog.info {
-    border-color: var(--primary);
-    background-color: var(--primary-background);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+
 }
 
 .monolog.warning {
-    border-color: var(--warning);
-    background-color: var(--warning-background);
+    border: 1px solid var(--warning);
+    background-color: var(--warning-monolog-background);
+    color: var(--background);
 }
 
 .monolog.error {
@@ -64,7 +66,6 @@ body {
 
 .monolog.success {
     border-color: var(--success);
-    background-color: var(--success-background);
 }
 
 .monolog.dnd{
@@ -78,7 +79,7 @@ body {
 
 .monolog-title {
     font-weight: 600;
-    color: var(--text);
+   /* color: var(--text); */
 }
 
 

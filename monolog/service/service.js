@@ -1,4 +1,4 @@
-import {notificationProjector} from "../baseProjectors/notificationProjector.js";
+import {notificationProjector} from "../subProjectors/notificationProjector.js";
 
 export {monologService}
 

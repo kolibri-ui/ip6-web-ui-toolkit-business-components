@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet">
-    <link rel=stylesheet type="text/css" href="assets/kolibri/kolibri-monolog.css"/>
+    <link rel=stylesheet type="text/css" href="styles/kolibri/kolibri-monolog.css"/>
 
 </head>
 <body data-theme="light">
@@ -66,8 +66,8 @@
         }
     }
 
-    for (let i = 0; i < monolog.length; i++) {
-        monolog[i].onclick = e => {
+    for (let i = 0; i < old_monolog.length; i++) {
+        old_monolog[i].onclick = e => {
             e.target.classList.remove("shake");
         }
     }
@@ -90,7 +90,7 @@
         if (sticky) {
             sticky_template = `
             <div class="monolog-close">
-                <img src="assets/kolibri/icons/cross.svg" alt="close">
+                <img src="styles/kolibri/icons/cross.svg" alt="close">
             </div>`;
         }
 
@@ -105,7 +105,7 @@
         `;
 
         const newMonolog = document.createElement('div');
-        newMonolog.classList.add("monolog", type);
+        newMonolog.classList.add("old_monolog.html", type);
         newMonolog.innerHTML = monolog_template;
 
         monologList.append(newMonolog);
