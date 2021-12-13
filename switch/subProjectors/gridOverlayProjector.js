@@ -33,7 +33,7 @@ const gridOverlayProjector = (controller, rootElement, switchModel) => {
         'readonlyOn', 'requiredInvalid', 'requiredFocused'];
 
     for (let i = 0; i < twoState_StatesArray.length; i++) {
-        twoStateSwitchLabelElements[i] = (TwoStateSwitchLabelProjector());
+        twoStateSwitchLabelElements[i] = (TwoStateSwitchLabelProjector(switchModel));
         TwoState_NameArray[i] = document.createElement('label');
 
         let state = twoState_StatesArray[i];

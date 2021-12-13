@@ -18,11 +18,11 @@ const featureToggleProjector = (switchLabel, switchModel) => {
     toggleInputElement.onchange = (e) => {
         switchModel.isDark.setValue(e.target.checked);
         if (e.target.checked) {
-            twoStateOn.src = 'assets/kolibri/icons/moon.svg';
-            twoStateOff.src = 'assets/kolibri/icons/sun.svg';
+            twoStateOn.src = '../assets/kolibri/icons/moon.svg';
+            twoStateOff.src = '../assets/kolibri/icons/sun.svg';
         } else {
-            twoStateOn.src = 'assets/kolibri/icons/checkmark.svg';
-            twoStateOff.src = 'assets/kolibri/icons/cross.svg';
+            twoStateOn.src = '../assets/kolibri/icons/checkmark.svg';
+            twoStateOff.src = '../assets/kolibri/icons/cross.svg';
         }
     }
 

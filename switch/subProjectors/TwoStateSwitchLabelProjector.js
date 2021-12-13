@@ -3,6 +3,8 @@ export { TwoStateSwitchLabelProjector }
 
 const TwoStateSwitchLabelProjector = switchModel => {
 
+    console.log(switchModel);
+
     const switchTheme = state => {
         const themeName = state ? 'dark' : 'light';
         if(switchModel.isDark.getValue()){
@@ -39,13 +41,13 @@ const TwoStateSwitchLabelProjector = switchModel => {
     const crossImgElement = document.createElement('img');
     crossImgElement.alt = 'off';
     crossImgElement.classList.add('switch-icon', 'off');
-    crossImgElement.src = 'assets/kolibri/icons/cross.svg';
+    crossImgElement.src = '../assets/kolibri/icons/cross.svg';
     crossImgElement.draggable = false;
 
     const checkmarkImgElement = document.createElement('img');
     checkmarkImgElement.alt = 'on';
     checkmarkImgElement.classList.add('switch-icon', 'on');
-    checkmarkImgElement.src = 'assets/kolibri/icons/checkmark.svg';
+    checkmarkImgElement.src = '../assets/kolibri/icons/checkmark.svg';
     checkmarkImgElement.draggable = false;
 
     TwoStateSwitchLabelElement.appendChild(checkBoxElement);

@@ -31,7 +31,7 @@ const gridProjector = (switchModel, switchLabel, state, switchTitle, stateName) 
 
     const closeOverlayElement = document.createElement('img');
     closeOverlayElement.classList.add('closeOverlay-icon');
-    closeOverlayElement.src = 'assets/kolibri/icons/cross.svg';
+    closeOverlayElement.src = '../assets/kolibri/icons/cross.svg';
     closeOverlayElement.style.pointerEvents = 'auto';
 
     switch (state) {
