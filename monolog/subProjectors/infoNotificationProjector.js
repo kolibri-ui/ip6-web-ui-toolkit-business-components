@@ -48,7 +48,7 @@ const notificationProjector = (type = "default",
 
         const closeImgElement = document.createElement('img');
         closeImgElement.alt = 'close';
-        closeImgElement.src = 'assets/styles/kolibri/icons/cross.svg';
+        closeImgElement.src = '../styles/kolibri/icons/cross.svg';
 
         closeElement.appendChild(closeImgElement);
         notificationElement.appendChild(closeElement);
