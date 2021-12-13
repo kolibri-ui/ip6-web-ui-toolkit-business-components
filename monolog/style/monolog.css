@@ -20,14 +20,15 @@ body {
 }
 
 .monolog-list.right {
-    right: 10px;
+    right: 80px;
 }
 
 .monolog {
     position: relative;
     /*width: 350px;*/
+    min-width: 395px;
     min-height: 35px;
-    max-height: 95px;
+    /*max-height: 95px;*/
     border: 3px solid var(--default);
     border-radius: var(--border-radius);
     /*background-color: var(--default-background); */
@@ -78,6 +79,48 @@ body {
     font-weight: bold;
 }
 
+.monolog.code-error {
+    border-color: var(--error);
+    background-color: var(--error-monolog-background);
+    color: var(--background);
+    font-weight: bold;
+
+    font-size: 14px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.code-box {
+
+}
+
+.code-text-box {
+    background: rgba(196, 196, 196, 0.8);
+    border-radius: 5px;
+
+    width: 300px;
+    height: 120px;
+
+}
+
+.copy-img-box {
+    background: rgba(39, 52, 59, 0.6);
+    border-radius: 5px;
+
+    width: 31px;
+    height: 51px;
+
+    display: flex;
+    align-items: center;
+}
+
+.copy-icon {
+    display: block;
+    margin: 0 auto;
+}
+
 .monolog.success {
     border: 1px solid var(--success);
     color: var(--success);
@@ -95,6 +138,8 @@ body {
 .monolog-title {
     font-weight: 600;
    /* color: var(--text); */
+    min-width: 219px;
+
 }
 
 

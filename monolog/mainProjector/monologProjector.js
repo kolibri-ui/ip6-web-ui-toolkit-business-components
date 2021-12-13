@@ -21,6 +21,7 @@ const monologProjector = (controller, rootElement) => {
                     false,
                     false,
                     true,
+                    false,
                     b + " Title",
                     "and a " + b.toLowerCase() + " Message, 1 sec", 1000
                 );
@@ -39,6 +40,7 @@ const monologProjector = (controller, rootElement) => {
                     true,
                     false,
                     true,
+                    false,
                     b + " Title",
                     "and a " + b.toLowerCase() + " Message", 5000
                 );
@@ -49,12 +51,28 @@ const monologProjector = (controller, rootElement) => {
     stickyButtons.push(
         buttonProjector('Error Shake', ["button-error"], () => {
             controller.notification(monologList,
-                "error",
+                "Error",
+                true,
                 true,
                 true,
                 false,
                 "Error Title",
                 "and a error Message", 1000
+            );
+        })
+    );
+
+    stickyButtons.push(
+        buttonProjector('Code Error', ["button-error"], () => {
+            controller.notification(monologList,
+                "code-error",
+                true,
+                false,
+                true,
+                true,
+                "Code Error\n" +
+                "Please contact the IT support.",
+                '', 1000
             );
         })
     );

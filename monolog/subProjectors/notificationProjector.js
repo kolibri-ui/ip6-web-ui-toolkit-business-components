@@ -1,3 +1,5 @@
+import {brProjector} from "../../global-projectors/brProjector.js";
+
 export {notificationProjector}
 
 /**
@@ -7,6 +9,7 @@ export {notificationProjector}
  * @param sticky {boolean}
  * @param attention {boolean}
  * @param icon {boolean}
+ * @param codeError
  * @param title {string}
  * @param message {string}
  * @param timeout
@@ -15,6 +18,7 @@ const notificationProjector = (type = "default",
                                sticky = false,
                                attention = false,
                                icon = false,
+                               codeError = false,
                                title = '',
                                message = '',
                                timeout = 5000) => {
@@ -46,9 +50,11 @@ const notificationProjector = (type = "default",
                 iconImgElement.src = '../styles/kolibri/icons/warning-icon.svg';
                 break;
 
-            case 'Error':
+            case 'Error' :
+            case 'code-error' :
                 iconImgElement.src = '../styles/kolibri/icons/error-icon.svg';
                 break;
+
         }
 
 
@@ -102,6 +108,41 @@ const notificationProjector = (type = "default",
     }
 
     notificationElement.appendChild(notificationBody);
+
+    if(codeError) {
+        const tagImgElement = document.createElement('img');
+        tagImgElement.src = '../styles/kolibri/icons/tag-code.svg';
+        notificationElement.appendChild(tagImgElement);
+
+        const codeBox = document.createElement('div');
+        codeBox.classList.add('code-box');
+
+        const codeTextBox = document.createElement('div');
+        codeTextBox.classList.add('code-text-box');
+
+
+
+        const codeBoxLabel = document.createElement('label');
+        codeBoxLabel.classList.add('code-box-label');
+        codeBoxLabel.innerText= 'Exception in thread \"main\" java.lang.NullPointerException at Main.randomFunction(Main.java:9) at Main.main(Main.java:4)';
+        codeTextBox.appendChild(codeBoxLabel);
+
+        const copyImgBox = document.createElement('div');
+        copyImgBox.classList.add('copy-img-box');
+        notificationElement.appendChild(copyImgBox);
+
+        const copyImgElement = document.createElement('img');
+        copyImgElement.src = '../styles/kolibri/icons/copy-to-clipboard.svg';
+        copyImgElement.classList.add('copy-icon');
+        copyImgBox.appendChild(copyImgElement);
+
+        codeBox.appendChild(codeTextBox);
+        codeBox.appendChild(copyImgBox);
+        notificationElement.appendChild(codeBox);
+
+    }
+
+
 
     return notificationElement;
 }

@@ -1,4 +1,4 @@
-export {brProjector}
+export { brProjector }
 
 /**
  * Creates a <br> Element
