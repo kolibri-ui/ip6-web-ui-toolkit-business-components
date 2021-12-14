@@ -83,7 +83,7 @@ Three State Styles
  */
 
 
-.switch.three-state input:checked + .thumb:before{
+.switch.three-state input:checked + .thumb:before {
     -webkit-transform: translateX(130px);
     -ms-transform: translateX(130px);
     transform: translateX(130px);
@@ -99,7 +99,7 @@ Three State Styles
 Two State Styles
  */
 
-.switch input:checked + .thumb:before{
+.switch input:checked + .thumb:before {
     -webkit-transform: translateX(69px);
     -ms-transform: translateX(69px);
     transform: translateX(69px);
@@ -109,7 +109,7 @@ Two State Styles
 /**
 States
  */
-.focus > .thumb{
+.focus > .thumb {
     box-shadow: 0 0 15px rgba(24, 75, 205, 0.7);
     outline: none;
 }
@@ -142,7 +142,7 @@ States
 }
 
 .required > .thumb {
-  /*  box-shadow: 0 0 15px rgb(169, 31, 31); */
+    /*  box-shadow: 0 0 15px rgb(169, 31, 31); */
 }
 
 .required > .thumb:before {
@@ -166,6 +166,7 @@ States
     animation: moveToRight 1s infinite ease-in-out;
     display: none;
 }
+
 .arrow-left {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
@@ -181,6 +182,7 @@ States
     border-width: 0 3px 3px 0;
     display: none;
 }
+
 .arrow-indeterminate-left {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
@@ -190,7 +192,7 @@ States
 }
 
 @keyframes moveToRight {
-    0%{
+    0% {
         left: 34px;
     }
     100% {
@@ -199,7 +201,7 @@ States
 }
 
 @keyframes moveToRightIndeterminate {
-    0%{
+    0% {
         left: 100px;
     }
     100% {
@@ -209,7 +211,7 @@ States
 
 
 @keyframes moveToLeft {
-    0%{
+    0% {
         right: 34px;
     }
     100% {
@@ -218,7 +220,7 @@ States
 }
 
 @keyframes moveToLeftIndeterminate {
-    0%{
+    0% {
         right: 100px;
     }
     100% {

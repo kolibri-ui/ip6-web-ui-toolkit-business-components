@@ -10,6 +10,7 @@
     --two-state-width: 105px;
     --switch-height: 38px;
     --switch-icon-height: 24px;
+    --switch-icon-top: var(--switch-icon-height) / 3.4285;
 
     --text: hsl(0, 0%, 20%);
     --shadow: hsl(0, 0%, 30%);

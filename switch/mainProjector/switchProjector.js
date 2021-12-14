@@ -32,7 +32,7 @@ const switchProjector = (controller, rootElement, switchModel) => {
             rootElement.appendChild(BoxThreeStateSwitchElement);
        // } else {
             BoxTwoStateSwitchElement.appendChild(TwoStateSwitchLabelElement);
-            BoxTwoStateSwitchElement.appendChild(TwoStateConfigurationElement);
+            //BoxTwoStateSwitchElement.appendChild(TwoStateConfigurationElement);
 
             rootElement.appendChild(BoxTwoStateSwitchElement);
             rootElement.appendChild(toggleLabelElement);

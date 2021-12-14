@@ -1,0 +1,3 @@
+
+export {Model}
+const Model = () => {}
