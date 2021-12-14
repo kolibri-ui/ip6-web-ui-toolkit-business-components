@@ -1,7 +1,7 @@
 export {TwoStateSwitchLabelProjector}
 
 
-const TwoStateSwitchLabelProjector = switchModel => {
+const TwoStateSwitchLabelProjector = (switchModel, callback = null) => {
 
     const switchTheme = state => {
         const themeName = state ? 'dark' : 'light';
@@ -50,6 +50,11 @@ const TwoStateSwitchLabelProjector = switchModel => {
     TwoStateSwitchLabelElement.appendChild(thumbElement);
     TwoStateSwitchLabelElement.appendChild(crossImgElement);
     TwoStateSwitchLabelElement.appendChild(checkmarkImgElement);
+
+
+    if (callback !== null) {
+        checkBoxElement.addEventListener('change', callback);
+    }
 
 
     checkmarkImgElement.onclick = _ => {
@@ -132,8 +137,5 @@ const TwoStateSwitchLabelProjector = switchModel => {
     };
 
 
-    return {
-        label: TwoStateSwitchLabelElement,
-        checkbox: checkBoxElement
-    }
+    return TwoStateSwitchLabelElement;
 }

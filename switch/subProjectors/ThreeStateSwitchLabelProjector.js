@@ -1,11 +1,12 @@
-export { ThreeStateSwitchLabelProjector }
+export {ThreeStateSwitchLabelProjector}
 
 
-const ThreeStateSwitchLabelProjector = () => {
+const ThreeStateSwitchLabelProjector = (model, indeterminate = null, classList = []) => {
 
     const ThreeStateSwitchLabelElement = document.createElement('label');
     ThreeStateSwitchLabelElement.classList.add('switch', 'three-state');
-    ThreeStateSwitchLabelElement.onclick= e => {
+    classList.forEach(c => ThreeStateSwitchLabelElement.classList.add(c));
+    ThreeStateSwitchLabelElement.onclick = e => {
         e.preventDefault();
         ThreeStateSwitchLabelElement.focus();
     }
@@ -62,9 +63,14 @@ const ThreeStateSwitchLabelProjector = () => {
     ThreeStateSwitchLabelElement.appendChild(checkmarkImgElement);
 
 
+    if (indeterminate !== null) {
+        checkBoxElement.indeterminate = indeterminate;
+    }
+
+
     checkmarkImgElement.onclick = _ => {
         ThreeStateSwitchLabelElement.classList.remove("required");
-        checkBoxElement.checked  = true;
+        checkBoxElement.checked = true;
         checkBoxElement.setAttribute("checked", "true");
         checkBoxElement.indeterminate = false;
     }
@@ -140,8 +146,6 @@ const ThreeStateSwitchLabelProjector = () => {
         checkBoxElement.setAttribute('checked', `${calc_movement}`);
         checkBoxElement.checked = calc_movement;
     };
-
-
 
 
     //Keyboard Control
