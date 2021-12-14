@@ -121,10 +121,9 @@ const notificationProjector = (type = "default",
         codeTextBox.classList.add('code-text-box');
 
 
-
         const codeBoxLabel = document.createElement('label');
         codeBoxLabel.classList.add('code-box-label');
-        codeBoxLabel.innerText= 'Exception in thread \"main\" java.lang.NullPointerException at Main.randomFunction(Main.java:9) at Main.main(Main.java:4)';
+        codeBoxLabel.innerText = 'Exception in thread \"main\" java.lang.NullPointerException at Main.randomFunction(Main.java:9) at Main.main(Main.java:4)';
         codeTextBox.appendChild(codeBoxLabel);
 
         const copyImgBox = document.createElement('div');
@@ -135,6 +134,19 @@ const notificationProjector = (type = "default",
         copyImgElement.src = '../styles/kolibri/icons/copy-to-clipboard.svg';
         copyImgElement.classList.add('copy-icon');
         copyImgBox.appendChild(copyImgElement);
+
+
+
+        /*on click: copy to clipboard */
+        copyImgElement.onclick = async () => {
+            copyImgElement.src = '../styles/kolibri/icons/copied-success.svg';
+            await navigator.clipboard.writeText(codeBoxLabel.innerText);
+
+            const copiedTextImgElement = document.createElement('img');
+            copiedTextImgElement.src = '../styles/kolibri/icons/copied-confirmation.svg';
+            copiedTextImgElement.classList.add('copy-text-icon');
+            copyImgBox.appendChild(copiedTextImgElement);
+        }
 
         codeBox.appendChild(codeTextBox);
         codeBox.appendChild(copyImgBox);
