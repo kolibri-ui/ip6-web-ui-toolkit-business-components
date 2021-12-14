@@ -1,24 +1,22 @@
-export { TwoStateSwitchLabelProjector }
+export {TwoStateSwitchLabelProjector}
 
 
 const TwoStateSwitchLabelProjector = switchModel => {
 
     const switchTheme = state => {
         const themeName = state ? 'dark' : 'light';
-        if(switchModel.isDark.getValue()){
+        if (switchModel.isDark.getValue()) {
             document.documentElement.setAttribute('data-theme', themeName);
             localStorage.setItem('theme', themeName);
         }
     }
 
-
     const TwoStateSwitchLabelElement = document.createElement('label');
     TwoStateSwitchLabelElement.classList.add('switch');
-    TwoStateSwitchLabelElement.onclick= e => {
+    TwoStateSwitchLabelElement.onclick = e => {
         e.preventDefault();
         TwoStateSwitchLabelElement.focus();
     }
-
 
     const checkBoxElement = document.createElement('input');
     checkBoxElement.type = 'checkbox';
@@ -55,7 +53,7 @@ const TwoStateSwitchLabelProjector = switchModel => {
 
 
     checkmarkImgElement.onclick = _ => {
-        checkBoxElement.checked  = true;
+        checkBoxElement.checked = true;
         checkBoxElement.setAttribute("checked", "true");
         switchTheme(checkBoxElement.checked);
     }
@@ -66,7 +64,6 @@ const TwoStateSwitchLabelProjector = switchModel => {
         checkBoxElement.setAttribute("checked", "false");
         switchTheme(checkBoxElement.checked);
     }
-
 
 
     /* On Focus */
@@ -135,5 +132,8 @@ const TwoStateSwitchLabelProjector = switchModel => {
     };
 
 
-    return TwoStateSwitchLabelElement;
+    return {
+        label: TwoStateSwitchLabelElement,
+        checkbox: checkBoxElement
+    }
 }
