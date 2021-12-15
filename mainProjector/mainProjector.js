@@ -1,11 +1,11 @@
-import {cardProjector} from "./global-projectors/cardProjector.js";
-import {TwoStateSwitchLabelProjector} from "./switch/subProjectors/TwoStateSwitchLabelProjector.js";
-import {ThreeStateSwitchLabelProjector} from "./switch/subProjectors/ThreeStateSwitchLabelProjector.js";
-import {hProjector} from "./global-projectors/hProjector.js";
-import {spanProjector} from "./global-projectors/spanProjector.js";
-import {divProjector} from "./global-projectors/divProjector.js";
-import {buttonProjector} from "./global-projectors/buttonProjector.js";
-import {monologListProjector} from "./monolog/subProjectors/monologListProjector.js";
+import {cardProjector} from "../global-projectors/cardProjector.js";
+import {TwoStateSwitchLabelProjector} from "../switch/subProjectors/TwoStateSwitchLabelProjector.js";
+import {ThreeStateSwitchLabelProjector} from "../switch/subProjectors/ThreeStateSwitchLabelProjector.js";
+import {hProjector} from "../global-projectors/hProjector.js";
+import {spanProjector} from "../global-projectors/spanProjector.js";
+import {divProjector} from "../global-projectors/divProjector.js";
+import {buttonProjector} from "../global-projectors/buttonProjector.js";
+import {monologListProjector} from "../monolog/subProjectors/monologListProjector.js";
 
 
 export {mainProjector}
@@ -76,7 +76,7 @@ const mainProjector = (controller, rootElement, model) => {
         if (attendance === null) {
             controller.notification(monologList,
                 "Error",
-                false,
+                true,
                 false,
                 true,
                 false,
@@ -97,7 +97,7 @@ const mainProjector = (controller, rootElement, model) => {
         }
 
     });
-    const submitLine = divProjector(["form-inline", "right"]);
+    const submitLine = divProjector(["form-inline", "button-right"]);
     submitLine.appendChild(submitButton);
 
 

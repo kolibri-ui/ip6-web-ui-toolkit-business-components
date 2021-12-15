@@ -1,6 +1,6 @@
 import {ObservableList} from "../observable/observable.js";
 import {Model} from "../model/model.js";
-import {mainProjector} from "../mainProjector.js";
+import {mainProjector} from "../mainProjector/mainProjector.js";
 
 export {Controller, View}
 

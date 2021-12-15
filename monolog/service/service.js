@@ -12,10 +12,11 @@ const monologService = () => {
                           sticky,
                           attention,
                           icon,
+                          codeError,
                           title,
                           message,
                           timeout) => {
-        const notification = notificationProjector(type, sticky, attention, icon, title, message, timeout);
+        const notification = notificationProjector(type, sticky, attention, icon, codeError, title, message, timeout);
         elem.appendChild(notification);
     }
 
