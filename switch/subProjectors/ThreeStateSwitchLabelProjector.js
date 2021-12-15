@@ -158,9 +158,6 @@ const ThreeStateSwitchLabelProjector = (model, obs, indeterminate = null, classL
 
         if (document.activeElement.dataset.type === "switch") {
 
-            console.log("in three");
-
-
             if (e.key === "ArrowRight") {
                 document.activeElement.indeterminate = false;
                 document.activeElement.checked = true;
