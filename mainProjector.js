@@ -15,7 +15,6 @@ const mainProjector = (controller, rootElement, model) => {
     const monologList = monologListProjector();
 
     const switchTheme = _ => {
-
         if (model.isDark.getValue()) {
             document.documentElement.setAttribute('data-theme', 'dark');
             localStorage.setItem('theme', 'dark');
@@ -37,7 +36,7 @@ const mainProjector = (controller, rootElement, model) => {
 
     const twoStateCardBody = [];
     twoStateCardBody.push(twoStateSwitch);
-    const twoStateCard = cardProjector("Settings", twoStateCardBody);
+    const twoStateCard = cardProjector("Settings - Dark Mode", twoStateCardBody);
 
     // Meeting Form
     const threeStateSwitch = ThreeStateSwitchLabelProjector(model, model.attendance, true, ["demo-three-state"]);
@@ -82,11 +81,19 @@ const mainProjector = (controller, rootElement, model) => {
                 true,
                 false,
                 "Oh snap",
-                "You need to set your attendace", 1000
+                "You need to set your attendance", 1000
             );
 
         } else {
-
+            controller.notification(monologList,
+                "Success",
+                false,
+                false,
+                true,
+                false,
+                "Saved",
+                "", 1000
+            );
         }
 
     });

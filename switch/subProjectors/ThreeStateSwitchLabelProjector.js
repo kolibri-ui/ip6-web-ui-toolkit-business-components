@@ -153,7 +153,13 @@ const ThreeStateSwitchLabelProjector = (model, obs, indeterminate = null, classL
 
     //Keyboard Control
     document.onkeydown = (e) => {
+
+
+
         if (document.activeElement.dataset.type === "switch") {
+
+            console.log("in three");
+
 
             if (e.key === "ArrowRight") {
                 document.activeElement.indeterminate = false;

@@ -45,8 +45,6 @@ const TwoStateSwitchLabelProjector = (switchModel, obs) => {
     TwoStateSwitchLabelElement.appendChild(checkmarkImgElement);
 
 
-
-
     checkmarkImgElement.onclick = _ => {
         checkBoxElement.checked = true;
         checkBoxElement.setAttribute("checked", "true");
@@ -112,19 +110,23 @@ const TwoStateSwitchLabelProjector = (switchModel, obs) => {
         obs.setValue(calc_movement);
     };
 
-
     //Keyboard Control
     document.onkeydown = (e) => {
+
         if (document.activeElement.dataset.type === "switch") {
+
             if (e.key === "ArrowRight") {
                 document.activeElement.checked = true;
-                obs.setValue(true);
             } else if (e.key === "ArrowLeft") {
                 document.activeElement.checked = false;
-                obs.setValue(false);
             }
+
+            console.log(document.activeElement.checked);
+            obs.setValue(document.activeElement.checked);
         }
     };
+
+
 
 
     return TwoStateSwitchLabelElement;
