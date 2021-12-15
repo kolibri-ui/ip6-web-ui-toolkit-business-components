@@ -1,5 +1,6 @@
 body{
     padding:20px;
+    color: var(--text);
 }
 
 .form-inline{
@@ -20,4 +21,8 @@ body{
     margin-right: 10px;
     line-height: 38px;
     display: inline-block;
+}
+
+.right{
+    text-align: right;
 }

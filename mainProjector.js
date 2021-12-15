@@ -1,28 +1,38 @@
 import {cardProjector} from "./global-projectors/cardProjector.js";
 import {TwoStateSwitchLabelProjector} from "./switch/subProjectors/TwoStateSwitchLabelProjector.js";
 import {ThreeStateSwitchLabelProjector} from "./switch/subProjectors/ThreeStateSwitchLabelProjector.js";
-import {switchProjector} from "./switch/mainProjector/switchProjector.js";
 import {hProjector} from "./global-projectors/hProjector.js";
 import {spanProjector} from "./global-projectors/spanProjector.js";
 import {divProjector} from "./global-projectors/divProjector.js";
+import {buttonProjector} from "./global-projectors/buttonProjector.js";
+import {monologListProjector} from "./monolog/subProjectors/monologListProjector.js";
 
 
 export {mainProjector}
 
 const mainProjector = (controller, rootElement, model) => {
 
-    const switchTheme = state => {
-        const themeName = state ? 'dark' : 'light';
+    const monologList = monologListProjector();
+
+    const switchTheme = _ => {
+
         if (model.isDark.getValue()) {
-            document.documentElement.setAttribute('data-theme', themeName);
-            localStorage.setItem('theme', themeName);
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
         }
     }
 
     const title = hProjector(1, "Midterm Demo Application")
 
     // Two State
-    const twoStateSwitch = TwoStateSwitchLabelProjector(model, () => alert("hello"));
+    const twoStateSwitch = TwoStateSwitchLabelProjector(model, model.isDark);
+
+    model.isDark.onChange(_ => {
+        switchTheme();
+    });
 
 
     const twoStateCardBody = [];
@@ -30,9 +40,9 @@ const mainProjector = (controller, rootElement, model) => {
     const twoStateCard = cardProjector("Settings", twoStateCardBody);
 
     // Meeting Form
-    const threeStateSwitch = ThreeStateSwitchLabelProjector(model, true, ["demo-three-state"]);
+    const threeStateSwitch = ThreeStateSwitchLabelProjector(model, model.attendance, true, ["demo-three-state"]);
     const attendanceLabelSpan = spanProjector("Attendance", ["form-label", "switch-label"]);
-    const attendanceValueSpan = spanProjector("",["form-value"]);
+    const attendanceValueSpan = spanProjector("", ["form-value"]);
     attendanceValueSpan.appendChild(threeStateSwitch);
 
     const attendanceLine = divProjector(["form-inline"]);
@@ -61,12 +71,36 @@ const mainProjector = (controller, rootElement, model) => {
     locationLine.appendChild(locationValueSpan);
 
 
+    const submitButton = buttonProjector("save", ["button-info"], [], () => {
+        const attendance = model.attendance.getValue();
+
+        if (attendance === null) {
+            controller.notification(monologList,
+                "Error",
+                false,
+                false,
+                true,
+                false,
+                "Oh snap",
+                "You need to set your attendace", 1000
+            );
+
+        } else {
+
+        }
+
+    });
+    const submitLine = divProjector(["form-inline", "right"]);
+    submitLine.appendChild(submitButton);
+
+
     const meetingFormBody = [];
 
     meetingFormBody.push(attendanceLine);
     meetingFormBody.push(organizerLine);
     meetingFormBody.push(timeLine);
     meetingFormBody.push(locationLine);
+    meetingFormBody.push(submitLine);
 
 
     const meetingForm = cardProjector("Mid Term Demo Meeting", meetingFormBody);
@@ -75,6 +109,7 @@ const mainProjector = (controller, rootElement, model) => {
     rootElement.appendChild(title);
     rootElement.appendChild(twoStateCard);
     rootElement.appendChild(meetingForm);
+    rootElement.appendChild(monologList);
 
 
 }
