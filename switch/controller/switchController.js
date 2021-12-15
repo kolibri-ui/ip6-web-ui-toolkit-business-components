@@ -23,11 +23,13 @@ const SwitchController = () => {
         const darkModeAttr          = Attribute(false);
         const switchTypeAttribute   = Attribute(false);
         const showGridAttribute     = Attribute(false);
+        const threeState            = Attribute(null);
 
         return {
             isDark          : darkModeAttr          .getObs(VALUE),
             isThreeState    : switchTypeAttribute   .getObs(VALUE),
-            isGridActive    : showGridAttribute     .getObs(VALUE)
+            isGridActive    : showGridAttribute     .getObs(VALUE),
+            ThreeState      : threeState            .getObs(VALUE)
         }
     }
 

@@ -127,7 +127,5 @@ const TwoStateSwitchLabelProjector = (switchModel, obs) => {
     };
 
 
-
-
     return TwoStateSwitchLabelElement;
 }

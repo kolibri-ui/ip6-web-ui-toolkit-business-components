@@ -1,5 +1,5 @@
-import { SwitchController, View, Grid } from "./switch/controller/switchController.js";
-import { switchService } from "./switch/service/switchService.js";
+import { SwitchController, View, Grid } from "./controller/switchController.js";
+import { switchService } from "./service/switchService.js";
 
 const service = switchService();
 
