@@ -6,6 +6,7 @@ import {spanProjector} from "../global-projectors/spanProjector.js";
 import {divProjector} from "../global-projectors/divProjector.js";
 import {buttonProjector} from "../global-projectors/buttonProjector.js";
 import {monologListProjector} from "../monolog/subProjectors/monologListProjector.js";
+import {gridProjector} from "../switch/subProjectors/gridProjector.js";
 
 
 export {mainProjector}
@@ -83,6 +84,9 @@ const mainProjector = (controller, rootElement, model) => {
                 "Oh snap",
                 "You need to set your attendance", 1000
             );
+
+            const showRequired = gridProjector(model, threeStateSwitch, 'requiredInvalid');
+            rootElement.appendChild(showRequired);
 
         } else {
             controller.notification(monologList,

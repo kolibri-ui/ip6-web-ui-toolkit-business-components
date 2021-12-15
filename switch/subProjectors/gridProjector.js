@@ -9,17 +9,9 @@ const gridProjector = (switchModel, switchLabel, state, switchTitle, stateName) 
     gridOverlayDivElement.classList.add('grid-div-overlay');
     gridOverlayDivElement.style.pointerEvents = 'none';
 
-/*    const h1Element = document.createElement('h1');
-    h1Element.textContent = 'Switch Component';*/
-
-/*    const title2StateElement = document.createElement('h3');
-    title2StateElement.textContent = '2 State';*/
-
     const title3StateElement = document.createElement('h3');
     title3StateElement.textContent = 'All Switch States';
 
- //   gridOverlayDivElement.appendChild(h1Element);
-//    gridOverlayDivElement.appendChild(title2StateElement);
     gridOverlayDivElement.appendChild(title3StateElement);
 
 
