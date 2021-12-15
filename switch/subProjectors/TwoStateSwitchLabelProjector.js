@@ -1,15 +1,8 @@
 export {TwoStateSwitchLabelProjector}
 
 
-const TwoStateSwitchLabelProjector = switchModel => {
+const TwoStateSwitchLabelProjector = (switchModel, obs) => {
 
-    const switchTheme = state => {
-        const themeName = state ? 'dark' : 'light';
-        if (switchModel.isDark.getValue()) {
-            document.documentElement.setAttribute('data-theme', themeName);
-            localStorage.setItem('theme', themeName);
-        }
-    }
 
     const TwoStateSwitchLabelElement = document.createElement('label');
     TwoStateSwitchLabelElement.classList.add('switch');
@@ -55,14 +48,14 @@ const TwoStateSwitchLabelProjector = switchModel => {
     checkmarkImgElement.onclick = _ => {
         checkBoxElement.checked = true;
         checkBoxElement.setAttribute("checked", "true");
-        switchTheme(checkBoxElement.checked);
+        obs.setValue(true);
     }
 
 
     crossImgElement.onclick = _ => {
         checkBoxElement.checked = false;
         checkBoxElement.setAttribute("checked", "false");
-        switchTheme(checkBoxElement.checked);
+        obs.setValue(false);
     }
 
 
@@ -114,12 +107,12 @@ const TwoStateSwitchLabelProjector = switchModel => {
         let calc_movement = calcMovement(e.x);
         checkBoxElement.setAttribute('checked', `${calc_movement}`);
         checkBoxElement.checked = calc_movement;
-        switchTheme(calc_movement);
+        obs.setValue(calc_movement);
     };
-
 
     //Keyboard Control
     document.onkeydown = (e) => {
+
         if (document.activeElement.dataset.type === "switch") {
 
             if (e.key === "ArrowRight") {
@@ -127,13 +120,14 @@ const TwoStateSwitchLabelProjector = switchModel => {
             } else if (e.key === "ArrowLeft") {
                 document.activeElement.checked = false;
             }
-            switchTheme(checkBoxElement.checked);
+
+            console.log(document.activeElement.checked);
+            obs.setValue(document.activeElement.checked);
         }
     };
 
 
-    return {
-        label: TwoStateSwitchLabelElement,
-        checkbox: checkBoxElement
-    }
+
+
+    return TwoStateSwitchLabelElement;
 }

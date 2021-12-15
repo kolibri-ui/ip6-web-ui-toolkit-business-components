@@ -4,7 +4,7 @@ import {mainProjector} from "../mainProjector.js";
 
 export {Controller, View}
 
-const Controller = () => {
+const Controller = (service) => {
 
     const obsList = ObservableList([]);
 
@@ -16,7 +16,8 @@ const Controller = () => {
 
     return {
         onAdd: obsList.onAdd,
-        add: add
+        add: add,
+        notification: service.notification,
     }
 }
 
