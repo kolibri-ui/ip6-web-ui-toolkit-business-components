@@ -71,10 +71,11 @@ const notificationProjector = (type = "default",
 
     const notificationMessage = document.createElement('div');
     notificationMessage.classList.add('monolog-body');
-    notificationBody.innerText = message;
+    notificationMessage.innerText = message;
 
-    notificationBody.appendChild(notificationMessage);
     notificationBody.appendChild(notificationTitle);
+    notificationBody.appendChild(notificationMessage);
+
 
     if (sticky) {
         const closeElement = document.createElement('div');
@@ -110,12 +111,15 @@ const notificationProjector = (type = "default",
     notificationElement.appendChild(notificationBody);
 
     if(codeError) {
-        const tagImgElement = document.createElement('img');
-        tagImgElement.src = '../styles/kolibri/icons/tag-code.svg';
-        notificationElement.appendChild(tagImgElement);
+
 
         const codeBox = document.createElement('div');
         codeBox.classList.add('code-box');
+
+        const tagImgElement = document.createElement('img');
+        tagImgElement.src = '../styles/kolibri/icons/tag-code.svg';
+        tagImgElement.classList.add("tag-code");
+       // notificationElement.appendChild(tagImgElement);
 
         const codeTextBox = document.createElement('div');
         codeTextBox.classList.add('code-text-box');
@@ -142,12 +146,19 @@ const notificationProjector = (type = "default",
             copyImgElement.src = '../styles/kolibri/icons/copied-success.svg';
             await navigator.clipboard.writeText(codeBoxLabel.innerText);
 
-            const copiedTextImgElement = document.createElement('img');
-            copiedTextImgElement.src = '../styles/kolibri/icons/copied-confirmation.svg';
-            copiedTextImgElement.classList.add('copy-text-icon');
-            copyImgBox.appendChild(copiedTextImgElement);
+
+                const copiedTextImgElement = document.createElement('img');
+                copiedTextImgElement.src = '../styles/kolibri/icons/copied-confirmation.svg';
+                copiedTextImgElement.classList.add('copy-text-icon');
+                copyImgBox.appendChild(copiedTextImgElement);
+
+                setTimeout(() =>{
+                    copiedTextImgElement.remove();
+                }, 2000);
+
         }
 
+        codeBox.appendChild(tagImgElement);
         codeBox.appendChild(codeTextBox);
         codeBox.appendChild(copyImgBox);
         notificationElement.appendChild(codeBox);

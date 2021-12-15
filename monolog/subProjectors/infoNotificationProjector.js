@@ -34,13 +34,13 @@ const notificationProjector = (type = "default",
     const notificationTitle = document.createElement('div');
     notificationTitle.classList.add('monolog-title');
     notificationTitle.innerText = title;
+    notificationBody.appendChild(notificationTitle);
 
     const notificationMessage = document.createElement('div');
     notificationMessage.classList.add('monolog-body');
-    notificationBody.innerText = message;
-
+    notificationMessage.innerText = message;
     notificationBody.appendChild(notificationMessage);
-    notificationBody.appendChild(notificationTitle);
+
 
     if (sticky) {
         const closeElement = document.createElement('div');

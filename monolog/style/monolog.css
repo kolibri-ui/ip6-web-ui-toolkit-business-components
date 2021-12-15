@@ -20,7 +20,7 @@ body {
 }
 
 .monolog-list.right {
-    right: 80px;
+    right: 110px;
 }
 
 .monolog {
@@ -84,24 +84,31 @@ body {
     background-color: var(--error-monolog-background);
     color: var(--background);
     font-weight: bold;
-
-    font-size: 14px;
+    /*font-size: 14px;*/
 
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 
 }
 
-.code-box {
+.tag-code {
+    width: 7%;
+}
 
+.code-box {
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .code-text-box {
     background: rgba(196, 196, 196, 0.8);
     border-radius: 5px;
 
-    width: 300px;
+    width: 310px;
     height: 120px;
+
+    margin-left: 10px;
+    margin-top: 30px;
 
 }
 
@@ -110,10 +117,16 @@ body {
     border-radius: 5px;
 
     width: 31px;
-    height: 51px;
+    height: 120px;
 
     display: flex;
     align-items: center;
+
+    margin-top: 30px;
+}
+
+.code-box-label {
+    margin-left: 20px;
 }
 
 .copy-icon {
@@ -124,7 +137,7 @@ body {
 
 .copy-text-icon {
     position: absolute;
-    left: 70px;
+    right: -60px;
     width: 80px;
     height: 80px;
 }
@@ -144,7 +157,7 @@ body {
 
 
 .monolog-title {
-    font-weight: 600;
+    font-weight: bolder;
    /* color: var(--text); */
     min-width: 219px;
 
@@ -171,15 +184,14 @@ body {
     position: static;
     width: 40px;
     height: 40px;
-    left: 24px;
-    top: 24px;
-
 
     /* Inside Auto Layout */
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 0px 24px;
+    margin-left: 5px;
+    margin-right: 20px;
+
 }
 
 
