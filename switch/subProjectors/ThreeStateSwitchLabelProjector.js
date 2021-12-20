@@ -74,11 +74,15 @@ const ThreeStateSwitchLabelProjector = (model, obs, indeterminate = null, classL
         checkBoxElement.setAttribute("checked", "true");
         checkBoxElement.indeterminate = false;
         obs.setValue(true);
+
+        hideArrows();
     }
 
     dotImgElement.onclick = _ => {
         checkBoxElement.indeterminate = true;
         obs.setValue(null);
+
+        hideArrows();
     }
 
 
@@ -88,6 +92,15 @@ const ThreeStateSwitchLabelProjector = (model, obs, indeterminate = null, classL
         checkBoxElement.setAttribute("checked", "false");
         checkBoxElement.indeterminate = false;
         obs.setValue(false);
+
+        hideArrows();
+    }
+
+    function hideArrows(){
+        arrowLeftElement.style.display = 'none';
+        arrowRightElement.style.display = 'none';
+        arrowIndeterminateLeftElement.style.display = 'none';
+        arrowIndeterminateRightElement.style.display = 'none';
     }
 
 
@@ -105,10 +118,7 @@ const ThreeStateSwitchLabelProjector = (model, obs, indeterminate = null, classL
 
 
     ThreeStateSwitchLabelElement.onmouseout = () => {
-        arrowLeftElement.style.display = 'none';
-        arrowRightElement.style.display = 'none';
-        arrowIndeterminateLeftElement.style.display = 'none';
-        arrowIndeterminateRightElement.style.display = 'none';
+        hideArrows();
     }
 
     ThreeStateSwitchLabelElement.onmouseover = () => {
@@ -153,8 +163,6 @@ const ThreeStateSwitchLabelProjector = (model, obs, indeterminate = null, classL
 
     //Keyboard Control
     document.onkeydown = (e) => {
-
-
 
         if (document.activeElement.dataset.type === "switch") {
 

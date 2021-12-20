@@ -58,6 +58,12 @@ const TwoStateSwitchLabelProjector = (switchModel, obs) => {
         obs.setValue(false);
     }
 
+    function hideArrows(){
+        arrowLeftElement.style.display = 'none';
+        arrowRightElement.style.display = 'none';
+
+    }
+
 
     /* On Focus */
     checkBoxElement.onfocus = _ => {
@@ -73,8 +79,7 @@ const TwoStateSwitchLabelProjector = (switchModel, obs) => {
 
 
     TwoStateSwitchLabelElement.onmouseout = () => {
-        arrowLeftElement.style.display = 'none';
-        arrowRightElement.style.display = 'none';
+        hideArrows();
     }
 
     TwoStateSwitchLabelElement.onmouseover = () => {
@@ -120,8 +125,7 @@ const TwoStateSwitchLabelProjector = (switchModel, obs) => {
             } else if (e.key === "ArrowLeft") {
                 document.activeElement.checked = false;
             }
-
-            console.log(document.activeElement.checked);
+            
             obs.setValue(document.activeElement.checked);
         }
     };

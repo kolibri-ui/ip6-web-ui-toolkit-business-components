@@ -47,7 +47,6 @@ const TwoStateConfigurationProjector = (switchLabel) => {
         } else {
             switchLabel.classList.remove("disabled");
         }
-
     }
 
     /* Read Only State */

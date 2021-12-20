@@ -16,7 +16,7 @@ const featureToggleProjector = (switchLabel, switchModel) => {
 
 
     toggleInputElement.onchange = (e) => {
-        switchModel.isDark.setValue(e.target.checked);
+     //   switchModel.isDark.setValue(e.target.checked);
         if (e.target.checked) {
             twoStateOn.src = '../styles/kolibri/icons/moon.svg';
             twoStateOff.src = '../styles/kolibri/icons/sun.svg';
