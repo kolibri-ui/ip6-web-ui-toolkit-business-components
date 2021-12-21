@@ -19,9 +19,9 @@ const switchProjector = (controller, rootElement, switchModel) => {
             localStorage.setItem('theme', 'light');
         }
     }
+
     switchModel.isDark.onChange(_ => {
         switchTheme();
-
     });
 
     /* 3-State Switch */

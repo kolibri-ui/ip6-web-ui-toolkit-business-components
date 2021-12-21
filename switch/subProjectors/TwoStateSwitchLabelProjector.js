@@ -1,3 +1,5 @@
+import {featureToggleProjector} from "./featureToggleProjector.js";
+
 export {TwoStateSwitchLabelProjector}
 
 
@@ -48,7 +50,9 @@ const TwoStateSwitchLabelProjector = (switchModel, obs) => {
     checkmarkImgElement.onclick = _ => {
         checkBoxElement.checked = true;
         checkBoxElement.setAttribute("checked", "true");
+
         obs.setValue(true);
+        hideArrows();
     }
 
 
@@ -56,6 +60,7 @@ const TwoStateSwitchLabelProjector = (switchModel, obs) => {
         checkBoxElement.checked = false;
         checkBoxElement.setAttribute("checked", "false");
         obs.setValue(false);
+        hideArrows();
     }
 
     function hideArrows(){
