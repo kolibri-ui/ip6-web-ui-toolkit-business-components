@@ -47,7 +47,8 @@ const ThreeStateSwitchLabelProjector = (model, obs, indeterminate = null, classL
     const dotImgElement = document.createElement('img');
     dotImgElement.alt = 'indeterminate';
     dotImgElement.classList.add('switch-icon', 'indeterminate');
-    dotImgElement.src = '../styles/kolibri/icons/dot.svg';
+    /* TODO: decide: dot or dash icon..? */
+    dotImgElement.src = '../styles/kolibri/icons/dash.svg';
     dotImgElement.draggable = false;
 
     const checkmarkImgElement = document.createElement('img');

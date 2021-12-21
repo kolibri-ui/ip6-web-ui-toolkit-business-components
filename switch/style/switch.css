@@ -145,8 +145,21 @@ States
     /*  box-shadow: 0 0 15px rgb(169, 31, 31); */
 }
 
+/*TODO: define error colors */
 .required > .thumb:before {
     box-shadow: 0 0 0 2px rgb(169, 31, 31);
+}
+
+/*TODO: define error colors */
+.required .arrow-indeterminate-left {
+    border: solid rgba(169, 31, 31, 0.5);
+    border-width: 0 3px 3px 0;
+}
+
+/*TODO: define error colors */
+.required .arrow-indeterminate-right {
+    border: solid rgba(169, 31, 31, 0.5);
+    border-width: 0 3px 3px 0;
 }
 
 
@@ -155,7 +168,7 @@ States
     top: 14px;
     width: 10px;
     height: 10px;
-    border: solid #C7D1EB;
+    border: solid rgba(24, 75, 205, 0.2);
     border-width: 0 3px 3px 0;
 
 }
