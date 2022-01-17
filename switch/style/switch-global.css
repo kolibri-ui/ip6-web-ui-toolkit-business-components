@@ -8,6 +8,14 @@
 
     --three-state-width: 166px;
     --two-state-width: 105px;
+
+    --polymorph-width: 84px;
+    --polymorph-height: 36px;
+    --polymorph-thumb-color: #FCFCFC;
+    --polymorph-indetermiante: linear-gradient(270deg, #184BCD 0%, #184BCD 50.15%, #BDBDBD 50.16%);
+
+
+
     --switch-height: 38px;
     --switch-icon-height: 24px;
     --switch-icon-top: var(--switch-icon-height) / 3.4285;

@@ -4,6 +4,7 @@ import { switchBoxProjector } from "../subProjectors/switchBoxProjector.js";
 import { featureToggleProjector } from "../subProjectors/featureToggleProjector.js";
 import { ThreeStateSwitchLabelProjector } from "../subProjectors/ThreeStateSwitchLabelProjector.js";
 import { ThreeStateConfigurationProjector } from "../subProjectors/ThreeStateConfigurationProjector.js";
+import {PolymorphProjector} from "../subProjectors/PolymorphProjector.js";
 
 export { switchProjector }
 
@@ -24,23 +25,32 @@ const switchProjector = (controller, rootElement, switchModel) => {
         switchTheme();
     });
 
-    /* 3-State Switch */
+        /!* Polymorph Switch *!/
+    const PolymorphSwitchElement = PolymorphProjector(switchModel, switchModel.ThreeState);
+    const ThreeStateConfigurationElement = ThreeStateConfigurationProjector(PolymorphSwitchElement);
+    const BoxThreeStateSwitchElement = switchBoxProjector('3-State Switch');
+
+    BoxThreeStateSwitchElement.appendChild(PolymorphSwitchElement);
+    BoxThreeStateSwitchElement.appendChild(ThreeStateConfigurationElement);
+    rootElement.appendChild(BoxThreeStateSwitchElement);
+
+/*    /!* 3-State Switch *!/
     const ThreeStateSwitchLabelElement = ThreeStateSwitchLabelProjector(switchModel, switchModel.ThreeState);
     const ThreeStateConfigurationElement = ThreeStateConfigurationProjector(ThreeStateSwitchLabelElement);
     const BoxThreeStateSwitchElement = switchBoxProjector('3-State Switch');
 
-    /* 2-State Switch */
+    /!* 2-State Switch *!/
     const TwoStateSwitchLabelElement = TwoStateSwitchLabelProjector(switchModel, switchModel.isDark);
     const TwoStateConfigurationElement = TwoStateConfigurationProjector(TwoStateSwitchLabelElement);
-    const BoxTwoStateSwitchElement = switchBoxProjector('2-State Switch');
+    const BoxTwoStateSwitchElement = switchBoxProjector('2-State Switch');*/
 
     /* Dark- / Light-Mode Toggle */
-    const toggleLabelElement = featureToggleProjector(TwoStateSwitchLabelElement, switchModel);
+    //const toggleLabelElement = featureToggleProjector(TwoStateSwitchLabelElement, switchModel);
 
 
-/*    switchModel.isThreeState.setValue(true);
+/*    switchModel.isThreeState.setValue(true); */
 
-        if (switchModel.isThreeState.getValue() === true) {*/
+/*        if (switchModel.isThreeState.getValue() === true) {
             BoxThreeStateSwitchElement.appendChild(ThreeStateSwitchLabelElement);
             BoxThreeStateSwitchElement.appendChild(ThreeStateConfigurationElement);
             rootElement.appendChild(BoxThreeStateSwitchElement);
@@ -49,7 +59,7 @@ const switchProjector = (controller, rootElement, switchModel) => {
             //BoxTwoStateSwitchElement.appendChild(TwoStateConfigurationElement);
 
             rootElement.appendChild(BoxTwoStateSwitchElement);
-            rootElement.appendChild(toggleLabelElement);
+            rootElement.appendChild(toggleLabelElement);*/
        // }
 
     // }
