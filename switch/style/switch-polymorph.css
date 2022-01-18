@@ -91,7 +91,7 @@ top: 0px;*/
     left: 0;
     bottom: 2px;
     border-radius: 50%;
-    background-color: var(--polymorph-thumb-color);
+    background-color: var(--polymorph-white);
    /* box-shadow: 0 0 0 2px var(--switch-thumb-color); */
     transition: .2s;
     z-index: 1;
@@ -209,16 +209,21 @@ States
 
 
 .arrow {
+    /*TODO: place arrow vertically centered dynamically*/
     position: absolute;
-    top: 14px;
+    top: 37%;
     width: 10px;
     height: 10px;
-    border: solid rgba(24, 75, 205, 0.2);
-    border-width: 0 3px 3px 0;
+    /*border: solid rgba(24, 75, 205, 0.2);*/
+    border: solid var(--polymorph-white);
+    opacity: 90%;
+    border-width: 0 1px 1px 0;
+    border-radius: 1px;
+
 
 }
 
-.arrow-right {
+/*.arrow-right {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
     animation: moveToRight 1s infinite ease-in-out;
@@ -230,58 +235,60 @@ States
     -webkit-transform: rotate(135deg);
     animation: moveToLeft 1s infinite ease-in-out;
     display: none;
+}*/
+
+.arrow-left {
+    position: absolute;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    animation: moveToLeft 2s infinite ease-in-out;
+
+    display: none;
 }
 
-.arrow-indeterminate-right {
+.arrow-right {
     position: absolute;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
-    animation: moveToRightIndeterminate 1s infinite ease-in-out;
-    border-width: 0 3px 3px 0;
+    animation: moveToRight 2s infinite ease-in-out;
+
     display: none;
-}
-
-.arrow-indeterminate-left {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-    animation: moveToLeftIndeterminate 1s infinite ease-in-out;
-    border-width: 0 3px 3px 0;
-    display: none;
-}
-
-@keyframes moveToRight {
-    0% {
-        left: 34px;
-    }
-    100% {
-        left: 37px;
-    }
-}
-
-@keyframes moveToRightIndeterminate {
-    0% {
-        left: 100px;
-    }
-    100% {
-        left: 103px;
-    }
 }
 
 
 @keyframes moveToLeft {
+    0% {
+        right: var(--polymorph-arrow-start-position);
+    }
+    100% {
+        right: var(--polymorph-arrow-end-position);
+    }
+}
+
+@keyframes moveToRight {
+    0% {
+        left: var(--polymorph-arrow-start-position);
+    }
+    100% {
+        left: var(--polymorph-arrow-end-position);
+    }
+}
+
+
+/*@keyframes moveToLeft {
     0% {
         right: 34px;
     }
     100% {
         right: 37px;
     }
-}
+}*/
 
-@keyframes moveToLeftIndeterminate {
+/*@keyframes moveToRight {
     0% {
-        right: 100px;
+        left: 34px;
     }
     100% {
-        right: 103px;
+        left: 37px;
     }
-}
+}*/

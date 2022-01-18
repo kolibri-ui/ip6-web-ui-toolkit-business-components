@@ -13,7 +13,7 @@ const PolymorphProjector = (model, obs, indeterminate = null, classList = []) =>
         PolymorphSwitchLabelElement.focus();
 
         let center = PolymorphSwitchLabelElement.offsetWidth / 2;
-        if (e.offsetX > center) {
+        if (e.offsetX >= center) {
             console.log('clicked right');
             setSwitchOn();
 
@@ -59,22 +59,22 @@ const PolymorphProjector = (model, obs, indeterminate = null, classList = []) =>
     const thumbElement = document.createElement('span');
     thumbElement.classList.add('thumb');
 
+/*    const arrowLeftElement = document.createElement('span');
+    arrowLeftElement.classList.add('arrow', 'arrow-left');
+
+    const arrowRightElement = document.createElement('span');
+    arrowRightElement.classList.add('arrow', 'arrow-right');*/
+
     const arrowLeftElement = document.createElement('span');
     arrowLeftElement.classList.add('arrow', 'arrow-left');
 
     const arrowRightElement = document.createElement('span');
     arrowRightElement.classList.add('arrow', 'arrow-right');
 
-    const arrowIndeterminateLeftElement = document.createElement('span');
-    arrowIndeterminateLeftElement.classList.add('arrow', 'arrow-indeterminate-left');
-
-    const arrowIndeterminateRightElement = document.createElement('span');
-    arrowIndeterminateRightElement.classList.add('arrow', 'arrow-indeterminate-right');
-
+   /* thumbElement.appendChild(arrowLeftElement);
+    thumbElement.appendChild(arrowRightElement);*/
     thumbElement.appendChild(arrowLeftElement);
     thumbElement.appendChild(arrowRightElement);
-    thumbElement.appendChild(arrowIndeterminateLeftElement);
-    thumbElement.appendChild(arrowIndeterminateRightElement);
 
 
     PolymorphSwitchLabelElement.appendChild(checkBoxElement);
@@ -89,8 +89,6 @@ const PolymorphProjector = (model, obs, indeterminate = null, classList = []) =>
     function hideArrows(){
         arrowLeftElement.style.display = 'none';
         arrowRightElement.style.display = 'none';
-        arrowIndeterminateLeftElement.style.display = 'none';
-        arrowIndeterminateRightElement.style.display = 'none';
     }
 
 /*    thumbElement.onclick = _ => {
@@ -128,10 +126,10 @@ const PolymorphProjector = (model, obs, indeterminate = null, classList = []) =>
                 PolymorphSwitchLabelElement.classList.add("hover");
 
             if (checkBoxElement.indeterminate) {
-                arrowLeftElement.style.display = 'none';
-                arrowRightElement.style.display = 'none';
-                arrowIndeterminateLeftElement.style.display = 'block';
-                arrowIndeterminateRightElement.style.display = 'block';
+              /*  arrowLeftElement.style.display = 'none';
+                arrowRightElement.style.display = 'none';*/
+                arrowLeftElement.style.display = 'block';
+                arrowRightElement.style.display = 'block';
 
             }
         }
@@ -144,8 +142,8 @@ const PolymorphProjector = (model, obs, indeterminate = null, classList = []) =>
             if (checkBoxElement.indeterminate) {
                 arrowLeftElement.style.display = 'none';
                 arrowRightElement.style.display = 'none';
-                arrowIndeterminateLeftElement.style.display = 'block';
-                arrowIndeterminateRightElement.style.display = 'block';
+              /*  arrowLeftElement.style.display = 'block';
+                arrowRightElement.style.display = 'block';*/
 
             }
         }
