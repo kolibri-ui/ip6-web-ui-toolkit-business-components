@@ -33,6 +33,7 @@ const PolymorphProjector = (model, obs, indeterminate = null, classList = []) =>
 
         hideArrows();
         thumbElement.classList.remove("indeterminate");
+        thumbElement.classList.remove("off");
         thumbElement.classList.add("on");
     }
 
@@ -45,6 +46,7 @@ const PolymorphProjector = (model, obs, indeterminate = null, classList = []) =>
 
         hideArrows();
         thumbElement.classList.remove("indeterminate");
+        thumbElement.classList.remove("on");
         thumbElement.classList.add("off");
     }
 
