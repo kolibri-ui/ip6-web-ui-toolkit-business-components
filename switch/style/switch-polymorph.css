@@ -2,8 +2,8 @@
 .switch {
     position: relative;
     display: inline-block;
-    width: var(--two-state-width);
-    height: var(--switch-height);
+    /*width: var(--two-state-width);*/
+    /*height: var(--switch-height);*/
 }
 
 .switch.three-state {
@@ -64,11 +64,10 @@ top: 0px;*/
     width: 20px;
     height: 20px;
 
-    opacity: 0;
+   /* opacity: 0; */
 }
 
-/* indeterminate state linear color gradient /*
-/*background: var(--polymorph-indetermiante);*/
+
 .thumb {
     position: absolute;
     cursor: pointer;
@@ -84,6 +83,7 @@ top: 0px;*/
 
 .thumb:before {
     margin-left: 2px;
+    margin-right: 2px;
     position: absolute;
     content: "";
     height: 32px;
@@ -103,16 +103,33 @@ Three State Styles
 
 
 .switch.three-state input:checked + .thumb:before {
-    -webkit-transform: translateX(130px);
+   /* -webkit-transform: translateX(130px);
     -ms-transform: translateX(130px);
-    transform: translateX(130px);
+    transform: translateX(130px);*/
+
+    transform: translateX(150%);
 }
 
 .switch.three-state input:indeterminate + .thumb:before {
-    -webkit-transform: translateX(66px);
+/*    -webkit-transform: translateX(66px);
     -ms-transform: translateX(66px);
-    transform: translateX(66px);
+    transform: translateX(66px);*/
 
+    transform: translateX(75%);
+
+}
+
+/* indeterminate state linear color gradient */
+.indeterminate {
+    background: var(--polymorph-indetermiante);
+}
+
+.on {
+    background: var(--polymorph-on);
+}
+
+.off {
+    background: var(--polymorph-off);
 }
 
 /**
@@ -120,9 +137,11 @@ Two State Styles
  */
 
 .switch input:checked + .thumb:before {
-    -webkit-transform: translateX(69px);
+/*    -webkit-transform: translateX(69px);
     -ms-transform: translateX(69px);
-    transform: translateX(69px);
+    transform: translateX(69px);*/
+
+    /*transform: translateX(0%);*/
 }
 
 
@@ -168,12 +187,13 @@ States
 
 .required > .thumb {
     /*  box-shadow: 0 0 15px rgb(169, 31, 31); */
+   background:  #EB5656;
 }
 
-/*TODO: define error colors */
+/*!*TODO: define error colors *!
 .required > .thumb:before {
     box-shadow: 0 0 0 2px rgb(169, 31, 31);
-}
+}*/
 
 /*TODO: define error colors */
 .required .arrow-indeterminate-left {

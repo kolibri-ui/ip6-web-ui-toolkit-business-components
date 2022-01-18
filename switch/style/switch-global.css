@@ -13,7 +13,8 @@
     --polymorph-height: 36px;
     --polymorph-thumb-color: #FCFCFC;
     --polymorph-indetermiante: linear-gradient(270deg, #184BCD 0%, #184BCD 50.15%, #BDBDBD 50.16%);
-
+    --polymorph-on: #184BCD;
+    --polymorph-off: #BDBDBD;
 
 
     --switch-height: 38px;

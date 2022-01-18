@@ -26,7 +26,7 @@ const switchProjector = (controller, rootElement, switchModel) => {
     });
 
         /!* Polymorph Switch *!/
-    const PolymorphSwitchElement = PolymorphProjector(switchModel, switchModel.ThreeState);
+    const PolymorphSwitchElement = PolymorphProjector(switchModel, switchModel.ThreeState, true);
     const ThreeStateConfigurationElement = ThreeStateConfigurationProjector(PolymorphSwitchElement);
     const BoxThreeStateSwitchElement = switchBoxProjector('3-State Switch');
 
