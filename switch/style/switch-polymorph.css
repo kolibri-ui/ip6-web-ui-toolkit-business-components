@@ -244,6 +244,7 @@ States
     animation: moveToLeft 2s infinite ease-in-out;
 
     display: none;
+    pointer-events: none;
 }
 
 .arrow-right {
@@ -253,6 +254,7 @@ States
     animation: moveToRight 2s infinite ease-in-out;
 
     display: none;
+    pointer-events: none;
 }
 
 
