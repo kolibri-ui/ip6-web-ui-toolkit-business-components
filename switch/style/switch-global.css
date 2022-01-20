@@ -20,8 +20,14 @@
     --polymorph-arrow-end-position: 59px;
 
 
+    --slim-width: 84px;
+    --slim-height: 32px;
+    --slim-indeterminate: var(--background);
+    --slim-default-border: #675555;
+
+
     --switch-height: 38px;
-    --switch-icon-height: 24px;
+    --switch-icon-height: 22px;
     --switch-icon-top: var(--switch-icon-height) / 3.4285;
 
     --text: hsl(0, 0%, 20%);
@@ -61,6 +67,7 @@ html, body {
 .special-header {
     font-size: 4em;
     margin-left: 20px;
+    font-weight: 100;
 }
 
 .switch-div-frame {

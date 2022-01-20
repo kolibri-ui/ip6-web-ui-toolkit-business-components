@@ -9,7 +9,6 @@
   --primary-background:   hsla( 223,  79%,  45%,0.3);
   --primary-opac:         hsla(223,  79%,  45%, 0.1);
   --primary-hover:        hsl(233,   79%,  56%);
-  --success:              hsl(104,   89%,  28%);
   --success-hover:        hsl(103,    87%, 32%);
   --success-background:   hsla(104,   89%,  28%, 0.3);
   --error:                hsl(0,     79%,  63%);
@@ -26,6 +25,7 @@
   --default-hover:        hsl(0, 0%, 79%);
   --default-background:   hsla(0,      0%,   62%, 0.3);
   --border-radius:        5px;
+  --success:              hsl(104,   89%,  28%);
 
   /* Font sizes */
   --font-small:   0.75rem;
