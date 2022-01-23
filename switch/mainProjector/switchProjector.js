@@ -27,11 +27,11 @@ const switchProjector = (controller, rootElement, switchModel) => {
 
     /*Polymorph Switch */
     const PolymorphSwitchElement = PolymorphProjector(switchModel, switchModel.ThreeState, true);
-    const ThreeStateConfigurationElement = ThreeStateConfigurationProjector(PolymorphSwitchElement);
+    const PolymorphConfigurationElement = ThreeStateConfigurationProjector(PolymorphSwitchElement);
     const BoxThreeStateSwitchElement = switchBoxProjector('3-State Switch');
 
     BoxThreeStateSwitchElement.appendChild(PolymorphSwitchElement);
-    BoxThreeStateSwitchElement.appendChild(ThreeStateConfigurationElement);
+    BoxThreeStateSwitchElement.appendChild(PolymorphConfigurationElement);
     rootElement.appendChild(BoxThreeStateSwitchElement);
 
 /*    /!* 3-State Switch *!/
