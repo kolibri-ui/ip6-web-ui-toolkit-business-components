@@ -173,13 +173,10 @@ body {
 
 .monolog-close {
     position: absolute;
-    right: 5px;
-    top: 5px;
-    height: 15px;
-    width: 15px;
-    border-radius: 8px;
-    line-height: 15px;
-    fill: var(--default);
+    top: 0;
+    right: 0;
+    height: 38px;
+    width: 38px;
 }
 
 .monolog.out{
