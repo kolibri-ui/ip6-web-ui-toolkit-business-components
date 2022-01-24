@@ -246,12 +246,14 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
      * KeyBoard Control
      * @param e
      */
-    labelElement.onkeyup = (e) => {
+    labelElement.onkeyup = e => {
+
         if (e.key === "ArrowRight") {
             setSwitchOn();
         } else if (e.key === "ArrowLeft") {
             setSwitchOff();
         }
+
         if (isThreeState) {
             if (e.key === "Delete") {
                 setSwitchIndeterminate();
