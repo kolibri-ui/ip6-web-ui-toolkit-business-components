@@ -116,28 +116,25 @@ const notificationProjector = (type = "default",
         const codeBox = document.createElement('div');
         codeBox.classList.add('code-box');
 
-        const tagImgElement = document.createElement('img');
-        tagImgElement.src = '../styles/kolibri/icons/tag-code.svg';
-        tagImgElement.classList.add("tag-code");
-       // notificationElement.appendChild(tagImgElement);
-
         const codeTextBox = document.createElement('div');
         codeTextBox.classList.add('code-text-box');
 
 
         const codeBoxLabel = document.createElement('label');
         codeBoxLabel.classList.add('code-box-label');
-        codeBoxLabel.innerText = 'Exception in thread \"main\" java.lang.NullPointerException at Main.randomFunction(Main.java:9) at Main.main(Main.java:4)';
+        codeBoxLabel.innerText = 'Exception in thread "main" \n' +
+            'java.lang.ArithmeticException: / by zero at \n' +
+            'DivByZero.main(File.java:14)';
         codeTextBox.appendChild(codeBoxLabel);
 
-        const copyImgBox = document.createElement('div');
+/*        const copyImgBox = document.createElement('div');
         copyImgBox.classList.add('copy-img-box');
-        notificationElement.appendChild(copyImgBox);
+        notificationElement.appendChild(copyImgBox);*/
 
         const copyImgElement = document.createElement('img');
         copyImgElement.src = '../styles/kolibri/icons/copy-to-clipboard.svg';
         copyImgElement.classList.add('copy-icon');
-        copyImgBox.appendChild(copyImgElement);
+        codeTextBox.appendChild(copyImgElement);
 
 
 
@@ -150,7 +147,7 @@ const notificationProjector = (type = "default",
                 const copiedTextImgElement = document.createElement('img');
                 copiedTextImgElement.src = '../styles/kolibri/icons/copied-confirmation.svg';
                 copiedTextImgElement.classList.add('copy-text-icon');
-                copyImgBox.appendChild(copiedTextImgElement);
+                codeTextBox.appendChild(copiedTextImgElement);
 
                 setTimeout(() =>{
                     copiedTextImgElement.remove();
@@ -158,9 +155,8 @@ const notificationProjector = (type = "default",
 
         }
 
-        codeBox.appendChild(tagImgElement);
         codeBox.appendChild(codeTextBox);
-        codeBox.appendChild(copyImgBox);
+
         notificationElement.appendChild(codeBox);
 
     }

@@ -29,7 +29,7 @@ body {
     min-width: 395px;
     min-height: 35px;
     /*max-height: 95px;*/
-    border: 3px solid var(--default);
+    border: 1px solid var(--default);
     border-radius: var(--border-radius);
     /*background-color: var(--default-background); */
     margin-bottom: 10px;
@@ -62,7 +62,13 @@ body {
 .monolog.info {
     border: 1px solid var(--primary);
     color: var(--primary);
+    box-shadow: 0 0 4px 0 rgba(24, 75, 205, 1);
+}
 
+.monolog.success {
+    border: 1px solid var(--success);
+    color: var(--success);
+    box-shadow: 0 0 4px 0 rgba(42, 135, 8, 1);
 }
 
 .monolog.warning {
@@ -70,29 +76,30 @@ body {
     background-color: var(--warning-monolog-background);
     color: var(--background);
     font-weight: bold;
+    box-shadow: 0 0 4px 0 rgba(245, 147, 0, 1);
 }
 
 .monolog.error {
-    border-color: var(--error);
+    border-color: 1px solid var(--error);
     background-color: var(--error-monolog-background);
     color: var(--background);
     font-weight: bold;
+    box-shadow: 0 0 4px 0 rgba(205, 24, 24, 1);
+
+/* border: 1px solid rgba(205, 24, 24, 1) */
 }
 
 .monolog.code-error {
     border-color: var(--error);
     background-color: var(--error-monolog-background);
-    color: var(--background);
+    color: var(--text);
+
     font-weight: bold;
     /*font-size: 14px;*/
 
     display: flex;
     flex-wrap: wrap;
-
-}
-
-.tag-code {
-    width: 7%;
+    box-shadow: 0 0 4px 0 rgba(205, 24, 24, 1);
 }
 
 .code-box {
@@ -101,11 +108,12 @@ body {
 }
 
 .code-text-box {
-    background: rgba(196, 196, 196, 0.8);
+    padding-left: 10px;
+    background: #FFFEFE 70%;
     border-radius: 5px;
 
-    width: 310px;
-    height: 120px;
+    width: 336px;
+    height: 59px;
 
     margin-left: 10px;
     margin-top: 30px;
@@ -126,13 +134,14 @@ body {
 }
 
 .code-box-label {
-    margin-left: 20px;
+    font-family: 'Courier New', serif;
+    font-size: 10px;
 }
 
 .copy-icon {
     display: block;
     margin: 0 auto;
-    width: 70%;
+
 }
 
 .copy-text-icon {
@@ -140,11 +149,6 @@ body {
     right: -60px;
     width: 80px;
     height: 80px;
-}
-
-.monolog.success {
-    border: 1px solid var(--success);
-    color: var(--success);
 }
 
 .monolog.dnd{
