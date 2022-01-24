@@ -1,10 +1,10 @@
 export {PolymorphProjector}
 
 
-const PolymorphProjector = (model, obs, indeterminate = null, classList = []) => {
+const PolymorphProjector = (model, obs, defaultState = null, isThreeState= false, classList = []) => {
 
     const PolymorphSwitchLabelElement = document.createElement('label');
-    PolymorphSwitchLabelElement.classList.add('switch', 'three-state');
+    PolymorphSwitchLabelElement.classList.add('switch');
     classList.forEach(c => PolymorphSwitchLabelElement.classList.add(c));
 
     /* Click interaction on switch */
@@ -93,8 +93,29 @@ const PolymorphProjector = (model, obs, indeterminate = null, classList = []) =>
     PolymorphSwitchLabelElement.appendChild(thumbElement);
 
 
-    if (indeterminate !== null) {
-        checkBoxElement.indeterminate = indeterminate;
+    checkBoxElement.value = defaultState;
+    obs.setValue(defaultState);
+    if (isThreeState) {
+        switch(defaultState){
+            case true:
+                setSwitchOn();
+                checkBoxElement.indeterminate = false;
+                break;
+            case false:
+                checkBoxElement.indeterminate = false;
+                setSwitchOff();
+                break;
+            default:
+                checkBoxElement.indeterminate = true;
+        }
+    }else {
+        switch(defaultState){
+            case true:
+                setSwitchOn();
+                break;
+            default:
+                setSwitchOff();
+    }
     }
 
 
@@ -191,12 +212,12 @@ const PolymorphProjector = (model, obs, indeterminate = null, classList = []) =>
                 setSwitchOff();
 
             }
-            if (e.key === "Delete") {
-                //if (PolymorphSwitchLabelElement.dataset.threestate === "true") {
-                setSwitchIndeterminate();
 
+        if (isThreeState) {
+            if (e.key === "Delete") {
+                    setSwitchIndeterminate();
+                }
             }
-       // }
     };
 
 

@@ -6,7 +6,7 @@
     /*height: var(--switch-height);*/
 }
 
-.switch.three-state {
+.switch {
     width: var(--polymorph-width);
     height: var(--polymorph-height);
 }
@@ -102,7 +102,7 @@ Three State Styles
  */
 
 
-.switch.three-state input:checked + .thumb:before {
+.switch input:checked + .thumb:before {
    /* -webkit-transform: translateX(130px);
     -ms-transform: translateX(130px);
     transform: translateX(130px);*/
@@ -110,7 +110,7 @@ Three State Styles
     transform: translateX(150%);
 }
 
-.switch.three-state input:indeterminate + .thumb:before {
+.switch input:indeterminate + .thumb:before {
 /*    -webkit-transform: translateX(66px);
     -ms-transform: translateX(66px);
     transform: translateX(66px);*/
