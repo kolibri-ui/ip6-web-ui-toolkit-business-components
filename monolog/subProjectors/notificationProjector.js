@@ -123,8 +123,7 @@ const notificationProjector = (type = "default",
         const codeBoxLabel = document.createElement('label');
         codeBoxLabel.classList.add('code-box-label');
         codeBoxLabel.innerText = 'Exception in thread "main" \n' +
-            'java.lang.ArithmeticException: / by zero at \n' +
-            'DivByZero.main(File.java:14)';
+            'java.lang.ArithmeticException: / by zero at DivByZero.main(File.java:14)';
         codeTextBox.appendChild(codeBoxLabel);
 
 /*        const copyImgBox = document.createElement('div');

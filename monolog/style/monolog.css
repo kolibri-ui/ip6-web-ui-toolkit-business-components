@@ -74,16 +74,17 @@ body {
 .monolog.warning {
     border: 1px solid var(--warning);
     background-color: var(--warning-monolog-background);
-    color: var(--background);
-    font-weight: bold;
+    color: var(--text);
+    font-weight: normal;
     box-shadow: 0 0 4px 0 rgba(245, 147, 0, 1);
+
 }
 
 .monolog.error {
-    border-color: 1px solid var(--error);
+    border-color: var(--error);
     background-color: var(--error-monolog-background);
-    color: var(--background);
-    font-weight: bold;
+    color: var(--text);
+    font-weight: normal;
     box-shadow: 0 0 4px 0 rgba(205, 24, 24, 1);
 
 /* border: 1px solid rgba(205, 24, 24, 1) */
@@ -93,8 +94,7 @@ body {
     border-color: var(--error);
     background-color: var(--error-monolog-background);
     color: var(--text);
-
-    font-weight: bold;
+    font-weight: normal;
     /*font-size: 14px;*/
 
     display: flex;
@@ -108,15 +108,16 @@ body {
 }
 
 .code-text-box {
-    padding-left: 10px;
-    background: #FFFEFE 70%;
+
+    background: #FFFEFE;
+    opacity: 70%;
     border-radius: 5px;
 
     width: 336px;
     height: 59px;
 
     margin-left: 10px;
-    margin-top: 30px;
+    margin-top: 20px;
 
 }
 
@@ -134,21 +135,23 @@ body {
 }
 
 .code-box-label {
+    padding: 5px 10px;
+    display: inline-block;
     font-family: 'Courier New', serif;
-    font-size: 10px;
+    font-size: 12px;
+    width: 280px;
 }
 
 .copy-icon {
-    display: block;
-    margin: 0 auto;
+    padding-left: 20px;
 
 }
 
 .copy-text-icon {
     position: absolute;
-    right: -60px;
-    width: 80px;
-    height: 80px;
+    top: 108px;
+    right: 74px;
+
 }
 
 .monolog.dnd{
