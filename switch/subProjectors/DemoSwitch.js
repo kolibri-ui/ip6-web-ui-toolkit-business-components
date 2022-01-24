@@ -31,11 +31,13 @@ const DemoSwitch = (observable,
     if (required) {
         checkboxElement.required = true;
         demoSwitch.classList.add('required');
+        demoSwitch.onmouseout = e => e.preventDefault();
         showArrows();
     }
 
     if (hover) {
         demoSwitch.classList.add('hover');
+        demoSwitch.onmouseout = e => e.preventDefault();
         if (isThreeState && defaultState === null) {
             showArrows()
         }

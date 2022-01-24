@@ -26,13 +26,30 @@
         automatically in the form <span class="code code-red">switch-89bitdjyujh</span>. This id will change on each
         page
         refresh.</p>
+    <p class="demo-text">
+        You can obtain the current state of the Switch Control bei checking the attached observable, which you have to
+        supply while the instantiation of the Switch Control.
+    </p>
 
     <div id="examples"></div>
+
+
+    <h3>Disabled, Required and Read Only</h3>
+
+    <p class="demo-text">
+        You can set <span class="code code-red">Disabled</span>, <span class="code code-red">Required</span> or <span
+            class="code code-red">ReadOnly</span> directly on the Element with (disabled as example):
+        <span class="code demo-code">
+            const demo = Switch(observable, null, true);<br/>
+            demo.querySelector('input').disabled = true;<br/>
+            demo.classList.add('disabled');
+        </span>
+    </p>
 
     <h3>Default Properties</h3>
 
     <p class="demo-text">
-        Find here an overview over default properties for a Switch:
+        Find here an overview over default properties for a Switch: </p>
 
     <div class="code demo-code">
         &nbsp;&nbsp;{<br/>
@@ -44,8 +61,6 @@
         &nbsp;&nbsp;}
     </div>
     <span class="demo-small-text">Find implementation in <span class="code code-red">Switch.js</span></span>
-
-    </p>
 
     <h3>Initial States</h3>
     <p class="demo-text">
@@ -101,7 +116,6 @@
         </tr>
         </tbody>
     </table>
-    </p>
 </div>
 
 <script type="module" src="starter.js"></script>
