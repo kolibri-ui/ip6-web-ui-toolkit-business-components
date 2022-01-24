@@ -6,6 +6,7 @@ import { ThreeStateSwitchLabelProjector } from "../subProjectors/ThreeStateSwitc
 import { ThreeStateConfigurationProjector } from "../subProjectors/ThreeStateConfigurationProjector.js";
 import {PolymorphProjector} from "../subProjectors/PolymorphProjector.js";
 import {SlimProjector} from "../subProjectors/SlimProjector.js";
+import {PolymorphConfigurationProjector} from "../subProjectors/PolymorphConfigurationProjector.js";
 
 export { switchProjector }
 
@@ -27,15 +28,15 @@ const switchProjector = (controller, rootElement, switchModel) => {
     });
 
     /*Polymorph Switch */
-    const PolymorphSwitchElement = PolymorphProjector(switchModel, switchModel.ThreeState, null,true);
-    const PolymorphConfigurationElement = ThreeStateConfigurationProjector(PolymorphSwitchElement);
+    const PolymorphSwitchElement = PolymorphProjector(switchModel, switchModel.ThreeState,null,true);
+    const PolymorphConfigurationElement = PolymorphConfigurationProjector(PolymorphSwitchElement);
     const BoxThreeStateSwitchElement = switchBoxProjector('Polymorph Switch');
 
     BoxThreeStateSwitchElement.appendChild(PolymorphSwitchElement);
     BoxThreeStateSwitchElement.appendChild(PolymorphConfigurationElement);
     rootElement.appendChild(BoxThreeStateSwitchElement);
 
-    /*Polymorph Switch */
+    /*Slim Switch */
     const SlimSwitchElement = SlimProjector(switchModel, switchModel.ThreeState, true);
     const SlimConfigurationElement = ThreeStateConfigurationProjector(SlimSwitchElement);
     const BoxSlimSwitchElement = switchBoxProjector('Slim Switch');
