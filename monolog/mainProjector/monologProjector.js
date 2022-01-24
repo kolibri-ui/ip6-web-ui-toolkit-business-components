@@ -10,7 +10,7 @@ const monologProjector = (controller, rootElement) => {
 
     const monologList = monologListProjector();
 
-    const buttonTypes = ['Default', 'Info', 'Success', 'Warning', 'Error'];
+    const buttonTypes = ['Info', 'Success', 'Warning', 'Error'];
     const nonStickyButtons = [];
 
     buttonTypes.forEach(b => {

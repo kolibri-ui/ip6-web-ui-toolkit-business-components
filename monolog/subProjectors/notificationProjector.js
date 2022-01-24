@@ -34,9 +34,6 @@ const notificationProjector = (type = "default",
 
         switch (type){
             //'Default', 'Info', 'Success', 'Warning', 'Error'
-            case 'Default':
-
-                break;
 
             case 'Info':
                 iconImgElement.src = '../styles/kolibri/icons/info-icon.svg';
@@ -54,9 +51,7 @@ const notificationProjector = (type = "default",
             case 'code-error' :
                 iconImgElement.src = '../styles/kolibri/icons/error-icon.svg';
                 break;
-
         }
-
 
         iconElement.appendChild(iconImgElement);
         notificationElement.appendChild(iconElement);
@@ -83,10 +78,31 @@ const notificationProjector = (type = "default",
 
         const closeImgElement = document.createElement('img');
         closeImgElement.alt = 'close';
-        closeImgElement.src = '../styles/kolibri/icons/cross-info.svg';
-        closeImgElement.src = '../styles/kolibri/icons/cross-info.svg';
-        closeImgElement.src = '../styles/kolibri/icons/cross-info.svg';
-        closeImgElement.src = '../styles/kolibri/icons/cross-info.svg';
+
+
+        switch (type){
+            //'Default', 'Info', 'Success', 'Warning', 'Error'
+
+            case 'Info':
+                closeImgElement.src = '../styles/kolibri/icons/cross-info.svg';
+                break;
+
+            case 'Success':
+                closeImgElement.src = '../styles/kolibri/icons/cross-success.svg';
+                break;
+
+            case 'Warning' :
+                closeImgElement.src = '../styles/kolibri/icons/cross-warning.svg';
+                break;
+
+            case 'Error' :
+                closeImgElement.src = '../styles/kolibri/icons/cross-error.svg';
+                break;
+
+            case 'code-error' :
+                closeImgElement.src = '../styles/kolibri/icons/cross-error.svg';
+                break;
+        }
 
         closeElement.appendChild(closeImgElement);
         notificationElement.appendChild(closeElement);
