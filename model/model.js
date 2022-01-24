@@ -1,7 +1,7 @@
 import {Attribute, VALUE} from "../presentationModel/presentationModel.js";
 
 export {Model}
-const Model = () => {
+const Model = _ => {
 
     const darkModeAttr          = Attribute(false);
     const switchTypeAttribute   = Attribute(false);

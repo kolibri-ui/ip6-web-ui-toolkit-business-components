@@ -125,19 +125,22 @@ States
 }
 
 .arrow-left.switch-slim {
-    animation: moveToLeft-slim 1s infinite ease-in-out;
+    animation: moveToLeft-slim 1s infinite ease-in;
 }
 
 .arrow-right.switch-slim {
-    animation: moveToRight-slim 1s infinite ease-in-out;
+    animation: moveToRight-slim 1s infinite ease-in;
 }
 
 @keyframes moveToLeft-slim {
     0% {
         right: var(--slim-arrow-start-position);
     }
-    100% {
+    50% {
         right: var(--slim-arrow-end-position);
+    }
+    100% {
+        right: var(--slim-arrow-start-position);
     }
 }
 
@@ -145,7 +148,10 @@ States
     0% {
         left: var(--slim-arrow-start-position);
     }
-    100% {
+    50% {
         left: var(--slim-arrow-end-position);
+    }
+    100%{
+        left: var(--slim-arrow-start-position);
     }
 }

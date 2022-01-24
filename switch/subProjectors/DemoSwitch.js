@@ -46,7 +46,6 @@ const DemoSwitch = (observable,
     if(readOnly) {
         demoSwitch.classList.add('read-only');
         checkboxElement.readOnly = true;
-
     }
 
     if(disabled){

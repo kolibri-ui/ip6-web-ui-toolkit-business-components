@@ -1,5 +1,3 @@
-import {Switch} from "../subProjectors/Switch.js";
-import {SlimSwitch} from "../subProjectors/SlimSwitch.js";
 import {hProjector} from "../../global-projectors/hProjector.js";
 import {DemoBoxProjector} from "../subProjectors/demoBoxProjector.js";
 import {hrProjector} from "../../global-projectors/hrProjector.js";

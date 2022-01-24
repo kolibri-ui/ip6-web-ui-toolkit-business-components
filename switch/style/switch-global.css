@@ -198,8 +198,11 @@ States
     0% {
         right: var(--neomorph-arrow-start-position);
     }
-    100% {
+    50% {
         right: var(--neomorph-arrow-end-position);
+    }
+    100% {
+        right: var(--neomorph-arrow-start-position);
     }
 }
 
@@ -207,7 +210,10 @@ States
     0% {
         left: var(--neomorph-arrow-start-position);
     }
-    100% {
+    50% {
         left: var(--neomorph-arrow-end-position);
+    }
+    100% {
+        left: var(--neomorph-arrow-start-position);
     }
 }
