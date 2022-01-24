@@ -50,6 +50,18 @@ const PolymorphProjector = (model, obs, indeterminate = null, classList = []) =>
         thumbElement.classList.add("off");
     }
 
+    function setSwitchIndeterminate(){
+       // PolymorphSwitchLabelElement.classList.remove("required");
+        checkBoxElement.checked = undefined;
+        checkBoxElement.setAttribute("checked", "undefined");
+        checkBoxElement.indeterminate = true;
+        obs.setValue(undefined);
+
+        thumbElement.classList.remove("off");
+        thumbElement.classList.remove("on");
+        thumbElement.classList.add("indeterminate");
+    }
+
 
     const checkBoxElement = document.createElement('input');
     checkBoxElement.type = 'checkbox';
@@ -170,29 +182,21 @@ const PolymorphProjector = (model, obs, indeterminate = null, classList = []) =>
 
 
     //Keyboard Control
-    document.onkeydown = (e) => {
-
-        if (document.activeElement.dataset.type === "switch") {
+    PolymorphSwitchLabelElement.onkeydown = (e) => {
 
             if (e.key === "ArrowRight") {
                 setSwitchOn();
-                /*thumbElement.classList.add("on");
-                document.activeElement.indeterminate = false;
-                document.activeElement.checked = true;*/
+
             } else if (e.key === "ArrowLeft") {
                 setSwitchOff();
-                /*thumbElement.classList.add("off");
-                document.activeElement.indeterminate = false;
-                document.activeElement.checked = false;*/
+
             }
             if (e.key === "Delete") {
-                //if (document.activeElement.dataset.threestate === "true") {
-                    obs.setValue(null);
-                    thumbElement.classList.add("indeterminate");
-                    document.activeElement.indeterminate = true;
-                //}
+                //if (PolymorphSwitchLabelElement.dataset.threestate === "true") {
+                setSwitchIndeterminate();
+
             }
-        }
+       // }
     };
 
 
