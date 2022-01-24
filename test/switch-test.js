@@ -40,7 +40,7 @@ testSuite.add("test-id-creation", assert => {
     const carr = ire.exec(checkboxElement.id);
 
     assert.isTrue(carr.length >= 1);
-})
+});
 
 
 testSuite.run();
