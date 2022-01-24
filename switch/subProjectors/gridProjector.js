@@ -3,7 +3,7 @@ import {ThreeStateSwitchLabelProjector} from "./ThreeStateSwitchLabelProjector.j
 
 export {gridProjector}
 
-const gridProjector = (switchModel, switchLabel, state, switchTitle, stateName) => {
+const gridProjector = (switchLabel, state, switchTitle, stateName) => {
 
     const gridOverlayDivElement = document.createElement('div');
     gridOverlayDivElement.classList.add('grid-div-overlay');
@@ -13,7 +13,6 @@ const gridProjector = (switchModel, switchLabel, state, switchTitle, stateName) 
     title3StateElement.textContent = 'All Switch States';
 
     gridOverlayDivElement.appendChild(title3StateElement);
-
 
     const showGridButton = document.createElement('button');
     showGridButton.type = 'button';

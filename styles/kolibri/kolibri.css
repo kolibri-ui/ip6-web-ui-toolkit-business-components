@@ -6,11 +6,6 @@
 @import url("globals/fontStyles.css");
 
 /* Components */
-@import url("../../switch/style/switch-global.css");
-
-@import url("../../switch/style/switch-polymorph.css");
-@import url("../../switch/style/switch-slim.css");
-
-
+@import url("../../switch/style/switch.css");
 @import url("../../monolog/style/monolog.css");
 

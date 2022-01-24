@@ -1,7 +1,7 @@
 export {ThreeStateSwitchLabelProjector}
 
 
-const ThreeStateSwitchLabelProjector = (model, obs, indeterminate = null, classList = []) => {
+const ThreeStateSwitchLabelProjector = (observable, indeterminate = null, classList = []) => {
 
     const ThreeStateSwitchLabelElement = document.createElement('label');
     ThreeStateSwitchLabelElement.classList.add('switch', 'three-state');
@@ -74,14 +74,14 @@ const ThreeStateSwitchLabelProjector = (model, obs, indeterminate = null, classL
         checkBoxElement.checked = true;
         checkBoxElement.setAttribute("checked", "true");
         checkBoxElement.indeterminate = false;
-        obs.setValue(true);
+        observable.setValue(true);
 
         hideArrows();
     }
 
     dotImgElement.onclick = _ => {
         checkBoxElement.indeterminate = true;
-        obs.setValue(null);
+        observable.setValue(null);
 
         hideArrows();
     }
@@ -92,7 +92,7 @@ const ThreeStateSwitchLabelProjector = (model, obs, indeterminate = null, classL
         checkBoxElement.checked = false;
         checkBoxElement.setAttribute("checked", "false");
         checkBoxElement.indeterminate = false;
-        obs.setValue(false);
+        observable.setValue(false);
 
         hideArrows();
     }

@@ -1,9 +1,7 @@
-import {featureToggleProjector} from "./featureToggleProjector.js";
-
 export {TwoStateSwitchLabelProjector}
 
 
-const TwoStateSwitchLabelProjector = (switchModel, obs) => {
+const TwoStateSwitchLabelProjector = obs => {
 
 
     const TwoStateSwitchLabelElement = document.createElement('label');

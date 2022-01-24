@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../styles/kolibri.png">
+    <title>Switch Component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link rel=stylesheet type="text/css" href="../styles/kolibri/kolibri.css"/>
+</head>
+<body data-theme="light">
+
+<div class="container">
+
+    <h1>Switch</h1>
+    <p class="demo-text">A Switch uses the markup from a checkbox, but the interaction and design are styled like a
+        toggle switch.
+        A switch can have three states: <span class="code code-red">on</span>, <span class="code code-red">off</span>
+        and
+        <span class="code code-red">indeterminate</span>. It is possible for a developer to decide if the third
+        state can be accessed.</p>
+    <p class="demo-text">A developer can decide about an id for a switch. An ID has to be unique. If no ID is supplied,
+        it gets created
+        automatically in the form <span class="code code-red">switch-89bitdjyujh</span>. This id will change on each
+        page
+        refresh.</p>
+
+    <div id="examples"></div>
+
+    <h3>Default Properties</h3>
+
+    <p class="demo-text">
+        Find here an overview over default properties for a Switch:
+
+    <div class="code demo-code">
+        &nbsp;&nbsp;{<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;defaultState: null,<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;isThreeState: false,<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;id: null,<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;classlist: [],<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;showIcons: false<br/>
+        &nbsp;&nbsp;}
+    </div>
+    <span class="demo-small-text">Find implementation in <span class="code code-red">Switch.js</span></span>
+
+    </p>
+
+    <h3>Initial States</h3>
+    <p class="demo-text">
+        The following table gives an overview about the possible state and default value combinations:
+    <table>
+        <thead>
+        <tr>
+            <th>defaultState</th>
+            <th>isThreeState</th>
+            <th>Results in</th>
+            <th>Remarks</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>false</td>
+            <td>false</td>
+            <td>Two State, current off</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>true</td>
+            <td>false</td>
+            <td>Two State, current on</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>null</td>
+            <td>false</td>
+            <td>Two State, current off</td>
+            <td>per definition</td>
+        </tr>
+        <tr>
+            <td colspan="4"></td>
+        </tr>
+        <tr>
+            <td>false</td>
+            <td>true</td>
+            <td>Three State, current off</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>true</td>
+            <td>true</td>
+            <td>Three State, current on</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>null</td>
+            <td>true</td>
+            <td>Three State, current indeterminate</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+    </p>
+</div>
+
+<script type="module" src="starter.js"></script>
+</body>
+</html>
+
