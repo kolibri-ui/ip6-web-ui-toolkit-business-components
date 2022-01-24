@@ -52,7 +52,6 @@ const SlimProjector = (model, obs, indeterminate = null, classList = []) => {
     SlimSwitchLabelElement.appendChild(checkmarkImgElement);
 
 
-
     if (indeterminate !== null) {
         checkBoxElement.indeterminate = indeterminate;
     }
@@ -184,10 +183,8 @@ const SlimProjector = (model, obs, indeterminate = null, classList = []) => {
         checkBoxElement.checked = calc_movement;
     };
 
-
     //Keyboard Control
-    document.onkeydown = (e) => {
-
+    document.onkeyup = (e) => {
         if (document.activeElement.dataset.type === "switch") {
 
             if (e.key === "ArrowRight") {
@@ -212,7 +209,5 @@ const SlimProjector = (model, obs, indeterminate = null, classList = []) => {
             }
         }
     };
-
-
     return SlimSwitchLabelElement;
 }
