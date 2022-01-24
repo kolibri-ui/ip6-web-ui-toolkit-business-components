@@ -6,55 +6,77 @@ const ThreeStateConfigurationProjector = (switchLabel) => {
 
     const h4Element = document.createElement('h4');
     h4Element.textContent = 'States';
+    h4Element.classList.add('states-header');
 
     /* <br> Element */
     const brElement = document.createElement('br');
+    const brE2 = document.createElement('br');
+
 
     /* Label Disable */
     const labelForDisableElement = document.createElement('label');
     labelForDisableElement.htmlFor = 'disable-three-state';
-    labelForDisableElement.textContent = 'Disabled ';
 
     /* Input Disable */
     const inputDisableElement = document.createElement('input');
     inputDisableElement.id = 'disable-three-state';
     inputDisableElement.type = 'checkbox';
 
+    /* Text for Disable Element */
+    const spanDisableElement = document.createElement('span');
+    spanDisableElement.classList.add('states-label-text')
+    spanDisableElement.textContent = 'Disabled';
+
+
     /* Label Read-Only */
     const labelForReadonlyElement = document.createElement('label');
     labelForReadonlyElement.htmlFor = 'readonly-three-state';
-    labelForReadonlyElement.textContent = 'Read-Only ';
+
 
     /* Input Read-Only */
     const inputReadonlyElement = document.createElement('input');
     inputReadonlyElement.id = 'readonly-three-state';
     inputReadonlyElement.type = 'checkbox';
 
+
+    /* Text for Read-Only Element*/
+    const spanReadonlyElement = document.createElement('span');
+    spanReadonlyElement.classList.add('states-label-text')
+    spanReadonlyElement.textContent = 'Read-Only';
+
     /* Label Required */
     const labelForRequiredElement = document.createElement('label');
     labelForRequiredElement.htmlFor = 'required-three-state';
-    labelForRequiredElement.textContent = 'Required ';
 
     /* Input Required */
     const inputRequiredElement = document.createElement('input');
     inputRequiredElement.id = 'required-three-state';
     inputRequiredElement.type = 'checkbox';
 
+    /* Text for Required Element */
+    const spanRequiredElement = document.createElement('span');
+    spanRequiredElement.classList.add('states-label-text')
+    spanRequiredElement.textContent = 'Required';
+
 
     statesDivElement.appendChild(h4Element);
 
     statesDivElement.appendChild(labelForDisableElement);
     labelForDisableElement.appendChild(inputDisableElement);
+    labelForDisableElement.appendChild(spanDisableElement);
 
     statesDivElement.appendChild(brElement);
 
     statesDivElement.appendChild(labelForReadonlyElement);
     labelForReadonlyElement.appendChild(inputReadonlyElement);
+    labelForReadonlyElement.appendChild(spanReadonlyElement);
 
+
+    statesDivElement.appendChild(brE2);
 
     labelForRequiredElement.appendChild(inputRequiredElement);
     statesDivElement.appendChild(labelForRequiredElement);
-
+    labelForRequiredElement.appendChild(spanRequiredElement);
 
 
     /* Disabled State */

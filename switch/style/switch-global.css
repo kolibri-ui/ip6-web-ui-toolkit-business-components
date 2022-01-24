@@ -126,3 +126,10 @@ html, body {
     border: none;
     background-color: transparent;
 }
+
+.states-header{
+    margin-top: 15px;
+}
+.states-label-text{
+    padding-left: 10px;
+}

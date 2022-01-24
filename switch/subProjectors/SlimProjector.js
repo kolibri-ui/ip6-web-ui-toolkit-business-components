@@ -1,14 +1,22 @@
 export {SlimProjector}
 
 
-const SlimProjector = (model, obs, indeterminate = null, classList = []) => {
+const SlimProjector = (model, obs, indeterminate = null, id = null, classList = []) => {
+
+    /**
+     * Create ID if not set by developer on init
+     */
+    (id === null) ? id = 'switch-' + Math.random().toString(36).substring(2) || "0" : "";
+
 
     const SlimSwitchLabelElement = document.createElement('label');
     SlimSwitchLabelElement.classList.add('switch', 'three-state');
+    SlimSwitchLabelElement.htmlFor = id;
     classList.forEach(c => SlimSwitchLabelElement.classList.add(c));
 
     const checkBoxElement = document.createElement('input');
     checkBoxElement.type = 'checkbox';
+    checkBoxElement.id = id;
     checkBoxElement.setAttribute('data-type', 'switch');
     checkBoxElement.setAttribute('data-threestate', 'true');
 
@@ -115,8 +123,14 @@ const SlimProjector = (model, obs, indeterminate = null, classList = []) => {
     if (checkBoxElement.indeterminate === true) {
         obs.setValue(null);
         thumbElement.classList.add("indeterminate");
+        crossImgElement.src = '../styles/kolibri/icons/cross-light-black.svg';
+        checkmarkImgElement.src = '../styles/kolibri/icons/checkmark-light-black.svg';
     }
 
+    if (checkBoxElement.validity === false) {
+        crossImgElement.src = '../styles/kolibri/icons/cross-light-black.svg';
+        checkmarkImgElement.src = '../styles/kolibri/icons/checkmark-light-black.svg';
+    }
 
     /* On Focus */
     checkBoxElement.onfocus = _ => {
@@ -159,7 +173,6 @@ const SlimProjector = (model, obs, indeterminate = null, classList = []) => {
                 arrowRightElement.style.display = 'none';
                 /*  arrowLeftElement.style.display = 'block';
                   arrowRightElement.style.display = 'block';*/
-
             }
         }
     }
