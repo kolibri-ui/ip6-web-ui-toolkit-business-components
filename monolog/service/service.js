@@ -18,6 +18,8 @@ const monologService = () => {
                           timeout) => {
         const notification = notificationProjector(type, sticky, attention, icon, codeError, title, message, timeout);
         elem.appendChild(notification);
+
+        console.log(elem.getBoundingClientRect());
     }
 
     return {

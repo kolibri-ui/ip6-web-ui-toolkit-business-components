@@ -84,6 +84,8 @@ const monologProjector = (controller, rootElement) => {
     rootElement.appendChild(buttonCardSticky);
     rootElement.appendChild(monologList);
 
+
+
     /* TODO: Implement stacked monolog, find y-value of selected monolog*/
 /*    if(monologList.offsetHeight >= window.innerHeight){
         console.log("now!");
