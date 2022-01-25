@@ -112,10 +112,43 @@ States
 .disabled {
     pointer-events: none;
 }
+
+.disabled > .thumb {
+    pointer-events: none;
+    /*  background-color: #C4C4C4; */
+    background-color: rgba(196, 196, 196, 0.22);
+}
+
+.disabled > .thumb.indeterminate{
+    opacity: 30%;
+}
+
+
+/*.disabled > .switch-icon {
+    opacity: 40%;
+}*/
+
+/*.read-only {
+    pointer-events: none;
+}
+
+.read-only > .thumb:before {
+    !*  background-color: rgba(24, 75, 205, 0.4);
+      box-shadow: #184BCD;*!
+}*/
+
 .read-only {
     pointer-events: none;
 }
 
+.read-only > .thumb {
+    /*  background-color: #C4C4C4; */
+    background-color: rgba(196, 196, 196, 0.22);
+}
+
+.read-only > .thumb.indeterminate{
+    opacity: 30%;
+}
 
 .focus > .thumb {
     box-shadow: 0 0 6px 0 rgba(24, 75, 205, 0.94);
@@ -125,20 +158,6 @@ States
 .hover > .thumb {
     box-shadow: 0 0 8px 0 rgba(24, 75, 205, 0.6);
     outline: none;
-}
-
-.disabled > .thumb {
-    background-color: #767676;
-    opacity: 60%;
-}
-
-.disabled > .switch-icon {
-    opacity: 40%;
-}
-
-.read-only > .thumb:before {
-    background-color: rgba(24, 75, 205, 0.4);
-    box-shadow: #184BCD;
 }
 
 .switch:focus {

@@ -92,6 +92,10 @@ States
     opacity: 60%;
 }
 
+.read-only {
+    pointer-events: none;
+}
+
 .read-only > .thumb.switch-slim:before {
     background-color: rgba(196, 196, 196, 0.22);
     box-shadow: #184BCD;
