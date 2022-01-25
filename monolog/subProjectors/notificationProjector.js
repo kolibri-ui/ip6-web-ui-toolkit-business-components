@@ -170,7 +170,6 @@ const notificationProjector = (type = "default",
                 setTimeout(() =>{
                     copiedTextImgElement.remove();
                 }, 2000);
-
         }
 
         codeBox.appendChild(codeTextBox);
@@ -178,8 +177,6 @@ const notificationProjector = (type = "default",
         notificationElement.appendChild(codeBox);
 
     }
-
-
 
     return notificationElement;
 }

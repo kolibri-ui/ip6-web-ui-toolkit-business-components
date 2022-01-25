@@ -45,10 +45,17 @@ body {
     /*height: 88px;*/
     /*left: 364px;*/
     /*top: 928px;*/
+
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
 }
 
 .monolog.shake {
-    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both infinite;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both 1;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     perspective: 1000px;
@@ -144,14 +151,13 @@ body {
 
 .copy-icon {
     padding-left: 20px;
-
 }
 
 .copy-text-icon {
     position: absolute;
     top: 108px;
     right: 74px;
-
+    width: 20%;
 }
 
 .monolog.dnd{
@@ -180,7 +186,13 @@ body {
 }
 
 .monolog.out{
-    animation: out-right 0.52s cubic-bezier(.36, .07, .19, .97) both;
+    /*animation: out-right 0.52s cubic-bezier(.36, .07, .19, .97) both; */
+    animation: fadeOut 1s;
+}
+
+@keyframes fadeOut {
+    0% {opacity:1;}
+    100% {opacity:0;}
 }
 
 .monolog-icon {
