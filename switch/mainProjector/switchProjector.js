@@ -1,5 +1,5 @@
 import {hProjector} from "../../global-projectors/hProjector.js";
-import {DemoBoxProjector} from "../subProjectors/demoBoxProjector.js";
+import {DemoBoxProjector} from "../subProjectors/DemoBoxProjector.js";
 import {hrProjector} from "../../global-projectors/hrProjector.js";
 import {DemoSwitch} from "../subProjectors/DemoSwitch.js";
 
