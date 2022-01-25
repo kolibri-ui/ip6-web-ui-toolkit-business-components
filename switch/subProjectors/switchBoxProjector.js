@@ -1,6 +1,6 @@
-export { switchBoxProjector }
+export { SwitchBoxProjector }
 
-const switchBoxProjector = switchName => {
+const SwitchBoxProjector = switchName => {
     const switchBoxDivElement = document.createElement('div');
     switchBoxDivElement.classList.add('switch-div-frame');
 

@@ -1,7 +1,0 @@
-export { switchService }
-
-
-const switchService = () => {
-
-
-}
