@@ -7,7 +7,9 @@ import {Switch} from "../subProjectors/Switch.js";
 const testSuite = TestSuite("switch");
 const testObservable = Observable(false);
 
-
+/**
+ * Test instantiation of default Switch
+ */
 testSuite.add("switch-default-init-test", assert => {
 
     const defaultSwitch = Switch(testObservable, false, false, "test-id-default");
@@ -19,6 +21,9 @@ testSuite.add("switch-default-init-test", assert => {
     assert.is(false, checkboxElement.readOnly);
 });
 
+/**
+ * Test instantiation of Slim design
+ */
 testSuite.add("switch-slim-init-test", assert => {
 
     const slimSwitch = SlimSwitch(testObservable, false, false, "test-id-slim");
@@ -30,7 +35,9 @@ testSuite.add("switch-slim-init-test", assert => {
     assert.is(false, checkboxElement.readOnly);
 });
 
-
+/**
+ * Test createion of ID
+ */
 testSuite.add("test-id-creation", assert => {
 
     const defaultSwitch = Switch(testObservable, false, false);
