@@ -1,7 +1,7 @@
-import {TestSuite} from "../Kolibri/docs/src/kolibri/util/test.js";
-import {SlimSwitch} from "../switch/subProjectors/SlimSwitch.js";
-import {Observable} from "../observable/observable.js";
-import {Switch} from "../switch/subProjectors/Switch.js";
+import {TestSuite} from "../../Kolibri/docs/src/kolibri/util/test.js";
+import {SlimSwitch} from "../subProjectors/SlimSwitch.js";
+import {Observable} from "../../observable/observable.js";
+import {Switch} from "../subProjectors/Switch.js";
 
 
 const testSuite = TestSuite("switch");

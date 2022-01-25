@@ -1,8 +1,8 @@
-import {TestSuite} from "../Kolibri/docs/src/kolibri/util/test.js";
-import {NotificationProjector} from "../monolog/subProjectors/notificationProjector.js";
-import {NotificationProjector} from "../monolog/subProjectors/notificationProjector.js";
-import {TestSuite} from "../Kolibri/docs/src/kolibri/util/test.js";
-import {Observable} from "../observable/observable.js";
+import {TestSuite} from "../../Kolibri/docs/src/kolibri/util/test.js";
+import {NotificationProjector} from "../subProjectors/notificationProjector.js";
+import {NotificationProjector} from "../subProjectors/notificationProjector.js";
+import {TestSuite} from "../../Kolibri/docs/src/kolibri/util/test.js";
+import {Observable} from "../../observable/observable.js";
 
 
 const testSuite = TestSuite("monolog");
