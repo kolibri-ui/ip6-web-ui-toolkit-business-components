@@ -1,0 +1,3 @@
+[submodule "Kolibri"]
+	path = Kolibri
+	url = https://github.com/WebEngineering-FHNW/Kolibri.git

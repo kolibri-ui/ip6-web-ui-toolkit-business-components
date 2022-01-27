@@ -3,13 +3,16 @@ export {Switch}
 
 const Switch = (observable, defaultState = null, isThreeState = false, id = null, classlist = [], showIcons = false) => {
 
+    // todo Name attribut vergessen --> Muss noch angepasst werden
+
+
     /**
      * Create ID if not set by developer on init
      */
     (id === null) ? id = 'switch-' + Math.random().toString(36).substring(2) || "0" : "";
 
     /**
-     * Create all ELements needed for a Switch
+     * Create all Elements needed for a Switch
      */
     const labelElement = document.createElement('label');
     labelElement.classList.add('switch');
@@ -96,7 +99,11 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
         labelElement.classList.remove("required");
         thumbElement.classList.remove("indeterminate", "on");
         thumbElement.classList.add("off");
-        checkBoxElement.setAttribute("checked", "false");
+
+        // todo remove this one for
+        // checkBoxElement.setAttribute("checked", "false");
+        checkBoxElement.removeAttribute("checked");
+
         checkBoxElement.indeterminate = false;
         checkBoxElement.checked = false;
         observable.setValue(false);
@@ -106,7 +113,11 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
     const setSwitchIndeterminate = _ => {
         thumbElement.classList.remove("off", "on");
         thumbElement.classList.add("indeterminate");
-        checkBoxElement.setAttribute("checked", "undefined");
+
+        // todo remove attribute instead of undefined
+        // checkBoxElement.setAttribute("checked", "undefined");
+        checkBoxElement.removeAttribute("checked");
+
         checkBoxElement.indeterminate = true;
         checkBoxElement.checked = undefined;
         observable.setValue(undefined);

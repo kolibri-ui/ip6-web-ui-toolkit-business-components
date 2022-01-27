@@ -36,7 +36,9 @@ body {
     /*padding: 5px;*/
 
     display: flex;
+    /* Todo besser flex direction column */
     flex-direction: row;
+
     align-items: center;
     padding: 10px;
 

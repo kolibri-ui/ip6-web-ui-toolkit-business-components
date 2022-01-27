@@ -36,7 +36,7 @@ testSuite.add("switch-slim-init-test", assert => {
 });
 
 /**
- * Test createion of ID
+ * Test creation of ID
  */
 testSuite.add("test-id-creation", assert => {
 
