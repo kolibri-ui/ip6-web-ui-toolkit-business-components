@@ -20,8 +20,8 @@
     width: 36px;
     border-width: 1px;
     border-style: solid;
-    border-color: var(--primary);
-    background-color: var(--background);
+    border-color: var(--slim-thumb-main);
+    background-color: var(--slim-background);
 }
 
 .thumb.switch-slim.off::before {
@@ -29,7 +29,7 @@
 }
 
 .thumb.switch-slim.on::before {
-    left: 3px;
+    left: 7px;
 }
 
 .switch.switch-slim input:indeterminate + .thumb::before {
@@ -41,15 +41,15 @@
 }
 
 .switch-icon.off {
-    width: var(--switch-icon-size);
-    height: var(--switch-icon-size);
+    width: var(--slim-icon-size);
+    height: var(--slim-icon-size);
     left: 7px;
     top: 7px;
 }
 
 .switch-icon.on {
-    width: var(--switch-icon-size);
-    height: var(--switch-icon-size);
+    width: var(--slim-icon-size);
+    height: var(--slim-icon-size);
     left: 53px;
     top: 7px;
 }
@@ -73,19 +73,19 @@ States
 
 .focus > .thumb.switch-slim {
     box-shadow: 0 0 6px 0 rgba(24, 75, 205, 0.94);
-    border-color: var(--primary);
+    border-color: var(--slim-thumb-main);
     outline: none;
 }
 
 .hover > .thumb.switch-slim {
     box-shadow: 0 0 8px 0 rgba(24, 75, 205, 0.6);
-    border-color: var(--primary);
+    border-color: var(--slim-thumb-main);
     outline: none;
 }
 
 .switch.switch-slim:focus {
     box-shadow: 0 0 15px rgba(24, 75, 205, 0.7);
-    border-color: var(--primary);
+    border-color: var(--slim-thumb-main);
     outline: none;
 }
 
@@ -130,7 +130,7 @@ States
 
 .required.switch-slim :hover > .thumb.switch-slim {
     /*  box-shadow: 0 0 15px rgb(169, 31, 31); */
-    border-color: var(--primary);
+    border-color: var(--slim-thumb-main);
     box-shadow: 0 0 4px rgba(24, 75, 205, 0.7);
 }
 

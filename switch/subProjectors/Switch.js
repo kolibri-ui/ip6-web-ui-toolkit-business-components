@@ -4,7 +4,12 @@ export {Switch}
  * Implementation of the Switch Projector.
  * @author Alexander Eser & Florian Thiévent
  * @param observable
- * @param {object} options
+ * @param {Object} options
+ * @param {String} [options.id]
+ * @param {String} [options.name]
+ * @param {Boolean} [options.slim]
+ * @param {Boolean} [options.state]
+ * @param {Boolean} [options.threeState]
  * @returns {HTMLLabelElement}
  * @constructor
  */
@@ -154,7 +159,6 @@ const Switch = (observable, options) => {
     }
 
 
-
     /**
      * Set values based on initialisation
      */
@@ -233,12 +237,12 @@ const Switch = (observable, options) => {
      * MouseOver Listener
      */
     labelElement.onmouseover = () => {
-            labelElement.classList.add("hover");
+        labelElement.classList.add("hover");
 
-            if (checkBoxElement.indeterminate && !labelElement.classList.contains('read-only')) {
-                arrowLeftElement.style.display = 'block';
-                arrowRightElement.style.display = 'block';
-            }
+        if (checkBoxElement.indeterminate && !labelElement.classList.contains('read-only')) {
+            arrowLeftElement.style.display = 'block';
+            arrowRightElement.style.display = 'block';
+        }
     }
 
     /**
@@ -247,12 +251,12 @@ const Switch = (observable, options) => {
     labelElement.onmouseout = () => {
         hideArrows();
 
-            labelElement.classList.remove("hover");
+        labelElement.classList.remove("hover");
 
-            if (checkBoxElement.indeterminate) {
-                arrowLeftElement.style.display = 'none';
-                arrowRightElement.style.display = 'none';
-            }
+        if (checkBoxElement.indeterminate) {
+            arrowLeftElement.style.display = 'none';
+            arrowRightElement.style.display = 'none';
+        }
     }
 
     /**
@@ -272,7 +276,7 @@ const Switch = (observable, options) => {
 
     labelElement.onmousedown = e => mousePos = e.x;
     labelElement.onmouseup = (e) => {
-        if(!labelElement.classList.contains('read-only')) {
+        if (!labelElement.classList.contains('read-only')) {
             let calc_movement = calcMovement(e.x);
             checkBoxElement.setAttribute('checked', `${calc_movement}`);
             checkBoxElement.checked = calc_movement;
