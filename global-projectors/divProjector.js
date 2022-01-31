@@ -2,9 +2,8 @@ export {divProjector}
 
 /**
  *
- * @param {string} text - Text to be displayed
- * @param {string} forElement - id of element for which the label is
  * @returns {HTMLDivElement}
+ * @param classList
  */
 const divProjector = (classList = []) => {
     const divElement = document.createElement('div');
