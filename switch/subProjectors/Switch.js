@@ -1,29 +1,31 @@
 export {Switch}
 
 
-const Switch = (observable, defaultState = null, isThreeState = false, id = null, classlist = [], showIcons = false) => {
+const Switch = (observable, options) => {
 
-    // todo Name attribut vergessen --> Muss noch angepasst werden
-
+    const slimClassName = 'switch-slim';
 
     /**
-     * Create ID if not set by developer on init
+     * Create ID and Name if they are not set by developer on init
      */
-    const randomId = () => Math.random().toString(36).substring(2) || "0" ;
-    (id === null) ? id = 'switch-' + randomId().padEnd(12, `${randomId()}`).slice(0,19) : "";
+    const randomId = () => Math.random().toString(36).substring(2) || "0";
+    const idName = 'switch-' + randomId().padEnd(12, 'a').slice(0, 19);
+
+    (options.id === undefined) ? options.id = idName : "";
+    (options.name === undefined) ? options.name = idName : "";
 
     /**
      * Create all Elements needed for a Switch
      */
     const labelElement = document.createElement('label');
     labelElement.classList.add('switch');
-    labelElement.htmlFor = id;
+    labelElement.htmlFor = options.id;
 
     const checkBoxElement = document.createElement('input');
     checkBoxElement.setAttribute('data-type', 'switch');
     checkBoxElement.type = 'checkbox';
-    checkBoxElement.id = id;
-
+    checkBoxElement.id = options.id;
+    checkBoxElement.name = options.name;
 
     const thumbElement = document.createElement('span');
     thumbElement.classList.add('thumb');
@@ -33,17 +35,6 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
 
     const arrowRightElement = document.createElement('span');
     arrowRightElement.classList.add('arrow', 'arrow-right');
-
-    /**
-     * Add Custom Classes to Elements
-     */
-    classlist.forEach(c => {
-        labelElement.classList.add(c);
-        checkBoxElement.classList.add(c);
-        thumbElement.classList.add(c);
-        arrowLeftElement.classList.add(c);
-        arrowRightElement.classList.add(c);
-    });
 
     /**
      * Append Elements to each other
@@ -56,10 +47,10 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
 
 
     /**
-     * Show Icons if set to True
+     * Check if it is a Slim Switch, if so, add the corresponding class and elements
      */
 
-    if (showIcons) {
+    if (options.slim) {
         const crossImgElement = document.createElement('img');
         crossImgElement.alt = 'off';
         crossImgElement.classList.add('switch-icon', 'off');
@@ -72,14 +63,20 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
         checkmarkImgElement.src = '../styles/kolibri/icons/checkmark-light-black.svg';
         checkmarkImgElement.draggable = false;
 
-        classlist.forEach(c => {
-            checkmarkImgElement.classList.add(c);
-            crossImgElement.classList.add(c);
-        });
+        checkmarkImgElement.classList.add(slimClassName);
+        crossImgElement.classList.add(slimClassName);
 
         labelElement.appendChild(crossImgElement);
         labelElement.appendChild(checkmarkImgElement);
+
+        labelElement.classList.add(slimClassName);
+        checkBoxElement.classList.add(slimClassName);
+        thumbElement.classList.add(slimClassName);
+        arrowLeftElement.classList.add(slimClassName);
+        arrowRightElement.classList.add(slimClassName);
     }
+
+
 
 
     /**
@@ -101,8 +98,6 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
         thumbElement.classList.remove("indeterminate", "on");
         thumbElement.classList.add("off");
 
-        // todo remove this one for
-        // checkBoxElement.setAttribute("checked", "false");
         checkBoxElement.removeAttribute("checked");
 
         checkBoxElement.indeterminate = false;
@@ -114,18 +109,13 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
     const setSwitchIndeterminate = _ => {
         thumbElement.classList.remove("off", "on");
         thumbElement.classList.add("indeterminate");
-
-        // todo remove attribute instead of undefined
-        // checkBoxElement.setAttribute("checked", "undefined");
         checkBoxElement.removeAttribute("checked");
-
         checkBoxElement.indeterminate = true;
         checkBoxElement.checked = undefined;
         observable.setValue(undefined);
     }
 
     const hideArrows = _ => {
-        arrowLeftElement.style.display = 'none';
         arrowRightElement.style.display = 'none';
     }
 
@@ -140,14 +130,14 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
     /**
      * Set values based on initialisation
      */
-    checkBoxElement.value = defaultState;
-    observable.setValue(defaultState);
+    checkBoxElement.value = options.state;
+    observable.setValue(options.state);
 
     /**
      * Set visual State based on initialisation
      */
-    if (isThreeState) {
-        switch (defaultState) {
+    if (options.threeState) {
+        switch (options.state) {
             case true:
                 setSwitchOn();
                 checkBoxElement.indeterminate = false;
@@ -161,7 +151,7 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
                 thumbElement.classList.add("indeterminate");
         }
     } else {
-        switch (defaultState) {
+        switch (options.state) {
             case true:
                 setSwitchOn();
                 break;
@@ -259,16 +249,17 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
      * @param e
      */
     labelElement.onkeyup = e => {
+        if (!checkBoxElement.readOnly) {
+            if (e.key === "ArrowRight") {
+                setSwitchOn();
+            } else if (e.key === "ArrowLeft") {
+                setSwitchOff();
+            }
 
-        if (e.key === "ArrowRight") {
-            setSwitchOn();
-        } else if (e.key === "ArrowLeft") {
-            setSwitchOff();
-        }
-
-        if (isThreeState) {
-            if (e.key === "Delete") {
-                setSwitchIndeterminate();
+            if (options.threeState) {
+                if (e.key === "Delete") {
+                    setSwitchIndeterminate();
+                }
             }
         }
     };
