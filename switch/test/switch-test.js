@@ -63,6 +63,9 @@ testSuite.add("test-id-creation", assert => {
 
 });
 
+/**
+ * Test if the readOnly Propery gets changed
+ */
 testSuite.add("test-readonly-property-change", assert => {
 
     const defaultSwitch = Switch(testObservable, options);
@@ -74,6 +77,9 @@ testSuite.add("test-readonly-property-change", assert => {
 
 });
 
+/**
+ * Test if the disabled Property gets changed
+ */
 testSuite.add("test-disabled-property-change", assert => {
 
     const defaultSwitch = Switch(testObservable, options);
@@ -85,6 +91,9 @@ testSuite.add("test-disabled-property-change", assert => {
 
 });
 
+/**
+ * Test if the required Property gets changed
+ */
 testSuite.add("test-required-property-change", assert => {
 
     const defaultSwitch = Switch(testObservable, options);
@@ -96,7 +105,9 @@ testSuite.add("test-required-property-change", assert => {
 
 });
 
-
+/**
+ * Test if on click, the value gets changed
+ */
 testSuite.add("test-set-value-to-on", assert => {
     options.threeState = undefined;
     const defaultSwitch = Switch(testObservable, options);

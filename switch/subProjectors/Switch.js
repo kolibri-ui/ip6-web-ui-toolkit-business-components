@@ -1,6 +1,13 @@
 export {Switch}
 
-
+/**
+ * Implementation of the Switch Projector.
+ * @author Alexander Eser & Florian Thiévent
+ * @param {Observable} observable
+ * @param {object} options
+ * @returns {HTMLLabelElement}
+ * @constructor
+ */
 const Switch = (observable, options) => {
 
     const slimClassName = 'switch-slim';
@@ -82,6 +89,10 @@ const Switch = (observable, options) => {
     /**
      * Define Functions
      */
+    /**
+     * Set the value, appearance and value of the Observable to on state
+     * @param _
+     */
     const setSwitchOn = _ => {
         labelElement.classList.remove("required");
         thumbElement.classList.remove("indeterminate", "off");
@@ -93,6 +104,10 @@ const Switch = (observable, options) => {
         hideArrows();
     }
 
+    /**
+     * Set the value, appearance and value of the Observable to off state
+     * @param _
+     */
     const setSwitchOff = _ => {
         labelElement.classList.remove("required");
         thumbElement.classList.remove("indeterminate", "on");
@@ -106,6 +121,10 @@ const Switch = (observable, options) => {
         hideArrows();
     }
 
+    /**
+     * Set the value, appearance and value of the Observable to indeterminate state
+     * @param _
+     */
     const setSwitchIndeterminate = _ => {
         thumbElement.classList.remove("off", "on");
         thumbElement.classList.add("indeterminate");
@@ -115,10 +134,19 @@ const Switch = (observable, options) => {
         observable.setValue(undefined);
     }
 
+    /**
+     * Function to hide the Arrows on the Element.
+     * @param _
+     */
     const hideArrows = _ => {
         arrowRightElement.style.display = 'none';
     }
 
+    /**
+     * Calculate the movement of the mouse for a drag simulation
+     * @param ex
+     * @returns {boolean}
+     */
     const calcMovement = ex => {
         if (mousePos > ex + mouseOffset) {
             return false;
