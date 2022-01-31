@@ -97,4 +97,16 @@ testSuite.add("test-required-property-change", assert => {
 });
 
 
+testSuite.add("test-set-value-on-observable", assert => {
+
+    options.threeState = undefined;
+    const defaultSwitch = Switch(testObservable, options);
+
+    assert.is(testObservable.getValue(), false);
+    defaultSwitch.click();
+    assert.is(testObservable.getValue(), true);
+
+});
+
+
 testSuite.run();
