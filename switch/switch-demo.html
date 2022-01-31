@@ -16,20 +16,68 @@
 
     <h1>Switch</h1>
     <p class="demo-text">A Switch uses the markup from a checkbox, but the interaction and design are styled like a
-        toggle switch.
-        A switch can have three states: <span class="code code-red">on</span>, <span class="code code-red">off</span>
-        and
-        <span class="code code-red">indeterminate</span>. It is possible for a developer to decide if the third
-        state can be accessed.</p>
+        toggle switch. A switch can have three states: <span class="code code-red">on</span>,
+        <span class="code code-red">off</span> and <span class="code code-red">indeterminate</span>. It is possible
+        for a developer to decide if the third state can be accessed.
+    </p>
     <p class="demo-text">A developer can decide about an id for a switch. An ID has to be unique. If no ID is supplied,
         it gets created
         automatically in the form <span class="code code-red">switch-89bitdjyujhp</span>. This id will change on each
-        page
-        refresh.</p>
+        page refresh.
+    </p>
     <p class="demo-text">
         You can obtain the current state of the Switch Control bei checking the attached observable, which you have to
         supply while the instantiation of the Switch Control.
     </p>
+
+    <h2>Examples</h2>
+
+    <p class="demo-text">
+        To create a Switch call the Switch Projector first define an options object.
+        <span class="code demo-code mt-10 mb-10">
+            const options = {};
+        </span>
+        All not used Elements in the Options Object defaults to <span class="code code-red">undefined</span>. To change
+        the Appereance and Initial State of the Switch, set the corresponding key in the Options Object. The following
+        Options are available.
+    </p>
+
+    <div class="code demo-code mt-10 mb-10">
+        <ul>
+            <li>
+                <span class="option-name">name <small>(default: undefined, type: String)</small></span>
+                <p>The Name for the Switch Control. If not supplied it will be generated. You better give the Switch a
+                    Name,
+                    because the generated name will be changed on each page load. This makes it harder to work with the
+                    value in the Backend.</p>
+            </li>
+            <li>
+                <span class="option-name">id <small>(default: undefined, type: String)</small></span>
+                <p>The Id for the Input and Label of the Switch Control. If not supplied, it will be generated.</p>
+            </li>
+            <li>
+                <span class="option-name">state <small>(default: undefined, type: Boolean)</small></span>
+                <p>The initial state for the Switch.</p>
+            </li>
+            <li>
+                <span class="option-name">threeState <small>(default: undefined, type: Boolean)</small></span>
+                <p>If set to <span class="code code-red">true</span>, the Switch Control have a third state. This will
+                    then be indeterminate.</p>
+            </li>
+            <li>
+                <span class="option-name">slim <small>(default: undefined, type: Boolean)</small></span>
+                <p>Set this option to <span class="code code-red">true</span> to get a Switch with Slim styling.</p>
+            </li>
+        </ul>
+    </div>
+    <p class="demo-text">
+        You can then call the Switch and supply the Observable from the Model as first Parameter and as the second
+        Parameter the options Object.
+        <span class="code demo-code mt-10 mb-10"> const demo = Switch(observable, options); </span>
+        It is also possible to insert the Options Object direct while calling the Switch() Projector.
+        <span class="code demo-code mt-10 mb-10"> const demo = Switch(observable, { name: "demo-switch" }); </span>
+    </p>
+
 
     <div id="examples"></div>
 
@@ -47,26 +95,12 @@
 
     <h3>Keyboard interaction</h3>
     <p class="demo-text">
-        To change the state of a Switch you can use the keyboard. If a switch is focused, you can set the value with the
-        arrow keys, with left for off an right for on. If you are using a three state Switch with the delete Key, the
-        state can b e set to indeterminate.
+        To change the state of a Switch you can use the keyboard. If a switch is focused and not readOnly, you can set
+        the value with the
+        arrow keys, with <kbd>&larr;</kbd> for <span class="code code-red">off/false</span> and <kbd>&rarr;</kbd> for
+        <span class="code code-red">on/true</span>. If you are using a three state Switch, the
+        state can be set to indeterminate by pressing the <kbd>delete</kbd> Key.
     </p>
-
-    <h3>Default Properties</h3>
-
-    <p class="demo-text">
-        Find here an overview over default properties for a Switch: </p>
-
-    <div class="code demo-code">
-        &nbsp;&nbsp;{<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;defaultState: null,<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;isThreeState: false,<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;id: null,<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;classlist: [],<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;showIcons: false<br/>
-        &nbsp;&nbsp;}
-    </div>
-    <span class="demo-small-text">Find implementation in <span class="code code-red">Switch.js</span></span>
 
     <h3>Initial States</h3>
     <p class="demo-text">
