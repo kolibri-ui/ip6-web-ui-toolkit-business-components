@@ -49,5 +49,44 @@ testSuite.add("test-id-creation", assert => {
     assert.isTrue(checkboxElement.id.length === 19);
 });
 
+testSuite.add("test-readonly-property-change", assert => {
+
+    const defaultSwitch = Switch(testObservable, false, false);
+    const checkboxElement = defaultSwitch.querySelector('input');
+
+    assert.is(checkboxElement.readOnly, false);
+
+    checkboxElement.readOnly = true;
+
+    assert.is(checkboxElement.readOnly, true);
+
+});
+
+testSuite.add("test-disabled-property-change", assert => {
+
+    const defaultSwitch = Switch(testObservable, false, false);
+    const checkboxElement = defaultSwitch.querySelector('input');
+
+    assert.is(checkboxElement.disabled, false);
+
+    checkboxElement.disabled = true;
+
+    assert.is(checkboxElement.disabled, true);
+
+});
+
+testSuite.add("test-required-property-change", assert => {
+
+    const defaultSwitch = Switch(testObservable, false, false);
+    const checkboxElement = defaultSwitch.querySelector('input');
+
+    assert.is(checkboxElement.required, false);
+
+    checkboxElement.required = true;
+
+    assert.is(checkboxElement.required, true);
+
+});
+
 
 testSuite.run();
