@@ -9,7 +9,8 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
     /**
      * Create ID if not set by developer on init
      */
-    (id === null) ? id = 'switch-' + Math.random().toString(36).substring(2) || "0" : "";
+    const randomId = () => Math.random().toString(36).substring(2) || "0" ;
+    (id === null) ? id = 'switch-' + randomId().padEnd(12, `${randomId()}`).slice(0,12) : "";
 
     /**
      * Create all Elements needed for a Switch
