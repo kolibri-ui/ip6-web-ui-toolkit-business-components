@@ -1,6 +1,6 @@
-import {cardProjector} from "../subProjectors/cardProjector.js";
 import {monologListProjector} from "../subProjectors/monologListProjector.js";
-import {buttonProjector} from "../subProjectors/buttonProjector.js";
+import {buttonProjector} from "../../global-projectors/buttonProjector.js";
+import {cardProjector} from "../../global-projectors/cardProjector.js";
 
 
 export {monologProjector}
@@ -17,13 +17,11 @@ const monologProjector = (controller, rootElement) => {
         nonStickyButtons.push(
             buttonProjector(b, ["button-" + b.toLowerCase()], () => {
                 controller.notification(monologList,
-                    b,
-                    false,
-                    false,
-                    true,
-                    false,
-                    b + " Title",
-                    "and a " + b.toLowerCase() + " Message, 1 sec", 1000
+                    {
+                        title: b + " Title ",
+                        message: "and a " + b + " Message, 1 sec",
+                        type: b,
+                    }
                 );
             })
         )
@@ -36,13 +34,12 @@ const monologProjector = (controller, rootElement) => {
         stickyButtons.push(
             buttonProjector(b, ["button-" + b.toLowerCase()], () => {
                 controller.notification(monologList,
-                    b,
-                    true,
-                    false,
-                    true,
-                    false,
-                    b + " Title",
-                    "and a " + b.toLowerCase() + " Message", 5000
+                    {
+                        title: b + " Title ",
+                        message: "and a " + b + " Message",
+                        type: b,
+                        sticky: true
+                    }
                 );
             })
         );
@@ -51,13 +48,13 @@ const monologProjector = (controller, rootElement) => {
     stickyButtons.push(
         buttonProjector('Error Shake', ["button-error"], () => {
             controller.notification(monologList,
-                "Error",
-                true,
-                true,
-                true,
-                false,
-                "Error Title",
-                "and a error Message", 1000
+                {
+                    title: " Error Title",
+                    message: "and a error Message",
+                    type: "Error",
+                    sticky: true,
+                    attention: true
+                }
             );
         })
     );
@@ -65,33 +62,30 @@ const monologProjector = (controller, rootElement) => {
     stickyButtons.push(
         buttonProjector('Code Error', ["button-error"], () => {
             controller.notification(monologList,
-                "code-error",
-                true,
-                false,
-                true,
-                true,
-                "Code Error\n" +
-                "Please contact the IT support.",
-                '', 1000
+                {
+                    title: "Code Error",
+                    message: "Please contact the IT support.",
+                    type: "Error",
+                    sticky: true,
+                    codeError: "salut"
+                }
             );
         })
     );
 
     const buttonCardSticky = cardProjector('Sticky', stickyButtons);
 
-
     rootElement.appendChild(buttonCard);
     rootElement.appendChild(buttonCardSticky);
     rootElement.appendChild(monologList);
 
 
-
     /* TODO: Implement stacked monolog, find y-value of selected monolog*/
-/*    if(monologList.offsetHeight >= window.innerHeight){
-        console.log("now!");
-    }
+    /*    if(monologList.offsetHeight >= window.innerHeight){
+            console.log("now!");
+        }
 
-    console.log("Window Height: " + window.innerHeight);
-    console.log("Monolog Height: " + monologList.offsetHeight);*/
+        console.log("Window Height: " + window.innerHeight);
+        console.log("Monolog Height: " + monologList.offsetHeight);*/
 
 }
