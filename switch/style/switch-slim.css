@@ -10,7 +10,7 @@
 }
 
 
-.thumb.switch-slim:before {
+.thumb.switch-slim::before {
     position: absolute;
     content: "";
     bottom: 0;
@@ -23,15 +23,15 @@
     background-color: var(--background);
 }
 
-.thumb.switch-slim.off:before {
+.thumb.switch-slim.off::before {
     left: -3px;
 }
 
-.thumb.switch-slim.on:before {
+.thumb.switch-slim.on::before {
     left: 3px;
 }
 
-.switch.switch-slim input:indeterminate + .thumb:before {
+.switch.switch-slim input:indeterminate + .thumb::before {
     display: none;
 }
 
@@ -84,7 +84,7 @@ States
     opacity: 60%;
 }
 
-.disabled > .thumb.switch-slim:before {
+.disabled > .thumb.switch-slim::before {
     border-color: var(--slim-default-border);
 }
 
@@ -96,7 +96,7 @@ States
     pointer-events: none;
 }
 
-.read-only > .thumb.switch-slim:before {
+.read-only > .thumb.switch-slim::before {
     background-color: rgba(196, 196, 196, 0.22);
     box-shadow: #184BCD;
 }

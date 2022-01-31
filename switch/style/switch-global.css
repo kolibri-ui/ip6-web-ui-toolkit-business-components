@@ -6,15 +6,20 @@
     --switch-thumb-background: rgba(24, 75, 205, 0.4);
     --switch-icon-height: 22px;
 
-    --neomorph-width: 84px;
-    --neomorph-height: 36px;
-    --neomorph-white: #FCFCFC;
-    --neomorph-indetermiante: linear-gradient(270deg, #184BCD 0%, #184BCD 50.15%, #BDBDBD 50.16%);
-    --neomorph-on: #184BCD;
-    --neomorph-off: #BDBDBD;
+    --neumorph-width: 84px;
+    --neumorph-height: 36px;
+    --neumorph-white: #FCFCFC;
+    --neumorph-indeterminate: linear-gradient(270deg, #184BCD 0%, #184BCD 50.15%, #BDBDBD 50.16%);
 
-    --neomorph-arrow-start-position: 56px;
-    --neomorph-arrow-end-position: 59px;
+    --neumorph-on: #184BCD;
+    --neumorph-off: #BDBDBD;
+
+    --neumorph-indeterminate-disabled: linear-gradient(270deg, var(--neumorph-on-disabled) 0%, var(--neumorph-on-disabled) 50.15%, var(--neumorph-off-disabled) 50.16%);
+    --neumorph-on-disabled: #9DB1E4;
+    --neumorph-off-disabled: #DDDDDD;
+
+    --neumorph-arrow-start-position: 56px;
+    --neumorph-arrow-end-position: 59px;
 
     --slim-width: 84px;
     --slim-height: 32px;
@@ -28,10 +33,9 @@
 .switch {
     position: relative;
     display: inline-block;
-    width: var(--neomorph-width);
-    height: var(--neomorph-height);
+    width: var(--neumorph-width);
+    height: var(--neumorph-height);
 }
-
 
 /* Make classical Checkbox invisible*/
 .switch input {
@@ -71,7 +75,7 @@
     transition: .2s;
 }
 
-.thumb:before {
+.thumb::before {
     margin-left: 2px;
     margin-right: 2px;
     position: absolute;
@@ -81,16 +85,15 @@
     left: 0;
     bottom: 2px;
     border-radius: 50%;
-    background-color: var(--neomorph-white);
+    background-color: var(--neumorph-white);
     transition: .2s;
-    z-index: 1;
 }
 
-.switch input:checked + .thumb:before {
+.switch input:checked + .thumb::before {
     transform: translateX(150%);
 }
 
-.switch input:indeterminate + .thumb:before {
+.switch input:indeterminate + .thumb::before {
     transform: translateX(75%);
 }
 
@@ -98,56 +101,52 @@
 States
  */
 .indeterminate {
-    background: var(--neomorph-indetermiante);
+    background: var(--neumorph-indeterminate);
 }
 
 .on {
-    background: var(--neomorph-on);
+    background: var(--neumorph-on);
 }
 
 .off {
-    background: var(--neomorph-off);
+    background: var(--neumorph-off);
+}
+
+.disabled > .off {
+    background: var(--neumorph-off-disabled);
+}
+
+.disabled > .on {
+    background: var(--neumorph-on-disabled);
+}
+
+.disabled > .indeterminate {
+    background: var(--neumorph-indeterminate-disabled);
+}
+
+.read-only > .off {
+    background: var(--neumorph-off-disabled);
+}
+
+.read-only > .on {
+    background: var(--neumorph-on-disabled);
+}
+
+.read-only > .indeterminate {
+    background: var(--neumorph-indeterminate-disabled);
 }
 
 .disabled {
     pointer-events: none;
 }
 
-.disabled > .thumb {
-    pointer-events: none;
-    /*  background-color: #C4C4C4; */
-    background-color: rgba(196, 196, 196, 0.22);
+.disabled > .thumb::before{
+    background: #F6F6F6;
 }
 
-.disabled > .thumb.indeterminate{
-    opacity: 30%;
-}
-
-
-/*.disabled > .switch-icon {
-    opacity: 40%;
-}*/
-
-/*.read-only {
-    pointer-events: none;
-}
-
-.read-only > .thumb:before {
-    !*  background-color: rgba(24, 75, 205, 0.4);
-      box-shadow: #184BCD;*!
-}*/
 
 .read-only {
     pointer-events: none;
-}
-
-.read-only > .thumb {
-    /*  background-color: #C4C4C4; */
-    background-color: rgba(196, 196, 196, 0.22);
-}
-
-.read-only > .thumb.indeterminate{
-    opacity: 30%;
 }
 
 .focus > .thumb {
@@ -188,7 +187,7 @@ States
     top: 37%;
     width: 10px;
     height: 10px;
-    border: solid var(--neomorph-white);
+    border: solid var(--neumorph-white);
     opacity: 90%;
     border-width: 0 1px 1px 0;
     border-radius: 1px;
@@ -215,24 +214,24 @@ States
 
 @keyframes moveToLeft {
     0% {
-        right: var(--neomorph-arrow-start-position);
+        right: var(--neumorph-arrow-start-position);
     }
     50% {
-        right: var(--neomorph-arrow-end-position);
+        right: var(--neumorph-arrow-end-position);
     }
     100% {
-        right: var(--neomorph-arrow-start-position);
+        right: var(--neumorph-arrow-start-position);
     }
 }
 
 @keyframes moveToRight {
     0% {
-        left: var(--neomorph-arrow-start-position);
+        left: var(--neumorph-arrow-start-position);
     }
     50% {
-        left: var(--neomorph-arrow-end-position);
+        left: var(--neumorph-arrow-end-position);
     }
     100% {
-        left: var(--neomorph-arrow-start-position);
+        left: var(--neumorph-arrow-start-position);
     }
 }
