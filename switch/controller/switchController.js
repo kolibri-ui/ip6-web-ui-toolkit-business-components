@@ -9,8 +9,6 @@ const SwitchController = () => {
 
     const SwitchModel = () => {
         const darkModeAttr          = Attribute(false);
-        const switchTypeAttribute   = Attribute(false);
-        const showGridAttribute     = Attribute(false);
         const threeState            = Attribute(null);
 
         return {

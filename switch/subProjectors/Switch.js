@@ -3,7 +3,7 @@ export {Switch}
 /**
  * Implementation of the Switch Projector.
  * @author Alexander Eser & Florian Thiévent
- * @param {Observable} observable
+ * @param observable
  * @param {object} options
  * @returns {HTMLLabelElement}
  * @constructor

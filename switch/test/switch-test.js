@@ -64,7 +64,7 @@ testSuite.add("test-id-creation", assert => {
 });
 
 /**
- * Test if the readOnly Propery gets changed
+ * Test if the readOnly Property gets changed
  */
 testSuite.add("test-readonly-property-change", assert => {
 
