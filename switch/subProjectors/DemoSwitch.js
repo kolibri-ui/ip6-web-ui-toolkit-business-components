@@ -16,8 +16,7 @@ const DemoSwitch = (observable,
     const options = {
         state: defaultState,
         threeState: isThreeState,
-        slim: isSlim,
-        classlist: []
+        slim: isSlim
     }
 
     let demoSwitch = Switch(observable, options);

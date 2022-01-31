@@ -87,8 +87,6 @@ const Switch = (observable, options) => {
     }
 
 
-
-
     /**
      * Define Functions
      */
@@ -98,7 +96,6 @@ const Switch = (observable, options) => {
      */
     const setSwitchOn = _ => {
         checkmarkImgElement.src = '../styles/kolibri/icons/checkmark-light-blue.svg';
-        // checkmarkImgElement.style.opacity = '100%';
         crossImgElement.src = '../styles/kolibri/icons/cross-light-black.svg';
 
         labelElement.classList.remove("required");
@@ -236,15 +233,12 @@ const Switch = (observable, options) => {
      * MouseOver Listener
      */
     labelElement.onmouseover = () => {
-        //console.log(labelElement.classList.contains('read-only'));
-        //if (!isDisabled && !labelElement.classList.contains('read-only')) {
             labelElement.classList.add("hover");
 
             if (checkBoxElement.indeterminate && !labelElement.classList.contains('read-only')) {
                 arrowLeftElement.style.display = 'block';
                 arrowRightElement.style.display = 'block';
             }
-      //  }
     }
 
     /**
@@ -253,14 +247,12 @@ const Switch = (observable, options) => {
     labelElement.onmouseout = () => {
         hideArrows();
 
-       // if (!isDisabled && !isReadonly) {
             labelElement.classList.remove("hover");
 
             if (checkBoxElement.indeterminate) {
                 arrowLeftElement.style.display = 'none';
                 arrowRightElement.style.display = 'none';
             }
-       // }
     }
 
     /**
