@@ -44,9 +44,9 @@ testSuite.add("test-id-creation", assert => {
     const checkboxElement = defaultSwitch.querySelector('input');
 
     const ire = /switch-([a-zA-Z0-9]+){9,12}/
-    const carr = ire.exec(checkboxElement.id);
 
-    assert.isTrue(carr.length >= 1);
+    assert.isTrue(ire.test("switch-89bitdjyujh"))
+    assert.isTrue(checkboxElement.id.length === 19);
 });
 
 
