@@ -15,3 +15,9 @@ To just fetch new commits use
 cd Kolibri
 git fetch
 ```
+
+## Tests
+Do not forget to add the Test to Kolibri allTestsSuite.js with 
+```javascript
+import '../../../switch/test/switch-test.js';
+```
