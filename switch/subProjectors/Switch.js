@@ -23,7 +23,6 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
     checkBoxElement.type = 'checkbox';
     checkBoxElement.id = id;
 
-
     const thumbElement = document.createElement('span');
     thumbElement.classList.add('thumb');
 
@@ -142,13 +141,7 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
         arrowRightElement.style.display = 'none';
     }
 
-    const calcMovement = ex => {
-        if (mousePos > ex + mouseOffset) {
-            return false;
-        } else if (mousePos < ex) {
-            return true;
-        }
-    }
+
 
     /**
      * Set values based on initialisation
@@ -193,12 +186,14 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
      * @param e
      */
     labelElement.onclick = e => {
+        let isNotReadonly = !labelElement.classList.contains('read-only');
+
         e.preventDefault();
         labelElement.focus();
         let center = labelElement.offsetWidth / 2;
-        if (e.offsetX >= center) {
+        if (e.offsetX >= center && isNotReadonly) {
             setSwitchOn();
-        } else if (e.offsetX < center) {
+        } else if (e.offsetX < center && isNotReadonly) {
             setSwitchOff();
         }
     }
@@ -226,14 +221,15 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
      * MouseOver Listener
      */
     labelElement.onmouseover = () => {
-        if (!checkBoxElement.disabled && !checkBoxElement.readOnly) {
+        //console.log(labelElement.classList.contains('read-only'));
+        //if (!isDisabled && !labelElement.classList.contains('read-only')) {
             labelElement.classList.add("hover");
 
-            if (checkBoxElement.indeterminate) {
+            if (checkBoxElement.indeterminate && !labelElement.classList.contains('read-only')) {
                 arrowLeftElement.style.display = 'block';
                 arrowRightElement.style.display = 'block';
             }
-        }
+      //  }
     }
 
     /**
@@ -242,14 +238,14 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
     labelElement.onmouseout = () => {
         hideArrows();
 
-        if (!checkBoxElement.disabled && !checkBoxElement.readOnly) {
+       // if (!isDisabled && !isReadonly) {
             labelElement.classList.remove("hover");
 
             if (checkBoxElement.indeterminate) {
                 arrowLeftElement.style.display = 'none';
                 arrowRightElement.style.display = 'none';
             }
-        }
+       // }
     }
 
     /**
@@ -259,11 +255,21 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
     let mousePos = 0;
     let mouseOffset = 20;
 
+    const calcMovement = ex => {
+        if (mousePos > ex + mouseOffset) {
+            return false;
+        } else if (mousePos < ex) {
+            return true;
+        }
+    }
+
     labelElement.onmousedown = e => mousePos = e.x;
     labelElement.onmouseup = (e) => {
-        let calc_movement = calcMovement(e.x);
-        checkBoxElement.setAttribute('checked', `${calc_movement}`);
-        checkBoxElement.checked = calc_movement;
+        if(!labelElement.classList.contains('read-only')) {
+            let calc_movement = calcMovement(e.x);
+            checkBoxElement.setAttribute('checked', `${calc_movement}`);
+            checkBoxElement.checked = calc_movement;
+        }
     };
 
 
