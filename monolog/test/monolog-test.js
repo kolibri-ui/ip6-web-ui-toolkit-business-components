@@ -1,6 +1,6 @@
 import {TestSuite} from "../../Kolibri/docs/src/kolibri/util/test.js";
-import {NotificationProjector} from "../subProjectors/notificationProjector.js";
-import {NotificationProjector} from "../subProjectors/notificationProjector.js";
+import {NotificationProjector} from "../subProjectors/Monolog.js";
+import {NotificationProjector} from "../subProjectors/Monolog.js";
 import {TestSuite} from "../../Kolibri/docs/src/kolibri/util/test.js";
 import {Observable} from "../../observable/observable.js";
 
