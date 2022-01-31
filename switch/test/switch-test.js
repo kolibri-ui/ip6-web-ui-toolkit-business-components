@@ -1,21 +1,29 @@
 import {TestSuite} from "../../Kolibri/docs/src/kolibri/util/test.js";
-import {SlimSwitch} from "../subProjectors/SlimSwitch.js";
 import {Observable} from "../../observable/observable.js";
 import {Switch} from "../subProjectors/Switch.js";
 
 
 const testSuite = TestSuite("switch");
 const testObservable = Observable(false);
+const options = {
+    name: undefined,
+    id: undefined,
+    state: undefined,
+    threeState: undefined,
+    slim: undefined
+}
 
 /**
  * Test instantiation of default Switch
  */
 testSuite.add("switch-default-init-test", assert => {
 
-    const defaultSwitch = Switch(testObservable, false, false, "test-id-default");
+    options.id = "test-id-default";
+
+    const defaultSwitch = Switch(testObservable, options);
     const checkboxElement = defaultSwitch.querySelector('input');
 
-    assert.is("test-id-default", checkboxElement.id);
+    assert.is(options.id, checkboxElement.id);
     assert.is(false, checkboxElement.required);
     assert.is(false, checkboxElement.disabled);
     assert.is(false, checkboxElement.readOnly);
@@ -26,10 +34,13 @@ testSuite.add("switch-default-init-test", assert => {
  */
 testSuite.add("switch-slim-init-test", assert => {
 
-    const slimSwitch = SlimSwitch(testObservable, false, false, "test-id-slim");
+    options.id = "test-id-slim";
+    options.slim = true;
+
+    const slimSwitch = Switch(testObservable, options);
     const checkboxElement = slimSwitch.querySelector('input');
 
-    assert.is("test-id-slim", checkboxElement.id);
+    assert.is(options.id, checkboxElement.id);
     assert.is(false, checkboxElement.required);
     assert.is(false, checkboxElement.disabled);
     assert.is(false, checkboxElement.readOnly);
@@ -40,18 +51,21 @@ testSuite.add("switch-slim-init-test", assert => {
  */
 testSuite.add("test-id-creation", assert => {
 
-    const defaultSwitch = Switch(testObservable, false, false);
+    options.id = undefined;
+
+    const defaultSwitch = Switch(testObservable, options);
     const checkboxElement = defaultSwitch.querySelector('input');
 
     const ire = /switch-([a-zA-Z0-9]+){12}/;
-
     assert.isTrue(ire.test("switch-89bitdjyujhp"));
-    assert.isTrue(checkboxElement.id.length === 19);
+
+    console.log(checkboxElement.id.length)
+
 });
 
 testSuite.add("test-readonly-property-change", assert => {
 
-    const defaultSwitch = Switch(testObservable, false, false);
+    const defaultSwitch = Switch(testObservable, options);
     const checkboxElement = defaultSwitch.querySelector('input');
 
     assert.is(checkboxElement.readOnly, false);
@@ -62,7 +76,7 @@ testSuite.add("test-readonly-property-change", assert => {
 
 testSuite.add("test-disabled-property-change", assert => {
 
-    const defaultSwitch = Switch(testObservable, false, false);
+    const defaultSwitch = Switch(testObservable, options);
     const checkboxElement = defaultSwitch.querySelector('input');
 
     assert.is(checkboxElement.disabled, false);
@@ -73,7 +87,7 @@ testSuite.add("test-disabled-property-change", assert => {
 
 testSuite.add("test-required-property-change", assert => {
 
-    const defaultSwitch = Switch(testObservable, false, false);
+    const defaultSwitch = Switch(testObservable, options);
     const checkboxElement = defaultSwitch.querySelector('input');
 
     assert.is(checkboxElement.required, false);
