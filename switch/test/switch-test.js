@@ -59,7 +59,7 @@ testSuite.add("test-id-creation", assert => {
     const ire = /switch-([a-zA-Z0-9]+){12}/;
     assert.isTrue(ire.test("switch-89bitdjyujhp"));
 
-    console.log(checkboxElement.id.length)
+    assert.is(checkboxElement.id.length, 19)
 
 });
 
