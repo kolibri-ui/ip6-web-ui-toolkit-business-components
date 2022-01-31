@@ -5,6 +5,8 @@
     --switch-thumb-color: #184BCD;
     --switch-thumb-background: rgba(24, 75, 205, 0.4);
 
+    --switch-error-color: hsl( 322, 73%, 52%);;
+
     --neumorph-width: 84px;
     --neumorph-height: 36px;
     --neumorph-white: #FCFCFC;
@@ -169,21 +171,21 @@ States
 }
 
 .required > .thumb {
-    background:  #EB5656;
+    background:  var(--switch-error-color);
 }
 
 
-/*TODO: define error colors */
+/*
 .required .arrow-indeterminate-left {
-    border: solid rgba(169, 31, 31, 0.5);
+    border: solid var(--switch-error-color);
     border-width: 0 3px 3px 0;
 }
 
-/*TODO: define error colors */
+
 .required .arrow-indeterminate-right {
-    border: solid rgba(169, 31, 31, 0.5);
+    border: solid var(--switch-error-color);
     border-width: 0 3px 3px 0;
-}
+}*/
 
 
 .arrow {

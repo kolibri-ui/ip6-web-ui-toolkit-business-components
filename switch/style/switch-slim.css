@@ -124,8 +124,8 @@ States
 
 .required.switch-slim  > .thumb.switch-slim {
     /*  box-shadow: 0 0 15px rgb(169, 31, 31); */
-    border-color: #EB5656;
-    box-shadow: 0 0 4px rgba(235, 86, 86, 0.94);
+    border-color: var(--switch-error-color);
+    box-shadow: 0 0 4px var(--switch-error-color);;
 }
 
 .required.switch-slim :hover > .thumb.switch-slim {
