@@ -9,6 +9,14 @@ h2, h3 {
     margin-bottom: 10px;
 }
 
+.mt-10 {
+    margin-top: 10px
+}
+
+.mb-10 {
+    margin-bottom: 10px
+}
+
 .demo-text {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -29,7 +37,6 @@ h2, h3 {
 }
 
 .demo-box {
-    /*border: 1px solid rgb(152, 152, 152);*/
     padding: 15px;
 }
 
@@ -50,6 +57,22 @@ h2, h3 {
     background-color: rgba(152, 152, 152, 0.2);
     border-radius: 5px;
     display: block;
+}
+
+.demo-code ul {
+    list-style-type: none;
+}
+
+.demo-code ul li {
+    margin: 10px 0;
+}
+
+.option-name {
+    font-weight: 600;
+}
+
+.option-name > small {
+    font-family: monospace;
 }
 
 table {
@@ -85,7 +108,7 @@ th, td {
     align-items: center;
     border-radius: 0.75rem;
     box-shadow: rgba(0, 0, 0, 0.36) 5px 3px 6px,
-    rgba(0, 0, 0, 0.43) 0px 3px 6px;
+    rgba(0, 0, 0, 0.43) 0 3px 6px;
 }
 
 .grid-div-overlay {
@@ -100,7 +123,7 @@ th, td {
     align-items: center;
     border-radius: 0.75rem;
     box-shadow: rgba(0, 0, 0, 0.36) 5px 3px 6px,
-    rgba(0, 0, 0, 0.43) 0px 3px 6px;
+    rgba(0, 0, 0, 0.43) 0 3px 6px;
 }
 
 .featureToggle {
@@ -136,4 +159,19 @@ th, td {
 
 .states-label-text {
     padding-left: 10px;
+}
+
+kbd {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+    color: #333;
+    display: inline-block;
+    font-size: 1.2em;
+    font-family: monospace;
+    line-height: 1;
+    padding: 2px 4px;
+    white-space: nowrap;
+    pointer-events: none;
 }

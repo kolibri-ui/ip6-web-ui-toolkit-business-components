@@ -3,14 +3,12 @@ import {DemoBoxProjector} from "../subProjectors/DemoBoxProjector.js";
 import {hrProjector} from "../../global-projectors/hrProjector.js";
 import {DemoSwitch} from "../subProjectors/DemoSwitch.js";
 
+
 export {switchProjector}
 
 
 const switchProjector = (controller, rootElement, switchModel) => {
 
-
-    const examplesTitle = hProjector(2, "Examples");
-    rootElement.appendChild(examplesTitle);
 
     const twoStateTitle = hProjector(3, "Two State, Default Styling");
     rootElement.appendChild(twoStateTitle);
@@ -20,7 +18,7 @@ const switchProjector = (controller, rootElement, switchModel) => {
      */
     const defaultTwoStateTitle = "Off";
     const defaultTwoStateSwitch = DemoSwitch(switchModel.ThreeState, false, false, false, false, false);
-    const defaultTwoStateCode = "Switch(observable, false, false);";
+    const defaultTwoStateCode = "Switch(observable, {});";
     const defaultTwoStateBox = DemoBoxProjector(defaultTwoStateTitle, defaultTwoStateCode, defaultTwoStateSwitch);
     rootElement.appendChild(defaultTwoStateBox);
 
@@ -30,7 +28,7 @@ const switchProjector = (controller, rootElement, switchModel) => {
      */
     const defaultTwoStateTitleOn = "On";
     const defaultTwoStateSwitchOn = DemoSwitch(switchModel.ThreeState, false, true, false, false, false);
-    const defaultTwoStateCodeOn = "Switch(observable, true, false);";
+    const defaultTwoStateCodeOn = "Switch(observable, { state: true });";
     const defaultTwoStateBoxOn = DemoBoxProjector(defaultTwoStateTitleOn, defaultTwoStateCodeOn, defaultTwoStateSwitchOn);
     rootElement.appendChild(defaultTwoStateBoxOn);
 
@@ -45,7 +43,7 @@ const switchProjector = (controller, rootElement, switchModel) => {
      */
     const slimTwoStateTitle = "Off";
     const slimTwoStateSwitch = DemoSwitch(switchModel.ThreeState, true, false, false, false, false);
-    const slimTwoStateCode = "SlimSwitch(observable, false, false);";
+    const slimTwoStateCode = "Switch(observable, { slim: true });";
     const slimTwoStateBox = DemoBoxProjector(slimTwoStateTitle, slimTwoStateCode, slimTwoStateSwitch);
 
     rootElement.appendChild(slimTwoStateBox);
@@ -55,7 +53,7 @@ const switchProjector = (controller, rootElement, switchModel) => {
      */
     const slimTwoStateTitleOn = "On";
     const slimTwoStateSwitchOn = DemoSwitch(switchModel.ThreeState, true, true, false, false, false);
-    const slimTwoStateCodeOn = "SlimSwitch(observable, true, false);";
+    const slimTwoStateCodeOn = "Switch(observable, {slim: true, state: true});";
     const slimTwoStateBoxOn = DemoBoxProjector(slimTwoStateTitleOn, slimTwoStateCodeOn, slimTwoStateSwitchOn);
 
     rootElement.appendChild(slimTwoStateBoxOn);
@@ -71,7 +69,7 @@ const switchProjector = (controller, rootElement, switchModel) => {
      */
     const defaultThreeStateTitle = "Off";
     const defaultThreeStateSwitch = DemoSwitch(switchModel.ThreeState, false, false, true, false, false);
-    const defaultThreeStateCode = "Switch(observable, false, true);";
+    const defaultThreeStateCode = "Switch(observable, { state: false, threeState: true });";
     const defaultThreeStateBox = DemoBoxProjector(defaultThreeStateTitle, defaultThreeStateCode, defaultThreeStateSwitch);
 
     rootElement.appendChild(defaultThreeStateBox);
@@ -79,7 +77,7 @@ const switchProjector = (controller, rootElement, switchModel) => {
 
     const defaultThreeStateTitleOn = "On";
     const defaultThreeStateSwitchOn = DemoSwitch(switchModel.ThreeState, false, true, true, false, false);
-    const defaultThreeStateCodeOn = "Switch(observable, true, true);";
+    const defaultThreeStateCodeOn = "Switch(observable, { state: true, threeState: true });";
     const defaultThreeStateBoxOn = DemoBoxProjector(defaultThreeStateTitleOn, defaultThreeStateCodeOn, defaultThreeStateSwitchOn);
 
     rootElement.appendChild(defaultThreeStateBoxOn);
@@ -87,14 +85,15 @@ const switchProjector = (controller, rootElement, switchModel) => {
 
     const defaultThreeStateTitleI = "Indeterminate";
     const defaultThreeStateSwitchI = DemoSwitch(switchModel.ThreeState, false, null, true, false, false);
-    const defaultThreeStateCodeI = "Switch(observable, null, true);";
+    const defaultThreeStateCodeI = "Switch(observable, { threeState: true });";
     const defaultThreeStateBoxI = DemoBoxProjector(defaultThreeStateTitleI, defaultThreeStateCodeI, defaultThreeStateSwitchI);
 
     rootElement.appendChild(defaultThreeStateBoxI);
 
     const defaultThreeStateTitleR = "Required";
+    const requiredText = "Only a ThreeState Switch can be in a required State. This will be triggered, if the current State on submit is indeterminate.";
     const defaultThreeStateSwitchR = DemoSwitch(switchModel.ThreeState, false, null, true, true, false);
-    const defaultThreeStateBoxR = DemoBoxProjector(defaultThreeStateTitleR, null, defaultThreeStateSwitchR);
+    const defaultThreeStateBoxR = DemoBoxProjector(defaultThreeStateTitleR, requiredText, defaultThreeStateSwitchR);
 
     rootElement.appendChild(defaultThreeStateBoxR);
 
@@ -130,28 +129,29 @@ const switchProjector = (controller, rootElement, switchModel) => {
 
     const slimThreeStateTitle = "Off";
     const slimThreeStateSwitch = DemoSwitch(switchModel.ThreeState, true, false, true, false, false);
-    const slimThreeStateCode = "SlimSwitch(observable, false, true);";
+    const slimThreeStateCode = "Switch(observable, {slim: true, state: false });";
     const slimThreeStateBox = DemoBoxProjector(slimThreeStateTitle, slimThreeStateCode, slimThreeStateSwitch);
 
     rootElement.appendChild(slimThreeStateBox);
 
     const slimThreeStateTitleOn = "On";
     const slimThreeStateSwitchOn = DemoSwitch(switchModel.ThreeState, true, true, true, false, false);
-    const slimThreeStateCodeOn = "SlimSwitch(observable, true, true);";
+    const slimThreeStateCodeOn = "Switch(observable, {slim: true, state: true });";
     const slimThreeStateBoxOn = DemoBoxProjector(slimThreeStateTitleOn, slimThreeStateCodeOn, slimThreeStateSwitchOn);
 
     rootElement.appendChild(slimThreeStateBoxOn);
 
     const slimThreeStateTitleI = "Indeterminate";
     const slimThreeStateSwitchI = DemoSwitch(switchModel.ThreeState, true, null, true, false, false);
-    const slimThreeStateCodeI = "SlimSwitch(observable, null, true);";
+    const slimThreeStateCodeI = "Switch(observable, {slim: true });";
     const slimThreeStateBoxI = DemoBoxProjector(slimThreeStateTitleI, slimThreeStateCodeI, slimThreeStateSwitchI);
 
     rootElement.appendChild(slimThreeStateBoxI);
 
     const slimThreeStateTitleR = "Required";
+    const requiredTextSlim = "Only a ThreeState Switch can be in a required State. This will be triggered, if the current State on submit is indeterminate.";
     const slimThreeStateSwitchR = DemoSwitch(switchModel.ThreeState, true, null, true, true, false);
-    const slimThreeStateBoxR = DemoBoxProjector(slimThreeStateTitleR, null, slimThreeStateSwitchR);
+    const slimThreeStateBoxR = DemoBoxProjector(slimThreeStateTitleR, requiredTextSlim, slimThreeStateSwitchR);
 
     rootElement.appendChild(slimThreeStateBoxR);
 
