@@ -13,10 +13,11 @@
 .thumb.switch-slim::before {
     position: absolute;
     content: "";
+
     bottom: 0;
     left: 0;
-    height: 29px;
-    width: 29px;
+    height: 36px;
+    width: 36px;
     border-width: 1px;
     border-style: solid;
     border-color: var(--primary);
@@ -35,12 +36,22 @@
     display: none;
 }
 
+.switch.switch-slim input:checked + .thumb::before {
+    transform: translateX(105%);
+}
+
 .switch-icon.off {
-    left: 4px;
+    width: var(--switch-icon-size);
+    height: var(--switch-icon-size);
+    left: 7px;
+    top: 7px;
 }
 
 .switch-icon.on {
-    right: 4px;
+    width: var(--switch-icon-size);
+    height: var(--switch-icon-size);
+    left: 53px;
+    top: 7px;
 }
 
 
@@ -79,17 +90,18 @@ States
 }
 
 .disabled > .thumb.switch-slim {
-    background-color: rgba(196, 196, 196, 0.22);
-    border-color: var(--slim-default-border);
-    opacity: 60%;
+    background-color: var(--slim-background-disabled);
+    border-color: var(--slim-border-disabled);
+
 }
 
 .disabled > .thumb.switch-slim::before {
-    border-color: var(--slim-default-border);
+    background-color: var(--slim-background-disabled);
+    border-color: var(--slim-border-disabled);
 }
 
 .disabled > .switch-icon {
-    opacity: 60%;
+    opacity: 50%;
 }
 
 .read-only {
@@ -97,12 +109,17 @@ States
 }
 
 .read-only > .thumb.switch-slim::before {
-    background-color: rgba(196, 196, 196, 0.22);
-    box-shadow: #184BCD;
+    background-color: var(--slim-background-disabled);
+    /*box-shadow: #184BCD;*/
 }
 
 .read-only > .thumb.switch-slim {
-    background-color: rgba(196, 196, 196, 0.22);
+    background-color: var(--slim-background-disabled);
+    border-color: var(--slim-border-disabled);
+}
+
+.read-only > .switch-icon {
+    /*opacity: 50%;*/
 }
 
 .required.switch-slim  > .thumb.switch-slim {
@@ -122,18 +139,18 @@ States
     top: 37%;
     width: 10px;
     height: 10px;
-    border: solid var(--slim-default-border);
-    opacity: 90%;
+    border: solid var(--slim-arrow-color);
+    opacity: 50%;
     border-width: 0 1px 1px 0;
     border-radius: 1px;
 }
 
 .arrow-left.switch-slim {
-    animation: moveToLeft-slim 1s infinite ease-in;
+    animation: moveToLeft-slim 2s infinite ease-in;
 }
 
 .arrow-right.switch-slim {
-    animation: moveToRight-slim 1s infinite ease-in;
+    animation: moveToRight-slim 2s infinite ease-in;
 }
 
 @keyframes moveToLeft-slim {

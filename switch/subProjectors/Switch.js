@@ -33,6 +33,10 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
     const arrowRightElement = document.createElement('span');
     arrowRightElement.classList.add('arrow', 'arrow-right');
 
+    /* Cross and Checkmark Icons */
+    const crossImgElement = document.createElement('img');
+    const checkmarkImgElement = document.createElement('img');
+
     /**
      * Add Custom Classes to Elements
      */
@@ -59,13 +63,13 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
      */
 
     if (showIcons) {
-        const crossImgElement = document.createElement('img');
+
         crossImgElement.alt = 'off';
         crossImgElement.classList.add('switch-icon', 'off');
         crossImgElement.src = '../styles/kolibri/icons/cross-light-black.svg';
         crossImgElement.draggable = false;
 
-        const checkmarkImgElement = document.createElement('img');
+
         checkmarkImgElement.alt = 'on';
         checkmarkImgElement.classList.add('switch-icon', 'on');
         checkmarkImgElement.src = '../styles/kolibri/icons/checkmark-light-black.svg';
@@ -85,6 +89,10 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
      * Define Functions
      */
     const setSwitchOn = _ => {
+        checkmarkImgElement.src = '../styles/kolibri/icons/checkmark-light-blue.svg';
+        // checkmarkImgElement.style.opacity = '100%';
+        crossImgElement.src = '../styles/kolibri/icons/cross-light-black.svg';
+
         labelElement.classList.remove("required");
         thumbElement.classList.remove("indeterminate", "off");
         thumbElement.classList.add("on");
@@ -96,6 +104,9 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
     }
 
     const setSwitchOff = _ => {
+        checkmarkImgElement.src = '../styles/kolibri/icons/checkmark-light-black.svg';
+        crossImgElement.src = '../styles/kolibri/icons/cross-light-blue.svg';
+
         labelElement.classList.remove("required");
         thumbElement.classList.remove("indeterminate", "on");
         thumbElement.classList.add("off");
@@ -111,6 +122,9 @@ const Switch = (observable, defaultState = null, isThreeState = false, id = null
     }
 
     const setSwitchIndeterminate = _ => {
+        checkmarkImgElement.src = '../styles/kolibri/icons/checkmark-light-black.svg';
+        crossImgElement.src = '../styles/kolibri/icons/cross-light-black.svg';
+
         thumbElement.classList.remove("off", "on");
         thumbElement.classList.add("indeterminate");
 
