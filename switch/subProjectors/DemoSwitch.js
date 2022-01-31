@@ -4,7 +4,7 @@ export {DemoSwitch}
 
 
 const DemoSwitch = (observable,
-                    slim = false,
+                    isSlim = false,
                     defaultState = null,
                     isThreeState = false,
                     required = false,
@@ -12,7 +12,15 @@ const DemoSwitch = (observable,
                     readOnly = false,
                     disabled = false) => {
 
-    let demoSwitch = Switch(observable, defaultState, isThreeState);
+
+    const options = {
+        state: defaultState,
+        threeState: isThreeState,
+        slim: isSlim,
+        classlist: []
+    }
+
+    let demoSwitch = Switch(observable, options);
 
 
     const showArrows = _ => {
@@ -22,9 +30,6 @@ const DemoSwitch = (observable,
         });
     }
 
-    if (slim) {
-        demoSwitch = Switch(observable, defaultState, isThreeState, null, ['switch-slim'], true);
-    }
 
     const checkboxElement = demoSwitch.querySelector('input');
 
