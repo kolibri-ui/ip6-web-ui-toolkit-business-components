@@ -1,5 +1,3 @@
-import {notificationProjector} from "./notificationProjector.js";
-
 export {monologListProjector}
 
 /**
