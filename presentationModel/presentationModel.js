@@ -1,12 +1,14 @@
-import { Observable } from '../observable/observable.js'
+import {Observable} from '../Kolibri/docs/src/kolibri/observable.js';
 
-export {  Attribute, presentationModelFromAttributeNames,
-    VALID, VALUE, LABEL, EDITABLE, VISIBILITY }
+export {
+    Attribute, presentationModelFromAttributeNames,
+    VALID, VALUE, LABEL, EDITABLE, VISIBILITY
+}
 
-const VALUE      = 'value'
-const VALID      = 'valid'
-const LABEL      = 'label'
-const EDITABLE   = 'editable'
+const VALUE = 'value'
+const VALID = 'valid'
+const LABEL = 'label'
+const EDITABLE = 'editable'
 const VISIBILITY = 'visibility'
 
 
@@ -80,8 +82,6 @@ const Attribute = value => {
             : observables[name] = Observable(initValue)
 
     getObs('value', value) // To set an observable as soon as the Attribute function gets called
-
-
 
 
     let convert = id => id
