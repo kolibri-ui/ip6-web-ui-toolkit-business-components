@@ -1,4 +1,4 @@
-import {Monolog} from "../subProjectors/Monolog.js";
+import {Notification} from "../subProjectors/Notification.js";
 
 export {monologService}
 
@@ -22,7 +22,7 @@ const monologService = () => {
      */
     const notification = (monologList, options) => {
         options.title = options.title + " " + i;
-        const notification = Monolog(options);
+        const notification = Notification(options);
         monologList.appendChild(notification);
         checkStacking(monologList);
 
@@ -37,24 +37,31 @@ const monologService = () => {
         const successType = monologList.querySelectorAll('.success');
 
         if (successType.length > 2) {
-            stacking(successType);
+            //stacking(successType);
         }
 
     }
 
     const stacking = list => {
 
-        const parentHeight = list[0].getBoundingClientRect().height;
+
+        const parent = list[0].getBoundingClientRect();
+
 
         list.forEach((e, idx) => {
+
+            list[0].style.position = 'absolute';
+            list[0].style.zIndex = '100';
+
 
             if (idx > 0) {
 
                 console.log(typeof idx);
-
-                e.style.top = `-${parentHeight * idx +10}px`;
+                e.style.position = 'absolute';
+                e.style.zIndex = `${100 - idx}`;
+                e.style.top = `${parent.top}px`;
+                e.style.right = `${parent.right}px`;
             }
-
         });
 
     }

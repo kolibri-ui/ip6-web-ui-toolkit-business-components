@@ -1,4 +1,4 @@
-import {monologListProjector} from "../subProjectors/monologListProjector.js";
+import {Monolog} from "../subProjectors/Monolog.js";
 import {buttonProjector} from "../../global-projectors/buttonProjector.js";
 import {cardProjector} from "../../global-projectors/cardProjector.js";
 
@@ -8,15 +8,15 @@ export {monologProjector}
 
 const monologProjector = (controller, rootElement) => {
 
-    const monologList = monologListProjector();
-
+    const monolog = Monolog();
+    
     const buttonTypes = ['Info', 'Success', 'Warning', 'Error'];
     const nonStickyButtons = [];
 
     buttonTypes.forEach(b => {
         nonStickyButtons.push(
             buttonProjector(b, ["button-" + b.toLowerCase()], () => {
-                controller.notification(monologList,
+                controller.notification(monolog.list(),
                     {
                         title: b + " Title ",
                         message: "and a " + b + " Message, 1 sec",
@@ -33,7 +33,7 @@ const monologProjector = (controller, rootElement) => {
     buttonTypes.forEach(b => {
         stickyButtons.push(
             buttonProjector(b, ["button-" + b.toLowerCase()], () => {
-                controller.notification(monologList,
+                controller.notification(monolog.list(),
                     {
                         title: b + " Title ",
                         message: "and a " + b + " Message",
@@ -47,7 +47,7 @@ const monologProjector = (controller, rootElement) => {
 
     stickyButtons.push(
         buttonProjector('Error Shake', ["button-error"], () => {
-            controller.notification(monologList,
+            controller.notification(monolog.list(),
                 {
                     title: " Error Title",
                     message: "and a error Message",
@@ -61,13 +61,17 @@ const monologProjector = (controller, rootElement) => {
 
     stickyButtons.push(
         buttonProjector('Code Error', ["button-error"], () => {
-            controller.notification(monologList,
+            controller.notification(monolog.list(),
                 {
                     title: "Code Error",
                     message: "Please contact the IT support.",
                     type: "Error",
                     sticky: true,
-                    codeError: "salut"
+                    codeError: "Exception in thread \"main\" java.lang.NullPointerException: Fictitious NullPointerException at\n" +
+                        "                        ClassName.methodName1(ClassName.java:lineNumber) at\n" +
+                        "                        ClassName.methodName2(ClassName.java:lineNumber) at\n" +
+                        "                        ClassName.methodName3(ClassName.java:lineNumber) at\n" +
+                        "                        ClassName.main(ClassName.java:lineNumber)"
                 }
             );
         })
@@ -77,15 +81,15 @@ const monologProjector = (controller, rootElement) => {
 
     rootElement.appendChild(buttonCard);
     rootElement.appendChild(buttonCardSticky);
-    rootElement.appendChild(monologList);
+    rootElement.appendChild(monolog.list());
 
 
-    /* TODO: Implement stacked monolog, find y-value of selected monolog*/
-    /*    if(monologList.offsetHeight >= window.innerHeight){
+    /* TODO: Implement stacked monolog.list(), find y-value of selected monolog.list()*/
+    /*    if(monolog.list()List.offsetHeight >= window.innerHeight){
             console.log("now!");
         }
 
         console.log("Window Height: " + window.innerHeight);
-        console.log("Monolog Height: " + monologList.offsetHeight);*/
+        console.log("Monolog Height: " + monolog.list()List.offsetHeight);*/
 
 }

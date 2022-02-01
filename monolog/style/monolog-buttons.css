@@ -1,0 +1,75 @@
+:root {
+    --border-radius: 5px;
+    --default:          hsl(0, 0%, 62%);
+    --default-hover:    hsl(0, 0%, 79%);
+    --text-contrast:    hsl(0, 0%, 95%);
+    --primary:          hsl(223, 79%, 45%);
+    --primary-hover:    hsl(233, 79%, 56%);
+    --success:          hsl(104, 89%, 28%);
+    --success-hover:    hsl(103, 87%, 32%);
+    --warning:          hsl(36, 100%, 48%);
+    --warning-hover:    hsl(34, 97%, 58%);
+    --error:            hsl(0, 79%, 63%);
+    --error-hover:      hsl(0, 100%, 70%);
+}
+
+
+.button {
+    padding: 0.5em 1em;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.button.button-default {
+    background-color: var(--default);
+    color: var(--text-contrast)
+}
+
+.button.button-default:hover {
+    background-color: var(--default-hover);
+    color: var(--text-contrast)
+}
+
+.button.button-info {
+    background-color: var(--primary);
+    color: var(--text-contrast)
+}
+
+.button.button-info:hover {
+    background-color: var(--primary-hover);
+    color: var(--text-contrast)
+}
+
+.button.button-success {
+    background-color: var(--success);
+    color: var(--text-contrast);
+}
+
+.button.button-success:hover {
+    background-color: var(--success-hover);
+    color: var(--text-contrast);
+}
+
+.button.button-warning {
+    background-color: var(--warning);
+    color: var(--text-contrast);
+}
+
+.button.button-warning:hover {
+    background-color: var(--warning-hover);
+    color: var(--text-contrast);
+}
+
+.button.button-error {
+    background-color: var(--kolibri-color-accent);
+    color: var(--text-contrast);
+}
+
+.button.button-error:hover {
+    filter: brightness(0.9);
+    color: var(--text-contrast);
+}

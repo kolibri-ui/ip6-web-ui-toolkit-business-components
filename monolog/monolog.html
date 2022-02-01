@@ -8,14 +8,38 @@
     <meta name="description" content="">
     <link rel="icon" href="../styles/kolibri.png">
     <title>Projector Test</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet">
     <link rel=stylesheet type="text/css" href="../styles/kolibri/kolibri.css"/>
 </head>
 <body>
 <div id="app"></div>
+
+
+<div class="style-playground">
+    <h2>CSS Styling Playground for Code Error</h2>
+    <div class="monolog-list">
+        <div class="monolog code-error" data-type="monolog-error">
+            <div class="monolog-icon"><img src="../styles/kolibri/icons/error-icon.svg"></div>
+            <div class="monolog-close"><img src="../styles/kolibri/icons/cross-error.svg" alt="close"></div>
+            <div class="monolog-body">
+                <div class="monolog-title">Code Error</div>
+                <div class="monolog-body">Please contact the IT support.</div>
+            </div>
+            <div class="code-box">
+                <div class="code-text-box">
+                    <label class="code-box-label">
+                        Exception in thread "main" java.lang.NullPointerException: Fictitious NullPointerException at
+                        ClassName.methodName1(ClassName.java:lineNumber) at
+                        ClassName.methodName2(ClassName.java:lineNumber) at
+                        ClassName.methodName3(ClassName.java:lineNumber) at
+                        ClassName.main(ClassName.java:lineNumber)
+                    </label>
+                    <img src="../styles/kolibri/icons/copy-to-clipboard.svg" alt="copy-button" class="copy-icon"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script type="module" src="app.js"></script>
 </body>
 </html>

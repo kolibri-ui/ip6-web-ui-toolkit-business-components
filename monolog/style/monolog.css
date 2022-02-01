@@ -1,3 +1,9 @@
 @import url("../../Kolibri/docs/css/kolibri-base.css");
 @import url("monolog-global.css");
+@import url("monolog-buttons.css");
 @import url("../../styles/demo.css");
+
+
+.style-playground {
+    margin: 50px;
+}

@@ -30,77 +30,47 @@ body {
     border: 1px solid var(--default);
     border-radius: var(--border-radius);
     margin-bottom: 10px;
-
     display: flex;
     /* Todo besser flex direction column */
     flex-direction: row;
-
     align-items: center;
     padding: 10px;
-
     animation: fadeIn 1s;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.monolog.shake {
-    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both 1;
-    backface-visibility: hidden;
-    perspective: 1000px;
-}
-
-.monolog.shake:hover {
-    animation: 0;
-    -webkit-animation: 0;
-}
-
 .monolog.info {
-    border: 1px solid var(--primary);
+    border-color: var(--primary);
     color: var(--primary);
-    box-shadow: 0 0 4px 0 rgba(24, 75, 205, 1);
     background-color: var(--background);
+    box-shadow: 0 0 4px 0 var(--primary);
 }
 
 .monolog.success {
-    border: 1px solid var(--success);
+    border-color: var(--success);
     color: var(--success);
-    box-shadow: 0 0 4px 0 rgba(42, 135, 8, 1);
     background-color: var(--background);
+    box-shadow: 0 0 4px 0 var(--success);
 }
 
 .monolog.warning {
-    border: 1px solid var(--warning);
+    border-color: var(--warning);
     background-color: var(--warning-monolog-background);
     color: var(--text);
-    font-weight: normal;
-    box-shadow: 0 0 4px 0 rgba(245, 147, 0, 1);
-
+    box-shadow: 0 0 4px 0 var(--warning);
 }
 
-.monolog.error {
+.monolog.error, .code-error {
     border-color: var(--error);
     background-color: var(--error-monolog-background);
     color: var(--text);
-    font-weight: normal;
-    box-shadow: 0 0 4px 0 rgba(205, 24, 24, 1);
+    box-shadow: 0 0 4px 0 var(--error);
 }
+
+
 
 .monolog.code-error {
-    border-color: var(--error);
-    background-color: var(--error-monolog-background);
-    color: var(--text);
-    font-weight: normal;
-
     display: flex;
     flex-wrap: wrap;
-    box-shadow: 0 0 4px 0 rgba(205, 24, 24, 1);
 }
 
 .code-box {
@@ -112,10 +82,8 @@ body {
     background: #FFFEFE;
     opacity: 70%;
     border-radius: 5px;
-
     width: 336px;
     height: 59px;
-
     margin-left: 10px;
     margin-top: 20px;
 }
@@ -123,13 +91,10 @@ body {
 .copy-img-box {
     background: rgba(39, 52, 59, 0.6);
     border-radius: 5px;
-
     width: 31px;
     height: 120px;
-
     display: flex;
     align-items: center;
-
     margin-top: 30px;
 }
 
@@ -139,6 +104,18 @@ body {
     font-family: 'Courier New', serif;
     font-size: 12px;
     width: 280px;
+
+    /*white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;*/
+/*
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+*/
+    -webkit-line-clamp: 3;
 }
 
 .copy-icon {
@@ -169,14 +146,11 @@ body {
     animation: fadeOut 1s;
 }
 
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+.monolog.shake {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both 1;
+    backface-visibility: hidden;
 }
+
 
 .monolog-icon {
     /* icon */
@@ -190,6 +164,30 @@ body {
     flex-grow: 0;
     margin-left: 5px;
     margin-right: 20px;
+}
+
+.monolog-timeout {
+    max-width: 50px;
+}
+
+/** ------ Animations ------ */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes shake {
@@ -210,15 +208,3 @@ body {
     }
 }
 
-@keyframes out-right {
-    from {
-        left: 0;
-    }
-    to {
-        left: 400px;
-    }
-}
-
-.monolog-timeout {
-    max-width: 50px;
-}
