@@ -65,11 +65,11 @@
 }
 
 .button.button-error {
-    background-color: var(--kolibri-color-accent);
+    background-color: var(--error);
     color: var(--text-contrast);
 }
 
 .button.button-error:hover {
-    filter: brightness(0.9);
+    background-color: var(--error-hover);
     color: var(--text-contrast);
 }

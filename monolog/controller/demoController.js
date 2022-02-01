@@ -1,11 +1,12 @@
-import {ObservableList} from "./model/observable.js";
-import {monologDemoProjector} from "./mainProjector/monologDemoProjector.js";
+import {ObservableList} from "../../Kolibri/docs/src/kolibri/observable.js";
+import {monologDemoProjector} from "../mainProjector/monologDemoProjector.js";
 
 export {DemoController, DemoView}
 
-const DemoController = service => {
+const DemoController = () => {
 
-    const Monolog = () => {}
+    const Monolog = () => {
+    }
     const monologModel = ObservableList([]);
 
     const addView = () => {
