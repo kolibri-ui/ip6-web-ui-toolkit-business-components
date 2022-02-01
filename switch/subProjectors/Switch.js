@@ -97,9 +97,8 @@ const Switch = (observable, options) => {
      */
     /**
      * Set the value, appearance and value of the Observable to on state
-     * @param _
      */
-    const setSwitchOn = _ => {
+    const setSwitchOn = () => {
         checkmarkImgElement.src = '../styles/kolibri/icons/checkmark-light-blue.svg';
         crossImgElement.src = '../styles/kolibri/icons/cross-light-black.svg';
 
@@ -115,9 +114,8 @@ const Switch = (observable, options) => {
 
     /**
      * Set the value, appearance and value of the Observable to off state
-     * @param _
      */
-    const setSwitchOff = _ => {
+    const setSwitchOff = () => {
         checkmarkImgElement.src = '../styles/kolibri/icons/checkmark-light-black.svg';
         crossImgElement.src = '../styles/kolibri/icons/cross-light-blue.svg';
 
@@ -135,9 +133,8 @@ const Switch = (observable, options) => {
 
     /**
      * Set the value, appearance and value of the Observable to indeterminate state
-     * @param _
      */
-    const setSwitchIndeterminate = _ => {
+    const setSwitchIndeterminate = () => {
         checkmarkImgElement.src = '../styles/kolibri/icons/checkmark-light-black.svg';
         crossImgElement.src = '../styles/kolibri/icons/cross-light-black.svg';
 
@@ -151,9 +148,8 @@ const Switch = (observable, options) => {
 
     /**
      * Function to hide the Arrows on the Element.
-     * @param _
      */
-    const hideArrows = _ => {
+    const hideArrows = () => {
         arrowLeftElement.style.display = 'none';
         arrowRightElement.style.display = 'none';
     }
@@ -162,7 +158,7 @@ const Switch = (observable, options) => {
     /**
      * Set values based on initialisation
      */
-    checkBoxElement.value = options.state;
+    checkBoxElement.value = `${options.state}`;
     observable.setValue(options.state);
 
     /**
@@ -216,9 +212,8 @@ const Switch = (observable, options) => {
 
     /**
      * Focus Listener
-     * @param _
      */
-    checkBoxElement.onfocus = _ => {
+    checkBoxElement.onfocus = () => {
         labelElement.classList.add("focus");
         labelElement.focus();
     }
@@ -226,9 +221,8 @@ const Switch = (observable, options) => {
 
     /**
      * Blur Listener
-     * @param _
      */
-    checkBoxElement.onblur = _ => {
+    checkBoxElement.onblur = () => {
         labelElement.classList.remove("focus");
         labelElement.blur();
     }

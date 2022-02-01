@@ -22,7 +22,7 @@ const DemoSwitch = (observable,
     let demoSwitch = Switch(observable, options);
 
 
-    const showArrows = _ => {
+    const showArrows = () => {
         const arrDemoSwitch = demoSwitch.querySelectorAll('span.arrow');
         arrDemoSwitch.forEach(a => {
             a.style.display = 'block';
