@@ -11,6 +11,31 @@
 <div class="container">
     <h1>Monolog</h1>
     <div id="app"></div>
+
+    <h2>CodeError Playground for CSS Styling</h2>
+    <div class="monolog-list">
+        <div class="monolog code-error" data-type="monolog-error">
+            <div class="monolog-icon"><img alt="error-icon" src="../styles/kolibri/icons/error-icon.svg"></div>
+            <div class="monolog-close"><img src="../styles/kolibri/icons/cross-error.svg" alt="close"></div>
+            <div class="monolog-body">
+                <div class="monolog-title">Some Code Error</div>
+                <div class="monolog-body">Ask a developer.</div>
+            </div>
+            <div class="code-box">
+                <div class="code-text-box">
+                    <div class="code-box-label">Exception in thread "main" java.lang.NullPointerException<br>at
+                        com.example.myproject.Book.getTitle(Book.java:16)<br>at
+                        com.example.myproject.Author.getBookTitles(Author.java:25)<br>at
+                        com.example.myproject.Bootstrap.main(Bootstrap.java:14)
+                    </div>
+                    <div class="copy-interaction"><img src="../styles/kolibri/icons/copied-confirmation.svg"
+                                                       alt="copy-success" class="copy-text-icon"><img
+                            src="../styles/kolibri/icons/copy-to-clipboard.svg" alt="copy-button" class="copy-icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="demoApp.js" type="module"></script>

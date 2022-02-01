@@ -18,7 +18,6 @@ const Notification = (options) => {
     /**
      * Create all Elements
      */
-
     const monologType = options.type.toLowerCase();
 
     const notificationElement = document.createElement('div');
@@ -98,34 +97,43 @@ const Notification = (options) => {
         const codeTextBox = document.createElement('div');
         codeTextBox.classList.add('code-text-box');
 
-        const codeBoxLabel = document.createElement('label');
+        const codeBoxLabel = document.createElement('div');
         codeBoxLabel.classList.add('code-box-label');
 
         codeBoxLabel.innerText = options.codeError;
         codeTextBox.appendChild(codeBoxLabel);
 
+        const copyInteractionElement = document.createElement('div');
+        copyInteractionElement.classList.add('copy-interaction');
+
+
+        const copiedTextImgElement = document.createElement('img');
+        copiedTextImgElement.src = '../styles/kolibri/icons/copied-confirmation.svg';
+        copiedTextImgElement.alt = 'copy-success';
+        copiedTextImgElement.classList.add('copy-text-icon');
+        copyInteractionElement.appendChild(copiedTextImgElement);
+
         const copyImgElement = document.createElement('img');
         copyImgElement.src = '../styles/kolibri/icons/copy-to-clipboard.svg';
         copyImgElement.alt = "copy-button";
         copyImgElement.classList.add('copy-icon');
-        codeTextBox.appendChild(copyImgElement);
+        copyInteractionElement.appendChild(copyImgElement);
 
 
         /*on click: copy to clipboard */
         copyImgElement.onclick = async () => {
+
+            copiedTextImgElement.style.display = 'inline';
             copyImgElement.src = '../styles/kolibri/icons/copied-success.svg';
             await navigator.clipboard.writeText(codeBoxLabel.innerText);
 
-
-            const copiedTextImgElement = document.createElement('img');
-            copiedTextImgElement.src = '../styles/kolibri/icons/copied-confirmation.svg';
-            copiedTextImgElement.classList.add('copy-text-icon');
-            codeTextBox.appendChild(copiedTextImgElement);
-
             setTimeout(() => {
-                copiedTextImgElement.remove();
+                copiedTextImgElement.style.display = 'none';
+                copyImgElement.src = '../styles/kolibri/icons/copy-to-clipboard.svg';
             }, 2000);
         }
+        codeTextBox.appendChild(copyInteractionElement);
+
 
         codeBox.appendChild(codeTextBox);
         notificationElement.appendChild(codeBox);

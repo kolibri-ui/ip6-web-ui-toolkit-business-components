@@ -67,7 +67,6 @@ body {
 }
 
 
-
 .monolog.code-error {
     display: flex;
     flex-wrap: wrap;
@@ -100,34 +99,33 @@ body {
 
 .code-box-label {
     padding: 5px 10px;
-    display: inline-block;
-    font-family: 'Courier New', serif;
-    font-size: 12px;
+    height: 100%;
     width: 280px;
-
-    /*white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;*/
-/*
-    overflow: hidden;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.1;
     text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-*/
-    -webkit-line-clamp: 3;
+    overflow: hidden;
 }
 
-.copy-icon {
-    padding-left: 20px;
+.copy-interaction {
+    position: absolute;
+    width: 111px;
+    height: 24px;
+    right: 50px;
+    bottom: 25px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .copy-text-icon {
-    position: absolute;
-    top: 108px;
-    right: 74px;
-    width: 20%;
+    display: none;
 }
+
+.copy-icon {
+    display: inline;
+}
+
 
 .monolog-title {
     font-weight: bolder;
