@@ -5,7 +5,7 @@ import {hProjector} from "../global-projectors/hProjector.js";
 import {spanProjector} from "../global-projectors/spanProjector.js";
 import {divProjector} from "../global-projectors/divProjector.js";
 import {buttonProjector} from "../global-projectors/buttonProjector.js";
-import {monologListProjector} from "../monolog/subProjectors/monologListProjector.js";
+import {Monolog} from "../monolog/subProjectors/Monolog.js";
 import {gridProjector} from "../switch/subProjectors/gridProjector.js";
 
 
@@ -13,7 +13,7 @@ export {mainProjector}
 
 const mainProjector = (controller, rootElement, model) => {
 
-    const monologList = monologListProjector();
+    const monologList = Monolog();
 
     const switchTheme = _ => {
         if (model.isDark.getValue()) {
