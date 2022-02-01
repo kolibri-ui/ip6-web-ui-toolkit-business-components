@@ -1,5 +1,5 @@
 import {switchProjector} from "../mainProjector/switchProjector.js";
-import {ObservableList} from "../../observable/observable.js";
+import {ObservableList} from "../../Kolibri/docs/src/kolibri/observable.js";
 import {Attribute, VALUE} from "../../presentationModel/presentationModel.js";
 
 
