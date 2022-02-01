@@ -7,7 +7,7 @@ export {buttonProjector}
  * @param callback
  * @returns {HTMLElement} - Returns the anchor Element
  */
-const buttonProjector = (text = "Change this", type= ["button-default"], callback=(()=>{}) ) => {
+const buttonProjector = (text = "Change this", type= [], callback=(()=>{}) ) => {
 
     const buttonElement = document.createElement('button');
     buttonElement.innerText = text;
