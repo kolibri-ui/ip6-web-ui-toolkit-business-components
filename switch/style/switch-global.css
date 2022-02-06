@@ -7,8 +7,8 @@
     --switch-thumb-background:  hsla( 223, 79%, 45%, 0.4);
     --switch-error-color:       hsl(  322, 73%, 52%);
 
-    --neumorph-width:           84px;
-    --neumorph-height:          36px;
+    --neumorph-width:                   5.25em;
+    --neumorph-height:                  2.25em;
     --neumorph-white:           hsl(    0,  0%, 99%);
 
     --neumorph-on:              hsl(  223, 79%, 45%);
@@ -18,6 +18,7 @@
                                 var(--neumorph-on)  50.15%,
                                 var(--neumorph-off) 50.16%);
 
+    --neumorph-thumb-disabled:  hsl(    0,  0%, 96%);
     --neumorph-on-disabled:     hsl(  223, 57%, 75%);
     --neumorph-off-disabled:    hsl(    0,  0%, 87%);
     --neumorph-indeterminate-disabled: linear-gradient(270deg,
@@ -26,13 +27,14 @@
                                 var(--neumorph-off-disabled) 50.16%);
 
 
-    --neumorph-arrow-start-position:    56px;
-    --neumorph-arrow-end-position:      59px;
-    --neumorph-thumb-size:              32px;
 
-    --slim-icon-size:                   24px;
-    --slim-width:                       84px;
-    --slim-height:                      38px;
+    --neumorph-arrow-start-position:    3.5em;
+    --neumorph-arrow-end-position:      3.6875em;
+    --neumorph-thumb-size:              2em;
+
+    --slim-icon-size:                   1.5em;
+    --slim-width:                       5.25em;
+    --slim-height:                      2.375em;
     --slim-indeterminate:               var(--background);
     --slim-default-border:              hsl(    0, 10%, 37%);
     --slim-background-disabled:         hsl(    0,  0%, 94%);
@@ -42,8 +44,8 @@
     --slim-thumb-main:                  hsl(  223, 79%, 45%);
 
     --slim-arrow-color:                 hsl(  223, 10%, 37%);
-    --slim-arrow-start-position:        39px;
-    --slim-arrow-end-position:          42px;
+    --slim-arrow-start-position:        2.4375em;
+    --slim-arrow-end-position:          2.625em;
 
 }
 
@@ -56,14 +58,14 @@
 
 /* Make classical Checkbox invisible*/
 .switch input {
-    opacity: 0;
+    visibility: hidden;
 }
 
 .switch-icon {
     position: absolute;
     cursor: pointer;
     height: var(--slim-icon-size);
-    top: 5px;
+    top: 0.3125em;
     z-index: 1;
     pointer-events: none;
 }
@@ -87,20 +89,20 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 34px;
+    border-radius: 2.125em;
     background-color: var(--switch-background);
     transition: .2s;
 }
 
 .thumb::before {
-    margin-left: 2px;
-    margin-right: 2px;
+    margin-left:  0.125em;
+    margin-right: 0.125em;
     position: absolute;
     content: "";
     height: var(--neumorph-thumb-size);
     width: var(--neumorph-thumb-size);
     left: 0;
-    bottom: 2px;
+    bottom:       0.125em;
     border-radius: 50%;
     background-color: var(--neumorph-white);
     transition: .2s;
@@ -158,7 +160,7 @@ States
 }
 
 .disabled > .thumb::before {
-    background: #F6F6F6;
+    background: var(--neumorph-thumb-disabled);
 }
 
 
@@ -168,17 +170,17 @@ States
 }
 
 .focus > .thumb {
-    box-shadow: 0 0 6px 0 rgba(24, 75, 205, 0.94);
+    box-shadow: 0 0 0.375em 0 rgba(24, 75, 205, 0.94);
     outline: none;
 }
 
 .hover > .thumb {
-    box-shadow: 0 0 8px 0 rgba(24, 75, 205, 0.6);
+    box-shadow: 0 0 0.5em 0 rgba(24, 75, 205, 0.6);
     outline: none;
 }
 
 .switch:focus {
-    box-shadow: 0 0 15px rgba(24, 75, 205, 0.7);
+    box-shadow: 0 0 0.9375em rgba(24, 75, 205, 0.7);
     outline: none;
 }
 
@@ -189,12 +191,12 @@ States
 .arrow {
     position: absolute;
     top: 37%;
-    width: 10px;
-    height: 10px;
+    width:  0.625em;
+    height: 0.625em;
     border: solid var(--neumorph-white);
     opacity: 90%;
-    border-width: 0 1px 1px 0;
-    border-radius: 1px;
+    border-width: 0 0.0625em 0.0625em 0;
+    border-radius: 0.0625em;
 }
 
 .arrow-left {
