@@ -50,10 +50,10 @@
 }
 
 .switch {
-    position: relative;
-    display: inline-block;
-    width: var(--neumorph-width);
-    height: var(--neumorph-height);
+    position:   relative;
+    display:    inline-block;
+    width:      var(--neumorph-width);
+    height:     var(--neumorph-height);
 }
 
 /* Make classical Checkbox invisible*/
@@ -61,183 +61,165 @@
     visibility: hidden;
 }
 
-.switch-icon {
-    position: absolute;
-    cursor: pointer;
-    height: var(--slim-icon-size);
-    top: 0.3125em;
-    z-index: 1;
-    pointer-events: none;
-}
-
 .switch-icon::selection {
-    color: transparent;
+    color:      transparent;
 }
 
 .switch-icon.off {
-    left: 0;
+    left:       0;
 }
 
 .switch-icon.on {
-    right: 0;
+    right:      0;
 }
 
 .thumb {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 2.125em;
-    background-color: var(--switch-background);
-    transition: .2s;
+    position:           absolute;
+    cursor:             pointer;
+    inset:              0;
+    border-radius:      2.125em;
+    background-color:   var(--switch-background);
+    transition:         .2s;
 }
 
 .thumb::before {
-    margin-left:  0.125em;
-    margin-right: 0.125em;
-    position: absolute;
-    content: "";
-    height: var(--neumorph-thumb-size);
-    width: var(--neumorph-thumb-size);
-    left: 0;
-    bottom:       0.125em;
-    border-radius: 50%;
-    background-color: var(--neumorph-white);
-    transition: .2s;
+    margin-left:        0.125em;
+    margin-right:       0.125em;
+    position:           absolute;
+    content:            "";
+    height:             var(--neumorph-thumb-size);
+    width:              var(--neumorph-thumb-size);
+    left:               0;
+    bottom:             0.125em;
+    border-radius:      50%;
+    background-color:   var(--neumorph-white);
+    transition:         .2s;
 }
 
 .switch input:checked + .thumb::before {
-    transform: translateX(150%);
+    transform:          translateX(150%);
 }
 
 .switch input:indeterminate + .thumb::before {
-    transform: translateX(75%);
+    transform:          translateX(75%);
 }
 
 /**
 States
  */
 .indeterminate {
-    background: var(--neumorph-indeterminate);
+    background:         var(--neumorph-indeterminate);
 }
 
 .on {
-    background: var(--neumorph-on);
+    background:         var(--neumorph-on);
 }
 
 .off {
-    background: var(--neumorph-off);
+    background:         var(--neumorph-off);
 }
 
 .disabled > .off {
-    background: var(--neumorph-off-disabled);
+    background:         var(--neumorph-off-disabled);
 }
 
 .disabled > .on {
-    background: var(--neumorph-on-disabled);
+    background:         var(--neumorph-on-disabled);
 }
 
 .disabled > .indeterminate {
-    background: var(--neumorph-indeterminate-disabled);
+    background:         var(--neumorph-indeterminate-disabled);
 }
 
 .read-only > .off {
-    background: var(--neumorph-off-disabled);
+    background:         var(--neumorph-off-disabled);
 }
 
 .read-only > .on {
-    background: var(--neumorph-on-disabled);
+    background:         var(--neumorph-on-disabled);
 }
 
 .read-only > .indeterminate {
-    background: var(--neumorph-indeterminate-disabled);
+    background:         var(--neumorph-indeterminate-disabled);
 }
 
 .disabled {
-    pointer-events: none;
+    pointer-events:     none;
 }
 
 .disabled > .thumb::before {
-    background: var(--neumorph-thumb-disabled);
-}
-
-
-.read-only {
-    /*pointer-events: none;*/
-    /*user-select: auto;*/
+    background:         var(--neumorph-thumb-disabled);
 }
 
 .focus > .thumb {
-    box-shadow: 0 0 0.375em 0 rgba(24, 75, 205, 0.94);
-    outline: none;
+    box-shadow:         0 0 0.375em 0 rgba(24, 75, 205, 0.94);
+    outline:            none;
 }
 
 .hover > .thumb {
-    box-shadow: 0 0 0.5em 0 rgba(24, 75, 205, 0.6);
-    outline: none;
+    box-shadow:         0 0 0.5em 0 rgba(24, 75, 205, 0.6);
+    outline:            none;
 }
 
 .switch:focus {
-    box-shadow: 0 0 0.9375em rgba(24, 75, 205, 0.7);
-    outline: none;
+    box-shadow:         0 0 0.9375em rgba(24, 75, 205, 0.7);
+    outline:            none;
 }
 
 .required > .thumb {
-    background: var(--switch-error-color);
+    background:         var(--switch-error-color);
 }
 
 .arrow {
-    position: absolute;
-    top: 37%;
-    width:  0.625em;
-    height: 0.625em;
-    border: solid var(--neumorph-white);
-    opacity: 90%;
-    border-width: 0 0.0625em 0.0625em 0;
-    border-radius: 0.0625em;
+    position:           absolute;
+    top:                37%;
+    width:              0.625em;
+    height:             0.625em;
+    border:             solid var(--neumorph-white);
+    opacity:            90%;
+    border-width:       0 0.0625em 0.0625em 0;
+    border-radius:      0.0625em;
 }
 
 .arrow-left {
-    position: absolute;
-    transform: rotate(135deg);
-    animation: moveToLeft 2s infinite ease-in-out;
+    position:           absolute;
+    transform:          rotate(135deg);
+    animation:          moveToLeft 2s infinite ease-in-out;
 
-    display: none;
-    pointer-events: none;
+    display:            none;
+    pointer-events:     none;
 }
 
 .arrow-right {
-    position: absolute;
-    transform: rotate(-45deg);
-    animation: moveToRight 2s infinite ease-in-out;
+    position:           absolute;
+    transform:          rotate(-45deg);
+    animation:          moveToRight 2s infinite ease-in-out;
 
-    display: none;
-    pointer-events: none;
+    display:            none;
+    pointer-events:     none;
 }
 
 
 @keyframes moveToLeft {
     0% {
-        right: var(--neumorph-arrow-start-position);
+        right:          var(--neumorph-arrow-start-position);
     }
     50% {
-        right: var(--neumorph-arrow-end-position);
+        right:          var(--neumorph-arrow-end-position);
     }
     100% {
-        right: var(--neumorph-arrow-start-position);
+        right:          var(--neumorph-arrow-start-position);
     }
 }
 
 @keyframes moveToRight {
     0% {
-        left: var(--neumorph-arrow-start-position);
+        left:           var(--neumorph-arrow-start-position);
     }
     50% {
-        left: var(--neumorph-arrow-end-position);
+        left:           var(--neumorph-arrow-end-position);
     }
     100% {
-        left: var(--neumorph-arrow-start-position);
+        left:           var(--neumorph-arrow-start-position);
     }
 }

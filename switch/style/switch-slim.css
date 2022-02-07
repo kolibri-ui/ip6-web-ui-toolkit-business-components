@@ -1,178 +1,178 @@
 .switch.switch-slim {
-    width: var(--slim-width);
-    height: var(--slim-height);
+    width:              var(--slim-width);
+    height:             var(--slim-height);
 }
 
 .thumb.switch-slim {
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--slim-default-border);
+    border-width:       0.0625em;
+    border-style:       solid;
+    border-color:       var(--slim-default-border);
 }
 
 
 .thumb.switch-slim::before {
-    position: absolute;
-    content: "";
-
-    bottom: 0;
-    left: 0;
-    height: 36px;
-    width: 36px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--slim-thumb-main);
-    background-color: var(--slim-background);
+    position:           absolute;
+    content:            "";
+    bottom:             0;
+    left:               0;
+    height:             2.25em;
+    width:              2.25em;
+    border-width:       0.0625em;
+    border-style:       solid;
+    border-color:       var(--slim-thumb-main);
+    background-color:   var(--slim-background);
 }
 
 .thumb.switch-slim.off::before {
-    left: -3px;
+    left:               -0.1875em;
 }
 
 .thumb.switch-slim.on::before {
-    left: 7px;
+    left:               0.4375em;
 }
 
 .switch.switch-slim input:indeterminate + .thumb::before {
-    display: none;
+    display:            none;
 }
 
 .switch.switch-slim input:checked + .thumb::before {
-    transform: translateX(105%);
+    transform:          translateX(105%);
+}
+
+.switch-icon {
+    position:           absolute;
+    cursor:             pointer;
+    height:             var(--slim-icon-size);
+    top:                0.3125em;
+    z-index:            1;
+    pointer-events:     none;
 }
 
 .switch-icon.off {
-    width: var(--slim-icon-size);
-    height: var(--slim-icon-size);
-    left: 7px;
-    top: 7px;
+    width:              var(--slim-icon-size);
+    height:             var(--slim-icon-size);
+    left:               0.4375em;
+    top:                0.4375em;
 }
 
 .switch-icon.on {
-    width: var(--slim-icon-size);
-    height: var(--slim-icon-size);
-    left: 53px;
-    top: 7px;
+    width:              var(--slim-icon-size);
+    height:             var(--slim-icon-size);
+    left:               3.3125em;
+    top:                0.4375em;
 }
 
 
-/**
-States
- */
+/** States ***/
 
 .indeterminate.switch-slim {
-    background: var(--slim-indeterminate);
+    background:         var(--slim-indeterminate);
 }
 
 .on.switch-slim {
-    background: transparent;
+    background:         transparent;
 }
 
 .off.switch-slim {
-    background: transparent;
+    background:         transparent;
 }
 
 .focus > .thumb.switch-slim {
-    box-shadow: 0 0 6px 0 rgba(24, 75, 205, 0.94);
-    border-color: var(--slim-thumb-main);
-    outline: none;
+    box-shadow:         0 0 0.375em 0 rgba(24, 75, 205, 0.94);
+    border-color:       var(--slim-thumb-main);
+    outline:            none;
 }
 
 .hover > .thumb.switch-slim {
-    box-shadow: 0 0 8px 0 rgba(24, 75, 205, 0.6);
-    border-color: var(--slim-thumb-main);
-    outline: none;
+    box-shadow:         0 0 0.5em 0 rgba(24, 75, 205, 0.6);
+    border-color:       var(--slim-thumb-main);
+    outline:            none;
 }
 
 .switch.switch-slim:focus {
-    box-shadow: 0 0 15px rgba(24, 75, 205, 0.7);
-    border-color: var(--slim-thumb-main);
-    outline: none;
+    box-shadow:         0 0 0.9375em rgba(24, 75, 205, 0.7);
+    border-color:       var(--slim-thumb-main);
+    outline:            none;
 }
 
 .disabled > .thumb.switch-slim {
-    background-color: var(--slim-background-disabled);
-    border-color: var(--slim-border-disabled);
+    background-color:   var(--slim-background-disabled);
+    border-color:       var(--slim-border-disabled);
 
 }
 
 .disabled > .thumb.switch-slim::before {
-    background-color: var(--slim-background-disabled);
-    border-color: var(--slim-border-disabled);
+    background-color:   var(--slim-background-disabled);
+    border-color:       var(--slim-border-disabled);
 }
 
 .disabled > .switch-icon {
-    opacity: 50%;
-}
-
-.read-only {
-
+    opacity:            50%;
 }
 
 .read-only > .thumb.switch-slim::before {
-    background-color: var(--slim-background-disabled);
-    /*box-shadow: #184BCD;*/
+    background-color:   var(--slim-background-disabled);
 }
 
 .read-only > .thumb.switch-slim {
-    background-color: var(--slim-background-disabled);
-    border-color: var(--slim-border-disabled);
+    background-color:   var(--slim-background-disabled);
+    border-color:       var(--slim-border-disabled);
 }
 
 .read-only > .switch-icon {
+    /* TODO: reduce opacity when icon is not selected state */
     /*opacity: 50%;*/
 }
 
 .required.switch-slim  > .thumb.switch-slim {
-    /*  box-shadow: 0 0 15px rgb(169, 31, 31); */
-    border-color: var(--switch-error-color);
-    box-shadow: 0 0 4px var(--switch-error-color);;
+    border-color:       var(--switch-error-color);
+    box-shadow:         0 0 0.25em var(--switch-error-color);
 }
 
 .required.switch-slim :hover > .thumb.switch-slim {
-    /*  box-shadow: 0 0 15px rgb(169, 31, 31); */
-    border-color: var(--slim-thumb-main);
-    box-shadow: 0 0 4px rgba(24, 75, 205, 0.7);
+    border-color:       var(--slim-thumb-main);
+    box-shadow:         0 0 0.25em rgba(24, 75, 205, 0.7);
 }
 
 .arrow.switch-slim {
-    position: absolute;
-    top: 37%;
-    width: 10px;
-    height: 10px;
-    border: solid var(--slim-arrow-color);
-    opacity: 50%;
-    border-width: 0 1px 1px 0;
-    border-radius: 1px;
+    position:       absolute;
+    top:            37%;
+    width:          0.625em;
+    height:         0.625em;
+    border:         solid var(--slim-arrow-color);
+    opacity:        50%;
+    border-width:   0 0.0625em 0.0625em 0;
+    border-radius:  0.0625em;
 }
 
 .arrow-left.switch-slim {
-    animation: moveToLeft-slim 2s infinite ease-in;
+    animation:      moveToLeft-slim 2s infinite ease-in;
 }
 
 .arrow-right.switch-slim {
-    animation: moveToRight-slim 2s infinite ease-in;
+    animation:      moveToRight-slim 2s infinite ease-in;
 }
 
 @keyframes moveToLeft-slim {
     0% {
-        right: var(--slim-arrow-start-position);
+        right:      var(--slim-arrow-start-position);
     }
     50% {
-        right: var(--slim-arrow-end-position);
+        right:      var(--slim-arrow-end-position);
     }
     100% {
-        right: var(--slim-arrow-start-position);
+        right:      var(--slim-arrow-start-position);
     }
 }
 
 @keyframes moveToRight-slim {
     0% {
-        left: var(--slim-arrow-start-position);
+        left:       var(--slim-arrow-start-position);
     }
     50% {
-        left: var(--slim-arrow-end-position);
+        left:       var(--slim-arrow-end-position);
     }
     100%{
-        left: var(--slim-arrow-start-position);
+        left:       var(--slim-arrow-start-position);
     }
 }
