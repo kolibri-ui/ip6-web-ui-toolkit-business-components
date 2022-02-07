@@ -58,7 +58,7 @@
 
 /* Make classical Checkbox invisible*/
 .switch input {
-    visibility: hidden;
+    opacity:    0;
 }
 
 .switch-icon::selection {
