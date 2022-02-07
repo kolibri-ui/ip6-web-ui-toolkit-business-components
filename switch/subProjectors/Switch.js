@@ -66,7 +66,6 @@ const Switch = (observable, options) => {
      */
 
     if (options.slim) {
-        const crossImgElement = document.createElement('img');
         crossImgElement.alt = 'off';
         crossImgElement.classList.add('switch-icon', 'off');
         crossImgElement.src = '../styles/kolibri/icons/cross-light-black.svg';
