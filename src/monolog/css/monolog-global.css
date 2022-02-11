@@ -1,0 +1,226 @@
+:root {
+    --text:                       hsla(0,   0%,   20%, 1.0);
+    --input-hover:                hsla(0,   0%,   74%, 1.0);
+    --shadow-contrast:            hsla(0,   0%,   88%, 1.0);
+    --text-contrast:              hsla(0,   0%,   95%, 1.0);
+    --background:                 hsla(0,   0%,   99%, 1.0);
+
+    --primary:                    hsla(223, 79%,  45%, 1.0);
+    --primary-background:         hsla(223, 79%,  45%, 0.3);
+    --primary-opac:               hsla(223, 79%,  45%, 0.1);
+    --primary-hover:              hsla(233, 79%,  56%, 1.0);
+
+    --success-hover:              hsla(103, 87%,  32%, 1.0);
+    --success-background:         hsla(104, 89%,  28%, 0.3);
+
+    --error:                      hsla(0,   79%,  63%, 1.0);
+    --error-hover:                hsla(0,   100%, 70%, 1.0);
+    --error-background:           hsla(0,   79%,  63%, 0.3);
+    --error-monolog-background:   hsla(0,   79%,  93%, 1.0);
+
+    --warning:                    hsla(36,  100%, 48%, 1.0);
+    --warning-hover:              hsla(34,  97%,  58%, 1.0);
+    --warning-background:         hsla(36,  100%, 48%, 0.3);
+    --warning-monolog-background: hsla(36,  100%, 88%, 1.0);
+
+
+
+    --default:              hsla(0,   0%,  62%, 1.0);
+    --default-hover:        hsla(0,   0%,  79%, 1.0);
+    --default-background:   hsla(0,   0%,  62%, 0.3);
+    --success:              hsla(104, 89%, 28%, 1.0);
+    --border-radius:        0.3125rem;
+}
+
+body {
+    background-color: var(--background);
+}
+
+.monolog-list {
+    position: fixed;
+    width: 25rem;
+}
+
+.monolog-list.top {
+    top: 0.625rem;
+}
+
+.monolog-list.right {
+    right: 0.625rem;
+}
+
+.monolog {
+    position: relative;
+    min-width: 395px;
+    min-height: 35px;
+    border: 0.0625rem solid var(--default);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.625rem;
+    margin-bottom: 0.625rem;
+    animation: fadeIn 1s;
+}
+
+.monolog.info {
+    border-color: var(--primary);
+    color: var(--primary);
+    background-color: var(--background);
+    box-shadow: 0 0 0.25rem 0 var(--primary);
+}
+
+.monolog.success {
+    border-color: var(--success);
+    color: var(--success);
+    background-color: var(--background);
+    box-shadow: 0 0 0.25rem 0 var(--success);
+}
+
+.monolog.warning {
+    border-color: var(--warning);
+    background-color: var(--warning-monolog-background);
+    color: var(--text);
+    box-shadow: 0 0 0.25rem 0 var(--warning);
+}
+
+.monolog.error, .code-error {
+    border-color: var(--error);
+    background-color: var(--error-monolog-background);
+    color: var(--text);
+    box-shadow: 0 0 0.25rem 0 var(--error);
+}
+
+.monolog.code-error {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.code-box {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.code-text-box {
+    background: #FFFEFE;
+    opacity: 70%;
+    border-radius: 5px;
+    width: 336px;
+    height: 59px;
+    margin-left: 0.625rem;
+    margin-top: 20px;
+}
+
+.copy-img-box {
+    background: rgba(39, 52, 59, 0.6);
+    border-radius: 5px;
+    width: 31px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.code-box-label {
+    padding: 5px 0.625rem;
+    height: 100%;
+    width: 280px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.copy-interaction {
+    position: absolute;
+    width: 111px;
+    height: 24px;
+    right: 50px;
+    bottom: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.copy-text-icon {
+    display: none;
+}
+
+.copy-icon {
+    display: inline;
+}
+
+.monolog-title {
+    font-weight: bolder;
+    min-width: 219px;
+}
+
+.monolog-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2.375rem;
+    width: 2.375rem;
+}
+
+.monolog.out {
+    animation: fadeOut 1s;
+}
+
+.monolog.shake {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both 1;
+    backface-visibility: hidden;
+}
+
+
+.monolog-icon {
+    /* icon */
+    position: static;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+/** ------ Animations ------ */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate(-0.0625rem);
+    }
+
+    20%, 80% {
+        transform: translate(0.125rem);
+    }
+
+    30%, 50%, 70% {
+        transform: translate(-0.25rem);
+    }
+
+    40%, 60% {
+        transform: translate(0.25rem);
+    }
+}
+
