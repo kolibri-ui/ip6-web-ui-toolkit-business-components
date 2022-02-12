@@ -1,3 +1,5 @@
+import {dom} from "../../Kolibri/docs/src/kolibri/util/dom.js";
+
 export {Switch}
 
 /**
@@ -15,7 +17,8 @@ export {Switch}
  */
 const Switch = (observable, options) => {
 
-    const slimClassName = 'switch-slim';
+    // todo remove when dom() is working
+    //const slimClassName = 'switch-slim';
 
     /**
      * Create ID and Name if they are not set by developer on init
@@ -27,9 +30,45 @@ const Switch = (observable, options) => {
     (options.name === undefined) ? options.name = idName : "";
 
     /**
-     * Create all Elements needed for a Switch
+     * Create all Elements needed for a Switch, depending on option.slim
      */
-    const labelElement = document.createElement('label');
+    let elements;
+
+    if (options.slim) {
+        elements = dom(`
+        <label class="switch switch-slim" for="switch-control" data-id="switch-control">
+            <input id="switch-control" name="switch-control" class="switch-slim" data-type="switch" type="checkbox" role="checkbox" aria-checked="false" value="false">
+            <span class="thumb switch-slim off">
+                <span class="switch-slim arrow arrow-left"  style="display: none;"></span>
+                <span class="switch-slim arrow arrow-right" style="display: none;"></span>
+            </span>
+            <img alt="off" class="switch-slim switch-icon off" src="../styles/kolibri/icons/cross-light-black.svg"     draggable="false">
+            <img alt="on"  class="switch-slim switch-icon on"  src="../styles/kolibri/icons/checkmark-light-black.svg" draggable="false">
+        </label>
+        `);
+    } else {
+        elements = dom(`
+        <label class="switch" for="switch-control" data-id="switch-control">
+            <input id="switch-control" name="switch-control" data-type="switch" type="checkbox" role="checkbox" aria-checked="false" value="false">
+            <span class="thumb off">
+                <span class="arrow arrow-left"  style="display: none;"></span>
+                <span class="arrow arrow-right" style="display: none;"></span>
+            </span>        
+        </label>
+        `);
+    }
+
+
+    /** @type {HTMLLabelElement} */ const switchElement = elements[0];
+
+    // Change id, name and for attribute according to options object
+    switchElement.htmlFor = options.id;
+    switchElement.querySelector("#switch-control").id = options.id;
+    switchElement.querySelector("#switch-control").name = options.name;
+
+
+    //Todo remove this when dom() is working
+    /*const labelElement = document.createElement('label');
     labelElement.classList.add('switch');
     labelElement.htmlFor = options.id;
 
@@ -48,22 +87,22 @@ const Switch = (observable, options) => {
     const arrowRightElement = document.createElement('span');
     arrowRightElement.classList.add('arrow', 'arrow-right');
 
-    /**
+    /!**
      * Append Elements to each other
-     */
+     *!/
     thumbElement.appendChild(arrowLeftElement);
     thumbElement.appendChild(arrowRightElement);
 
     labelElement.appendChild(checkBoxElement);
-    labelElement.appendChild(thumbElement);
+    labelElement.appendChild(thumbElement);*/
 
     /* Cross and Checkmark Icons */
-    const crossImgElement = document.createElement('img');
+   /* const crossImgElement = document.createElement('img');
     const checkmarkImgElement = document.createElement('img');
 
-    /**
+    /!**
      * Check if it is a Slim Switch, if so, add the corresponding class and elements
-     */
+     *!/
 
     if (options.slim) {
         crossImgElement.alt = 'off';
@@ -88,7 +127,7 @@ const Switch = (observable, options) => {
         thumbElement.classList.add(slimClassName);
         arrowLeftElement.classList.add(slimClassName);
         arrowRightElement.classList.add(slimClassName);
-    }
+    }*/
 
 
     /**
