@@ -22,6 +22,7 @@ const Monolog = (position = 'top right') => {
      * @param {String} options.message
      * @param {String} options.type
      * @param {Boolean} [options.sticky]
+     * @param {Boolean} [options.stack]
      * @param {Boolean} [options.attention]
      * @param {String} [options.codeError]
      * @param options
@@ -38,6 +39,7 @@ const Monolog = (position = 'top right') => {
      * @param {String} options.message
      * @param {String} [options.type]
      * @param {Boolean} [options.sticky]
+     * @param {Boolean} [options.stack]
      * @param options
      */
     const info = options => {
@@ -52,6 +54,7 @@ const Monolog = (position = 'top right') => {
      * @param {String} options.message
      * @param {String} [options.type]
      * @param {Boolean} [options.sticky]
+     * @param {Boolean} [options.stack]
      */
     const success = options => {
         options.type = 'success';
@@ -65,6 +68,7 @@ const Monolog = (position = 'top right') => {
      * @param {String} options.message
      * @param {String} [options.type]
      * @param {Boolean} [options.sticky]
+     * @param {Boolean} [options.stack]
      */
     const warning = options => {
         options.type = 'warning';
@@ -77,6 +81,7 @@ const Monolog = (position = 'top right') => {
      * @param {String} options.message
      * @param {String} [options.type]
      * @param {Boolean} [options.sticky]
+     * @param {Boolean} [options.stack]
      * @param {Boolean} [options.attention]
      * @param {String} [options.codeError]
      */
