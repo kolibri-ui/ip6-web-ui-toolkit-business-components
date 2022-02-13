@@ -16,148 +16,90 @@ export {Notification}
  */
 const Notification = (options) => {
 
-
-    /**
-     * Create all Elements
-     */
-    const monologType = options.type.toLowerCase();
-
-
     const elements = dom(`
-        <div class="monolog success" data-type="monolog-success">
-            <div class="monolog-icon">
-                <img alt="success-icon" src="/icon/success-icon.svg">
-            </div>
-            <div class="monolog-close">
-                <img src="/icon/cross-success.svg" alt="close"></div>
+        <div class="monolog" data-type="monolog-success">
+            <div class="monolog-icon" data-id="monolog-icon"></div>
+            <div class="monolog-close"></div>
             <div class="monolog-body">
-                <div class="monolog-title">Some Info</div>
-                <div class="monolog-body">Just a Test</div>
+                <div class="monolog-title"></div>
+                <div class="monolog-subline"></div>
+            </div>
+            <div class="code-box">
+                <div class="code-text-box">
+                    <div class="code-box-label"></div>
+                    <div class="copy-interaction">
+                        <div class="copy-success-icon"></div>
+                        <div class="copy-icon default"></div>
+                    </div>
+                </div>
             </div>
         </div>
     `);
 
     /** @type {HTMLDivElement} */ const monologDiv = elements[0];
+    /** @type {HTMLDivElement} */ const monologIcon = monologDiv.children[0];
+    /** @type {HTMLDivElement} */ const monologClose = monologDiv.children[1];
+    /** @type {HTMLDivElement} */ const monologBody = monologDiv.children[2];
+    /** @type {HTMLDivElement} */ const monologTitle = monologBody.children[0];
+    /** @type {HTMLDivElement} */ const monologSubline = monologBody.children[1];
+    /** @type {HTMLDivElement} */ const monologCodeBox = monologDiv.children[3];
+    /** @type {HTMLDivElement} */ const monologCodeBoxBody = monologCodeBox.children[0];
+    /** @type {HTMLDivElement} */ const monologCodeBoxText = monologCodeBoxBody.children[0];
+    /** @type {HTMLDivElement} */ const monologCodeBoxInteraction = monologCodeBoxBody.children[1];
+    /** @type {HTMLDivElement} */ const monologCopySuccess = monologCodeBoxInteraction.children[0];
+    /** @type {HTMLDivElement} */ const monologCopyIcon = monologCodeBoxInteraction.children[1];
 
+    // Add type to classlist
+    const monologType = options.type.toLowerCase();
+    (options.codeError) ? monologDiv.classList.add('code-error') : monologDiv.classList.add(monologType);
+    monologIcon.classList.add(monologType);
+    monologClose.classList.add(monologType);
 
-    const notificationElement = document.createElement('div');
-    notificationElement.classList.add('monolog', monologType);
-    notificationElement.setAttribute('data-type', `monolog-${monologType}`);
+    // Set Title
+    monologTitle.textContent = options.title;
 
-    const iconElement = document.createElement('div');
-    iconElement.classList.add('monolog-icon');
+    // Set Subline
+    monologSubline.textContent = options.message;
 
-    const iconImgElement = document.createElement('img');
-    iconImgElement.alt = `${monologType}-icon`;
-    iconImgElement.src = `../icon/${monologType}-icon.svg`;
+    // Check if CodeBox is needed
+    (!options.codeError) ? monologCodeBox.style.display = 'none' : monologCodeBoxText.textContent = options.codeError;
 
-    iconElement.appendChild(iconImgElement);
-    notificationElement.appendChild(iconElement);
+    // Check for attention in options
+    (options.attention) ? monologDiv.classList.add("attention") : "";
 
-    const notificationBody = document.createElement('div');
-    notificationBody.classList.add('monolog-body');
-
-    const notificationTitle = document.createElement('div');
-    notificationTitle.classList.add('monolog-title');
-    notificationTitle.textContent = options.title;
-
-    const notificationMessage = document.createElement('div');
-    notificationMessage.classList.add('monolog-body');
-    notificationMessage.textContent = options.message;
-
-    notificationBody.appendChild(notificationTitle);
-    notificationBody.appendChild(notificationMessage);
-
-
-    if (options.sticky) {
-        const closeElement = document.createElement('div');
-        closeElement.classList.add('monolog-close');
-
-        const closeImgElement = document.createElement('img');
-        closeImgElement.src = `../icon/cross-${monologType}.svg`;
-        closeImgElement.alt = 'close';
-
-        closeElement.appendChild(closeImgElement);
-        notificationElement.appendChild(closeElement);
-
-        closeElement.onclick = () => {
-            notificationElement.classList.add('out');
-            setTimeout(() => {
-                notificationElement.remove();
-            }, 520);
-        }
-
-        if (options.attention) {
-            notificationElement.classList.add('shake');
-        }
-
-    } else {
+    // Check for sticky
+    if (!options.sticky) {
+        monologClose.style.display = 'none';
         setTimeout(() => {
-            notificationElement.classList.add('out');
+            monologDiv.classList.add('out');
             setTimeout(() => {
-                notificationElement.remove();
+                monologDiv.remove();
             }, 520);
         }, 1000);
+    } else {
+        monologClose.onclick = () => {
+            monologDiv.classList.remove('attention');
+            monologDiv.classList.add('out');
+            setTimeout(() => {
+                monologDiv.remove();
+            }, 520);
+        }
     }
 
-    notificationElement.appendChild(notificationBody);
-
+    // copy to clipboard interaction
     if (options.codeError) {
+        monologCopyIcon.onclick = async () => {
 
-        /**
-         * From "normal" Error to Code Error
-         */
-        notificationElement.classList.remove(monologType);
-        notificationElement.classList.add('code-' + monologType);
-
-
-        const codeBox = document.createElement('div');
-        codeBox.classList.add('code-box');
-
-        const codeTextBox = document.createElement('div');
-        codeTextBox.classList.add('code-text-box');
-
-        const codeBoxLabel = document.createElement('div');
-        codeBoxLabel.classList.add('code-box-label');
-
-        codeBoxLabel.textContent = options.codeError;
-        codeTextBox.appendChild(codeBoxLabel);
-
-        const copyInteractionElement = document.createElement('div');
-        copyInteractionElement.classList.add('copy-interaction');
-
-
-        const copiedTextImgElement = document.createElement('img');
-        copiedTextImgElement.src = '../icon/copied-confirmation.svg';
-        copiedTextImgElement.alt = 'copy-success';
-        copiedTextImgElement.classList.add('copy-text-icon');
-        copyInteractionElement.appendChild(copiedTextImgElement);
-
-        const copyImgElement = document.createElement('img');
-        copyImgElement.src = '../icon/copy-to-clipboard.svg';
-        copyImgElement.alt = "copy-button";
-        copyImgElement.classList.add('copy-icon');
-        copyInteractionElement.appendChild(copyImgElement);
-
-
-        /*on click: copy to clipboard */
-        copyImgElement.onclick = async () => {
-
-            copiedTextImgElement.style.display = 'inline';
-            copyImgElement.src = '../icon/copied-success.svg';
-            await navigator.clipboard.writeText(codeBoxLabel.textContent);
+            monologCopySuccess.style.display = 'inline';
+            monologCopyIcon.classList.remove('default');
+            monologCopyIcon.classList.add('success');
+            await navigator.clipboard.writeText(monologCodeBoxText.textContent);
 
             setTimeout(() => {
-                copiedTextImgElement.style.display = 'none';
-                copyImgElement.src = '../icon/copy-to-clipboard.svg';
+                monologCopyIcon.classList.remove('success');
+                monologCopyIcon.classList.add('default');
             }, 2000);
         }
-        codeTextBox.appendChild(copyInteractionElement);
-
-
-        codeBox.appendChild(codeTextBox);
-        notificationElement.appendChild(codeBox);
     }
-
-    return notificationElement;
+    return monologDiv;
 }
