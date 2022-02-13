@@ -115,7 +115,5 @@ const monologDemoProjector = (controller, rootElement) => {
     pElement.appendChild(successButton);
     pElement.appendChild(warningButton);
     pElement.appendChild(errorButton);
-    pElement.appendChild(codeButton);
-
 
 }
