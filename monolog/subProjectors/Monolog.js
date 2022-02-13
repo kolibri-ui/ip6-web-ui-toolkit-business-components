@@ -28,7 +28,7 @@ const Monolog = (position = 'top right') => {
      * @param options
      */
     const emit = options => {
-        options.stack = checkStacking(monologListElement, options);
+        options.stack = checkStacking(monologListElement);
         const notification = Notification(options);
         monologListElement.appendChild(notification);
     }
@@ -96,21 +96,14 @@ const Monolog = (position = 'top right') => {
 
     /**
      * Stack all Monologues of a certain type
-     * @param {Object} options
-     * @param {String} options.title
-     * @param {String} options.message
-     * @param {String} [options.type]
-     * @param {String} [options.stack]
-     * @param {Boolean} [options.sticky]
-     * @param {Boolean} [options.attention]
-     * @param {String} [options.codeError]
+     * @param {Object} monologList
      */
-    const checkStacking = (monologList, options) => {
+    const checkStacking = (monologList) => {
 
         const infoType = monologList.querySelectorAll('.info');
         const successType = monologList.querySelectorAll('.success');
 
-        if (successType.length > 2) {
+        if (successType.length > 1) {
             stacking(successType);
         }
 
@@ -118,16 +111,13 @@ const Monolog = (position = 'top right') => {
     }
 
     const stacking = list => {
-        //console.log(list.length);
 
         const parent = list[0].getBoundingClientRect();
-
 
         list.forEach((e, idx) => {
 
             list[0].style.position = 'absolute';
             list[0].style.zIndex = '100';
-
 
             if (idx > 0) {
                 //console.log(typeof idx);
@@ -137,8 +127,6 @@ const Monolog = (position = 'top right') => {
                 // e.style.right = `${parent.right+5*idx}px`;
             }
         });
-
-
     }
 
 
