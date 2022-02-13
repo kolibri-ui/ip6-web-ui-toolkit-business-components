@@ -146,7 +146,7 @@ body {
 
 
 .monolog-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-serif-bold);
     min-width: 219px;
 }
 
