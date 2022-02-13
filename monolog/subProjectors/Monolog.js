@@ -21,16 +21,16 @@ const Monolog = (position = 'top right') => {
      * @param {String} options.title
      * @param {String} options.message
      * @param {String} options.type
+     * @param {String} [options.stack]
      * @param {Boolean} [options.sticky]
-     * @param {Boolean} [options.stack]
      * @param {Boolean} [options.attention]
      * @param {String} [options.codeError]
      * @param options
      */
     const emit = options => {
+        options.stack = checkStacking(monologListElement, options);
         const notification = Notification(options);
         monologListElement.appendChild(notification);
-        checkStacking(monologListElement);
     }
 
     /**
@@ -39,8 +39,8 @@ const Monolog = (position = 'top right') => {
      * @param {String} options.title
      * @param {String} options.message
      * @param {String} [options.type]
+     * @param {String} [options.stack]
      * @param {Boolean} [options.sticky]
-     * @param {Boolean} [options.stack]
      * @param options
      */
     const info = options => {
@@ -54,8 +54,8 @@ const Monolog = (position = 'top right') => {
      * @param {String} options.title
      * @param {String} options.message
      * @param {String} [options.type]
+     * @param {String} [options.stack]
      * @param {Boolean} [options.sticky]
-     * @param {Boolean} [options.stack]
      */
     const success = options => {
         options.type = 'success';
@@ -68,8 +68,8 @@ const Monolog = (position = 'top right') => {
      * @param {String} options.title
      * @param {String} options.message
      * @param {String} [options.type]
+     * @param {String} [options.stack]
      * @param {Boolean} [options.sticky]
-     * @param {Boolean} [options.stack]
      */
     const warning = options => {
         options.type = 'warning';
@@ -81,8 +81,8 @@ const Monolog = (position = 'top right') => {
      * @param {String} options.title
      * @param {String} options.message
      * @param {String} [options.type]
+     * @param {String} [options.stack]
      * @param {Boolean} [options.sticky]
-     * @param {Boolean} [options.stack]
      * @param {Boolean} [options.attention]
      * @param {String} [options.codeError]
      */
@@ -91,11 +91,21 @@ const Monolog = (position = 'top right') => {
 
         // A Code-Error is always sticky
         (options.codeError) ? options.sticky = true : "";
-
         emit(options);
     }
 
-    const checkStacking = monologList => {
+    /**
+     * Stack all Monologues of a certain type
+     * @param {Object} options
+     * @param {String} options.title
+     * @param {String} options.message
+     * @param {String} [options.type]
+     * @param {String} [options.stack]
+     * @param {Boolean} [options.sticky]
+     * @param {Boolean} [options.attention]
+     * @param {String} [options.codeError]
+     */
+    const checkStacking = (monologList, options) => {
 
         const infoType = monologList.querySelectorAll('.info');
         const successType = monologList.querySelectorAll('.success');
@@ -104,10 +114,11 @@ const Monolog = (position = 'top right') => {
             stacking(successType);
         }
 
+        return successType.length.toString();
     }
 
     const stacking = list => {
-
+        //console.log(list.length);
 
         const parent = list[0].getBoundingClientRect();
 
@@ -119,14 +130,14 @@ const Monolog = (position = 'top right') => {
 
 
             if (idx > 0) {
-
-                console.log(typeof idx);
+                //console.log(typeof idx);
                 e.style.position = 'absolute';
                 e.style.zIndex = `${100 - idx}`;
                 e.style.top = `${parent.top+5*idx}px`;
                 // e.style.right = `${parent.right+5*idx}px`;
             }
         });
+
 
     }
 

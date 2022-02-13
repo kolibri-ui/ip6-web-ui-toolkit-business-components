@@ -126,6 +126,11 @@ body {
     display: inline;
 }
 
+.monolog-stack-number {
+    position: absolute;
+    left: -10px;
+    top: -10px;
+}
 
 .monolog-title {
     font-weight: bolder;

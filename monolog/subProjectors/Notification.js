@@ -7,6 +7,7 @@ export {Notification}
  * @param {String} options.title
  * @param {String} options.message
  * @param {String} options.type
+ * @param {String} [options.stack]
  * @param {Boolean} [options.sticky]
  * @param {Boolean} [options.attention]
  * @param {String} [options.codeError]
@@ -47,6 +48,12 @@ const Notification = (options) => {
 
     notificationBody.appendChild(notificationTitle);
     notificationBody.appendChild(notificationMessage);
+
+    const stackNumberLabel = document.createElement('div');
+    stackNumberLabel.classList.add('monolog-stack-number');
+    console.log(options.stack);
+    stackNumberLabel.innerText = options.stack;
+    notificationElement.appendChild(stackNumberLabel);
 
 
     if (options.sticky) {
