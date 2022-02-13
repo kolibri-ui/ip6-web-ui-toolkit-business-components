@@ -51,9 +51,13 @@ const Notification = (options) => {
 
     const stackNumberLabel = document.createElement('div');
     stackNumberLabel.classList.add('monolog-stack-number');
-    console.log(options.stack);
+
     stackNumberLabel.innerText = options.stack;
-    notificationElement.appendChild(stackNumberLabel);
+    if(options.stack > 1 ) { //&& notificationElement.style.zIndex === '100'
+
+        notificationElement.appendChild(stackNumberLabel);
+
+    }
 
 
     if (options.sticky) {
