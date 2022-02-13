@@ -30,6 +30,7 @@ const Monolog = (position = 'top right') => {
     const emit = options => {
         const notification = Notification(options);
         monologListElement.appendChild(notification);
+        checkStacking(monologListElement);
     }
 
     /**
@@ -92,6 +93,41 @@ const Monolog = (position = 'top right') => {
         (options.codeError) ? options.sticky = true : "";
 
         emit(options);
+    }
+
+    const checkStacking = monologList => {
+
+        const infoType = monologList.querySelectorAll('.info');
+        const successType = monologList.querySelectorAll('.success');
+
+        if (successType.length > 2) {
+            stacking(successType);
+        }
+
+    }
+
+    const stacking = list => {
+
+
+        const parent = list[0].getBoundingClientRect();
+
+
+        list.forEach((e, idx) => {
+
+            list[0].style.position = 'absolute';
+            list[0].style.zIndex = '100';
+
+
+            if (idx > 0) {
+
+                console.log(typeof idx);
+                e.style.position = 'absolute';
+                e.style.zIndex = `${100 - idx}`;
+                e.style.top = `${parent.top+5*idx}px`;
+                // e.style.right = `${parent.right+5*idx}px`;
+            }
+        });
+
     }
 
 
