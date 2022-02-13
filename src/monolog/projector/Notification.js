@@ -41,7 +41,7 @@ const Notification = (options) => {
     /** @type {HTMLDivElement} */ const monologClose = monologDiv.children[1];
     /** @type {HTMLDivElement} */ const monologBody = monologDiv.children[2];
     /** @type {HTMLDivElement} */ const monologTitle = monologBody.children[0];
-    /** @type {HTMLDivElement} */ const monologSubline = monologBody.children[1];
+    /** @type {HTMLDivElement} */ const monologMessage = monologBody.children[1];
     /** @type {HTMLDivElement} */ const monologCodeBox = monologDiv.children[3];
     /** @type {HTMLDivElement} */ const monologCodeBoxBody = monologCodeBox.children[0];
     /** @type {HTMLDivElement} */ const monologCodeBoxText = monologCodeBoxBody.children[0];
@@ -58,8 +58,8 @@ const Notification = (options) => {
     // Set Title
     monologTitle.textContent = options.title;
 
-    // Set Subline
-    monologSubline.textContent = options.message;
+    // Set Message
+    monologMessage.textContent = options.message;
 
     // Check if CodeBox is needed
     (!options.codeError) ? monologCodeBox.style.display = 'none' : monologCodeBoxText.textContent = options.codeError;
