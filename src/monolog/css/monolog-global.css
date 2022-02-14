@@ -52,8 +52,8 @@ body {
 
 .monolog {
     position:       relative;
-    min-width:      395px;
-    min-height:     35px;
+    min-width:      24.6875rem;
+    min-height:     2.1875rem;
     border:         0.0625rem solid var(--default);
     border-radius:  var(--border-radius);
     display:        flex;
@@ -105,29 +105,29 @@ body {
 .code-text-box {
     background:     var(--background);
     opacity:        70%;
-    border-radius:  5px;
-    width:          336px;
-    height:         59px;
+    border-radius:  0.3125rem;
+    width:          21rem;
+    height:         3.6875rem;
     margin-left:    0.625rem;
-    margin-top:     20px;
+    margin-top:     1.25rem;
 }
 
 .copy-img-box {
     background:     rgba(39, 52, 59, 0.6);
-    border-radius:  5px;
-    width:          31px;
-    height:         120px;
+    border-radius:  0.3125rem;
+    width:          1.9375rem;
+    height:         7.5rem;
     display:        flex;
     align-items:    center;
-    margin-top:         30px;
+    margin-top:         1.875rem;
 }
 
 .code-box-label {
-    padding: 5px 0.625rem;
+    padding: 0.3125rem 0.625rem;
     height: 100%;
-    width: 280px;
+    width: 17.5rem;
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 1.1;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -135,10 +135,10 @@ body {
 
 .copy-interaction {
     position: absolute;
-    width: 111px;
-    height: 24px;
-    right: 50px;
-    bottom: 25px;
+    width: 6.9375rem;
+    height: 1.5rem;
+    right: 3.125rem;
+    bottom: 1.5625rem;
     display: flex;
     justify-content: flex-end;
 }
@@ -147,7 +147,7 @@ body {
 
 .monolog-title {
     font-family: var(--font-serif-bold);
-    min-width: 219px;
+    min-width: 13.6875rem;
 }
 
 .monolog-subline{
@@ -182,8 +182,8 @@ body {
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin-left: 5px;
-    margin-right: 20px;
+    margin-left: 0.3125rem;
+    margin-right: 1.25rem;
 }
 
 /** ------ Icons ------ */
@@ -221,8 +221,8 @@ body {
 
 
 .copy-icon{
-    width:  24px;
-    height: 24px;
+    width:  1.5rem;
+    height: 1.5rem;
 }
 .copy-icon.default{
     background-image: url(../icon/copy-to-clipboard.svg);
@@ -232,8 +232,8 @@ body {
 }
 
 .copy-success-icon {
-    width: 89px;
-    height: 24px;
+    width: 5.5625rem;
+    height: 1.5rem;
     background-image: url(../icon/copied-confirmation.svg);
     background-size: contain;
     display:none;
