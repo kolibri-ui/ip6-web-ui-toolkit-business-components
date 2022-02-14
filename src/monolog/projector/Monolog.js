@@ -10,14 +10,13 @@ export {Monolog}
 const Monolog = () => {
     const monologListElement = document.createElement('div');
     monologListElement.classList.add('monolog-list', 'top', 'right');
-
-    let stackListElementInfo = document.createElement('div');
+    let stackListElementInfo   = document.createElement('div');
     const stackNumberLabelInfo = document.createElement('div');
 
-    let stackListElementSuccess = document.createElement('div');
+    let stackListElementSuccess   = document.createElement('div');
     const stackNumberLabelSuccess = document.createElement('div');
 
-    let stackListElementError = document.createElement('div');
+    let stackListElementError   = document.createElement('div');
     const stackNumberLabelError = document.createElement('div');
 
     let notification;
@@ -97,7 +96,7 @@ const Monolog = () => {
      * @param {Boolean} [options.attention]
      * @param {String} [options.codeError]
      */
-    const error = options => {
+    const error   = options => {
         options.type = 'error';
 
         // A Code-Error is always sticky
@@ -129,7 +128,7 @@ const Monolog = () => {
 
                 if (options.sticky) {
                     options.stack = checkStacking(stackListElementInfo);
-                    stackNumberLabelInfo.classList.add('stack-number-'+ type);
+                    stackNumberLabelInfo.classList.add('stack-number-' + type);
                     stackNumberLabelInfo.innerText = options.stack;
                     stackListElementInfo.appendChild(stackNumberLabelInfo);
                 }
@@ -141,7 +140,7 @@ const Monolog = () => {
 
                 if (options.sticky) {
                     options.stack = checkStacking(stackListElementSuccess);
-                    stackNumberLabelSuccess.classList.add('stack-number-'+ type);
+                    stackNumberLabelSuccess.classList.add('stack-number-' + type);
                     stackNumberLabelSuccess.innerText = options.stack;
                     stackListElementSuccess.appendChild(stackNumberLabelSuccess);
                 }
@@ -153,14 +152,14 @@ const Monolog = () => {
 
                 if (options.sticky) {
                     options.stack = checkStacking(stackListElementError);
-                    stackNumberLabelError.classList.add('stack-number-'+ type);
+                    stackNumberLabelError.classList.add('stack-number-' + type);
                     stackNumberLabelError.innerText = options.stack;
                     stackListElementError.appendChild(stackNumberLabelError);
                 }
                 break;
 
         }
-       // emit(options);
+        // emit(options);
     }
 
     /**
@@ -169,11 +168,11 @@ const Monolog = () => {
      */
     const checkStacking = (monologList) => {
 
-        const infoType = monologList.querySelectorAll('.info');
+        const infoType    = monologList.querySelectorAll('.info');
         const successType = monologList.querySelectorAll('.success');
-        const errorType = monologList.querySelectorAll('.code-error');
+        const errorType   = monologList.querySelectorAll('.code-error');
 
-        if(infoType.length >= 1){
+        if (infoType.length >= 1) {
             stacking(infoType);
             return infoType.length.toString();
         }
@@ -181,7 +180,7 @@ const Monolog = () => {
             stacking(successType);
             return successType.length.toString();
         }
-        if(errorType.length >= 1){
+        if (errorType.length >= 1) {
             stacking(errorType);
             return errorType.length.toString();
         }
@@ -190,35 +189,33 @@ const Monolog = () => {
 
     const stacking = list => {
 
-        const parent = list[0].getBoundingClientRect();
-
         list.forEach((e, idx) => {
 
             list[0].style.position = 'absolute';
-            list[0].style.zIndex = '100';
-            list[0].style.top = '0';
-            list[0].style.opacity = '100%';
+            list[0].style.zIndex   = '100';
+            list[0].style.top      = '0';
+            list[0].style.opacity  = '100%';
             //options.stackNumber = list[0].style.zIndex;
 
             if (idx > 0) {
                 //console.log(typeof idx);
                 e.style.position = 'absolute';
-                e.style.zIndex = `${100 - idx}`;
-                e.style.top = `${(5 * idx)}px`;
-                e.style.opacity = `${100-20*idx}%`;
+                e.style.zIndex   = `${100 - idx}`;
+                e.style.top      = `${(5 * idx)}px`;
+                e.style.opacity  = `${100 - 20 * idx}%`;
                 // e.style.right = `${parent.right+5*idx}px`;
             }
-           //list[idx].style.zIndex
+            //list[idx].style.zIndex
         });
 
     }
 
 
     return {
-        list: () => monologListElement,
-        info: options => info(options),
+        list   : () => monologListElement,
+        info   : options => info(options),
         success: options => success(options),
         warning: options => warning(options),
-        error: options => error(options)
+        error  : options => error(options)
     }
 }
