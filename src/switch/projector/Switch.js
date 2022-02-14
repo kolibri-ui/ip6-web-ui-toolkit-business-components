@@ -1,3 +1,5 @@
+// noinspection SpellCheckingInspection
+
 import {dom} from "../../Kolibri/docs/src/kolibri/util/dom.js";
 
 export {Switch}
