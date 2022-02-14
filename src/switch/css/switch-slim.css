@@ -1,62 +1,62 @@
 .switch.switch-slim {
-    width:              var(--slim-width);
-    height:             var(--slim-height);
+    width:  var(--slim-width);
+    height: var(--slim-height);
 
 }
 
 .thumb.switch-slim {
-    border-width:       0.0625em;
-    border-style:       solid;
-    border-color:       var(--slim-default-border);
-    background-color:   var(--background);
+    border-width:     0.0625em;
+    border-style:     solid;
+    border-color:     var(--slim-default-border);
+    background-color: var(--background);
 }
 
 
 .thumb.switch-slim::before {
-    position:           absolute;
-    content:            "";
-    bottom:             0;
-    left:               0;
-    height:             2.25em;
-    width:              2.25em;
-    border-width:       0.0625em;
-    border-style:       solid;
-    border-color:       var(--slim-thumb-main);
-    background-color:   var(--slim-background);
+    position:         absolute;
+    content:          "";
+    bottom:           0;
+    left:             0;
+    height:           2.25em;
+    width:            2.25em;
+    border-width:     0.0625em;
+    border-style:     solid;
+    border-color:     var(--slim-thumb-main);
+    background-color: var(--slim-background);
 }
 
 .thumb.switch-slim.off::before {
-    left:               -0.1875em;
+    left: -0.1875em;
 }
 
 .thumb.switch-slim.on::before {
-    left:               0.4375em;
+    left: 0.4375em;
 }
 
 .switch.switch-slim input:indeterminate + .thumb::before {
-    display:            none;
+    display: none;
 }
 
 .switch.switch-slim input:checked + .thumb::before {
-    transform:          translateX(105%);
+    transform: translateX(105%);
 }
 
 /** ------ Icons ------ */
 .switch-icon {
-    position:           absolute;
-    cursor:             pointer;
-    height:             var(--slim-icon-size);
-    top:                0.3125em;
-    z-index:            1;
-    background:         transparent;
+    position:   absolute;
+    cursor:     pointer;
+    height:     var(--slim-icon-size);
+    top:        0.3125em;
+    z-index:    1;
+    background: transparent;
 }
 
 .switch-icon.off {
-    width:              var(--slim-icon-size);
-    height:             var(--slim-icon-size);
-    left:               0.375em;
-    top:                0.4375em;
-    background-image:   url("../icon/cross-light-black.svg");
+    width:            var(--slim-icon-size);
+    height:           var(--slim-icon-size);
+    left:             0.375em;
+    top:              0.4375em;
+    background-image: url("../icon/cross-light-black.svg");
 }
 
 .switch-icon.off.active {
@@ -64,14 +64,14 @@
 }
 
 .switch-icon.on {
-    width:              var(--slim-icon-size);
-    height:             var(--slim-icon-size);
-    right:              0.375em;
-    top:                0.4375em;
-    background-image:   url("../icon/checkmark-light-black.svg");
+    width:            var(--slim-icon-size);
+    height:           var(--slim-icon-size);
+    right:            0.375em;
+    top:              0.4375em;
+    background-image: url("../icon/checkmark-light-black.svg");
 }
 
-.switch-icon.on.active{
+.switch-icon.on.active {
     background-image: url("../icon/checkmark-light-blue.svg");
 }
 
@@ -79,50 +79,50 @@
 /** States ***/
 
 .indeterminate.switch-slim {
-    background:         var(--slim-indeterminate);
+    background: var(--slim-indeterminate);
 }
 
 
 .focus > .thumb.switch-slim {
-    box-shadow:         0 0 0.375em 0 rgba(24, 75, 205, 0.94);
-    border-color:       var(--slim-thumb-main);
-    outline:            none;
+    box-shadow:   0 0 0.375em 0 rgba(24, 75, 205, 0.94);
+    border-color: var(--slim-thumb-main);
+    outline:      none;
 }
 
 .hover > .thumb.switch-slim {
-    box-shadow:         0 0 0.5em 0 rgba(24, 75, 205, 0.6);
-    border-color:       var(--slim-thumb-main);
-    outline:            none;
+    box-shadow:   0 0 0.5em 0 rgba(24, 75, 205, 0.6);
+    border-color: var(--slim-thumb-main);
+    outline:      none;
 }
 
 .switch.switch-slim:focus {
-    box-shadow:         0 0 0.9375em rgba(24, 75, 205, 0.7);
-    border-color:       var(--slim-thumb-main);
-    outline:            none;
+    box-shadow:   0 0 0.9375em rgba(24, 75, 205, 0.7);
+    border-color: var(--slim-thumb-main);
+    outline:      none;
 }
 
 .disabled > .thumb.switch-slim {
-    background-color:   var(--slim-background-disabled);
-    border-color:       var(--slim-border-disabled);
+    background-color: var(--slim-background-disabled);
+    border-color:     var(--slim-border-disabled);
 
 }
 
 .disabled > .thumb.switch-slim::before {
-    background-color:   var(--slim-background-disabled);
-    border-color:       var(--slim-border-disabled);
+    background-color: var(--slim-background-disabled);
+    border-color:     var(--slim-border-disabled);
 }
 
 .disabled > .switch-icon {
-    opacity:            50%;
+    opacity: 50%;
 }
 
 .read-only > .thumb.switch-slim::before {
-    background-color:   var(--slim-background-disabled);
+    background-color: var(--slim-background-disabled);
 }
 
 .read-only > .thumb.switch-slim {
-    background-color:   var(--slim-background-disabled);
-    border-color:       var(--slim-border-disabled);
+    background-color: var(--slim-background-disabled);
+    border-color:     var(--slim-border-disabled);
 }
 
 .read-only > .switch-icon {
@@ -130,58 +130,56 @@
     /*opacity: 50%;*/
 }
 
-.required.switch-slim  > .thumb.switch-slim {
-    border-color:       var(--switch-error-color);
-    box-shadow:         0 0 0.25em var(--switch-error-color);
+.required.switch-slim > .thumb.switch-slim {
+    border-color: var(--switch-error-color);
+    box-shadow:   0 0 0.25em var(--switch-error-color);
 }
 
 .required.switch-slim :hover > .thumb.switch-slim {
-    border-color:       var(--slim-thumb-main);
-    box-shadow:         0 0 0.25em rgba(24, 75, 205, 0.7);
+    border-color: var(--slim-thumb-main);
+    box-shadow:   0 0 0.25em rgba(24, 75, 205, 0.7);
 }
 
 .arrow.switch-slim {
-    position:       absolute;
-    top:            37%;
-    width:          0.625em;
-    height:         0.625em;
-    border:         solid var(--slim-arrow-color);
-    opacity:        50%;
-    border-width:   0 0.0625em 0.0625em 0;
-    border-radius:  0.0625em;
+    position:      absolute;
+    top:           37%;
+    width:         0.625em;
+    height:        0.625em;
+    border:        solid var(--slim-arrow-color);
+    opacity:       50%;
+    border-width:  0 0.0625em 0.0625em 0;
+    border-radius: 0.0625em;
 }
 
 .arrow-left.switch-slim {
-    animation:      moveToLeft-slim 2s infinite ease-in;
+    animation: moveToLeft-slim 2s infinite ease-in;
 }
 
 .arrow-right.switch-slim {
-    animation:      moveToRight-slim 2s infinite ease-in;
+    animation: moveToRight-slim 2s infinite ease-in;
 }
-
-
 
 
 @keyframes moveToLeft-slim {
     0% {
-        right:      var(--slim-arrow-start-position);
+        right: var(--slim-arrow-start-position);
     }
     50% {
-        right:      var(--slim-arrow-end-position);
+        right: var(--slim-arrow-end-position);
     }
     100% {
-        right:      var(--slim-arrow-start-position);
+        right: var(--slim-arrow-start-position);
     }
 }
 
 @keyframes moveToRight-slim {
     0% {
-        left:       var(--slim-arrow-start-position);
+        left: var(--slim-arrow-start-position);
     }
     50% {
-        left:       var(--slim-arrow-end-position);
+        left: var(--slim-arrow-end-position);
     }
-    100%{
-        left:       var(--slim-arrow-start-position);
+    100% {
+        left: var(--slim-arrow-start-position);
     }
 }
