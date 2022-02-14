@@ -50,6 +50,28 @@ body {
     right: 0.625rem;
 }
 
+.stack-number-info {
+    z-index: 200;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+}
+
+.stack-number-success {
+    z-index: 200;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+}
+
+.stack-number-error {
+    z-index: 200;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+}
+
+
 .monolog {
     position:       relative;
     min-width:      24.6875rem;

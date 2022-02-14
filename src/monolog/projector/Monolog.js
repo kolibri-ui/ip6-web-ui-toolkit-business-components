@@ -20,15 +20,6 @@ const Monolog = () => {
     let stackListElementError = document.createElement('div');
     const stackNumberLabelError = document.createElement('div');
 
-
-/*    //if(stackNumberLabel.innerText > 1 ) {   //&& options.stackNumber < '99'
-       console.log(options.stack);
-        notificationElement.appendChild(stackNumberLabel);
-    //}*/
-
-    const cssList = position.split(' ')
-    cssList.forEach(c => monologListElement.classList.add(c));
-
     let notification;
 
     /**
