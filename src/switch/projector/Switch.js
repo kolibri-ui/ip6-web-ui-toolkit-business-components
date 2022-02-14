@@ -20,7 +20,7 @@ const Switch = (observable, options) => {
 
     // Create ID and Name if they are not set by developer on init
     const randomId = () => Math.random().toString(36).substring(2) || "0";
-    const idName = 'switch-' + randomId().padEnd(12, 'a').slice(0, 19);
+    const idName   = 'switch-' + randomId().padEnd(12, 'a').slice(0, 19);
 
     (options.id === undefined) ? options.id = idName : "";
     (options.name === undefined) ? options.name = idName : "";
@@ -40,13 +40,13 @@ const Switch = (observable, options) => {
      `);
 
 
-    /** @type {HTMLLabelElement} */ const switchElement = elements[0];
+    /** @type {HTMLLabelElement} */ const switchElement      = elements[0];
     /** @type {HTMLInputElement} */ const switchInputElement = switchElement.children[0];
-    /** @type {HTMLSpanElement} */  const thumbElement = switchElement.children[1];
-    /** @type {HTMLSpanElement} */  const arrowLeft = thumbElement.children[0];
-    /** @type {HTMLSpanElement} */  const arrowRight = thumbElement.children[1];
-    /** @type {HTMLDivElement} */   const offIcon = switchElement.children[2];
-    /** @type {HTMLDivElement} */   const onIcon = switchElement.children[3];
+    /** @type {HTMLSpanElement} */  const thumbElement       = switchElement.children[1];
+    /** @type {HTMLSpanElement} */  const arrowLeft          = thumbElement.children[0];
+    /** @type {HTMLSpanElement} */  const arrowRight         = thumbElement.children[1];
+    /** @type {HTMLDivElement} */   const offIcon            = switchElement.children[2];
+    /** @type {HTMLDivElement} */   const onIcon             = switchElement.children[3];
 
 
     const switchElements = [switchElement, switchInputElement, thumbElement, arrowLeft, arrowRight, offIcon, onIcon];
@@ -58,13 +58,13 @@ const Switch = (observable, options) => {
         switchElements.forEach(e => e.classList.add(slimClassName));
     } else {
         offIcon.style.display = "none";
-        onIcon.style.display = "none";
+        onIcon.style.display  = "none";
         switchElements.forEach(e => e.classList.remove(slimClassName));
     }
 
     // Change id, name and for attribute according to options object
-    switchElement.htmlFor = options.id;
-    switchInputElement.id = options.id;
+    switchElement.htmlFor   = options.id;
+    switchInputElement.id   = options.id;
     switchInputElement.name = options.name;
 
     // set switch to on state
@@ -78,7 +78,7 @@ const Switch = (observable, options) => {
 
         switchInputElement.setAttribute("checked", "true");
         switchInputElement.indeterminate = false;
-        switchInputElement.checked = true;
+        switchInputElement.checked       = true;
         observable.setValue(true);
 
         hideArrows();
@@ -95,7 +95,7 @@ const Switch = (observable, options) => {
 
         switchInputElement.removeAttribute("checked");
         switchInputElement.indeterminate = false;
-        switchInputElement.checked = false;
+        switchInputElement.checked       = false;
         observable.setValue(false);
 
         hideArrows();
@@ -110,13 +110,13 @@ const Switch = (observable, options) => {
         thumbElement.classList.add("indeterminate");
         switchInputElement.removeAttribute("checked");
         switchInputElement.indeterminate = true;
-        switchInputElement.checked = undefined;
+        switchInputElement.checked       = undefined;
         observable.setValue(undefined);
     }
 
     // Function to hide the Arrows on the Element.
     const hideArrows = () => {
-        arrowLeft.style.display = 'none';
+        arrowLeft.style.display  = 'none';
         arrowRight.style.display = 'none';
     }
 
@@ -158,6 +158,7 @@ const Switch = (observable, options) => {
     switchElement.onclick = e => {
         let isNotReadonly = !switchElement.classList.contains('read-only');
 
+        e.preventDefault();
         switchElement.focus();
         let center = switchElement.offsetWidth / 2;
         if (e.offsetX >= center && isNotReadonly) {
@@ -183,7 +184,7 @@ const Switch = (observable, options) => {
     switchElement.onmouseover = () => {
         switchElement.classList.add("hover");
         if (switchInputElement.indeterminate && !switchElement.classList.contains('read-only')) {
-            arrowLeft.style.display = 'block';
+            arrowLeft.style.display  = 'block';
             arrowRight.style.display = 'block';
         }
     }
@@ -195,13 +196,13 @@ const Switch = (observable, options) => {
         switchElement.classList.remove("hover");
 
         if (switchInputElement.indeterminate) {
-            arrowLeft.style.display = 'none';
+            arrowLeft.style.display  = 'none';
             arrowRight.style.display = 'none';
         }
     }
 
     // Drag interaction
-    let mousePos = 0;
+    let mousePos    = 0;
     let mouseOffset = 20;
 
     const calcMovement = ex => {
@@ -213,7 +214,7 @@ const Switch = (observable, options) => {
     }
 
     switchElement.onmousedown = e => mousePos = e.x;
-    switchElement.onmouseup = (e) => {
+    switchElement.onmouseup   = (e) => {
         if (!switchElement.classList.contains('read-only')) {
             let calc_movement = calcMovement(e.x);
             switchInputElement.setAttribute('checked', `${calc_movement}`);
