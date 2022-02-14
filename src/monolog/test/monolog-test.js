@@ -6,14 +6,12 @@ const testSuite = TestSuite("monolog");
 const monolog     = Monolog();
 
 testSuite.add("monolog-check-list-creation", assert => {
-
     const monologList = monolog.list();
-
     assert.isTrue(monologList !== undefined);
     assert.isTrue(typeof monologList === 'object');
-    assert.isTrue(monologList.classList.contains("monolog-list"))
-    assert.isTrue(monologList.classList.contains("top"))
-    assert.isTrue(monologList.classList.contains("right"))
+    assert.isTrue(monologList.classList.contains("monolog-list"));
+    assert.isTrue(monologList.classList.contains("top"));
+    assert.isTrue(monologList.classList.contains("right"));
 
 });
 
