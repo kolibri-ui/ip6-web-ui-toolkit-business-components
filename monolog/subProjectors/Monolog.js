@@ -40,30 +40,33 @@ const Monolog = (position = 'top right') => {
 
         const type = options.type;
 
-        switch (type){
+        switch (type) {
             case 'info':
 
                 stackListElementInfo.appendChild(notification);
                 monologListElement.appendChild(stackListElementInfo);
-                options.stack = checkStacking(stackListElementInfo);
+                if (options.sticky) {
+                    options.stack = checkStacking(stackListElementInfo);
+                }
                 break;
             case 'success':
-                stackListElementSuccess.classList.add('stack-list-'+type);
+                stackListElementSuccess.classList.add('stack-list-' + type);
                 stackListElementSuccess.appendChild(notification);
                 monologListElement.appendChild(stackListElementSuccess);
-                options.stack = checkStacking(stackListElementSuccess);
+                if (options.sticky) {
+                    options.stack = checkStacking(stackListElementSuccess);
+                }
                 break;
             case 'error':
-                stackListElementError.classList.add('stack-list-'+type);
+                stackListElementError.classList.add('stack-list-' + type);
                 stackListElementError.appendChild(notification);
                 monologListElement.appendChild(stackListElementError);
-                options.stack = checkStacking(stackListElementError);
+                if (options.sticky) {
+                    options.stack = checkStacking(stackListElementError);
+                }
                 break;
+
         }
-
-
-
-
 
     }
 
@@ -140,16 +143,19 @@ const Monolog = (position = 'top right') => {
 
         const infoType = monologList.querySelectorAll('.info');
         const successType = monologList.querySelectorAll('.success');
+        const errorType = monologList.querySelectorAll('.code-error');
 
-
-        if (successType.length >= 1) {
-            stacking(successType);
-        }
         if(infoType.length >= 1){
             stacking(infoType);
+            return infoType.length.toString();
+        } else if (successType.length >= 1) {
+            stacking(successType);
+            return successType.length.toString();
+        } else if(errorType.length >= 1){
+            stacking(errorType);
+            return errorType.length.toString();
         }
 
-        return successType.length.toString();
     }
 
     const stacking = list => {
@@ -160,13 +166,16 @@ const Monolog = (position = 'top right') => {
 
             list[0].style.position = 'absolute';
             list[0].style.zIndex = '100';
+            list[0].style.top = '0';
+            list[0].style.opacity = '100%';
             //options.stackNumber = list[0].style.zIndex;
 
             if (idx > 0) {
                 //console.log(typeof idx);
                 e.style.position = 'absolute';
                 e.style.zIndex = `${100 - idx}`;
-                e.style.top = `${parent.top+5*idx}px`;
+                e.style.top = `${(5 * idx)}px`;
+                e.style.opacity = `${100-20*idx}%`;
                 // e.style.right = `${parent.right+5*idx}px`;
             }
            //list[idx].style.zIndex
