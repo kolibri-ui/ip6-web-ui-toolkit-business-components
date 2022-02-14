@@ -1,3 +1,3 @@
 [submodule "src/Kolibri"]
 	path = src/Kolibri
-	url = https://github.com/WebEngineering-FHNW/Kolibri.git
+	url = git@github.com:WebEngineering-FHNW/Kolibri.git
