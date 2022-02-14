@@ -8,6 +8,7 @@ export {Notification}
  * @param {String} options.message
  * @param {String} options.type
  * @param {String} [options.stack]
+ * @param {String} [options.stackNumber]
  * @param {Boolean} [options.sticky]
  * @param {Boolean} [options.attention]
  * @param {String} [options.codeError]
@@ -53,8 +54,9 @@ const Notification = (options) => {
     stackNumberLabel.classList.add('monolog-stack-number');
 
     stackNumberLabel.innerText = options.stack;
-    if(options.stack > 1 ) { //&& notificationElement.style.zIndex === '100'
 
+    if(stackNumberLabel.innerText > 1 ) {   //&& options.stackNumber < '99'
+       console.log(options.stack);
         notificationElement.appendChild(stackNumberLabel);
 
     }

@@ -7,6 +7,7 @@ const monologDemoProjector = (controller, rootElement) => {
 
     const monolog = Monolog();
     rootElement.appendChild(monolog.list());
+    //rootElement.appendChild(monolog.stackList());
 
     const pElement = pProjector("Show Notifications by pushing the Button below.", ['demo-text']);
     rootElement.appendChild(pElement);

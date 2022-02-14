@@ -5,15 +5,21 @@ export {Monolog}
 /**
  * Creates a Monolog List on the given Position
  * @param {String} [position=top right]
- * @returns {{success: (function(*): void), warning: (function(*): void), list: (function(): HTMLDivElement), error: (function(*): void), info: (function(*): void)}}
+ * @returns {{success: (function(*): void), warning: (function(*): void), list: (function(): HTMLDivElement),
+ * stackList: (function(): HTMLDivElement), error: (function(*): void), info: (function(*): void)}}
  * @constructor
  */
 const Monolog = (position = 'top right') => {
     const monologListElement = document.createElement('div');
     monologListElement.classList.add('monolog-list');
 
+    let stackListElementInfo = document.createElement('div');
+    let stackListElementSuccess = document.createElement('div');
+    let stackListElementError = document.createElement('div');
+
     const cssList = position.split(' ')
     cssList.forEach(c => monologListElement.classList.add(c));
+
 
     /**
      * Finally emits the Monolog
@@ -22,15 +28,43 @@ const Monolog = (position = 'top right') => {
      * @param {String} options.message
      * @param {String} options.type
      * @param {String} [options.stack]
+     * @param {String} [options.stackNumber]
      * @param {Boolean} [options.sticky]
      * @param {Boolean} [options.attention]
      * @param {String} [options.codeError]
      * @param options
      */
     const emit = options => {
-        options.stack = checkStacking(monologListElement);
+        //options.stackNumber = checkStacking(monologListElement)[1];
         const notification = Notification(options);
-        monologListElement.appendChild(notification);
+
+        const type = options.type;
+
+        switch (type){
+            case 'info':
+
+                stackListElementInfo.appendChild(notification);
+                monologListElement.appendChild(stackListElementInfo);
+                options.stack = checkStacking(stackListElementInfo);
+                break;
+            case 'success':
+                stackListElementSuccess.classList.add('stack-list-'+type);
+                stackListElementSuccess.appendChild(notification);
+                monologListElement.appendChild(stackListElementSuccess);
+                options.stack = checkStacking(stackListElementSuccess);
+                break;
+            case 'error':
+                stackListElementError.classList.add('stack-list-'+type);
+                stackListElementError.appendChild(notification);
+                monologListElement.appendChild(stackListElementError);
+                options.stack = checkStacking(stackListElementError);
+                break;
+        }
+
+
+
+
+
     }
 
     /**
@@ -40,6 +74,7 @@ const Monolog = (position = 'top right') => {
      * @param {String} options.message
      * @param {String} [options.type]
      * @param {String} [options.stack]
+     * @param {String} [options.stackNumber]
      * @param {Boolean} [options.sticky]
      * @param options
      */
@@ -55,6 +90,7 @@ const Monolog = (position = 'top right') => {
      * @param {String} options.message
      * @param {String} [options.type]
      * @param {String} [options.stack]
+     * @param {String} [options.stackNumber]
      * @param {Boolean} [options.sticky]
      */
     const success = options => {
@@ -69,6 +105,7 @@ const Monolog = (position = 'top right') => {
      * @param {String} options.message
      * @param {String} [options.type]
      * @param {String} [options.stack]
+     * @param {String} [options.stackNumber]
      * @param {Boolean} [options.sticky]
      */
     const warning = options => {
@@ -82,6 +119,7 @@ const Monolog = (position = 'top right') => {
      * @param {String} options.message
      * @param {String} [options.type]
      * @param {String} [options.stack]
+     * @param {String} [options.stackNumber]
      * @param {Boolean} [options.sticky]
      * @param {Boolean} [options.attention]
      * @param {String} [options.codeError]
@@ -103,8 +141,12 @@ const Monolog = (position = 'top right') => {
         const infoType = monologList.querySelectorAll('.info');
         const successType = monologList.querySelectorAll('.success');
 
-        if (successType.length > 1) {
+
+        if (successType.length >= 1) {
             stacking(successType);
+        }
+        if(infoType.length >= 1){
+            stacking(infoType);
         }
 
         return successType.length.toString();
@@ -118,20 +160,24 @@ const Monolog = (position = 'top right') => {
 
             list[0].style.position = 'absolute';
             list[0].style.zIndex = '100';
+            //options.stackNumber = list[0].style.zIndex;
 
-            if (idx > 0) {
+            //if (idx > 0) {
                 //console.log(typeof idx);
                 e.style.position = 'absolute';
                 e.style.zIndex = `${100 - idx}`;
                 e.style.top = `${parent.top+5*idx}px`;
                 // e.style.right = `${parent.right+5*idx}px`;
-            }
+            //}
+           //list[idx].style.zIndex
         });
+
     }
 
 
     return {
         list: () => monologListElement,
+        stackList: () => stackListElement,
         info: options => info(options),
         success: options => success(options),
         warning: options => warning(options),
