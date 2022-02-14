@@ -3,7 +3,7 @@ import {Monolog} from "../projector/Monolog.js";
 
 
 const testSuite = TestSuite("monolog");
-const monolog     = Monolog();
+const monolog   = Monolog();
 
 testSuite.add("monolog-check-list-creation", assert => {
     const monologList = monolog.list();
@@ -15,11 +15,16 @@ testSuite.add("monolog-check-list-creation", assert => {
 
 });
 
-testSuite.add("monolog-info-test", assert => {});
-testSuite.add("monolog-success-test", assert => {});
-testSuite.add("monolog-warning-test", assert => {});
-testSuite.add("monolog-error-test", assert => {});
-testSuite.add("monolog-code-error-test", assert => {});
+testSuite.add("monolog-info-test", assert => {
+});
+testSuite.add("monolog-success-test", assert => {
+});
+testSuite.add("monolog-warning-test", assert => {
+});
+testSuite.add("monolog-error-test", assert => {
+});
+testSuite.add("monolog-code-error-test", assert => {
+});
 
 
 testSuite.run();

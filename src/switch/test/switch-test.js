@@ -2,14 +2,14 @@ import {TestSuite} from "../../Kolibri/docs/src/kolibri/util/test.js";
 import {Observable} from "../../Kolibri/docs/src/kolibri/observable.js";
 import {Switch} from "../projector/Switch.js";
 
-const testSuite = TestSuite("switch");
+const testSuite      = TestSuite("switch");
 const testObservable = Observable(false);
-const options = {
-    name: undefined,
-    id: undefined,
-    state: undefined,
+const options        = {
+    name      : undefined,
+    id        : undefined,
+    state     : undefined,
     threeState: undefined,
-    slim: undefined
+    slim      : undefined
 }
 
 /**
@@ -19,7 +19,7 @@ testSuite.add("switch-default-init-test", assert => {
 
     options.id = "test-id-default";
 
-    const defaultSwitch = Switch(testObservable, options);
+    const defaultSwitch   = Switch(testObservable, options);
     const checkboxElement = defaultSwitch.querySelector('input');
 
     assert.is(options.id, checkboxElement.id);
@@ -33,10 +33,10 @@ testSuite.add("switch-default-init-test", assert => {
  */
 testSuite.add("switch-slim-init-test", assert => {
 
-    options.id = "test-id-slim";
+    options.id   = "test-id-slim";
     options.slim = true;
 
-    const slimSwitch = Switch(testObservable, options);
+    const slimSwitch      = Switch(testObservable, options);
     const checkboxElement = slimSwitch.querySelector('input');
 
     assert.is(options.id, checkboxElement.id);
@@ -52,7 +52,7 @@ testSuite.add("test-id-creation", assert => {
 
     options.id = undefined;
 
-    const defaultSwitch = Switch(testObservable, options);
+    const defaultSwitch   = Switch(testObservable, options);
     const checkboxElement = defaultSwitch.querySelector('input');
 
     const ire = /switch-([a-zA-Z0-9]+){12}/;
@@ -68,7 +68,7 @@ testSuite.add("test-id-creation", assert => {
  */
 testSuite.add("test-readonly-property-change", assert => {
 
-    const defaultSwitch = Switch(testObservable, options);
+    const defaultSwitch   = Switch(testObservable, options);
     const checkboxElement = defaultSwitch.querySelector('input');
 
     assert.is(checkboxElement.readOnly, false);
@@ -82,7 +82,7 @@ testSuite.add("test-readonly-property-change", assert => {
  */
 testSuite.add("test-disabled-property-change", assert => {
 
-    const defaultSwitch = Switch(testObservable, options);
+    const defaultSwitch   = Switch(testObservable, options);
     const checkboxElement = defaultSwitch.querySelector('input');
 
     assert.is(checkboxElement.disabled, false);
@@ -96,7 +96,7 @@ testSuite.add("test-disabled-property-change", assert => {
  */
 testSuite.add("test-required-property-change", assert => {
 
-    const defaultSwitch = Switch(testObservable, options);
+    const defaultSwitch   = Switch(testObservable, options);
     const checkboxElement = defaultSwitch.querySelector('input');
 
     assert.is(checkboxElement.required, false);
@@ -109,7 +109,7 @@ testSuite.add("test-required-property-change", assert => {
  * Test if on click, the value gets changed
  */
 testSuite.add("test-set-value-to-on", assert => {
-    options.threeState = undefined;
+    options.threeState  = undefined;
     const defaultSwitch = Switch(testObservable, options);
 
     assert.is(testObservable.getValue(), false);
