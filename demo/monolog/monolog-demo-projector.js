@@ -1,4 +1,4 @@
-import {buttonProjector} from "./buttonProjector.js";
+import {buttonElement} from "../util/buttonElement.js";
 import {Monolog} from "../../src/monolog/projector/Monolog.js";
 
 
@@ -15,7 +15,7 @@ const monologDemoProjector = (controller, rootElement) => {
     pStickyElement.appendChild(document.createElement('br'));
     pStickyElement.appendChild(document.createElement('br'));
 
-    const infoStickyButton = buttonProjector("Info", "button-info", () => {
+    const infoStickyButton = buttonElement("Info", "button-info", () => {
         monolog.info({
             title: "Some Info",
             message: "And some Text",
@@ -23,7 +23,7 @@ const monologDemoProjector = (controller, rootElement) => {
         });
     });
 
-    const successStickButton = buttonProjector("Success", "button-success", () => {
+    const successStickButton = buttonElement("Success", "button-success", () => {
         monolog.success({
             title: "Some Info",
             message: "Just a Test",
@@ -31,7 +31,7 @@ const monologDemoProjector = (controller, rootElement) => {
         });
     });
 
-    const warningStickyButton = buttonProjector("Warning", "button-warning", () => {
+    const warningStickyButton = buttonElement("Warning", "button-warning", () => {
         monolog.warning({
             title: "Some Warning",
             message: "Just a Test",
@@ -39,7 +39,7 @@ const monologDemoProjector = (controller, rootElement) => {
         });
     });
 
-    const errorStickyButton = buttonProjector("Error", "button-error", () => {
+    const errorStickyButton = buttonElement("Error", "button-error", () => {
         monolog.error({
             title: "Some Error",
             message: "Just a Test",
@@ -47,7 +47,7 @@ const monologDemoProjector = (controller, rootElement) => {
         });
     });
 
-    const errorStickyAttentionButton = buttonProjector("Error Attention", "button-error", () => {
+    const errorStickyAttentionButton = buttonElement("Error Attention", "button-error", () => {
         monolog.error({
             title: "Some Error",
             message: "Just a Test",
@@ -56,7 +56,7 @@ const monologDemoProjector = (controller, rootElement) => {
         });
     });
 
-    const codeErrorButton = buttonProjector("CodeError", "button-error", () => {
+    const codeErrorButton = buttonElement("CodeError", "button-error", () => {
         monolog.error({
             title: "Some Code Error",
             message: "Ask a developer.",
@@ -83,28 +83,28 @@ const monologDemoProjector = (controller, rootElement) => {
     pElement.appendChild(document.createElement('br'));
     pElement.appendChild(document.createElement('br'));
 
-    const infoButton = buttonProjector("Info", "button-info", () => {
+    const infoButton = buttonElement("Info", "button-info", () => {
         monolog.info({
             title: "Some Info",
             message: "And some Text"
         });
     });
 
-    const successButton = buttonProjector("Success", "button-success", () => {
+    const successButton = buttonElement("Success", "button-success", () => {
         monolog.success({
             title: "Some Info",
             message: "Just a Test"
         });
     });
 
-    const warningButton = buttonProjector("Warning", "button-warning", () => {
+    const warningButton = buttonElement("Warning", "button-warning", () => {
         monolog.warning({
             title: "Some Warning",
             message: "Just a Test"
         });
     });
 
-    const errorButton = buttonProjector("Error", "button-error", () => {
+    const errorButton = buttonElement("Error", "button-error", () => {
         monolog.error({
             title: "Some Error",
             message: "Just a Test"
