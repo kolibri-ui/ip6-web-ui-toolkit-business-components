@@ -221,7 +221,7 @@ body {
 
 
 .copy-icon{
-    width: 24px;
+    width:  24px;
     height: 24px;
 }
 .copy-icon.default{
@@ -232,8 +232,11 @@ body {
 }
 
 .copy-success-icon {
-    width: 49px;
+    width: 89px;
     height: 24px;
+    background-image: url(../icon/copied-confirmation.svg);
+    background-size: contain;
+    display:none;
 }
 
 .copy-icon {

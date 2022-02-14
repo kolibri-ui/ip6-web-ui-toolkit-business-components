@@ -96,6 +96,7 @@ const Notification = (options) => {
             await navigator.clipboard.writeText(monologCodeBoxText.textContent);
 
             setTimeout(() => {
+                monologCopySuccess.style.display = 'none';
                 monologCopyIcon.classList.remove('success');
                 monologCopyIcon.classList.add('default');
             }, 2000);
