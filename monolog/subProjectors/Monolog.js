@@ -162,13 +162,13 @@ const Monolog = (position = 'top right') => {
             list[0].style.zIndex = '100';
             //options.stackNumber = list[0].style.zIndex;
 
-            //if (idx > 0) {
+            if (idx > 0) {
                 //console.log(typeof idx);
                 e.style.position = 'absolute';
                 e.style.zIndex = `${100 - idx}`;
                 e.style.top = `${parent.top+5*idx}px`;
                 // e.style.right = `${parent.right+5*idx}px`;
-            //}
+            }
            //list[idx].style.zIndex
         });
 
@@ -177,7 +177,6 @@ const Monolog = (position = 'top right') => {
 
     return {
         list: () => monologListElement,
-        stackList: () => stackListElement,
         info: options => info(options),
         success: options => success(options),
         warning: options => warning(options),
