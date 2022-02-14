@@ -1,4 +1,4 @@
-import {Switch} from "./Switch.js";
+import {Switch} from "../../src/switch/projector/Switch.js";
 
 export {DemoSwitch}
 

@@ -1,6 +1,6 @@
 import {TestSuite} from "../../Kolibri/docs/src/kolibri/util/test.js";
 import {Observable} from "../../Kolibri/docs/src/kolibri/observable.js";
-import {Switch} from "../subProjectors/Switch.js";
+import {Switch} from "../projector/Switch.js";
 
 const testSuite = TestSuite("switch");
 const testObservable = Observable(false);

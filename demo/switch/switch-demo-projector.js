@@ -1,16 +1,16 @@
-import {hProjector} from "../../global-projector/hProjector.js";
-import {DemoBoxProjector} from "../subProjectors/DemoBoxProjector.js";
-import {hrProjector} from "../../global-projector/hrProjector.js";
-import {DemoSwitch} from "../subProjectors/DemoSwitch.js";
+import {DemoBoxProjector} from "./DemoBoxProjector.js";
+import {DemoSwitch} from "./DemoSwitch.js";
+import {HElement} from "../util/hElement.js";
+import {HrElement} from "../util/hrElement.js";
 
 
-export {switchProjector}
+export {switchDemoProjector}
 
 
-const switchProjector = (controller, rootElement, switchModel) => {
+const switchDemoProjector = (controller, rootElement, switchModel) => {
 
 
-    const twoStateTitle = hProjector(3, "Two State, Default Styling");
+    const twoStateTitle = HElement(3, "Two State, Default Styling");
     rootElement.appendChild(twoStateTitle);
 
     /**
@@ -32,10 +32,10 @@ const switchProjector = (controller, rootElement, switchModel) => {
     const defaultTwoStateBoxOn = DemoBoxProjector(defaultTwoStateTitleOn, defaultTwoStateCodeOn, defaultTwoStateSwitchOn);
     rootElement.appendChild(defaultTwoStateBoxOn);
 
-    rootElement.appendChild(hrProjector());
+    rootElement.appendChild(HrElement());
 
 
-    const twoStateSlimTitle = hProjector(3, "Two State, Slim Styling");
+    const twoStateSlimTitle = HElement(3, "Two State, Slim Styling");
     rootElement.appendChild(twoStateSlimTitle);
 
     /**
@@ -59,9 +59,9 @@ const switchProjector = (controller, rootElement, switchModel) => {
     rootElement.appendChild(slimTwoStateBoxOn);
 
 
-    rootElement.appendChild(hrProjector());
+    rootElement.appendChild(HrElement());
 
-    const threeStateTitle = hProjector(3, "Three State, Default Styling");
+    const threeStateTitle = HElement(3, "Three State, Default Styling");
     rootElement.appendChild(threeStateTitle);
 
     /**
@@ -114,17 +114,17 @@ const switchProjector = (controller, rootElement, switchModel) => {
     rootElement.appendChild(defaultThreeStateBoxHRO);
 
     const defaultThreeStateTitleHD = "Disabled";
-    const defaultThreeStateSwitchOffD = DemoSwitch(switchModel.ThreeState, false, false, true, false, false,false, true);
-    const defaultThreeStateSwitchOnD = DemoSwitch(switchModel.ThreeState, false, true, true, false, false, false,true);
-    const defaultThreeStateSwitchID = DemoSwitch(switchModel.ThreeState, false, null, true, false, false, false,true);
+    const defaultThreeStateSwitchOffD = DemoSwitch(switchModel.ThreeState, false, false, true, false, false, false, true);
+    const defaultThreeStateSwitchOnD = DemoSwitch(switchModel.ThreeState, false, true, true, false, false, false, true);
+    const defaultThreeStateSwitchID = DemoSwitch(switchModel.ThreeState, false, null, true, false, false, false, true);
     const defaultThreeStateBoxHD = DemoBoxProjector(defaultThreeStateTitleHD, null, defaultThreeStateSwitchOffD, defaultThreeStateSwitchOnD, defaultThreeStateSwitchID);
 
     rootElement.appendChild(defaultThreeStateBoxHD);
 
 
-    rootElement.appendChild(hrProjector());
+    rootElement.appendChild(HrElement());
 
-    const threeStateTitleSlim = hProjector(3, "Three State, Slim Styling");
+    const threeStateTitleSlim = HElement(3, "Three State, Slim Styling");
     rootElement.appendChild(threeStateTitleSlim);
 
     const slimThreeStateTitle = "Off";
@@ -174,9 +174,9 @@ const switchProjector = (controller, rootElement, switchModel) => {
     rootElement.appendChild(slimThreeStateBoxHRO);
 
     const slimThreeStateTitleHD = "Disabled";
-    const slimThreeStateSwitchOffD = DemoSwitch(switchModel.ThreeState, true, false, true, false, false,false, true);
-    const slimThreeStateSwitchOnD = DemoSwitch(switchModel.ThreeState, true, true, true, false, false, false,true);
-    const slimThreeStateSwitchID = DemoSwitch(switchModel.ThreeState, true, null, true, false, false, false,true);
+    const slimThreeStateSwitchOffD = DemoSwitch(switchModel.ThreeState, true, false, true, false, false, false, true);
+    const slimThreeStateSwitchOnD = DemoSwitch(switchModel.ThreeState, true, true, true, false, false, false, true);
+    const slimThreeStateSwitchID = DemoSwitch(switchModel.ThreeState, true, null, true, false, false, false, true);
     const slimThreeStateBoxHD = DemoBoxProjector(slimThreeStateTitleHD, null, slimThreeStateSwitchOffD, slimThreeStateSwitchOnD, slimThreeStateSwitchID);
 
     rootElement.appendChild(slimThreeStateBoxHD);

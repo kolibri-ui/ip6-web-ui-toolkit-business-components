@@ -1,11 +1,9 @@
-import {switchProjector} from "../mainProjector/switchProjector.js";
-import {ObservableList} from "../../Kolibri/docs/src/kolibri/observable.js";
-import {Attribute, VALUE} from "../../presentationModel/presentationModel.js";
+import {ObservableList} from "../../src/Kolibri/docs/src/kolibri/observable.js";
+import {Attribute, VALUE} from "../../src/Kolibri/docs/src/kolibri/presentationModel.js";
 
+export {SwitchDemoController}
 
-export {SwitchController, View }
-
-const SwitchController = () => {
+const SwitchDemoController = () => {
 
     const SwitchModel = () => {
         const darkModeAttr          = Attribute(false);
@@ -32,7 +30,3 @@ const SwitchController = () => {
     }
 }
 
-const View = (controller, rootElement) => {
-    const renderSwitchProjector = switchModel => switchProjector(controller, rootElement, switchModel);
-    controller.onSwitchAdd(renderSwitchProjector);
-}

@@ -1,12 +1,14 @@
 .switch.switch-slim {
     width:              var(--slim-width);
     height:             var(--slim-height);
+
 }
 
 .thumb.switch-slim {
     border-width:       0.0625em;
     border-style:       solid;
     border-color:       var(--slim-default-border);
+    background-color:   var(--background);
 }
 
 
@@ -39,13 +41,14 @@
     transform:          translateX(105%);
 }
 
+/** ------ Icons ------ */
 .switch-icon {
     position:           absolute;
     cursor:             pointer;
     height:             var(--slim-icon-size);
     top:                0.3125em;
     z-index:            1;
-    pointer-events:     none;
+    background:         transparent;
 }
 
 .switch-icon.off {
@@ -53,6 +56,11 @@
     height:             var(--slim-icon-size);
     left:               0.375em;
     top:                0.4375em;
+    background-image:   url("../icon/cross-light-black.svg");
+}
+
+.switch-icon.off.active {
+    background-image: url("../icon/cross-light-blue.svg");
 }
 
 .switch-icon.on {
@@ -60,6 +68,11 @@
     height:             var(--slim-icon-size);
     right:              0.375em;
     top:                0.4375em;
+    background-image:   url("../icon/checkmark-light-black.svg");
+}
+
+.switch-icon.on.active{
+    background-image: url("../icon/checkmark-light-blue.svg");
 }
 
 
@@ -69,13 +82,6 @@
     background:         var(--slim-indeterminate);
 }
 
-.on.switch-slim {
-    background:         transparent;
-}
-
-.off.switch-slim {
-    background:         transparent;
-}
 
 .focus > .thumb.switch-slim {
     box-shadow:         0 0 0.375em 0 rgba(24, 75, 205, 0.94);
@@ -152,6 +158,9 @@
 .arrow-right.switch-slim {
     animation:      moveToRight-slim 2s infinite ease-in;
 }
+
+
+
 
 @keyframes moveToLeft-slim {
     0% {
