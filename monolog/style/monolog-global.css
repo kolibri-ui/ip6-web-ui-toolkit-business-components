@@ -126,7 +126,22 @@ body {
     display: inline;
 }
 
-.monolog-stack-number {
+.stack-number-info {
+    z-index: 200;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+}
+
+.stack-number-success {
+    z-index: 200;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+}
+
+.stack-number-error {
+    z-index: 200;
     position: absolute;
     left: -10px;
     top: -10px;

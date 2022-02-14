@@ -5,21 +5,33 @@ export {Monolog}
 /**
  * Creates a Monolog List on the given Position
  * @param {String} [position=top right]
- * @returns {{success: (function(*): void), warning: (function(*): void), list: (function(): HTMLDivElement),
- * stackList: (function(): HTMLDivElement), error: (function(*): void), info: (function(*): void)}}
+ * @returns {{success: (function(*): void), warning: (function(*): void), list: (function(): HTMLDivElement), error: (function(*): void), info: (function(*): void)}}
  * @constructor
  */
 const Monolog = (position = 'top right') => {
     const monologListElement = document.createElement('div');
     monologListElement.classList.add('monolog-list');
 
+
     let stackListElementInfo = document.createElement('div');
+    const stackNumberLabelInfo = document.createElement('div');
+
     let stackListElementSuccess = document.createElement('div');
+    const stackNumberLabelSuccess = document.createElement('div');
+
     let stackListElementError = document.createElement('div');
+    const stackNumberLabelError = document.createElement('div');
+
+
+/*    //if(stackNumberLabel.innerText > 1 ) {   //&& options.stackNumber < '99'
+       console.log(options.stack);
+        notificationElement.appendChild(stackNumberLabel);
+    //}*/
 
     const cssList = position.split(' ')
     cssList.forEach(c => monologListElement.classList.add(c));
 
+    let notification;
 
     /**
      * Finally emits the Monolog
@@ -35,39 +47,8 @@ const Monolog = (position = 'top right') => {
      * @param options
      */
     const emit = options => {
-        //options.stackNumber = checkStacking(monologListElement)[1];
-        const notification = Notification(options);
-
-        const type = options.type;
-
-        switch (type) {
-            case 'info':
-
-                stackListElementInfo.appendChild(notification);
-                monologListElement.appendChild(stackListElementInfo);
-                if (options.sticky) {
-                    options.stack = checkStacking(stackListElementInfo);
-                }
-                break;
-            case 'success':
-                stackListElementSuccess.classList.add('stack-list-' + type);
-                stackListElementSuccess.appendChild(notification);
-                monologListElement.appendChild(stackListElementSuccess);
-                if (options.sticky) {
-                    options.stack = checkStacking(stackListElementSuccess);
-                }
-                break;
-            case 'error':
-                stackListElementError.classList.add('stack-list-' + type);
-                stackListElementError.appendChild(notification);
-                monologListElement.appendChild(stackListElementError);
-                if (options.sticky) {
-                    options.stack = checkStacking(stackListElementError);
-                }
-                break;
-
-        }
-
+        notification = Notification(options);
+        stack(options);
     }
 
     /**
@@ -135,6 +116,64 @@ const Monolog = (position = 'top right') => {
         emit(options);
     }
 
+
+    /**
+     * Displays an error Monolog
+     * @param {Object} options
+     * @param {String} options.title
+     * @param {String} options.message
+     * @param {String} [options.type]
+     * @param {String} [options.stack]
+     * @param {String} [options.stackNumber]
+     * @param {Boolean} [options.sticky]
+     * @param {Boolean} [options.attention]
+     * @param {String} [options.codeError]
+     */
+    const stack = options => {
+        const type = options.type;
+
+        switch (type) {
+            case 'info':
+                stackListElementSuccess.classList.add('stack-list-' + type);
+                stackListElementInfo.appendChild(notification);
+                monologListElement.appendChild(stackListElementInfo);
+
+                if (options.sticky) {
+                    options.stack = checkStacking(stackListElementInfo);
+                    stackNumberLabelInfo.classList.add('stack-number-'+ type);
+                    stackNumberLabelInfo.innerText = options.stack;
+                    stackListElementInfo.appendChild(stackNumberLabelInfo);
+                }
+                break;
+            case 'success':
+                stackListElementSuccess.classList.add('stack-list-' + type);
+                stackListElementSuccess.appendChild(notification);
+                monologListElement.appendChild(stackListElementSuccess);
+
+                if (options.sticky) {
+                    options.stack = checkStacking(stackListElementSuccess);
+                    stackNumberLabelSuccess.classList.add('stack-number-'+ type);
+                    stackNumberLabelSuccess.innerText = options.stack;
+                    stackListElementSuccess.appendChild(stackNumberLabelSuccess);
+                }
+                break;
+            case 'error':
+                stackListElementError.classList.add('stack-list-' + type);
+                stackListElementError.appendChild(notification);
+                monologListElement.appendChild(stackListElementError);
+
+                if (options.sticky) {
+                    options.stack = checkStacking(stackListElementError);
+                    stackNumberLabelError.classList.add('stack-number-'+ type);
+                    stackNumberLabelError.innerText = options.stack;
+                    stackListElementError.appendChild(stackNumberLabelError);
+                }
+                break;
+
+        }
+       // emit(options);
+    }
+
     /**
      * Stack all Monologues of a certain type
      * @param {Object} monologList
@@ -148,10 +187,12 @@ const Monolog = (position = 'top right') => {
         if(infoType.length >= 1){
             stacking(infoType);
             return infoType.length.toString();
-        } else if (successType.length >= 1) {
+        }
+        if (successType.length >= 1) {
             stacking(successType);
             return successType.length.toString();
-        } else if(errorType.length >= 1){
+        }
+        if(errorType.length >= 1){
             stacking(errorType);
             return errorType.length.toString();
         }

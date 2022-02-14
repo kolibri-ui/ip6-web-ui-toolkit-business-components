@@ -50,16 +50,15 @@ const Notification = (options) => {
     notificationBody.appendChild(notificationTitle);
     notificationBody.appendChild(notificationMessage);
 
-    const stackNumberLabel = document.createElement('div');
+/*    const stackNumberLabel = document.createElement('div');
     stackNumberLabel.classList.add('monolog-stack-number');
 
     stackNumberLabel.innerText = options.stack;
 
-    if(stackNumberLabel.innerText > 1 ) {   //&& options.stackNumber < '99'
+    //if(stackNumberLabel.innerText > 1 ) {   //&& options.stackNumber < '99'
        console.log(options.stack);
         notificationElement.appendChild(stackNumberLabel);
-
-    }
+    //}*/
 
 
     if (options.sticky) {
