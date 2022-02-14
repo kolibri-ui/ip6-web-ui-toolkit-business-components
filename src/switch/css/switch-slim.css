@@ -133,7 +133,7 @@
     cursor: not-allowed;
 }
 
-.read-only > .switch-icon.on, .switch-icon.off{
+.read-only > .switch-icon.on, .switch-icon.off {
     background-color: transparent;
 }
 
