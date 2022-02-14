@@ -1,4 +1,4 @@
-export {buttonProjector}
+export {buttonElement}
 
 /**
  * Creates a <button> Element
@@ -7,7 +7,7 @@ export {buttonProjector}
  * @param callback
  * @returns {HTMLButtonElement}
  */
-const buttonProjector = (text = "Change this", type = "button-default", callback = (() => {})) => {
+const buttonElement = (text = "Change this", type = "button-default", callback = (() => {})) => {
     const buttonElement = document.createElement('button');
     buttonElement.textContent = text;
     buttonElement.classList.add('button');
