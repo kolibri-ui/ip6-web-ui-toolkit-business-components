@@ -52,7 +52,6 @@ const Switch = (observable, options) => {
     const switchElements = [switchElement, switchInputElement, thumbElement, arrowLeft, arrowRight, offIcon, onIcon];
 
 
-
     // Check if slim
     const slimClassName = 'switch-slim';
     if (options.slim) {

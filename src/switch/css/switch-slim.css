@@ -116,6 +116,10 @@
     opacity: 50%;
 }
 
+.disabled > .switch-icon.on, .switch-icon.off {
+    background-color: transparent;
+}
+
 .read-only > .thumb.switch-slim::before {
     background-color: var(--slim-background-disabled);
 }
@@ -126,8 +130,11 @@
 }
 
 .read-only > .switch-icon {
-    /* TODO: reduce opacity when icon is not selected state */
-    /*opacity: 50%;*/
+    cursor: not-allowed;
+}
+
+.read-only > .switch-icon.on, .switch-icon.off{
+    background-color: transparent;
 }
 
 .required.switch-slim > .thumb.switch-slim {
