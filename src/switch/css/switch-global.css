@@ -50,44 +50,12 @@
 
 }
 
-.switch-container{
-    height:     var(--neumorph-height);
-}
-
 .switch {
     position:   relative;
     display:    inline-block;
     width:      var(--neumorph-width);
     height:     var(--neumorph-height);
-    top: calc(((-1) * var(--neumorph-height))/2 - 2px);
 }
-
-
-
-/** Todo remove this one */
-.switch.before{
-    padding-right: 100px;
-}
-
-.switch-text{
-    position: relative;
-    display: inline-block;
-    height: var(--neumorph-height);
-    line-height: var(--neumorph-height);
-    overflow: hidden;
-}
-
-.switch-text.before{
-    margin-right: 10px;
-}
-.switch-text.after{
-    margin-left: 10px;
-}
-
-
-
-
-
 
 
 /* Make classical Checkbox invisible*/
