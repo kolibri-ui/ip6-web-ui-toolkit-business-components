@@ -100,14 +100,14 @@
 
 .thumb:not(.switch-slim).on::before {
     box-shadow:
-                        inset 1px 1px 5px var(--neumorph-grey),
-                        inset -1px -1px 5px var(--neumorph-white);
+                        inset 0.0625rem 0.0625rem 0.3125rem var(--neumorph-grey),
+                        inset -0.0625rem -0.0625rem 0.3125rem var(--neumorph-white);
 }
 
 .thumb:not(.switch-slim).off::before {
     box-shadow:
-                        inset -1px 1px 5px var(--neumorph-grey),
-                        inset 1px 1px 5px var(--neumorph-white);
+                        inset -0.0625rem 0.0625rem 0.3125rem var(--neumorph-grey),
+                        inset 0.0625rem 0.0625rem 0.3125rem var(--neumorph-white);
 }
 
 .switch input:checked + .thumb::before {
