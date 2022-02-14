@@ -89,7 +89,7 @@ const Switch = (observable, options) => {
     const setSwitchOff = () => {
         onIcon.classList.remove("active");
         switchElement.classList.remove("required");
-        thumbElement.classList.remove("indeterminate", "off");
+        thumbElement.classList.remove("indeterminate", "on");
 
         offIcon.classList.add("active");
         thumbElement.classList.add("off");
