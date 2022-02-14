@@ -36,18 +36,18 @@ const Notification = (options) => {
         </div>
     `);
 
-    /** @type {HTMLDivElement} */ const monologDiv = elements[0];
-    /** @type {HTMLDivElement} */ const monologIcon = monologDiv.children[0];
-    /** @type {HTMLDivElement} */ const monologClose = monologDiv.children[1];
-    /** @type {HTMLDivElement} */ const monologBody = monologDiv.children[2];
-    /** @type {HTMLDivElement} */ const monologTitle = monologBody.children[0];
-    /** @type {HTMLDivElement} */ const monologMessage = monologBody.children[1];
-    /** @type {HTMLDivElement} */ const monologCodeBox = monologDiv.children[3];
-    /** @type {HTMLDivElement} */ const monologCodeBoxBody = monologCodeBox.children[0];
-    /** @type {HTMLDivElement} */ const monologCodeBoxText = monologCodeBoxBody.children[0];
+    /** @type {HTMLDivElement} */ const monologDiv                = elements[0];
+    /** @type {HTMLDivElement} */ const monologIcon               = monologDiv.children[0];
+    /** @type {HTMLDivElement} */ const monologClose              = monologDiv.children[1];
+    /** @type {HTMLDivElement} */ const monologBody               = monologDiv.children[2];
+    /** @type {HTMLDivElement} */ const monologTitle              = monologBody.children[0];
+    /** @type {HTMLDivElement} */ const monologMessage            = monologBody.children[1];
+    /** @type {HTMLDivElement} */ const monologCodeBox            = monologDiv.children[3];
+    /** @type {HTMLDivElement} */ const monologCodeBoxBody        = monologCodeBox.children[0];
+    /** @type {HTMLDivElement} */ const monologCodeBoxText        = monologCodeBoxBody.children[0];
     /** @type {HTMLDivElement} */ const monologCodeBoxInteraction = monologCodeBoxBody.children[1];
-    /** @type {HTMLDivElement} */ const monologCopySuccess = monologCodeBoxInteraction.children[0];
-    /** @type {HTMLDivElement} */ const monologCopyIcon = monologCodeBoxInteraction.children[1];
+    /** @type {HTMLDivElement} */ const monologCopySuccess        = monologCodeBoxInteraction.children[0];
+    /** @type {HTMLDivElement} */ const monologCopyIcon           = monologCodeBoxInteraction.children[1];
 
     // Add type to classlist
     const monologType = options.type.toLowerCase();
