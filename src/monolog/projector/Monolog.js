@@ -4,16 +4,12 @@ export {Monolog}
 
 /**
  * Creates a Monolog List on the given Position
- * @param {String} [position=top right]
  * @returns {{success: (function(*): void), warning: (function(*): void), list: (function(): HTMLDivElement), error: (function(*): void), info: (function(*): void)}}
  * @constructor
  */
-const Monolog = (position = 'top right') => {
+const Monolog = () => {
     const monologListElement = document.createElement('div');
-    monologListElement.classList.add('monolog-list');
-
-    const cssList = position.split(' ')
-    cssList.forEach(c => monologListElement.classList.add(c));
+    monologListElement.classList.add('monolog-list', 'top', 'right');
 
     /**
      * Finally emits the Monolog
