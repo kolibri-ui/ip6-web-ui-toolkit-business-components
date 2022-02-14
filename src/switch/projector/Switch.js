@@ -40,13 +40,13 @@ const Switch = (observable, options) => {
      `);
 
 
-    /** @type {HTMLLabelElement} */ const switchElement = elements[0];
+    /** @type {HTMLLabelElement} */ const switchElement      = elements[0];
     /** @type {HTMLInputElement} */ const switchInputElement = switchElement.children[0];
-    /** @type {HTMLSpanElement} */  const thumbElement = switchElement.children[1];
-    /** @type {HTMLSpanElement} */  const arrowLeft = thumbElement.children[0];
-    /** @type {HTMLSpanElement} */  const arrowRight = thumbElement.children[1];
-    /** @type {HTMLDivElement} */   const offIcon = switchElement.children[2];
-    /** @type {HTMLDivElement} */   const onIcon = switchElement.children[3];
+    /** @type {HTMLSpanElement} */  const thumbElement       = switchElement.children[1];
+    /** @type {HTMLSpanElement} */  const arrowLeft          = thumbElement.children[0];
+    /** @type {HTMLSpanElement} */  const arrowRight         = thumbElement.children[1];
+    /** @type {HTMLDivElement} */   const offIcon            = switchElement.children[2];
+    /** @type {HTMLDivElement} */   const onIcon             = switchElement.children[3];
 
     const switchElements = [switchElement, switchInputElement, thumbElement, arrowLeft, arrowRight, offIcon, onIcon];
 
