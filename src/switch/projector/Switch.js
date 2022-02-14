@@ -9,6 +9,8 @@ export {Switch}
  * @param {Object} options
  * @param {String} [options.id]
  * @param {String} [options.name]
+ * @param {String} [options.labelText]
+ * @param {Boolean} [options.labelAfter]
  * @param {Boolean} [options.slim]
  * @param {Boolean} [options.state]
  * @param {Boolean} [options.threeState]
@@ -28,27 +30,55 @@ const Switch = (observable, options) => {
 
     // Create all Elements needed for a Switch, depending on option.slim
     const elements = dom(`
-        <label class="switch" for="switch-control" data-id="switch-control">
-            <input id="switch-control" name="switch-control" data-type="switch" type="checkbox" role="checkbox" aria-checked="false" value="false">
-            <span class="thumb off">
-                <span class="arrow arrow-left"  style="display: none;"></span>
-                <span class="arrow arrow-right" style="display: none;"></span>
-            </span>
-            <div class="switch-icon off"></div>
-            <div class="switch-icon on"></div>
-        </label>
+        <div class="switch-container">
+        
+            <div class="switch-text before"></div>
+            
+            <label class="switch" for="switch-control" data-id="switch-control">
+                
+                <input id="switch-control" name="switch-control" data-type="switch" type="checkbox" role="checkbox" aria-checked="false" value="false">
+                <span class="thumb off">
+                    <span class="arrow arrow-left"  style="display: none;"></span>
+                    <span class="arrow arrow-right" style="display: none;"></span>
+                </span>
+                <div class="switch-icon off"></div>
+                <div class="switch-icon on"></div>
+         
+            </label>
+             <div class="switch-text after"></div>
+        </div>
+       
      `);
 
 
-    /** @type {HTMLLabelElement} */ const switchElement      = elements[0];
-    /** @type {HTMLInputElement} */ const switchInputElement = switchElement.children[0];
-    /** @type {HTMLSpanElement} */  const thumbElement       = switchElement.children[1];
-    /** @type {HTMLSpanElement} */  const arrowLeft          = thumbElement.children[0];
-    /** @type {HTMLSpanElement} */  const arrowRight         = thumbElement.children[1];
-    /** @type {HTMLDivElement} */   const offIcon            = switchElement.children[2];
-    /** @type {HTMLDivElement} */   const onIcon             = switchElement.children[3];
+    const switchElement = elements[0];
+    /** @type {HTMLLabelElement} */ const switchLabelElement = switchElement.children[1];
+    /** @type {HTMLInputElement} */ const switchInputElement = switchLabelElement.children[0];
+    /** @type {HTMLSpanElement} */  const thumbElement = switchLabelElement.children[1];
+    /** @type {HTMLSpanElement} */  const arrowLeft = thumbElement.children[0];
+    /** @type {HTMLSpanElement} */  const arrowRight = thumbElement.children[1];
+    /** @type {HTMLDivElement} */   const offIcon = switchLabelElement.children[2];
+    /** @type {HTMLDivElement} */   const onIcon = switchLabelElement.children[3];
 
-    const switchElements = [switchElement, switchInputElement, thumbElement, arrowLeft, arrowRight, offIcon, onIcon];
+    const labelTextElementBefore = switchElement.children[0];
+    const labelTextElementAfter = switchElement.children[2];
+
+
+    const switchElements = [switchLabelElement, switchInputElement, thumbElement, arrowLeft, arrowRight, offIcon, onIcon];
+
+    if (options.labelText !== undefined) {
+
+        if (options.labelAfter) {
+            labelTextElementAfter.textContent = options.labelText;
+            labelTextElementBefore.style.display = "none";
+        } else {
+            labelTextElementBefore.textContent = options.labelText;
+            labelTextElementAfter.style.display = "none";
+            thumbElement.classList.add("before");
+        }
+
+    }
+
 
     // Check if slim
     const slimClassName = 'switch-slim';
@@ -61,14 +91,14 @@ const Switch = (observable, options) => {
     }
 
     // Change id, name and for attribute according to options object
-    switchElement.htmlFor = options.id;
+    switchLabelElement.htmlFor = options.id;
     switchInputElement.id = options.id;
     switchInputElement.name = options.name;
 
     // set switch to on state
     const setSwitchOn = () => {
         offIcon.classList.remove("active");
-        switchElement.classList.remove("required");
+        switchLabelElement.classList.remove("required");
         thumbElement.classList.remove("indeterminate", "off");
 
         onIcon.classList.add("active");
@@ -85,7 +115,7 @@ const Switch = (observable, options) => {
     // set switch to off state
     const setSwitchOff = () => {
         onIcon.classList.remove("active");
-        switchElement.classList.remove("required");
+        switchLabelElement.classList.remove("required");
         thumbElement.classList.remove("indeterminate", "off");
 
         offIcon.classList.add("active");
@@ -152,11 +182,11 @@ const Switch = (observable, options) => {
      * Event Listener
      */
     // Click
-    switchElement.onclick = e => {
-        let isNotReadonly = !switchElement.classList.contains('read-only');
+    switchLabelElement.onclick = e => {
+        let isNotReadonly = !switchLabelElement.classList.contains('read-only');
 
-        switchElement.focus();
-        let center = switchElement.offsetWidth / 2;
+        switchLabelElement.focus();
+        let center = switchLabelElement.offsetWidth / 2;
         if (e.offsetX >= center && isNotReadonly) {
             setSwitchOn();
         } else if (e.offsetX < center && isNotReadonly) {
@@ -166,30 +196,30 @@ const Switch = (observable, options) => {
 
     // Focus
     switchInputElement.onfocus = () => {
-        switchElement.classList.add("focus");
-        switchElement.focus();
+        switchLabelElement.classList.add("focus");
+        switchLabelElement.focus();
     }
 
     // Blur
     switchInputElement.onblur = () => {
-        switchElement.classList.remove("focus");
-        switchElement.blur();
+        switchLabelElement.classList.remove("focus");
+        switchLabelElement.blur();
     }
 
     // Hover
-    switchElement.onmouseover = () => {
-        switchElement.classList.add("hover");
-        if (switchInputElement.indeterminate && !switchElement.classList.contains('read-only')) {
+    switchLabelElement.onmouseover = () => {
+        switchLabelElement.classList.add("hover");
+        if (switchInputElement.indeterminate && !switchLabelElement.classList.contains('read-only')) {
             arrowLeft.style.display = 'block';
             arrowRight.style.display = 'block';
         }
     }
 
     // Mouse Out
-    switchElement.onmouseout = () => {
+    switchLabelElement.onmouseout = () => {
         hideArrows();
 
-        switchElement.classList.remove("hover");
+        switchLabelElement.classList.remove("hover");
 
         if (switchInputElement.indeterminate) {
             arrowLeft.style.display = 'none';
@@ -209,9 +239,9 @@ const Switch = (observable, options) => {
         }
     }
 
-    switchElement.onmousedown = e => mousePos = e.x;
-    switchElement.onmouseup = (e) => {
-        if (!switchElement.classList.contains('read-only')) {
+    switchLabelElement.onmousedown = e => mousePos = e.x;
+    switchLabelElement.onmouseup = (e) => {
+        if (!switchLabelElement.classList.contains('read-only')) {
             let calc_movement = calcMovement(e.x);
             switchInputElement.setAttribute('checked', `${calc_movement}`);
             switchInputElement.checked = calc_movement;
@@ -219,7 +249,7 @@ const Switch = (observable, options) => {
     };
 
     // Keyboard interaction
-    switchElement.onkeyup = e => {
+    switchLabelElement.onkeyup = e => {
         if (!switchInputElement.readOnly) {
             if (e.key === "ArrowRight") {
                 setSwitchOn();
