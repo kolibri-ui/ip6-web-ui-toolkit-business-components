@@ -30,7 +30,7 @@ const Switch = (observable, options) => {
     const elements = dom(`
         <label class="switch" for="switch-control" data-id="switch-control">
             <input id="switch-control" name="switch-control" data-type="switch" type="checkbox" role="checkbox" aria-checked="false" value="false">
-            <span class="thumb off">
+            <span class="thumb">
                 <span class="arrow arrow-left"  style="display: none;"></span>
                 <span class="arrow arrow-right" style="display: none;"></span>
             </span>
@@ -138,6 +138,7 @@ const Switch = (observable, options) => {
                 break;
             default:
                 switchInputElement.indeterminate = true;
+                thumbElement.classList.remove("off", "on");
                 thumbElement.classList.add("indeterminate");
         }
     } else {
