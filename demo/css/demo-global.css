@@ -9,6 +9,9 @@ h2, h3 {
     margin-bottom: 10px;
 }
 
+a:visited{
+    color: blue;
+}
 .mt-10 {
     margin-top: 10px
 }
@@ -179,4 +182,15 @@ kbd {
 
 .style-playground {
     margin: 50px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    background: var(--kolibri-color-neutral);
+    padding: 0.5em;
 }
