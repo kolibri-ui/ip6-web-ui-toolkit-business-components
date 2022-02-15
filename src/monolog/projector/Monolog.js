@@ -1,10 +1,12 @@
 import {Notification} from "./Notification.js";
+import {dom} from "../../Kolibri/docs/src/kolibri/util/dom.js";
 
 export {Monolog}
 
 /**
  * Creates a Monolog List on the given Position
- * @returns {{success: (function(*): void), warning: (function(*): void), list: (function(): HTMLDivElement), error: (function(*): void), info: (function(*): void)}}
+ * @returns {{success: (function(*): void), list: (function(): HTMLDivElement),
+ * info: (function(*): void), success: (function(*): void), warning: (function(*): void), error: (function(*): void), stack: (function(*): void)}}
  * @constructor
  */
 const Monolog = () => {
@@ -41,7 +43,6 @@ const Monolog = () => {
      * @param {String} options.message
      * @param {String} options.type
      * @param {String} [options.stack]
-     * @param {String} [options.stackNumber]
      * @param {Boolean} [options.sticky]
      * @param {Boolean} [options.attention]
      * @param {String} [options.codeError]
@@ -59,7 +60,6 @@ const Monolog = () => {
      * @param {String} options.message
      * @param {String} [options.type]
      * @param {String} [options.stack]
-     * @param {String} [options.stackNumber]
      * @param {Boolean} [options.sticky]
      * @param options
      */
@@ -75,7 +75,6 @@ const Monolog = () => {
      * @param {String} options.message
      * @param {String} [options.type]
      * @param {String} [options.stack]
-     * @param {String} [options.stackNumber]
      * @param {Boolean} [options.sticky]
      */
     const success = options => {
@@ -90,7 +89,6 @@ const Monolog = () => {
      * @param {String} options.message
      * @param {String} [options.type]
      * @param {String} [options.stack]
-     * @param {String} [options.stackNumber]
      * @param {Boolean} [options.sticky]
      */
     const warning = options => {
@@ -104,7 +102,6 @@ const Monolog = () => {
      * @param {String} options.message
      * @param {String} [options.type]
      * @param {String} [options.stack]
-     * @param {String} [options.stackNumber]
      * @param {Boolean} [options.sticky]
      * @param {Boolean} [options.attention]
      * @param {String} [options.codeError]
@@ -125,7 +122,6 @@ const Monolog = () => {
      * @param {String} options.message
      * @param {String} [options.type]
      * @param {String} [options.stack]
-     * @param {String} [options.stackNumber]
      * @param {Boolean} [options.sticky]
      * @param {Boolean} [options.attention]
      * @param {String} [options.codeError]
