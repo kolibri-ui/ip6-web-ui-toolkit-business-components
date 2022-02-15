@@ -106,6 +106,13 @@ body {
     top: -10px;
 }
 
+.close-all-stack {
+    z-index: 200;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+}
+
 
 .monolog {
     position:       relative;

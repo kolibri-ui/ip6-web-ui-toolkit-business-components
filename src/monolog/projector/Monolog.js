@@ -12,6 +12,7 @@ const Monolog = () => {
     monologListElement.classList.add('monolog-list', 'top', 'right');
     let stackListElementInfo   = document.createElement('div');
     const stackNumberLabelInfo = document.createElement('div');
+    const closeAllElement = document.createElement('div');
 
     let stackListElementSuccess   = document.createElement('div');
     const stackNumberLabelSuccess = document.createElement('div');
@@ -232,6 +233,30 @@ const Monolog = () => {
             //list[idx].style.zIndex
         });
 
+    }
+
+    stackNumberLabelInfo.onmouseover = () => {
+        stackNumberLabelInfo.remove();
+
+        closeAllElement.classList.add('close-all-stack');
+        closeAllElement.innerText = "Close all";
+        stackListElementInfo.appendChild(closeAllElement);
+    }
+
+    stackNumberLabelInfo.onmouseout = () => {
+        stackNumberLabelInfo.remove();
+
+        closeAllElement.classList.add('close-all-stack');
+        closeAllElement.innerText = "Close all";
+        stackListElementInfo.appendChild(closeAllElement);
+    }
+
+    closeAllElement.onclick = () => {
+        const infoType = stackListElementInfo.querySelectorAll('.monolog.info');
+        infoType.forEach((e)=> {
+            e.remove();
+        });
+        closeAllElement.remove();
     }
 
 
