@@ -52,78 +52,78 @@ body {
 
 .stack-number-info {
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    padding: 3px;
-    background: var(--primary);
-    text-align: center;
-    color: var(--text-contrast);
-    z-index: 200;
-    position: absolute;
-    left: -10px;
-    top: -10px;
-    font-family: var(--font-serif-bold);
+    width:         1.875em;
+    height:        1.875em;
+    padding:       0.1875em;
+    background:    var(--primary);
+    text-align:    center;
+    color:         var(--text-contrast);
+    z-index:       200;
+    position:      absolute;
+    left:          -0.625em;
+    top:           -0.625em;
+    font-family:   var(--font-serif-bold);
 }
 
 .stack-number-success {
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    padding: 3px;
-    background: var(--success);
-    text-align: center;
-    color: var(--text-contrast);
-    z-index: 200;
-    position: absolute;
-    left: -10px;
-    top: -10px;
-    font-family: var(--font-serif-bold);
+    width:         1.875em;
+    height:        1.875em;
+    padding:       0.1875em;
+    background:    var(--success);
+    text-align:    center;
+    color:         var(--text-contrast);
+    z-index:       200;
+    position:      absolute;
+    left:          -0.625em;
+    top:           -0.625em;
+    font-family:   var(--font-serif-bold);
 }
 
 .stack-number-warning {
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    padding: 3px;
-    background: var(--warning);
-    text-align: center;
-    color: var(--text-contrast);
-    z-index: 200;
-    position: absolute;
-    left: -10px;
-    top: -10px;
-    font-family: var(--font-serif-bold);
+    width:         1.875em;
+    height:        1.875em;
+    padding:       0.1875em;
+    background:    var(--warning);
+    text-align:    center;
+    color:         var(--text-contrast);
+    z-index:       200;
+    position:      absolute;
+    left:          -0.625em;
+    top:           -0.625em;
+    font-family:   var(--font-serif-bold);
 }
 
 .stack-number-error {
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    padding: 3px;
-    background: var(--error);
-    text-align: center;
-    color: var(--text-contrast);
-    z-index: 200;
-    position: absolute;
-    left: -10px;
-    top: -10px;
-    font-family: var(--font-serif-bold);
+    width:         1.875em;
+    height:        1.875em;
+    padding:       0.1875em;
+    background:    var(--error);
+    text-align:    center;
+    color:         var(--text-contrast);
+    z-index:       200;
+    position:      absolute;
+    left:          -0.625em;
+    top:           -0.625em;
+    font-family:   var(--font-serif-bold);
 }
 
 .close-all-stack {
-    z-index: 200;
-    position: absolute;
-    left: -10px;
-    top: -10px;
-    background: var(--input-hover);
-    width: 80px;
-    height: 30px;
+    z-index:       200;
+    position:      absolute;
+    left:          -0.625em;
+    top:           -0.625em;
+    background:    var(--input-hover);
+    width:         5em;
+    height:        1.875em;
     border-radius: 20%;
-    color: var(--text-contrast);
-    font-family: var(--font-serif-bold);
-    text-align: center;
-    padding: 5px;
-    cursor: pointer;
+    color:         var(--text-contrast);
+    font-family:   var(--font-serif-bold);
+    text-align:    center;
+    padding:       0.3125em;
+    cursor:        pointer;
 }
 
 
