@@ -10,20 +10,29 @@ export {Monolog}
 const Monolog = () => {
     const monologListElement = document.createElement('div');
     monologListElement.classList.add('monolog-list', 'top', 'right');
+
     let stackListElementInfo   = document.createElement('div');
     const stackNumberLabelInfo = document.createElement('div');
-    const closeAllElement = document.createElement('div');
+    const closeAllElementInfo = document.createElement('div');
 
     let stackListElementSuccess   = document.createElement('div');
     const stackNumberLabelSuccess = document.createElement('div');
+    const closeAllElementSuccess = document.createElement('div');
 
     let stackListElementWarning   = document.createElement('div');
     const stackNumberLabelWarning = document.createElement('div');
+    const closeAllElementWarning = document.createElement('div');
 
     let stackListElementError   = document.createElement('div');
     const stackNumberLabelError = document.createElement('div');
+    const closeAllElementError = document.createElement('div');
 
     let notification;
+
+    let infoType;
+    let successType;
+    let warningType;
+    let errorType;
 
     /**
      * Finally emits the Monolog
@@ -190,11 +199,12 @@ const Monolog = () => {
      * @param {Object} monologList
      */
     const checkStacking = (monologList) => {
+        closeAllElementInfo.remove();
 
-        const infoType    = monologList.querySelectorAll('.monolog.info');
-        const successType = monologList.querySelectorAll('.monolog.success');
-        const warningType = monologList.querySelectorAll('.monolog.warning');
-        const errorType   = monologList.querySelectorAll('.monolog.code-error, .monolog.error');
+        infoType    = monologList.querySelectorAll('.monolog.info');
+        successType = monologList.querySelectorAll('.monolog.success');
+        warningType = monologList.querySelectorAll('.monolog.warning');
+        errorType   = monologList.querySelectorAll('.monolog.code-error, .monolog.error');
 
         if (infoType.length >= 1) {
             stacking(infoType);
@@ -238,25 +248,62 @@ const Monolog = () => {
     stackNumberLabelInfo.onmouseover = () => {
         stackNumberLabelInfo.remove();
 
-        closeAllElement.classList.add('close-all-stack');
-        closeAllElement.innerText = "Close all";
-        stackListElementInfo.appendChild(closeAllElement);
+        closeAllElementInfo.classList.add('close-all-stack');
+        closeAllElementInfo.innerText = "Close all";
+        stackListElementInfo.appendChild(closeAllElementInfo);
     }
 
-    stackNumberLabelInfo.onmouseout = () => {
-        stackNumberLabelInfo.remove();
+    stackNumberLabelSuccess.onmouseover = () => {
+        stackNumberLabelSuccess.remove();
 
-        closeAllElement.classList.add('close-all-stack');
-        closeAllElement.innerText = "Close all";
-        stackListElementInfo.appendChild(closeAllElement);
+        closeAllElementSuccess.classList.add('close-all-stack');
+        closeAllElementSuccess.innerText = "Close all";
+        stackListElementSuccess.appendChild(closeAllElementSuccess);
     }
 
-    closeAllElement.onclick = () => {
-        const infoType = stackListElementInfo.querySelectorAll('.monolog.info');
+    stackNumberLabelWarning.onmouseover = () => {
+        stackNumberLabelWarning.remove();
+
+        closeAllElementWarning.classList.add('close-all-stack');
+        closeAllElementWarning.innerText = "Close all";
+        stackListElementWarning.appendChild(closeAllElementWarning);
+    }
+
+    stackNumberLabelError.onmouseover = () => {
+        stackNumberLabelError.remove();
+
+        closeAllElementError.classList.add('close-all-stack');
+        closeAllElementError.innerText = "Close all";
+        stackListElementError.appendChild(closeAllElementError);
+    }
+
+
+    closeAllElementInfo.onclick = () => {
         infoType.forEach((e)=> {
             e.remove();
         });
-        closeAllElement.remove();
+        closeAllElementInfo.remove();
+    }
+
+    closeAllElementSuccess.onclick = () => {
+        successType.forEach((e)=> {
+            e.remove();
+        });
+        closeAllElementSuccess.remove();
+    }
+
+    closeAllElementWarning.onclick = () => {
+        warningType.forEach((e)=> {
+            e.remove();
+        });
+        closeAllElementWarning.remove();
+    }
+
+    closeAllElementError.onclick = () => {
+        errorType.forEach((e)=> {
+            e.remove();
+        });
+        closeAllElementError.remove();
     }
 
 
