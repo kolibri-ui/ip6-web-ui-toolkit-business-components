@@ -125,7 +125,7 @@ const Monolog = () => {
 
         switch (type) {
             case 'info':
-                stackListElementSuccess.classList.add('stack-list-' + type);
+                stackListElementInfo.classList.add('stack-list-' + type);
                 stackListElementInfo.appendChild(notification);
                 monologListElement.appendChild(stackListElementInfo);
 
@@ -133,7 +133,9 @@ const Monolog = () => {
                     options.stack = checkStacking(stackListElementInfo);
                     stackNumberLabelInfo.classList.add('stack-number-' + type);
                     stackNumberLabelInfo.innerText = options.stack;
-                    stackListElementInfo.appendChild(stackNumberLabelInfo);
+                    if(stackNumberLabelInfo.innerText > 1) {
+                        stackListElementInfo.appendChild(stackNumberLabelInfo);
+                    }
                 }
                 break;
             case 'success':
@@ -145,7 +147,9 @@ const Monolog = () => {
                     options.stack = checkStacking(stackListElementSuccess);
                     stackNumberLabelSuccess.classList.add('stack-number-' + type);
                     stackNumberLabelSuccess.innerText = options.stack;
-                    stackListElementSuccess.appendChild(stackNumberLabelSuccess);
+                    if(stackNumberLabelSuccess.innerText > 1) {
+                        stackListElementSuccess.appendChild(stackNumberLabelSuccess);
+                    }
                 }
                 break;
             case 'warning':
@@ -157,7 +161,9 @@ const Monolog = () => {
                     options.stack = checkStacking(stackListElementWarning);
                     stackNumberLabelWarning.classList.add('stack-number-' + type);
                     stackNumberLabelWarning.innerText = options.stack;
-                    stackListElementWarning.appendChild(stackNumberLabelWarning);
+                    if(stackNumberLabelWarning.innerText > 1) {
+                        stackListElementWarning.appendChild(stackNumberLabelWarning);
+                    }
                 }
                 break;
             case 'error':
@@ -169,7 +175,9 @@ const Monolog = () => {
                     options.stack = checkStacking(stackListElementError);
                     stackNumberLabelError.classList.add('stack-number-' + type);
                     stackNumberLabelError.innerText = options.stack;
-                    stackListElementError.appendChild(stackNumberLabelError);
+                    if(stackNumberLabelError.innerText > 1) {
+                        stackListElementError.appendChild(stackNumberLabelError);
+                    }
                 }
                 break;
 

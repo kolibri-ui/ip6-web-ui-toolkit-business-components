@@ -51,6 +51,13 @@ body {
 }
 
 .stack-number-info {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+    background: var(--primary);
+    text-align: center;
+    color: var(--text-contrast);
     z-index: 200;
     position: absolute;
     left: -10px;
@@ -58,6 +65,13 @@ body {
 }
 
 .stack-number-success {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+    background: var(--success);
+    text-align: center;
+    color: var(--text-contrast);
     z-index: 200;
     position: absolute;
     left: -10px;
@@ -65,6 +79,13 @@ body {
 }
 
 .stack-number-warning {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+    background: var(--warning);
+    text-align: center;
+    color: var(--text-contrast);
     z-index: 200;
     position: absolute;
     left: -10px;
@@ -72,6 +93,13 @@ body {
 }
 
 .stack-number-error {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+    background: var(--error);
+    text-align: center;
+    color: var(--text-contrast);
     z-index: 200;
     position: absolute;
     left: -10px;
