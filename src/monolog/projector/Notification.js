@@ -17,7 +17,7 @@ export {Notification}
 const Notification = (options) => {
 
     const elements = dom(`
-        <div class="monolog" data-type="monolog-success">
+        <div class="monolog" data-type="monolog">
             <div class="monolog-icon" data-id="monolog-icon"></div>
             <div class="monolog-close" aria-label="close"></div>
             <div class="monolog-body">

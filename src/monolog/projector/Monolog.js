@@ -16,6 +16,9 @@ const Monolog = () => {
     let stackListElementSuccess   = document.createElement('div');
     const stackNumberLabelSuccess = document.createElement('div');
 
+    let stackListElementWarning   = document.createElement('div');
+    const stackNumberLabelWarning = document.createElement('div');
+
     let stackListElementError   = document.createElement('div');
     const stackNumberLabelError = document.createElement('div');
 
@@ -145,6 +148,18 @@ const Monolog = () => {
                     stackListElementSuccess.appendChild(stackNumberLabelSuccess);
                 }
                 break;
+            case 'warning':
+                stackListElementWarning.classList.add('stack-list-' + type);
+                stackListElementWarning.appendChild(notification);
+                monologListElement.appendChild(stackListElementWarning);
+
+                if (options.sticky) {
+                    options.stack = checkStacking(stackListElementWarning);
+                    stackNumberLabelWarning.classList.add('stack-number-' + type);
+                    stackNumberLabelWarning.innerText = options.stack;
+                    stackListElementWarning.appendChild(stackNumberLabelWarning);
+                }
+                break;
             case 'error':
                 stackListElementError.classList.add('stack-list-' + type);
                 stackListElementError.appendChild(notification);
@@ -159,7 +174,6 @@ const Monolog = () => {
                 break;
 
         }
-        // emit(options);
     }
 
     /**
@@ -168,19 +182,21 @@ const Monolog = () => {
      */
     const checkStacking = (monologList) => {
 
-        const infoType    = monologList.querySelectorAll('.info');
-        const successType = monologList.querySelectorAll('.success');
-        const errorType   = monologList.querySelectorAll('.code-error');
+        const infoType    = monologList.querySelectorAll('.monolog.info');
+        const successType = monologList.querySelectorAll('.monolog.success');
+        const warningType = monologList.querySelectorAll('.monolog.warning');
+        const errorType   = monologList.querySelectorAll('.monolog.code-error, .monolog.error');
 
         if (infoType.length >= 1) {
             stacking(infoType);
             return infoType.length.toString();
-        }
-        if (successType.length >= 1) {
+        } else if (successType.length >= 1) {
             stacking(successType);
             return successType.length.toString();
-        }
-        if (errorType.length >= 1) {
+        } else if(warningType.length >= 1) {
+            stacking(warningType);
+            return warningType.length.toString();
+        } else if (errorType.length >= 1) {
             stacking(errorType);
             return errorType.length.toString();
         }

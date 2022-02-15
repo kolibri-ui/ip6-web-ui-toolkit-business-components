@@ -64,6 +64,13 @@ body {
     top: -10px;
 }
 
+.stack-number-warning {
+    z-index: 200;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+}
+
 .stack-number-error {
     z-index: 200;
     position: absolute;
