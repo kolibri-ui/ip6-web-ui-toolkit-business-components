@@ -6,10 +6,10 @@ const WorkingHoursController = (dayController, monolog) => {
 
 
     const {amStartCtrl, amEndCtrl, pmStartCtrl, pmEndCtrl} = dayController;
-    const hourCtrls = [amStartCtrl, amEndCtrl, pmStartCtrl, pmEndCtrl];
+    const hourCtrls                                        = [amStartCtrl, amEndCtrl, pmStartCtrl, pmEndCtrl];
 
     const formValid = Observable(false);
-    const dark = Observable(false);
+    const dark      = Observable(false);
 
     window.onload = () => {
 
@@ -29,6 +29,7 @@ const WorkingHoursController = (dayController, monolog) => {
             });
         });
 
+        //todo gehört in den starter
         dark.onChange(c => {
             if (c === true) {
                 document.querySelector("html").classList.add("darkTheme");

@@ -14,6 +14,8 @@ export {Switch}
  * @param {Boolean} [options.slim]
  * @param {Boolean} [options.state]
  * @param {Boolean} [options.threeState]
+ * @param {Boolean} options.label
+ * @param {String} options.labelAfter
  * @returns {HTMLLabelElement}
  * @constructor
  */
@@ -30,7 +32,8 @@ const Switch = (observable, options) => {
 
     // Create all Elements needed for a Switch, depending on option.slim
     const elements = dom(`
-        <label class="switch" for="switch-control" data-id="switch-control">
+        <div class="switch" data-id="switch-control">
+            <label for="switch-control"></label>
             <input id="switch-control" name="switch-control" data-type="switch" type="checkbox" role="checkbox" aria-checked="false" value="false">
             <span class="thumb">
                 <span class="arrow arrow-left"  style="display: none;"></span>
@@ -38,17 +41,18 @@ const Switch = (observable, options) => {
             </span>
             <div class="switch-icon off"></div>
             <div class="switch-icon on"></div>
-        </label>
+        </div>
      `);
 
 
     /** @type {HTMLLabelElement} */ const switchElement      = elements[0];
-    /** @type {HTMLInputElement} */ const switchInputElement = switchElement.children[0];
-    /** @type {HTMLSpanElement} */  const thumbElement       = switchElement.children[1];
+    /** @type {HTMLLabelElement} */ const switchLabelElement = switchElement.children[0];
+    /** @type {HTMLInputElement} */ const switchInputElement = switchElement.children[1];
+    /** @type {HTMLSpanElement} */  const thumbElement       = switchElement.children[2];
+    /** @type {HTMLDivElement} */   const offIcon            = switchElement.children[3];
+    /** @type {HTMLDivElement} */   const onIcon             = switchElement.children[4];
     /** @type {HTMLSpanElement} */  const arrowLeft          = thumbElement.children[0];
     /** @type {HTMLSpanElement} */  const arrowRight         = thumbElement.children[1];
-    /** @type {HTMLDivElement} */   const offIcon            = switchElement.children[2];
-    /** @type {HTMLDivElement} */   const onIcon             = switchElement.children[3];
 
 
     const switchElements = [switchElement, switchInputElement, thumbElement, arrowLeft, arrowRight, offIcon, onIcon];

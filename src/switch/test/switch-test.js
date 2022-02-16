@@ -12,6 +12,8 @@ const options        = {
     slim      : undefined
 }
 
+// todo logik des controllers testen, denn da kann viel schief gehen in der visuellen darstellung fallen diese eher auf
+
 /**
  * Test instantiation of default Switch
  */
@@ -23,6 +25,7 @@ testSuite.add("switch-default-init-test", assert => {
     const checkboxElement = defaultSwitch.querySelector('input');
 
     assert.is(options.id, checkboxElement.id);
+    // todo assert bei slim gleich
     assert.is(false, checkboxElement.required);
     assert.is(false, checkboxElement.disabled);
     assert.is(false, checkboxElement.readOnly);
@@ -30,6 +33,8 @@ testSuite.add("switch-default-init-test", assert => {
 
 /**
  * Test instantiation of Slim design
+ * todo label element und for attribut des labels muss das id attribut der checkbox sein
+ * todo Prüfen ob die Icons angezeigt werden beim Slim Switch
  */
 testSuite.add("switch-slim-init-test", assert => {
 
@@ -40,6 +45,8 @@ testSuite.add("switch-slim-init-test", assert => {
     const checkboxElement = slimSwitch.querySelector('input');
 
     assert.is(options.id, checkboxElement.id);
+
+    // todo assert bei default ist gleich
     assert.is(false, checkboxElement.required);
     assert.is(false, checkboxElement.disabled);
     assert.is(false, checkboxElement.readOnly);

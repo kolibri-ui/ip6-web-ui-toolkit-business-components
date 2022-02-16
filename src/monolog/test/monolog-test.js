@@ -2,10 +2,10 @@ import {TestSuite} from "../../Kolibri/docs/src/kolibri/util/test.js";
 import {Monolog} from "../projector/Monolog.js";
 import {Notification} from "../projector/Notification.js";
 
-const testSuite      = TestSuite("monolog");
-const monolog        = Monolog();
+const testSuite = TestSuite("monolog");
+const monolog   = Monolog();
 
-const options        = {
+const options = {
     title    : undefined,
     message  : undefined,
     type     : undefined,
@@ -26,8 +26,8 @@ testSuite.add("monolog-check-list-creation", assert => {
 });
 
 testSuite.add("notification-info-test", assert => {
-    options.type    = 'info';
-    options.sticky  = true;
+    options.type   = 'info';
+    options.sticky = true;
 
     const notification = Notification(options);
     notification.querySelector('.monolog-info');
@@ -35,8 +35,8 @@ testSuite.add("notification-info-test", assert => {
 });
 
 testSuite.add("notification-success-test", assert => {
-    options.type    = 'success';
-    options.sticky  = true;
+    options.type   = 'success';
+    options.sticky = true;
 
     const notification = Notification(options);
     notification.querySelector('.monolog-info');
@@ -44,8 +44,8 @@ testSuite.add("notification-success-test", assert => {
 });
 
 testSuite.add("notification-warning-test", assert => {
-    options.type    = 'warning';
-    options.sticky  = true;
+    options.type   = 'warning';
+    options.sticky = true;
 
     const notification = Notification(options);
     notification.querySelector('.monolog-info');
@@ -53,8 +53,8 @@ testSuite.add("notification-warning-test", assert => {
 });
 
 testSuite.add("notification-error-test", assert => {
-    options.type    = 'error';
-    options.sticky  = true;
+    options.type   = 'error';
+    options.sticky = true;
 
     const notification = Notification(options);
     notification.querySelector('.monolog-info');
@@ -62,8 +62,8 @@ testSuite.add("notification-error-test", assert => {
 });
 
 testSuite.add("notification-code-error-test", assert => {
-    options.type    = 'code-error';
-    options.sticky  = true;
+    options.type   = 'code-error';
+    options.sticky = true;
 
     const notification = Notification(options);
     notification.querySelector('.monolog-info');
