@@ -5,11 +5,19 @@ export {Monolog}
 
 /**
  * Creates a Monolog List on the given Position
- * @returns {{success: (function(*): void), list: (function(): HTMLDivElement),
- * info: (function(*): void), success: (function(*): void), warning: (function(*): void), error: (function(*): void), stack: (function(*): void)}}
+ * @returns {{success: (function(*=): void), warning: (function(*=): void), list: (function(): HTMLDivElement), error: (function(*=): void), info: (function(*=): void)}}
  * @constructor
  */
 const Monolog = () => {
+
+    const elements = dom(`
+        <div class="monolog-list top right" data-type="monolog-list">
+            <div class="stack-list"></div>
+                <div class="stack-number"></div>
+                <div class="close-all-elements"></div>
+        </div>
+    `);
+
     const monologListElement = document.createElement('div');
     monologListElement.classList.add('monolog-list', 'top', 'right');
 
@@ -140,7 +148,7 @@ const Monolog = () => {
                     stackNumberLabelInfo.classList.add('stack-number-' + type);
                     stackNumberLabelInfo.innerText = options.stack;
                     if(stackNumberLabelInfo.innerText > 1) {
-                        stackListElementInfo.appendChild(stackNumberLabelInfo);
+                        stackListElementInfo.insertBefore(stackNumberLabelInfo, stackListElementInfo.firstChild);
                     }
                 }
                 break;
@@ -222,18 +230,20 @@ const Monolog = () => {
 
         list.forEach((e, idx) => {
 
-            list[0].style.position = 'absolute';
-            list[0].style.zIndex   = '100';
-            list[0].style.top      = '0';
-            list[0].style.opacity  = '100%';
+            //list[0].style.position = 'absolute';
+            list[0].style.zIndex  = '100';
+            e.style.marginTop     = `0`;
+            list[0].style.opacity = '100%';
             //options.stackNumber = list[0].style.zIndex;
 
             if (idx > 0) {
                 //console.log(typeof idx);
-                e.style.position = 'absolute';
-                e.style.zIndex   = `${100 - idx}`;
-                e.style.top      = `${(5 * idx)}px`;
-                e.style.opacity  = `${100 - 20 * idx}%`;
+                //e.style.position = 'absolute';
+                e.style.zIndex = `${100 - idx}`;
+
+                e.style.marginTop = `-60px`;
+
+                //e.style.opacity  = `${100 - 20 * idx}%`;
                 // e.style.right = `${parent.right+5*idx}px`;
             }
             //list[idx].style.zIndex
@@ -246,7 +256,7 @@ const Monolog = () => {
 
         closeAllElementInfo.classList.add('close-all-stack');
         closeAllElementInfo.innerText = "Close all";
-        stackListElementInfo.appendChild(closeAllElementInfo);
+        stackListElementInfo.insertBefore(closeAllElementInfo, stackListElementInfo.firstChild);
     }
 
     stackNumberLabelSuccess.onmouseover = () => {

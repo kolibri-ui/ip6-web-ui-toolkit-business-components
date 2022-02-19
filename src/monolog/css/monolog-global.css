@@ -38,6 +38,10 @@ body {
 }
 
 .monolog-list {
+    display: grid;
+  /*  grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(100px, auto);*/
+
     position: fixed;
     width:    25rem;
 }
@@ -50,6 +54,17 @@ body {
     right: 0.625rem;
 }
 
+/*.stack-list-info {
+    !*grid-column: 1 / 4;*!
+    grid-row-start: 1;
+}
+
+.stack-list-success {
+    !*grid-column: 1 / 4;*!
+    grid-row-start: 2;
+}*/
+
+
 .stack-number-info {
     border-radius: 50%;
     width:         1.875em;
@@ -59,7 +74,7 @@ body {
     text-align:    center;
     color:         var(--text-contrast);
     z-index:       200;
-    position:      absolute;
+    /*position:      absolute;*/
     left:          -0.625em;
     top:           -0.625em;
     font-family:   var(--font-serif-bold);
@@ -74,7 +89,7 @@ body {
     text-align:    center;
     color:         var(--text-contrast);
     z-index:       200;
-    position:      absolute;
+    /*position:      absolute;*/
     left:          -0.625em;
     top:           -0.625em;
     font-family:   var(--font-serif-bold);
@@ -89,7 +104,7 @@ body {
     text-align:    center;
     color:         var(--text-contrast);
     z-index:       200;
-    position:      absolute;
+    /*position:      absolute;*/
     left:          -0.625em;
     top:           -0.625em;
     font-family:   var(--font-serif-bold);
@@ -104,7 +119,7 @@ body {
     text-align:    center;
     color:         var(--text-contrast);
     z-index:       200;
-    position:      absolute;
+    /*position:      absolute;*/
     left:          -0.625em;
     top:           -0.625em;
     font-family:   var(--font-serif-bold);
@@ -112,7 +127,7 @@ body {
 
 .close-all-stack {
     z-index:       200;
-    position:      absolute;
+    /*position:      absolute;*/
     left:          -0.625em;
     top:           -0.625em;
     background:    var(--input-hover);
@@ -136,8 +151,8 @@ body {
     display:        flex;
     flex-direction: row;
     align-items:    center;
-    padding:        0.625rem;
-    margin-bottom:  0.625rem;
+    padding:        0.5rem;
+    margin-bottom:  0.5rem;
     animation:      fadeIn 1s;
 }
 
