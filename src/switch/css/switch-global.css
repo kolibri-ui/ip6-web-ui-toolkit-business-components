@@ -185,23 +185,25 @@ States
 }
 
 .focus > .thumb {
-    box-shadow: 0 0 0.375em 0 rgba(24, 75, 205, 0.94);
+    /*box-shadow: 0 0 0.375em 0 rgba(24, 75, 205, 0.94);*/
     outline:    none;
+    box-shadow:  4px  5px 8px 0 rgba(168, 167, 167, 1),
+                -3px -5px 8px 0 rgba(234, 234, 240, 1);
 }
 
 .hover > .thumb {
-    box-shadow: 0 0 0.5em 0 rgba(24, 75, 205, 0.6);
+    /*box-shadow: 0 0 0.5em 0 rgba(24, 75, 205, 0.6);*/
     outline:    none;
+    box-shadow:  2px  3px 5px 0 rgba(168, 167, 167, 1),
+                -1px -3px 6px 0 rgba(234, 234, 240, 1);
 
-/*    border-radius: 50px;
-
-    box-shadow:    2px 2px 4px #1c56ec,
-                   -2px -2px 4px #1440ae;*/
 }
 
 .switch:focus {
-    box-shadow: 0 0 0.9375em rgba(24, 75, 205, 0.7);
+    /*box-shadow: 0 0 0.9375em rgba(24, 75, 205, 0.7);*/
     outline:    none;
+    box-shadow:  7px   8px 17px 0 rgba(168, 167, 167, 1),
+                -7px -10px 13px 0 rgba(234, 234, 240, 1);
 }
 
 .required > .thumb {
