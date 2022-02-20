@@ -103,6 +103,12 @@
     box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;
 }
 
+.thumb:not(.switch-slim).indeterminate::before {
+    box-shadow: 0 -2px 5px 0 rgba(168, 167, 167, 1) inset,
+                1px 4px 4px 0 rgba(255, 255, 255, 1) inset;
+
+}
+
 .switch.read-only > .thumb:not(.switch-slim).on::before {
     box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;
 }
