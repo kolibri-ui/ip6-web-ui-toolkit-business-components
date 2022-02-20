@@ -130,8 +130,8 @@ const Switch = (observable, options) => {
     if (options.threeState) {
         switch (options.state) {
             case true:
-                setSwitchOn();
                 switchInputElement.indeterminate = false;
+                setSwitchOn();
                 break;
             case false:
                 switchInputElement.indeterminate = false;

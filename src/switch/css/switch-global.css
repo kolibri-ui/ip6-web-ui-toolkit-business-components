@@ -96,13 +96,27 @@
 }
 
 .thumb:not(.switch-slim).on::before {
-    box-shadow: inset 0.0625rem 0.0625rem 0.3125rem var(--neumorph-grey),
-                inset -0.0625rem -0.0625rem 0.3125rem var(--neumorph-white);
+    box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;
 }
 
 .thumb:not(.switch-slim).off::before {
-    box-shadow: inset -0.0625rem 0.0625rem 0.3125rem var(--neumorph-grey),
-                inset 0.0625rem 0.0625rem 0.3125rem var(--neumorph-white);
+    box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;
+}
+
+.switch.read-only > .thumb:not(.switch-slim).on::before {
+    box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;
+}
+
+.switch.read-only > .thumb:not(.switch-slim).off::before {
+    box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;
+}
+
+.switch.disabled > .thumb:not(.switch-slim).on::before {
+    box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;
+}
+
+.switch.disabled > .thumb:not(.switch-slim).off::before {
+    box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;
 }
 
 .switch input:checked + .thumb::before {
@@ -172,6 +186,11 @@ States
 .hover > .thumb {
     box-shadow: 0 0 0.5em 0 rgba(24, 75, 205, 0.6);
     outline:    none;
+
+/*    border-radius: 50px;
+
+    box-shadow:    2px 2px 4px #1c56ec,
+                   -2px -2px 4px #1440ae;*/
 }
 
 .switch:focus {
