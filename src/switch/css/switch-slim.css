@@ -49,6 +49,7 @@
     top:        0.3125em;
     z-index:    1;
     background: transparent;
+    pointer-events: none;
 }
 
 .switch-icon.off {

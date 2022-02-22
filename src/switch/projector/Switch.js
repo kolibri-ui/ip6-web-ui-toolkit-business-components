@@ -82,6 +82,7 @@ const Switch = (observable, options) => {
         switchInputElement.indeterminate = false;
         switchInputElement.checked       = true;
         observable.setValue(true);
+        options.state = true;
 
         hideArrows();
     }
@@ -99,6 +100,7 @@ const Switch = (observable, options) => {
         switchInputElement.indeterminate = false;
         switchInputElement.checked       = false;
         observable.setValue(false);
+        options.state = false;
 
         hideArrows();
     }
@@ -162,12 +164,26 @@ const Switch = (observable, options) => {
 
         e.preventDefault();
         switchElement.focus();
-        let center = switchElement.offsetWidth / 2;
-        if (e.offsetX >= center && isNotReadonly) {
-            setSwitchOn();
-        } else if (e.offsetX < center && isNotReadonly) {
-            setSwitchOff();
+
+        if (switchInputElement.indeterminate) {
+
+            // When indeterminate: detect if click is on the left or right side
+            let center = switchElement.offsetWidth / 2;
+            if (e.offsetX >= center && isNotReadonly) {
+                setSwitchOn();
+            } else if (e.offsetX < center && isNotReadonly) {
+                setSwitchOff();
+            }
+
+        } else {
+            // When on or off: toggle
+            if (options.state === true) {
+                setSwitchOff();
+            } else if (options.state === false) {
+                setSwitchOn();
+            }
         }
+
     }
 
     // Focus
