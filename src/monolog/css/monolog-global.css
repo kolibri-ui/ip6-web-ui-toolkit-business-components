@@ -64,65 +64,36 @@ body {
     grid-row-start: 2;
 }*/
 
-
-.stack-number-info {
+.stack-number {
     border-radius: 50%;
     width:         1.875em;
     height:        1.875em;
     padding:       0.1875em;
-    background:    var(--primary);
     text-align:    center;
-    color:         var(--text-contrast);
     z-index:       200;
-    /*position:      absolute;*/
+    color:         var(--text-contrast);
     left:          -0.625em;
     top:           -0.625em;
     font-family:   var(--font-serif-bold);
+    margin-bottom: -10px;
+    margin-left:   -20px;
 }
 
-.stack-number-success {
-    border-radius: 50%;
-    width:         1.875em;
-    height:        1.875em;
-    padding:       0.1875em;
-    background:    var(--success);
-    text-align:    center;
-    color:         var(--text-contrast);
-    z-index:       200;
-    /*position:      absolute;*/
-    left:          -0.625em;
-    top:           -0.625em;
-    font-family:   var(--font-serif-bold);
+.info-number {
+    background: var(--primary);
 }
 
-.stack-number-warning {
-    border-radius: 50%;
-    width:         1.875em;
-    height:        1.875em;
-    padding:       0.1875em;
-    background:    var(--warning);
-    text-align:    center;
-    color:         var(--text-contrast);
-    z-index:       200;
-    /*position:      absolute;*/
-    left:          -0.625em;
-    top:           -0.625em;
-    font-family:   var(--font-serif-bold);
+.success-number {
+    background: var(--success);
+
 }
 
-.stack-number-error {
-    border-radius: 50%;
-    width:         1.875em;
-    height:        1.875em;
-    padding:       0.1875em;
-    background:    var(--error);
-    text-align:    center;
-    color:         var(--text-contrast);
-    z-index:       200;
-    /*position:      absolute;*/
-    left:          -0.625em;
-    top:           -0.625em;
-    font-family:   var(--font-serif-bold);
+.warning-number {
+    background: var(--warning);
+}
+
+.error-number {
+    background: var(--error);
 }
 
 .close-all-stack {
@@ -139,6 +110,8 @@ body {
     text-align:    center;
     padding:       0.3125em;
     cursor:        pointer;
+    margin-bottom: -10px;
+    margin-left:    -20px;
 }
 
 

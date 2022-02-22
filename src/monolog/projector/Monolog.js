@@ -145,9 +145,9 @@ const Monolog = () => {
 
                 if (options.sticky) {
                     options.stack = checkStacking(stackListElementInfo);
-                    stackNumberLabelInfo.classList.add('stack-number-' + type);
+                    stackNumberLabelInfo.classList.add('stack-number', type + '-number');
                     stackNumberLabelInfo.innerText = options.stack;
-                    if(stackNumberLabelInfo.innerText > 1) {
+                    if (stackNumberLabelInfo.innerText > 1) {
                         stackListElementInfo.insertBefore(stackNumberLabelInfo, stackListElementInfo.firstChild);
                     }
                 }
@@ -159,10 +159,10 @@ const Monolog = () => {
 
                 if (options.sticky) {
                     options.stack = checkStacking(stackListElementSuccess);
-                    stackNumberLabelSuccess.classList.add('stack-number-' + type);
+                    stackNumberLabelSuccess.classList.add('stack-number', type + '-number');
                     stackNumberLabelSuccess.innerText = options.stack;
-                    if(stackNumberLabelSuccess.innerText > 1) {
-                        stackListElementSuccess.appendChild(stackNumberLabelSuccess);
+                    if (stackNumberLabelSuccess.innerText > 1) {
+                        stackListElementSuccess.insertBefore(stackNumberLabelSuccess, stackListElementSuccess.firstChild);
                     }
                 }
                 break;
@@ -173,10 +173,10 @@ const Monolog = () => {
 
                 if (options.sticky) {
                     options.stack = checkStacking(stackListElementWarning);
-                    stackNumberLabelWarning.classList.add('stack-number-' + type);
+                    stackNumberLabelWarning.classList.add('stack-number', type + '-number');
                     stackNumberLabelWarning.innerText = options.stack;
-                    if(stackNumberLabelWarning.innerText > 1) {
-                        stackListElementWarning.appendChild(stackNumberLabelWarning);
+                    if (stackNumberLabelWarning.innerText > 1) {
+                        stackListElementWarning.insertBefore(stackNumberLabelWarning, stackListElementWarning.firstChild);
                     }
                 }
                 break;
@@ -187,10 +187,10 @@ const Monolog = () => {
 
                 if (options.sticky) {
                     options.stack = checkStacking(stackListElementError);
-                    stackNumberLabelError.classList.add('stack-number-' + type);
+                    stackNumberLabelError.classList.add('stack-number', type + '-number');
                     stackNumberLabelError.innerText = options.stack;
-                    if(stackNumberLabelError.innerText > 1) {
-                        stackListElementError.appendChild(stackNumberLabelError);
+                    if (stackNumberLabelError.innerText > 1) {
+                        stackListElementError.insertBefore(stackNumberLabelError, stackListElementError.firstChild);
                     }
                 }
                 break;
@@ -232,7 +232,7 @@ const Monolog = () => {
 
             //list[0].style.position = 'absolute';
             list[0].style.zIndex  = '100';
-            e.style.marginTop     = `0`;
+            list[0].style.marginTop     = `0`;
             list[0].style.opacity = '100%';
             //options.stackNumber = list[0].style.zIndex;
 
@@ -264,7 +264,7 @@ const Monolog = () => {
 
         closeAllElementSuccess.classList.add('close-all-stack');
         closeAllElementSuccess.innerText = "Close all";
-        stackListElementSuccess.appendChild(closeAllElementSuccess);
+        stackListElementSuccess.insertBefore(closeAllElementSuccess, stackListElementSuccess.firstChild);
     }
 
     stackNumberLabelWarning.onmouseover = () => {
@@ -272,7 +272,7 @@ const Monolog = () => {
 
         closeAllElementWarning.classList.add('close-all-stack');
         closeAllElementWarning.innerText = "Close all";
-        stackListElementWarning.appendChild(closeAllElementWarning);
+        stackListElementWarning.insertBefore(closeAllElementWarning, stackListElementWarning.firstChild);
     }
 
     stackNumberLabelError.onmouseover = () => {
@@ -280,7 +280,7 @@ const Monolog = () => {
 
         closeAllElementError.classList.add('close-all-stack');
         closeAllElementError.innerText = "Close all";
-        stackListElementError.appendChild(closeAllElementError);
+        stackListElementError.insertBefore(closeAllElementError, stackListElementError.firstChild);
     }
 
 
