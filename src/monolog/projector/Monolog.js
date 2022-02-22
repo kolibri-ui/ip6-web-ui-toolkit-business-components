@@ -196,6 +196,11 @@ const Monolog = () => {
                 break;
 
         }
+
+        infoType    = stackListElementInfo.querySelectorAll('.monolog.info');
+        successType = stackListElementSuccess.querySelectorAll('.monolog.success');
+        warningType = stackListElementWarning.querySelectorAll('.monolog.warning');
+        errorType   = stackListElementError.querySelectorAll('.monolog.code-error, .monolog.error');
     }
 
     /**
@@ -204,6 +209,9 @@ const Monolog = () => {
      */
     const checkStacking = (monologList) => {
         closeAllElementInfo.remove();
+        closeAllElementSuccess.remove();
+        closeAllElementWarning.remove();
+        closeAllElementError.remove();
 
         infoType    = monologList.querySelectorAll('.monolog.info');
         successType = monologList.querySelectorAll('.monolog.success');
@@ -285,6 +293,7 @@ const Monolog = () => {
 
 
     closeAllElementInfo.onclick = () => {
+        console.log(infoType);
         infoType.forEach((e)=> {
             e.remove();
         });
@@ -292,6 +301,7 @@ const Monolog = () => {
     }
 
     closeAllElementSuccess.onclick = () => {
+        console.log(successType);
         successType.forEach((e)=> {
             e.remove();
         });
@@ -299,6 +309,7 @@ const Monolog = () => {
     }
 
     closeAllElementWarning.onclick = () => {
+        console.log(warningType);
         warningType.forEach((e)=> {
             e.remove();
         });
@@ -306,6 +317,7 @@ const Monolog = () => {
     }
 
     closeAllElementError.onclick = () => {
+        console.log(errorType);
         errorType.forEach((e)=> {
             e.remove();
         });
