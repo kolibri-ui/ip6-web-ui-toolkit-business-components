@@ -177,9 +177,9 @@ const Switch = (observable, options) => {
 
         } else {
             // When on or off: toggle
-            if (options.state === true) {
+            if (options.state === true && isNotReadonly) {
                 setSwitchOff();
-            } else if (options.state === false) {
+            } else if (options.state === false && isNotReadonly) {
                 setSwitchOn();
             }
         }
