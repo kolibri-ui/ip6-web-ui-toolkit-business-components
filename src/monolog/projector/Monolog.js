@@ -12,11 +12,46 @@ const Monolog = () => {
 
     const elements = dom(`
         <div class="monolog-list top right" data-type="monolog-list">
-            <div class="stack-list"></div>
-                <div class="stack-number"></div>
-                <div class="close-all-elements"></div>
+            <div class="stack-list-info">
+                <div class="stack-number info-number"></div>
+                <div class="close-all-info"></div>
+             </div>
+             
+             <div class="stack-list-success">
+                <div class="stack-number success-number"></div>
+                <div class="close-all-success"></div>
+             </div>
+             
+             <div class="stack-list-warning">
+                <div class="stack-number warning-number"></div>
+                <div class="close-all-warning"></div>
+             </div>
+             
+             <div class="stack-list-error">
+                <div class="stack-number error-number"></div>
+                <div class="close-all-error"></div>
+             </div>
         </div>
     `);
+
+    /** @type {HTMLDivElement} */ const monologListDiv           = elements[0];
+
+    /** @type {HTMLDivElement} */ const stackListInfo            = monologListDiv.children[0];
+    /** @type {HTMLDivElement} */ const stackListInfoNumber      = stackListInfo.children[0];
+    /** @type {HTMLDivElement} */ const stackListInfoCloseAll    = stackListInfo.children[1];
+
+    /** @type {HTMLDivElement} */ const stackListSuccess         = monologListDiv.children[1];
+    /** @type {HTMLDivElement} */ const stackListSuccessNumber   = stackListSuccess.children[0];
+    /** @type {HTMLDivElement} */ const stackListSuccessCloseAll = stackListSuccess.children[1];
+
+    /** @type {HTMLDivElement} */ const stackListWarning         = monologListDiv.children[2];
+    /** @type {HTMLDivElement} */ const stackListWarningNumber   = stackListWarning.children[0];
+    /** @type {HTMLDivElement} */ const stackListWarningCloseAll = stackListWarning.children[1];
+
+    /** @type {HTMLDivElement} */ const stackListError           = monologListDiv.children[3];
+    /** @type {HTMLDivElement} */ const stackListErrorNumber     = stackListError.children[0];
+    /** @type {HTMLDivElement} */ const stackListErrorCloseAll   = stackListError.children[1];
+
 
     const monologListElement = document.createElement('div');
     monologListElement.classList.add('monolog-list', 'top', 'right');
@@ -249,6 +284,7 @@ const Monolog = () => {
                 //e.style.position = 'absolute';
                 e.style.zIndex = `${100 - idx}`;
 
+                //console.log( list[0].style.zIndex);
                 e.style.marginTop = `-60px`;
 
                 //e.style.opacity  = `${100 - 20 * idx}%`;
