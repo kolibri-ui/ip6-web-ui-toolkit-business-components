@@ -87,6 +87,7 @@ const Notification = (options) => {
 
             /*TODO: Retrigger stack function form Monolog -> to set new first element to:
             *  to set new first monolog of stackList to z-index: 100 and marginTop: 0 */
+            //monologDiv.style.setProperty("marginTop", "0", "important");
 
         }
     }

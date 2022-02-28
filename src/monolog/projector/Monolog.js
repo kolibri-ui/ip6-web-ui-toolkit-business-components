@@ -34,7 +34,7 @@ const Monolog = () => {
         </div>
     `);
 
-    /** @type {HTMLDivElement} */ const monologListDiv           = elements[0];
+    /** @type {HTMLDivElement} */ const monologListDiv = elements[0];
 
     /** @type {HTMLDivElement} */ const stackListInfo            = monologListDiv.children[0];
     /** @type {HTMLDivElement} */ const stackListInfoNumber      = stackListInfo.children[0];
@@ -53,24 +53,24 @@ const Monolog = () => {
     /** @type {HTMLDivElement} */ const stackListErrorCloseAll   = stackListError.children[1];
 
 
-/*    const monologListDiv = document.createElement('div');
-    monologListDiv.classList.add('monolog-list', 'top', 'right');
+    /*    const monologListDiv = document.createElement('div');
+        monologListDiv.classList.add('monolog-list', 'top', 'right');
 
-    let stackListInfo   = document.createElement('div');
-    const stackListInfoNumber = document.createElement('div');
-    const stackListInfoCloseAll = document.createElement('div');
+        let stackListInfo   = document.createElement('div');
+        const stackListInfoNumber = document.createElement('div');
+        const stackListInfoCloseAll = document.createElement('div');
 
-    let stackListSuccess   = document.createElement('div');
-    const stackListSuccessNumber = document.createElement('div');
-    const stackListSuccessCloseAll = document.createElement('div');
+        let stackListSuccess   = document.createElement('div');
+        const stackListSuccessNumber = document.createElement('div');
+        const stackListSuccessCloseAll = document.createElement('div');
 
-    let stackListWarning   = document.createElement('div');
-    const stackListWarningNumber = document.createElement('div');
-    const stackListWarningCloseAll = document.createElement('div');
+        let stackListWarning   = document.createElement('div');
+        const stackListWarningNumber = document.createElement('div');
+        const stackListWarningCloseAll = document.createElement('div');
 
-    let stackListError   = document.createElement('div');
-    const stackListErrorNumber = document.createElement('div');
-    const stackListErrorCloseAll = document.createElement('div');*/
+        let stackListError   = document.createElement('div');
+        const stackListErrorNumber = document.createElement('div');
+        const stackListErrorCloseAll = document.createElement('div');*/
 
     let notification;
 
@@ -78,6 +78,8 @@ const Monolog = () => {
     let successType;
     let warningType;
     let errorType;
+
+    const closeAllText = "Close all";
 
     /**
      * Finally emits the Monolog
@@ -174,28 +176,31 @@ const Monolog = () => {
 
         switch (type) {
             case 'info':
-               // stackListInfo.classList.add('stack-list-' + type);
-                stackListInfo.style.display= 'block';
+                // stackListInfo.classList.add('stack-list-' + type);
                 stackListInfo.appendChild(notification);
                 monologListDiv.appendChild(stackListInfo);
 
                 if (options.sticky) {
-                    options.stack = checkStacking(stackListInfo);
+                    stackListInfoNumber.style.display   = 'grid';
+                    stackListInfoCloseAll.style.display = 'grid';
+                    options.stack                 = checkStacking(stackListInfo);
                     //stackListInfoNumber.classList.add('stack-number', type + '-number');
                     stackListInfoNumber.innerText = options.stack;
                     if (stackListInfoNumber.innerText > 1) {
                         stackListInfo.insertBefore(stackListInfoNumber, stackListInfo.firstChild);
                     }
                 }
+
                 break;
             case 'success':
                 //stackListSuccess.classList.add('stack-list-' + type);
-                stackListSuccess.style.display= 'block';
                 stackListSuccess.appendChild(notification);
                 monologListDiv.appendChild(stackListSuccess);
 
                 if (options.sticky) {
-                    options.stack = checkStacking(stackListSuccess);
+                    stackListSuccessNumber.style.display   = 'grid';
+                    stackListSuccessCloseAll.style.display = 'grid';
+                    options.stack                    = checkStacking(stackListSuccess);
                     //stackListSuccessNumber.classList.add('stack-number', type + '-number');
                     stackListSuccessNumber.innerText = options.stack;
                     if (stackListSuccessNumber.innerText > 1) {
@@ -205,12 +210,13 @@ const Monolog = () => {
                 break;
             case 'warning':
                 //stackListWarning.classList.add('stack-list-' + type);
-                stackListWarning.style.display= 'block';
                 stackListWarning.appendChild(notification);
                 monologListDiv.appendChild(stackListWarning);
 
                 if (options.sticky) {
-                    options.stack = checkStacking(stackListWarning);
+                    stackListWarningNumber.style.display   = 'grid';
+                    stackListWarningCloseAll.style.display = 'grid';
+                    options.stack                    = checkStacking(stackListWarning);
                     //stackListWarningNumber.classList.add('stack-number', type + '-number');
                     stackListWarningNumber.innerText = options.stack;
                     if (stackListWarningNumber.innerText > 1) {
@@ -220,12 +226,13 @@ const Monolog = () => {
                 break;
             case 'error':
                 //stackListError.classList.add('stack-list-' + type);
-                stackListError.style.display= 'block';
                 stackListError.appendChild(notification);
                 monologListDiv.appendChild(stackListError);
 
                 if (options.sticky) {
-                    options.stack = checkStacking(stackListError);
+                    stackListErrorNumber.style.display   = 'grid';
+                    stackListErrorCloseAll.style.display = 'grid';
+                    options.stack                  = checkStacking(stackListError);
                     //stackListErrorNumber.classList.add('stack-number', type + '-number');
                     stackListErrorNumber.innerText = options.stack;
                     if (stackListErrorNumber.innerText > 1) {
@@ -263,7 +270,7 @@ const Monolog = () => {
         } else if (successType.length >= 1) {
             stacking(successType);
             return successType.length.toString();
-        } else if(warningType.length >= 1) {
+        } else if (warningType.length >= 1) {
             stacking(warningType);
             return warningType.length.toString();
         } else if (errorType.length >= 1) {
@@ -278,9 +285,9 @@ const Monolog = () => {
         list.forEach((e, idx) => {
 
             //list[0].style.position = 'absolute';
-            list[0].style.zIndex  = '100';
-            list[0].style.marginTop     = `0`;
-            list[0].style.opacity = '100%';
+            list[0].style.zIndex    = '100';
+            list[0].style.marginTop = `0`;
+            list[0].style.opacity   = '100%';
             //options.stackNumber = list[0].style.zIndex;
 
             if (idx > 0) {
@@ -302,39 +309,59 @@ const Monolog = () => {
     stackListInfoNumber.onmouseover = () => {
         stackListInfoNumber.remove();
 
-        stackListInfoCloseAll.classList.add('close-all-stack');
-        stackListInfoCloseAll.innerText = "Close all";
+       // stackListInfoCloseAll.classList.add('close-all-stack');
+        stackListInfoCloseAll.innerText = closeAllText;
         stackListInfo.insertBefore(stackListInfoCloseAll, stackListInfo.firstChild);
+    }
+
+    stackListInfoCloseAll.onmouseout = () => {
+        stackListInfoCloseAll.remove();
+        stackListInfo.insertBefore(stackListInfoNumber, stackListInfo.firstChild);
     }
 
     stackListSuccessNumber.onmouseover = () => {
         stackListSuccessNumber.remove();
 
-        stackListSuccessCloseAll.classList.add('close-all-stack');
-        stackListSuccessCloseAll.innerText = "Close all";
+     //   stackListSuccessCloseAll.classList.add('close-all-stack');
+        stackListSuccessCloseAll.innerText = closeAllText;
         stackListSuccess.insertBefore(stackListSuccessCloseAll, stackListSuccess.firstChild);
+    }
+
+    stackListSuccessCloseAll.onmouseout = () => {
+        stackListSuccessCloseAll.remove();
+        stackListSuccess.insertBefore(stackListSuccessNumber, stackListSuccess.firstChild);
     }
 
     stackListWarningNumber.onmouseover = () => {
         stackListWarningNumber.remove();
 
-        stackListWarningCloseAll.classList.add('close-all-stack');
-        stackListWarningCloseAll.innerText = "Close all";
+    //    stackListWarningCloseAll.classList.add('close-all-stack');
+        stackListWarningCloseAll.innerText = closeAllText;
         stackListWarning.insertBefore(stackListWarningCloseAll, stackListWarning.firstChild);
+    }
+
+    stackListWarningCloseAll.onmouseout = () => {
+        stackListWarningCloseAll.remove();
+        stackListWarning.insertBefore(stackListWarningNumber, stackListWarning.firstChild);
     }
 
     stackListErrorNumber.onmouseover = () => {
         stackListErrorNumber.remove();
 
-        stackListErrorCloseAll.classList.add('close-all-stack');
-        stackListErrorCloseAll.innerText = "Close all";
+     //   stackListErrorCloseAll.classList.add('close-all-stack');
+        stackListErrorCloseAll.innerText = closeAllText;
         stackListError.insertBefore(stackListErrorCloseAll, stackListError.firstChild);
+    }
+
+    stackListErrorCloseAll.onmouseout = () => {
+        stackListErrorCloseAll.remove();
+        stackListError.insertBefore(stackListErrorNumber, stackListError.firstChild);
     }
 
 
     stackListInfoCloseAll.onclick = () => {
         console.log(infoType);
-        infoType.forEach((e)=> {
+        infoType.forEach((e) => {
             e.remove();
         });
         stackListInfoCloseAll.remove();
@@ -342,7 +369,7 @@ const Monolog = () => {
 
     stackListSuccessCloseAll.onclick = () => {
         console.log(successType);
-        successType.forEach((e)=> {
+        successType.forEach((e) => {
             e.remove();
         });
         stackListSuccessCloseAll.remove();
@@ -350,7 +377,7 @@ const Monolog = () => {
 
     stackListWarningCloseAll.onclick = () => {
         console.log(warningType);
-        warningType.forEach((e)=> {
+        warningType.forEach((e) => {
             e.remove();
         });
         stackListWarningCloseAll.remove();
@@ -358,7 +385,7 @@ const Monolog = () => {
 
     stackListErrorCloseAll.onclick = () => {
         console.log(errorType);
-        errorType.forEach((e)=> {
+        errorType.forEach((e) => {
             e.remove();
         });
         stackListErrorCloseAll.remove();

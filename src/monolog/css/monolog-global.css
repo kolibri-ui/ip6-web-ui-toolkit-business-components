@@ -64,9 +64,13 @@ body {
     grid-row-start: 2;
 }*/
 
-.stack-list-info, .stack-list-success, .stack-list-warning, .stack-list-error{
+.close-all-stack, .info-number, .success-number, .warning-number, .error-number{
     display: none;
 }
+
+/*.monolog.info:first-child{
+    display: none !important;
+}*/
 
 .stack-number {
     border-radius: 50%;
@@ -74,6 +78,7 @@ body {
     height:        1.875em;
     padding:       0.1875em;
     text-align:    center;
+    position:      sticky;
     z-index:       200;
     color:         var(--text-contrast);
     left:          -0.625em;
@@ -101,8 +106,8 @@ body {
 }
 
 .close-all-stack {
+    position:      sticky;
     z-index:       200;
-    /*position:      absolute;*/
     left:          -0.625em;
     top:           -0.625em;
     background:    var(--input-hover);
@@ -132,6 +137,11 @@ body {
     margin-bottom:  0.5rem;
     animation:      fadeIn 1s;
 }
+
+/*.stack-number ~ .monolog {
+margin-top: 0 ;
+
+}*/
 
 .monolog.info {
     border-color:     var(--primary);
