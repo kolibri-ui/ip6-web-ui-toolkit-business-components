@@ -52,26 +52,6 @@ const Monolog = () => {
     /** @type {HTMLDivElement} */ const stackListErrorNumber     = stackListError.children[0];
     /** @type {HTMLDivElement} */ const stackListErrorCloseAll   = stackListError.children[1];
 
-
-    /*    const monologListDiv = document.createElement('div');
-        monologListDiv.classList.add('monolog-list', 'top', 'right');
-
-        let stackListInfo   = document.createElement('div');
-        const stackListInfoNumber = document.createElement('div');
-        const stackListInfoCloseAll = document.createElement('div');
-
-        let stackListSuccess   = document.createElement('div');
-        const stackListSuccessNumber = document.createElement('div');
-        const stackListSuccessCloseAll = document.createElement('div');
-
-        let stackListWarning   = document.createElement('div');
-        const stackListWarningNumber = document.createElement('div');
-        const stackListWarningCloseAll = document.createElement('div');
-
-        let stackListError   = document.createElement('div');
-        const stackListErrorNumber = document.createElement('div');
-        const stackListErrorCloseAll = document.createElement('div');*/
-
     let notification;
 
     let infoType;
@@ -176,7 +156,6 @@ const Monolog = () => {
 
         switch (type) {
             case 'info':
-                // stackListInfo.classList.add('stack-list-' + type);
                 stackListInfo.appendChild(notification);
                 monologListDiv.appendChild(stackListInfo);
 
@@ -184,7 +163,6 @@ const Monolog = () => {
                     stackListInfoNumber.style.display   = 'grid';
                     stackListInfoCloseAll.style.display = 'grid';
                     options.stack                 = checkStacking(stackListInfo);
-                    //stackListInfoNumber.classList.add('stack-number', type + '-number');
                     stackListInfoNumber.innerText = options.stack;
                     if (stackListInfoNumber.innerText > 1) {
                         stackListInfo.insertBefore(stackListInfoNumber, stackListInfo.firstChild);
@@ -193,7 +171,6 @@ const Monolog = () => {
 
                 break;
             case 'success':
-                //stackListSuccess.classList.add('stack-list-' + type);
                 stackListSuccess.appendChild(notification);
                 monologListDiv.appendChild(stackListSuccess);
 
@@ -201,7 +178,6 @@ const Monolog = () => {
                     stackListSuccessNumber.style.display   = 'grid';
                     stackListSuccessCloseAll.style.display = 'grid';
                     options.stack                    = checkStacking(stackListSuccess);
-                    //stackListSuccessNumber.classList.add('stack-number', type + '-number');
                     stackListSuccessNumber.innerText = options.stack;
                     if (stackListSuccessNumber.innerText > 1) {
                         stackListSuccess.insertBefore(stackListSuccessNumber, stackListSuccess.firstChild);
@@ -209,7 +185,6 @@ const Monolog = () => {
                 }
                 break;
             case 'warning':
-                //stackListWarning.classList.add('stack-list-' + type);
                 stackListWarning.appendChild(notification);
                 monologListDiv.appendChild(stackListWarning);
 
@@ -217,7 +192,6 @@ const Monolog = () => {
                     stackListWarningNumber.style.display   = 'grid';
                     stackListWarningCloseAll.style.display = 'grid';
                     options.stack                    = checkStacking(stackListWarning);
-                    //stackListWarningNumber.classList.add('stack-number', type + '-number');
                     stackListWarningNumber.innerText = options.stack;
                     if (stackListWarningNumber.innerText > 1) {
                         stackListWarning.insertBefore(stackListWarningNumber, stackListWarning.firstChild);
@@ -225,7 +199,6 @@ const Monolog = () => {
                 }
                 break;
             case 'error':
-                //stackListError.classList.add('stack-list-' + type);
                 stackListError.appendChild(notification);
                 monologListDiv.appendChild(stackListError);
 
@@ -233,7 +206,6 @@ const Monolog = () => {
                     stackListErrorNumber.style.display   = 'grid';
                     stackListErrorCloseAll.style.display = 'grid';
                     options.stack                  = checkStacking(stackListError);
-                    //stackListErrorNumber.classList.add('stack-number', type + '-number');
                     stackListErrorNumber.innerText = options.stack;
                     if (stackListErrorNumber.innerText > 1) {
                         stackListError.insertBefore(stackListErrorNumber, stackListError.firstChild);
@@ -283,23 +255,13 @@ const Monolog = () => {
     const stacking = list => {
 
         list.forEach((e, idx) => {
-
-            //list[0].style.position = 'absolute';
             list[0].style.zIndex    = '100';
             list[0].style.marginTop = `0`;
             list[0].style.opacity   = '100%';
-            //options.stackNumber = list[0].style.zIndex;
 
             if (idx > 0) {
-                //console.log(typeof idx);
-                //e.style.position = 'absolute';
                 e.style.zIndex = `${100 - idx}`;
-
-                //console.log( list[0].style.zIndex);
                 e.style.marginTop = `-60px`;
-
-                //e.style.opacity  = `${100 - 20 * idx}%`;
-                // e.style.right = `${parent.right+5*idx}px`;
             }
             //list[idx].style.zIndex
         });
@@ -308,8 +270,6 @@ const Monolog = () => {
 
     stackListInfoNumber.onmouseover = () => {
         stackListInfoNumber.remove();
-
-       // stackListInfoCloseAll.classList.add('close-all-stack');
         stackListInfoCloseAll.innerText = closeAllText;
         stackListInfo.insertBefore(stackListInfoCloseAll, stackListInfo.firstChild);
     }
@@ -321,8 +281,6 @@ const Monolog = () => {
 
     stackListSuccessNumber.onmouseover = () => {
         stackListSuccessNumber.remove();
-
-     //   stackListSuccessCloseAll.classList.add('close-all-stack');
         stackListSuccessCloseAll.innerText = closeAllText;
         stackListSuccess.insertBefore(stackListSuccessCloseAll, stackListSuccess.firstChild);
     }
@@ -334,8 +292,6 @@ const Monolog = () => {
 
     stackListWarningNumber.onmouseover = () => {
         stackListWarningNumber.remove();
-
-    //    stackListWarningCloseAll.classList.add('close-all-stack');
         stackListWarningCloseAll.innerText = closeAllText;
         stackListWarning.insertBefore(stackListWarningCloseAll, stackListWarning.firstChild);
     }
@@ -347,8 +303,6 @@ const Monolog = () => {
 
     stackListErrorNumber.onmouseover = () => {
         stackListErrorNumber.remove();
-
-     //   stackListErrorCloseAll.classList.add('close-all-stack');
         stackListErrorCloseAll.innerText = closeAllText;
         stackListError.insertBefore(stackListErrorCloseAll, stackListError.firstChild);
     }
@@ -360,7 +314,6 @@ const Monolog = () => {
 
 
     stackListInfoCloseAll.onclick = () => {
-        console.log(infoType);
         infoType.forEach((e) => {
             e.remove();
         });
@@ -368,7 +321,6 @@ const Monolog = () => {
     }
 
     stackListSuccessCloseAll.onclick = () => {
-        console.log(successType);
         successType.forEach((e) => {
             e.remove();
         });
@@ -376,7 +328,6 @@ const Monolog = () => {
     }
 
     stackListWarningCloseAll.onclick = () => {
-        console.log(warningType);
         warningType.forEach((e) => {
             e.remove();
         });
@@ -384,7 +335,6 @@ const Monolog = () => {
     }
 
     stackListErrorCloseAll.onclick = () => {
-        console.log(errorType);
         errorType.forEach((e) => {
             e.remove();
         });
