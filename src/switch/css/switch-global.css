@@ -28,7 +28,7 @@
 
     --neumorph-arrow-start-position:   3.5em;
     --neumorph-arrow-end-position:     3.6875em;
-    --neumorph-thumb-size:             2em;
+    --neumorph-thumb-size:             1.75em;
 
     --slim-icon-size:                  1.5em;
     --slim-width:                      5.25em;
@@ -60,7 +60,7 @@
     opacity: 0;
 }
 
-.switch-icon::selection {
+/*.switch-icon::selection {
     color: transparent;
 }
 
@@ -70,7 +70,7 @@
 
 .switch-icon.on {
     right: 0;
-}
+}*/
 
 .thumb {
     position:         absolute;
@@ -82,55 +82,75 @@
 }
 
 .thumb::before {
-    margin-left:      0.125em;
-    margin-right:     0.125em;
+/*    margin-left:      0.125em;
+    margin-right:     0.125em;*/
     position:         absolute;
     content:          "";
     height:           var(--neumorph-thumb-size);
     width:            var(--neumorph-thumb-size);
-    left:             0;
-    bottom:           0.125em;
+    left:             0.25em;
+    bottom:           0.25em;
     border-radius:    50%;
     background-color: var(--neumorph-white);
     transition:       .2s;
 }
 
 .thumb:not(.switch-slim).on::before {
-    box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;
+    /*box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;*/
+
+    box-shadow: 1px 2px 3px 0px rgba(168, 167, 167, 1) inset;
+
+
 }
 
 .thumb:not(.switch-slim).off::before {
-    box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;
+    /*box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;*/
+
+    box-shadow: 1px 2px 3px 0px rgba(168, 167, 167, 1) inset;
+
 }
 
 .thumb:not(.switch-slim).indeterminate::before {
-    box-shadow: 0 -2px 5px 0 rgba(168, 167, 167, 1) inset,
-                1px 4px 4px 0 rgba(255, 255, 255, 1) inset;
+    /*    box-shadow: 0 -2px 5px 0 rgba(168, 167, 167, 1) inset,
+                    1px 4px 4px 0 rgba(255, 255, 255, 1) inset;*/
+
+    /*rgba(168, 167, 167, 1) */
+    box-shadow: 3px 1px 13px var(--switch-icon-color),
+                -3px -1px 10px rgba(255, 255, 255, 1);
+
 
 }
 
 .switch.read-only > .thumb:not(.switch-slim).on::before {
-    box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;
+    /*   box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;*/
+
+    box-shadow: 1px 2px 3px 0px var(--neumorph-white) inset;
 }
 
 .switch.read-only > .thumb:not(.switch-slim).off::before {
-    box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;
+    /*   box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;*/
+
+    box-shadow: 1px 2px 3px 0px rgba(168, 167, 167, 1) inset;
 }
 
 .switch.disabled > .thumb:not(.switch-slim).on::before {
-    box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;
+    /*   box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;*/
+
+    box-shadow: 1px 2px 3px 0px rgba(168, 167, 167, 1) inset;
 }
 
 .switch.disabled > .thumb:not(.switch-slim).off::before {
-    box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;
+ /*   box-shadow: 0 5px 4px 0 rgba(168, 167, 167, 1) inset;*/
+
+    box-shadow: 1px 2px 3px 0px rgba(168, 167, 167, 1) inset;
 }
 
 .switch input:checked + .thumb::before {
-    transform: translateX(150%);
+    transform: translateX(170%);
 }
 
 .switch input:indeterminate + .thumb::before {
-    transform: translateX(75%);
+    transform: translateX(85%);
 }
 
 /**

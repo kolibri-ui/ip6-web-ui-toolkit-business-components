@@ -13,6 +13,8 @@
 
 
 .thumb.switch-slim::before {
+    margin-left:      0.125em;
+    margin-right:     0.125em;
     position:         absolute;
     content:          "";
     bottom:           0;
