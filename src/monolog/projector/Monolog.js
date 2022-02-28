@@ -14,22 +14,22 @@ const Monolog = () => {
         <div class="monolog-list top right" data-type="monolog-list">
             <div class="stack-list-info">
                 <div class="stack-number info-number"></div>
-                <div class="close-all-info"></div>
+                <div class="close-all-stack"></div>
              </div>
              
              <div class="stack-list-success">
                 <div class="stack-number success-number"></div>
-                <div class="close-all-success"></div>
+                <div class="close-all-stack"></div>
              </div>
              
              <div class="stack-list-warning">
                 <div class="stack-number warning-number"></div>
-                <div class="close-all-warning"></div>
+                <div class="close-all-stack"></div>
              </div>
              
              <div class="stack-list-error">
                 <div class="stack-number error-number"></div>
-                <div class="close-all-error"></div>
+                <div class="close-all-stack"></div>
              </div>
         </div>
     `);
@@ -53,24 +53,24 @@ const Monolog = () => {
     /** @type {HTMLDivElement} */ const stackListErrorCloseAll   = stackListError.children[1];
 
 
-    const monologListElement = document.createElement('div');
-    monologListElement.classList.add('monolog-list', 'top', 'right');
+/*    const monologListDiv = document.createElement('div');
+    monologListDiv.classList.add('monolog-list', 'top', 'right');
 
-    let stackListElementInfo   = document.createElement('div');
-    const stackNumberLabelInfo = document.createElement('div');
-    const closeAllElementInfo = document.createElement('div');
+    let stackListInfo   = document.createElement('div');
+    const stackListInfoNumber = document.createElement('div');
+    const stackListInfoCloseAll = document.createElement('div');
 
-    let stackListElementSuccess   = document.createElement('div');
-    const stackNumberLabelSuccess = document.createElement('div');
-    const closeAllElementSuccess = document.createElement('div');
+    let stackListSuccess   = document.createElement('div');
+    const stackListSuccessNumber = document.createElement('div');
+    const stackListSuccessCloseAll = document.createElement('div');
 
-    let stackListElementWarning   = document.createElement('div');
-    const stackNumberLabelWarning = document.createElement('div');
-    const closeAllElementWarning = document.createElement('div');
+    let stackListWarning   = document.createElement('div');
+    const stackListWarningNumber = document.createElement('div');
+    const stackListWarningCloseAll = document.createElement('div');
 
-    let stackListElementError   = document.createElement('div');
-    const stackNumberLabelError = document.createElement('div');
-    const closeAllElementError = document.createElement('div');
+    let stackListError   = document.createElement('div');
+    const stackListErrorNumber = document.createElement('div');
+    const stackListErrorCloseAll = document.createElement('div');*/
 
     let notification;
 
@@ -174,68 +174,72 @@ const Monolog = () => {
 
         switch (type) {
             case 'info':
-                stackListElementInfo.classList.add('stack-list-' + type);
-                stackListElementInfo.appendChild(notification);
-                monologListElement.appendChild(stackListElementInfo);
+               // stackListInfo.classList.add('stack-list-' + type);
+                stackListInfo.style.display= 'block';
+                stackListInfo.appendChild(notification);
+                monologListDiv.appendChild(stackListInfo);
 
                 if (options.sticky) {
-                    options.stack = checkStacking(stackListElementInfo);
-                    stackNumberLabelInfo.classList.add('stack-number', type + '-number');
-                    stackNumberLabelInfo.innerText = options.stack;
-                    if (stackNumberLabelInfo.innerText > 1) {
-                        stackListElementInfo.insertBefore(stackNumberLabelInfo, stackListElementInfo.firstChild);
+                    options.stack = checkStacking(stackListInfo);
+                    //stackListInfoNumber.classList.add('stack-number', type + '-number');
+                    stackListInfoNumber.innerText = options.stack;
+                    if (stackListInfoNumber.innerText > 1) {
+                        stackListInfo.insertBefore(stackListInfoNumber, stackListInfo.firstChild);
                     }
                 }
                 break;
             case 'success':
-                stackListElementSuccess.classList.add('stack-list-' + type);
-                stackListElementSuccess.appendChild(notification);
-                monologListElement.appendChild(stackListElementSuccess);
+                //stackListSuccess.classList.add('stack-list-' + type);
+                stackListSuccess.style.display= 'block';
+                stackListSuccess.appendChild(notification);
+                monologListDiv.appendChild(stackListSuccess);
 
                 if (options.sticky) {
-                    options.stack = checkStacking(stackListElementSuccess);
-                    stackNumberLabelSuccess.classList.add('stack-number', type + '-number');
-                    stackNumberLabelSuccess.innerText = options.stack;
-                    if (stackNumberLabelSuccess.innerText > 1) {
-                        stackListElementSuccess.insertBefore(stackNumberLabelSuccess, stackListElementSuccess.firstChild);
+                    options.stack = checkStacking(stackListSuccess);
+                    //stackListSuccessNumber.classList.add('stack-number', type + '-number');
+                    stackListSuccessNumber.innerText = options.stack;
+                    if (stackListSuccessNumber.innerText > 1) {
+                        stackListSuccess.insertBefore(stackListSuccessNumber, stackListSuccess.firstChild);
                     }
                 }
                 break;
             case 'warning':
-                stackListElementWarning.classList.add('stack-list-' + type);
-                stackListElementWarning.appendChild(notification);
-                monologListElement.appendChild(stackListElementWarning);
+                //stackListWarning.classList.add('stack-list-' + type);
+                stackListWarning.style.display= 'block';
+                stackListWarning.appendChild(notification);
+                monologListDiv.appendChild(stackListWarning);
 
                 if (options.sticky) {
-                    options.stack = checkStacking(stackListElementWarning);
-                    stackNumberLabelWarning.classList.add('stack-number', type + '-number');
-                    stackNumberLabelWarning.innerText = options.stack;
-                    if (stackNumberLabelWarning.innerText > 1) {
-                        stackListElementWarning.insertBefore(stackNumberLabelWarning, stackListElementWarning.firstChild);
+                    options.stack = checkStacking(stackListWarning);
+                    //stackListWarningNumber.classList.add('stack-number', type + '-number');
+                    stackListWarningNumber.innerText = options.stack;
+                    if (stackListWarningNumber.innerText > 1) {
+                        stackListWarning.insertBefore(stackListWarningNumber, stackListWarning.firstChild);
                     }
                 }
                 break;
             case 'error':
-                stackListElementError.classList.add('stack-list-' + type);
-                stackListElementError.appendChild(notification);
-                monologListElement.appendChild(stackListElementError);
+                //stackListError.classList.add('stack-list-' + type);
+                stackListError.style.display= 'block';
+                stackListError.appendChild(notification);
+                monologListDiv.appendChild(stackListError);
 
                 if (options.sticky) {
-                    options.stack = checkStacking(stackListElementError);
-                    stackNumberLabelError.classList.add('stack-number', type + '-number');
-                    stackNumberLabelError.innerText = options.stack;
-                    if (stackNumberLabelError.innerText > 1) {
-                        stackListElementError.insertBefore(stackNumberLabelError, stackListElementError.firstChild);
+                    options.stack = checkStacking(stackListError);
+                    //stackListErrorNumber.classList.add('stack-number', type + '-number');
+                    stackListErrorNumber.innerText = options.stack;
+                    if (stackListErrorNumber.innerText > 1) {
+                        stackListError.insertBefore(stackListErrorNumber, stackListError.firstChild);
                     }
                 }
                 break;
 
         }
 
-        infoType    = stackListElementInfo.querySelectorAll('.monolog.info');
-        successType = stackListElementSuccess.querySelectorAll('.monolog.success');
-        warningType = stackListElementWarning.querySelectorAll('.monolog.warning');
-        errorType   = stackListElementError.querySelectorAll('.monolog.code-error, .monolog.error');
+        infoType    = stackListInfo.querySelectorAll('.monolog.info');
+        successType = stackListSuccess.querySelectorAll('.monolog.success');
+        warningType = stackListWarning.querySelectorAll('.monolog.warning');
+        errorType   = stackListError.querySelectorAll('.monolog.code-error, .monolog.error');
     }
 
     /**
@@ -243,10 +247,10 @@ const Monolog = () => {
      * @param {Object} monologList
      */
     const checkStacking = (monologList) => {
-        closeAllElementInfo.remove();
-        closeAllElementSuccess.remove();
-        closeAllElementWarning.remove();
-        closeAllElementError.remove();
+        stackListInfoCloseAll.remove();
+        stackListSuccessCloseAll.remove();
+        stackListWarningCloseAll.remove();
+        stackListErrorCloseAll.remove();
 
         infoType    = monologList.querySelectorAll('.monolog.info');
         successType = monologList.querySelectorAll('.monolog.success');
@@ -295,74 +299,74 @@ const Monolog = () => {
 
     }
 
-    stackNumberLabelInfo.onmouseover = () => {
-        stackNumberLabelInfo.remove();
+    stackListInfoNumber.onmouseover = () => {
+        stackListInfoNumber.remove();
 
-        closeAllElementInfo.classList.add('close-all-stack');
-        closeAllElementInfo.innerText = "Close all";
-        stackListElementInfo.insertBefore(closeAllElementInfo, stackListElementInfo.firstChild);
+        stackListInfoCloseAll.classList.add('close-all-stack');
+        stackListInfoCloseAll.innerText = "Close all";
+        stackListInfo.insertBefore(stackListInfoCloseAll, stackListInfo.firstChild);
     }
 
-    stackNumberLabelSuccess.onmouseover = () => {
-        stackNumberLabelSuccess.remove();
+    stackListSuccessNumber.onmouseover = () => {
+        stackListSuccessNumber.remove();
 
-        closeAllElementSuccess.classList.add('close-all-stack');
-        closeAllElementSuccess.innerText = "Close all";
-        stackListElementSuccess.insertBefore(closeAllElementSuccess, stackListElementSuccess.firstChild);
+        stackListSuccessCloseAll.classList.add('close-all-stack');
+        stackListSuccessCloseAll.innerText = "Close all";
+        stackListSuccess.insertBefore(stackListSuccessCloseAll, stackListSuccess.firstChild);
     }
 
-    stackNumberLabelWarning.onmouseover = () => {
-        stackNumberLabelWarning.remove();
+    stackListWarningNumber.onmouseover = () => {
+        stackListWarningNumber.remove();
 
-        closeAllElementWarning.classList.add('close-all-stack');
-        closeAllElementWarning.innerText = "Close all";
-        stackListElementWarning.insertBefore(closeAllElementWarning, stackListElementWarning.firstChild);
+        stackListWarningCloseAll.classList.add('close-all-stack');
+        stackListWarningCloseAll.innerText = "Close all";
+        stackListWarning.insertBefore(stackListWarningCloseAll, stackListWarning.firstChild);
     }
 
-    stackNumberLabelError.onmouseover = () => {
-        stackNumberLabelError.remove();
+    stackListErrorNumber.onmouseover = () => {
+        stackListErrorNumber.remove();
 
-        closeAllElementError.classList.add('close-all-stack');
-        closeAllElementError.innerText = "Close all";
-        stackListElementError.insertBefore(closeAllElementError, stackListElementError.firstChild);
+        stackListErrorCloseAll.classList.add('close-all-stack');
+        stackListErrorCloseAll.innerText = "Close all";
+        stackListError.insertBefore(stackListErrorCloseAll, stackListError.firstChild);
     }
 
 
-    closeAllElementInfo.onclick = () => {
+    stackListInfoCloseAll.onclick = () => {
         console.log(infoType);
         infoType.forEach((e)=> {
             e.remove();
         });
-        closeAllElementInfo.remove();
+        stackListInfoCloseAll.remove();
     }
 
-    closeAllElementSuccess.onclick = () => {
+    stackListSuccessCloseAll.onclick = () => {
         console.log(successType);
         successType.forEach((e)=> {
             e.remove();
         });
-        closeAllElementSuccess.remove();
+        stackListSuccessCloseAll.remove();
     }
 
-    closeAllElementWarning.onclick = () => {
+    stackListWarningCloseAll.onclick = () => {
         console.log(warningType);
         warningType.forEach((e)=> {
             e.remove();
         });
-        closeAllElementWarning.remove();
+        stackListWarningCloseAll.remove();
     }
 
-    closeAllElementError.onclick = () => {
+    stackListErrorCloseAll.onclick = () => {
         console.log(errorType);
         errorType.forEach((e)=> {
             e.remove();
         });
-        closeAllElementError.remove();
+        stackListErrorCloseAll.remove();
     }
 
 
     return {
-        list   : () => monologListElement,
+        list   : () => monologListDiv,
         info   : options => info(options),
         success: options => success(options),
         warning: options => warning(options),

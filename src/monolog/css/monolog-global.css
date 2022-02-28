@@ -64,6 +64,10 @@ body {
     grid-row-start: 2;
 }*/
 
+.stack-list-info, .stack-list-success, .stack-list-warning, .stack-list-error{
+    display: none;
+}
+
 .stack-number {
     border-radius: 50%;
     width:         1.875em;
