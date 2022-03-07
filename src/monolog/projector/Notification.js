@@ -86,7 +86,20 @@ const Notification = (options) => {
             }, 520);
 
             /* Set first monolog element to marginTop=0 */
-            monologDiv.parentElement.querySelectorAll('.monolog')[1].style.marginTop = '0';
+            if (monologDiv.parentElement.querySelectorAll('.monolog')[1]) {
+                monologDiv.parentElement.querySelectorAll('.monolog')[1].style.marginTop = '0';
+            }
+
+            /* Retrigger stackList counter when clicking close */
+            const stackNumberElement = monologDiv.parentElement.children[0];
+            let stackNumber          = parseInt(stackNumberElement.textContent);
+            stackNumber--;
+            if (stackNumber > 0) {
+                stackNumberElement.textContent = `${stackNumber}`;
+            } else if (stackNumber === 0) {
+                monologDiv.parentElement.children[0].remove();
+            }
+
         }
     }
 
