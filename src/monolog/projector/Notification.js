@@ -86,8 +86,7 @@ const Notification = (options) => {
             }, 520);
 
             /* Set first monolog element to marginTop=0 */
-            monologDiv.parentElement.querySelectorAll('.monolog')[1].style.marginTop='0';
-
+            monologDiv.parentElement.querySelectorAll('.monolog')[1].style.marginTop = '0';
         }
     }
 

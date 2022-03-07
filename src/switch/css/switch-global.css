@@ -11,7 +11,9 @@
     --neumorph-height:                      2.25em;
 
     --neumorph-white:                       hsl(0, 0%, 99%);
-    --neumorph-grey:                        hsl(240, 5%, 30%);
+    --neumorph-thumb-grey:                  hsl(0, 0%, 58%);
+    --neumorph-background-grey:             hsl(0, 1%, 66%);
+
     --neumorph-on:                          hsl(223, 79%, 45%);
     --neumorph-off:                         hsl(0, 0%, 74%);
     --neumorph-indeterminate:               linear-gradient(270deg,
@@ -30,18 +32,23 @@
     --neumorph-arrow-end-position:          3.6875em;
     --neumorph-thumb-size:                  1.75em;
 
-    --neumorph-thumb-shadow:                1px 2px 3px 0px rgba(168, 167, 167, 1) inset;
+    --neumorph-thumb-shadow:                1px 2px 3px 0px var(--neumorph-thumb-grey) inset;
     --neumorph-thumb-shadow-disabled:       1px 2px 3px 0px rgb(216, 216, 216) inset;
+    --neumorph-thumb-shadow-readonly:       1px 2px 3px 0px #BFBEBE inset;
 
     --neumorph-thumb-shadow-indet:          3px 1px 13px var(--switch-icon-color),
-                                            -3px -1px 10px rgba(255, 255, 255, 1);
+                                            -3px -1px 10px var(--neumorph-white);
 
     --neumorph-thumb-shadow-indet-disabled: 3px 1px 13px #9BA1B6,
-                                            -3px -1px 10px rgba(255, 255, 255, 1);
+                                            -3px -1px 10px var(--neumorph-white);
 
-    --neumorph-hover-effect:                2px 3px 5px 0 rgba(168, 167, 167, 1),
+    --neumorph-thumb-shadow-invalid:        3px 1px 10px 0px #8D0C5E,
+                                            -3px -1px 10px 0px #FF5CC3;
+
+
+    --neumorph-hover-effect:                2px 3px 5px 0 var(--neumorph-background-grey),
                                             -1px -3px 6px 0 rgba(234, 234, 240, 1);
-    --neumorph-focus-effect:                4px 5px 8px 0 rgba(168, 167, 167, 1),
+    --neumorph-focus-effect:                4px 5px 8px 0 var(--neumorph-background-grey),
                                             -3px -5px 8px 0 rgba(234, 234, 240, 1);
 
     --slim-icon-size:                       1.5em;
@@ -120,11 +127,11 @@
 }
 
 .switch.read-only > .thumb:not(.switch-slim).on::before {
-    box-shadow: var(--neumorph-thumb-shadow);
+    box-shadow: var(--neumorph-thumb-shadow-readonly);
 }
 
 .switch.read-only > .thumb:not(.switch-slim).off::before {
-    box-shadow: var(--neumorph-thumb-shadow);
+    box-shadow: var(--neumorph-thumb-shadow-readonly);
 }
 
 .switch.disabled > .thumb:not(.switch-slim).on::before {
@@ -137,6 +144,10 @@
 
 .switch.disabled > .thumb:not(.switch-slim).indeterminate::before {
     box-shadow: var(--neumorph-thumb-shadow-indet-disabled);
+}
+
+.switch.required > .thumb:not(.switch-slim).indeterminate::before {
+    box-shadow: var(--neumorph-thumb-shadow-invalid);
 }
 
 .switch input:checked + .thumb::before {
@@ -208,13 +219,6 @@ States
     box-shadow: var(--neumorph-hover-effect);
 
 }
-
-/*.switch:focus {
-    !*box-shadow: 0 0 0.9375em rgba(24, 75, 205, 0.7);*!
-    outline:    none;
-    box-shadow:  7px   8px 17px 0 rgba(168, 167, 167, 1),
-                -7px -10px 13px 0 rgba(234, 234, 240, 1);
-}*/
 
 .required > .thumb {
     background: var(--switch-error-color);
