@@ -1,11 +1,11 @@
 import {buttonElement} from "../util/buttonElement.js";
-import {Monolog} from "../../src/monolog/projector/Monolog.js";
+import {MonologList} from "../../src/monolog/projector/MonologList.js";
 
 
 export {monologDemoProjector}
 const monologDemoProjector = (controller, rootElement) => {
 
-    const monolog = Monolog();
+    const monolog = MonologList();
     rootElement.appendChild(monolog.list());
 
     const pStickyElement = document.createElement("p");
