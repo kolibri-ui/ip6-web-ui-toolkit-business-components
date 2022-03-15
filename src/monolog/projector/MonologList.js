@@ -62,7 +62,7 @@ const MonologList = () => {
     const closeAllText = "Close all";
 
     /**
-     * Finally emits the MonologList
+     * Finally emits the StackList
      * @param {Object} options
      * @param {String} options.title
      * @param {String} options.message
@@ -121,7 +121,7 @@ const MonologList = () => {
         emit(options);
     }
     /**
-     * Displays an error MonologList
+     * Displays an error StackList
      * @param {Object} options
      * @param {String} options.title
      * @param {String} options.message
@@ -225,18 +225,18 @@ const MonologList = () => {
 
     /**
      * Stack all Monologues of a certain type
-     * @param {Object} monologList
+     * @param {Object} stackList
      */
-    const checkStacking = (monologList) => {
+    const checkStacking = (stackList) => {
         stackListInfoCloseAll.remove();
         stackListSuccessCloseAll.remove();
         stackListWarningCloseAll.remove();
         stackListErrorCloseAll.remove();
 
-        infoType    = monologList.querySelectorAll('.monolog.info');
-        successType = monologList.querySelectorAll('.monolog.success');
-        warningType = monologList.querySelectorAll('.monolog.warning');
-        errorType   = monologList.querySelectorAll('.monolog.code-error, .monolog.error');
+        infoType    = stackList.querySelectorAll('.monolog.info');
+        successType = stackList.querySelectorAll('.monolog.success');
+        warningType = stackList.querySelectorAll('.monolog.warning');
+        errorType   = stackList.querySelectorAll('.monolog.code-error, .monolog.error');
 
         if (infoType.length >= 1) {
             stacking(infoType);
@@ -261,8 +261,8 @@ const MonologList = () => {
             list[0].style.opacity   = '100%';
 
             if (idx > 0) {
-                e.style.zIndex = `${100 - idx}`;
-                e.style.marginTop = `-60px`;
+                e.style.zIndex    = `${100 - idx}`;
+                e.style.marginTop = `-3.75em`;
             }
         });
     }
