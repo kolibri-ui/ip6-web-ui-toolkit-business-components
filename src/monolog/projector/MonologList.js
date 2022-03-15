@@ -74,6 +74,8 @@ const MonologList = () => {
      * @param options
      */
     const emit = options => {
+        // Check if codeError is set, if yes, the type has to be 'error'
+        (options.codeError) ? options.type = 'error': "";
         notification = Monolog(options);
         stack(options);
     }
