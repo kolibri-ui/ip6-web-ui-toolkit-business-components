@@ -79,7 +79,7 @@ const MonologList = () => {
     }
 
     /**
-     * Displays an info MonologList
+     * Displays an info StackList
      * @param {Object} options
      * @param {String} options.title
      * @param {String} options.message
@@ -94,7 +94,7 @@ const MonologList = () => {
     }
 
     /**
-     * Displays a success MonologList
+     * Displays a success StackList
      * @param {Object} options
      * @param {String} options.title
      * @param {String} options.message
@@ -108,7 +108,7 @@ const MonologList = () => {
     }
 
     /**
-     * Displays a warning MonologList
+     * Displays a warning StackList
      * @param {Object} options
      * @param {String} options.title
      * @param {String} options.message
@@ -141,7 +141,7 @@ const MonologList = () => {
 
 
     /**
-     * Displays an error MonologList
+     * Displays an error StackList
      * @param {Object} options
      * @param {String} options.title
      * @param {String} options.message
@@ -168,8 +168,8 @@ const MonologList = () => {
                         stackListInfo.insertBefore(stackListInfoNumber, stackListInfo.firstChild);
                     }
                 }
-
                 break;
+
             case 'success':
                 stackListSuccess.appendChild(notification);
                 monologListDiv.appendChild(stackListSuccess);
@@ -184,6 +184,7 @@ const MonologList = () => {
                     }
                 }
                 break;
+
             case 'warning':
                 stackListWarning.appendChild(notification);
                 monologListDiv.appendChild(stackListWarning);
@@ -198,6 +199,7 @@ const MonologList = () => {
                     }
                 }
                 break;
+
             case 'error':
                 stackListError.appendChild(notification);
                 monologListDiv.appendChild(stackListError);
@@ -253,7 +255,6 @@ const MonologList = () => {
     }
 
     const stacking = list => {
-
         list.forEach((e, idx) => {
             list[0].style.zIndex    = '100';
             list[0].style.marginTop = `0`;
@@ -263,9 +264,7 @@ const MonologList = () => {
                 e.style.zIndex = `${100 - idx}`;
                 e.style.marginTop = `-60px`;
             }
-            //list[idx].style.zIndex
         });
-
     }
 
     stackListInfoNumber.onmouseover = () => {
