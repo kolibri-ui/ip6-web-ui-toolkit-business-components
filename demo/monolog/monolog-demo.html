@@ -6,7 +6,7 @@
     <title>Monolog Component</title>
     <link rel=stylesheet type="text/css" href="monolog-demo.css"/>
 </head>
-<body>
+<body id="monolog-demo-app-container">
 
 <div class="container">
     <h1>Monolog</h1>
@@ -16,35 +16,185 @@
         the code. This is called a code-error Monolog. Try the different Monologs by pushing the buttons below.
     </p>
     <br/>
-    <div id="monolog-demo-app-container"></div>
+
     <h2>Examples</h2>
     <p class="demo-text">
-        To use the Monolog Component first create a Controller for the Monolog.
-        <div class="code demo-code mt-10 mb-10">
-            <pre>
+        To use the Monolog Component instantiate first the MonologList component.
+    <div class="code demo-code mt-10 mb-10">
+        const monolog = MonologList();
+    </div>
 
-               const MonologDemoController = () => {
+    As a return value you get the following Object:
+    <pre class="code demo-code mt-10 mb-10">
+{
+    list,
+    info,
+    success,
+    warning,
+    error
+}</pre>
 
-                const Monolog = () => {}
-                const monologModel = ObservableList([]);
-
-                const addView = () => {
-                    const newMonolog = Monolog();
-                    monologModel.add(newMonolog);
-                    return newMonolog;
-                }
-
-                return {
-                    onMonologAdd: monologModel.onAdd,
-                    addMonolog: addView
-                }
-            }
-
-            </pre>
-        </div>
-
-
+    Append the received <span class="code code-red">monolog.list()</span> to the <span
+        class="code code-red">rootElement</span>.
+    <pre class="code demo-code mt-10 mb-10">rootElement.appendChild(monolog.list());</pre>
+    To supply a Monolog with all information needed, you have to create an <span
+        class="code code-red">options-object</span>. The following Options are available:
+    <div class="code demo-code mt-10 mb-10">
+        <ul>
+            <li>
+                <span class="option-name">title <small>(default: "", type: String)</small></span>
+                <p>The Title for the Monolog. This will be inserted into the first row of text of the Monolog.</p>
+            </li>
+            <li>
+                <span class="option-name">message <small>(default: undefined, type: String)</small></span>
+                <p>Add some more Text to the Monolog. The length is not restricted, but less is more</p>
+            </li>
+            <li>
+                <span class="option-name">sticky <small>(default: false, type: Boolean)</small></span>
+                <p>Should the Monolog be sticky? Set it to true.</p>
+            </li>
+            <li>
+                <span class="option-name">attention <small>(default: false, type: Boolean)</small></span>
+                <p>Let the Monolog wiggle to get that extra bit of Attention.</p>
+            </li>
+            <li>
+                <span class="option-name">codeError <small>(default: undefined, type: String)</small></span>
+                <p>If you add a String here, your Monolog will be of sort Code Error and the information supplied in
+                    this option will be copiable. If this option is set, the type of the monolog gets overridden with 'error'.</p>
+            </li>
+        </ul>
+    </div>
+    <hr/>
     </p>
+
+    <h2>Monolog Types</h2>
+
+    <h4>Info</h4>
+    <p class="demo-text">
+        A
+    </p>
+    <div class="demo-monolog">
+        <div class="monolog info" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
+            <div class="monolog-icon info" data-id="monolog-icon"></div>
+            <div class="monolog-close info" aria-label="close"></div>
+            <div class="monolog-body">
+                <div class="monolog-title">Some Info</div>
+                <div class="monolog-subline">And some Text</div>
+            </div>
+        </div>
+        <div id="infoStickyButton"></div>
+        <div class="monolog info" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
+            <div class="monolog-icon info" data-id="monolog-icon"></div>
+            <div class="monolog-body">
+                <div class="monolog-title">Some Info</div>
+                <div class="monolog-subline">And some Text</div>
+            </div>
+        </div>
+        <div id="infoButton"></div>
+    </div>
+
+    <h4>Success</h4>
+    <div class="demo-monolog">
+        <div class="monolog success" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
+            <div class="monolog-icon success" data-id="monolog-icon"></div>
+            <div class="monolog-close success" aria-label="close"></div>
+            <div class="monolog-body">
+                <div class="monolog-title">Some Info</div>
+                <div class="monolog-subline">Just a Test</div>
+            </div>
+        </div>
+        <div id="successStickyButton"></div>
+        <div class="monolog success" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
+            <div class="monolog-icon success" data-id="monolog-icon"></div>
+            <div class="monolog-body">
+                <div class="monolog-title">Some Info</div>
+                <div class="monolog-subline">Just a Test</div>
+            </div>
+        </div>
+        <div id="successButton"></div>
+    </div>
+
+    <h4>Warning</h4>
+    <div class="demo-monolog">
+        <div class="monolog warning" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
+            <div class="monolog-icon warning" data-id="monolog-icon"></div>
+            <div class="monolog-close warning" aria-label="close"></div>
+            <div class="monolog-body">
+                <div class="monolog-title">Some Warning</div>
+                <div class="monolog-subline">Just a Test</div>
+            </div>
+        </div>
+        <div id="warningStickyButton"></div>
+        <div class="monolog warning" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
+            <div class="monolog-icon warning" data-id="monolog-icon"></div>
+            <div class="monolog-body">
+                <div class="monolog-title">Some Warning</div>
+                <div class="monolog-subline">Just a Test</div>
+            </div>
+        </div>
+        <div id="warningButton"></div>
+    </div>
+
+    <h4>Error</h4>
+    <div class="demo-monolog">
+        <div class="monolog error" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
+            <div class="monolog-icon error" data-id="monolog-icon"></div>
+            <div class="monolog-close error" aria-label="close"></div>
+            <div class="monolog-body">
+                <div class="monolog-title">Some Error</div>
+                <div class="monolog-subline">Just a Test</div>
+            </div>
+        </div>
+        <div id="errorStickyButton"></div>
+        <div class="monolog error" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
+            <div class="monolog-icon error" data-id="monolog-icon"></div>
+            <div class="monolog-body">
+                <div class="monolog-title">Some Error</div>
+                <div class="monolog-subline">Just a Test</div>
+            </div>
+        </div>
+        <div id="errorButton"></div>
+    </div>
+
+    <h4>Code-Error</h4>
+    <div class="demo-monolog">
+        <div class="monolog code-error" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
+            <div class="monolog-icon error" data-id="monolog-icon"></div>
+            <div class="monolog-close error" aria-label="close"></div>
+            <div class="monolog-body">
+                <div class="monolog-title">Some Code Error</div>
+                <div class="monolog-subline">Ask a developer.</div>
+            </div>
+            <div class="code-box">
+                <div class="code-text-box">
+                    <div class="code-box-label">Exception in thread "main" java.lang.NullPointerException
+                        at com.example.myproject.Book.getTitle(Book.java:16)
+                        at com.example.myproject.Author.getBookTitles(Author.java:25)
+                        at com.example.myproject.Bootstrap.main(Bootstrap.java:14)
+                    </div>
+                    <div class="copy-interaction">
+                        <div class="copy-success-icon"></div>
+                        <div class="copy-icon default"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="codeErrorButton"></div>
+    </div>
+
+    <h4>Attention</h4>
+    <div class="demo-monolog">
+        <div class="monolog error attention" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
+            <div class="monolog-icon error" data-id="monolog-icon"></div>
+            <div class="monolog-close error" aria-label="close"></div>
+            <div class="monolog-body">
+                <div class="monolog-title">Some Error</div>
+                <div class="monolog-subline">Just a Test</div>
+            </div>
+        </div>
+        <div id="errorStickyAttentionButton"></div>
+    </div>
+
 </div>
 
 <script src="monolog-demo-app.js" type="module"></script>

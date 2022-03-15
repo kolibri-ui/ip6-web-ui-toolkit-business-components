@@ -3,6 +3,7 @@
     --default:       hsl(0, 0%, 62%);
     --default-hover: hsl(0, 0%, 79%);
     --text-contrast: hsl(0, 0%, 95%);
+    --white:         hsl(0, 0%, 100%);
     --primary:       hsl(223, 79%, 45%);
     --primary-hover: hsl(233, 79%, 56%);
     --success:       hsl(104, 89%, 28%);
@@ -11,6 +12,7 @@
     --warning-hover: hsl(34, 97%, 58%);
     --error:         hsl(0, 79%, 63%);
     --error-hover:   hsl(0, 100%, 70%);
+    --transparent:   transparent;
 }
 
 
@@ -18,7 +20,8 @@
     padding:       0.5em 1em;
     margin-right:  0.625rem;
     margin-bottom: 0.625rem;
-    font-size:     1.1em;
+    font-size:     0.75em;
+    font-weight:   800;
     border:        none;
     border-radius: var(--border-radius);
     cursor:        pointer;
@@ -35,8 +38,9 @@
 }
 
 .button.button-info {
-    background-color: var(--primary);
-    color:            var(--text-contrast)
+    border:           0.125rem solid var(--primary);
+    background-color: var(--white);
+    color:            var(--primary);
 }
 
 .button.button-info:hover {
@@ -45,8 +49,9 @@
 }
 
 .button.button-success {
-    background-color: var(--success);
-    color:            var(--text-contrast);
+    border:           0.125rem solid var(--success);
+    background-color: var(--white);
+    color:            var(--success);
 }
 
 .button.button-success:hover {
@@ -55,8 +60,9 @@
 }
 
 .button.button-warning {
-    background-color: var(--warning);
-    color:            var(--text-contrast);
+    border:           0.125rem solid var(--warning);
+    background-color: var(--white);
+    color:            var(--warning);
 }
 
 .button.button-warning:hover {
@@ -65,8 +71,9 @@
 }
 
 .button.button-error {
-    background-color: var(--error);
-    color:            var(--text-contrast);
+    border:           0.125rem solid var(--error);
+    background-color: var(--white);
+    color:            var(--error);
 }
 
 .button.button-error:hover {
