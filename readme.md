@@ -3,6 +3,8 @@
 Bachelor Thesis by Alexander Eser & Florian Thiévent.
 
 ## Developer Documentation
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6ef025d1-1f8f-4299-992c-c0b72d136236/deploy-status)](https://app.netlify.com/sites/ip6-web-ui-toolkit-business-components/deploys)
 ### Switch
 https://ip6-web-ui-toolkit-business-components.netlify.app/demo/switch/switch-demo.html
 ### Monolog
