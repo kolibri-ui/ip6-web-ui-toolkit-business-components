@@ -15,12 +15,12 @@ const workingHoursInput = document.getElementById("workingHoursInput");
 const darkThemeSwitch = document.getElementById("dark-theme-switch");
 
 const dayController = DayController();
-const monologList = MonologList();
+const monolog = MonologList();
 
-const whController = WorkingHoursController(dayController, monologList);
+const whController = WorkingHoursController(dayController, monolog);
 const darkTheme = Switch(whController, {id:"checkDarkTheme", labelText: "Dark Theme"});
 
 
 workingHoursInput.append(...projectDay(dayController)); // projector pattern
-document.getElementsByTagName('body')[0].append(monologList.list());
+document.getElementsByTagName('body')[0].append(monolog.list());
 darkThemeSwitch.append(darkTheme);
