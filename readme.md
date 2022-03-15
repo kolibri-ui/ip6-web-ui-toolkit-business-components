@@ -2,27 +2,21 @@
 
 Bachelor Thesis by Alexander Eser & Florian Thiévent.
 
+## Developer Documentation
+### Switch
+https://ip6-web-ui-toolkit-business-components.netlify.app/demo/switch/switch-demo.html
+### Monolog
+https://ip6-web-ui-toolkit-business-components.netlify.app/demo/monolog/monolog-demo.html
 
-## Kolibri
+## Workday UseCase
+Find the Kolibri Workday Example with the Switch and Monolog Component here:
 
-Kolibri is added as a gti submodule. To update Kolibri use 
-```bash
-git submodule update --init --recursive
-git submodule update --recursive
-```
+https://ip6-web-ui-toolkit-business-components.netlify.app/demo/workinghours/workinghours
 
-To pull changes from Kolibri
-```bash
-git submodule update --remote --merge
-```
-If none of them works (why ever) do a direct clone of Kolibri to the src directory
-```bash
-cd src
-git clone https://github.com/WebEngineering-FHNW/Kolibri.git
-```
-
-## Test
+## Tests
 To run the Test, open the allTest.html file
 ```bash
 ./test/allTest.html
 ```
+
+or you can check the Tests on [Netlify](https://ip6-web-ui-toolkit-business-components.netlify.app/test/alltests)

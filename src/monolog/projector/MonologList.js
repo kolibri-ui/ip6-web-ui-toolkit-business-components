@@ -62,7 +62,7 @@ const MonologList = () => {
     const closeAllText = "Close all";
 
     /**
-     * Finally emits the MonologList
+     * Finally emits the StackList
      * @param {Object} options
      * @param {String} options.title
      * @param {String} options.message
@@ -79,7 +79,7 @@ const MonologList = () => {
     }
 
     /**
-     * Displays an info MonologList
+     * Displays an info StackList
      * @param {Object} options
      * @param {String} options.title
      * @param {String} options.message
@@ -94,7 +94,7 @@ const MonologList = () => {
     }
 
     /**
-     * Displays a success MonologList
+     * Displays a success StackList
      * @param {Object} options
      * @param {String} options.title
      * @param {String} options.message
@@ -108,7 +108,7 @@ const MonologList = () => {
     }
 
     /**
-     * Displays a warning MonologList
+     * Displays a warning StackList
      * @param {Object} options
      * @param {String} options.title
      * @param {String} options.message
@@ -121,7 +121,7 @@ const MonologList = () => {
         emit(options);
     }
     /**
-     * Displays an error MonologList
+     * Displays an error StackList
      * @param {Object} options
      * @param {String} options.title
      * @param {String} options.message
@@ -141,7 +141,7 @@ const MonologList = () => {
 
 
     /**
-     * Displays an error MonologList
+     * Displays an error StackList
      * @param {Object} options
      * @param {String} options.title
      * @param {String} options.message
@@ -160,54 +160,56 @@ const MonologList = () => {
                 monologListDiv.appendChild(stackListInfo);
 
                 if (options.sticky) {
-                    stackListInfoNumber.style.display   = 'grid';
-                    stackListInfoCloseAll.style.display = 'grid';
                     options.stack                 = checkStacking(stackListInfo);
                     stackListInfoNumber.innerText = options.stack;
                     if (stackListInfoNumber.innerText > 1) {
+                        stackListInfoNumber.style.display   = 'grid';
+                        stackListInfoCloseAll.style.display = 'grid';
                         stackListInfo.insertBefore(stackListInfoNumber, stackListInfo.firstChild);
                     }
                 }
-
                 break;
+
             case 'success':
                 stackListSuccess.appendChild(notification);
                 monologListDiv.appendChild(stackListSuccess);
 
                 if (options.sticky) {
-                    stackListSuccessNumber.style.display   = 'grid';
-                    stackListSuccessCloseAll.style.display = 'grid';
                     options.stack                    = checkStacking(stackListSuccess);
                     stackListSuccessNumber.innerText = options.stack;
                     if (stackListSuccessNumber.innerText > 1) {
+                        stackListSuccessNumber.style.display   = 'grid';
+                        stackListSuccessCloseAll.style.display = 'grid';
                         stackListSuccess.insertBefore(stackListSuccessNumber, stackListSuccess.firstChild);
                     }
                 }
                 break;
+
             case 'warning':
                 stackListWarning.appendChild(notification);
                 monologListDiv.appendChild(stackListWarning);
 
                 if (options.sticky) {
-                    stackListWarningNumber.style.display   = 'grid';
-                    stackListWarningCloseAll.style.display = 'grid';
                     options.stack                    = checkStacking(stackListWarning);
                     stackListWarningNumber.innerText = options.stack;
                     if (stackListWarningNumber.innerText > 1) {
+                        stackListWarningNumber.style.display   = 'grid';
+                        stackListWarningCloseAll.style.display = 'grid';
                         stackListWarning.insertBefore(stackListWarningNumber, stackListWarning.firstChild);
                     }
                 }
                 break;
+
             case 'error':
                 stackListError.appendChild(notification);
                 monologListDiv.appendChild(stackListError);
 
                 if (options.sticky) {
-                    stackListErrorNumber.style.display   = 'grid';
-                    stackListErrorCloseAll.style.display = 'grid';
                     options.stack                  = checkStacking(stackListError);
                     stackListErrorNumber.innerText = options.stack;
                     if (stackListErrorNumber.innerText > 1) {
+                        stackListErrorNumber.style.display   = 'grid';
+                        stackListErrorCloseAll.style.display = 'grid';
                         stackListError.insertBefore(stackListErrorNumber, stackListError.firstChild);
                     }
                 }
@@ -223,18 +225,18 @@ const MonologList = () => {
 
     /**
      * Stack all Monologues of a certain type
-     * @param {Object} monologList
+     * @param {Object} stackList
      */
-    const checkStacking = (monologList) => {
+    const checkStacking = (stackList) => {
         stackListInfoCloseAll.remove();
         stackListSuccessCloseAll.remove();
         stackListWarningCloseAll.remove();
         stackListErrorCloseAll.remove();
 
-        infoType    = monologList.querySelectorAll('.monolog.info');
-        successType = monologList.querySelectorAll('.monolog.success');
-        warningType = monologList.querySelectorAll('.monolog.warning');
-        errorType   = monologList.querySelectorAll('.monolog.code-error, .monolog.error');
+        infoType    = stackList.querySelectorAll('.monolog.info');
+        successType = stackList.querySelectorAll('.monolog.success');
+        warningType = stackList.querySelectorAll('.monolog.warning');
+        errorType   = stackList.querySelectorAll('.monolog.code-error, .monolog.error');
 
         if (infoType.length >= 1) {
             stacking(infoType);
@@ -253,19 +255,16 @@ const MonologList = () => {
     }
 
     const stacking = list => {
-
         list.forEach((e, idx) => {
             list[0].style.zIndex    = '100';
             list[0].style.marginTop = `0`;
             list[0].style.opacity   = '100%';
 
             if (idx > 0) {
-                e.style.zIndex = `${100 - idx}`;
-                e.style.marginTop = `-60px`;
+                e.style.zIndex    = `${100 - idx}`;
+                e.style.marginTop = `-3.75em`;
             }
-            //list[idx].style.zIndex
         });
-
     }
 
     stackListInfoNumber.onmouseover = () => {
