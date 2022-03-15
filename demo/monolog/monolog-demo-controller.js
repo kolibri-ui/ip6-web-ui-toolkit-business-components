@@ -4,8 +4,7 @@ export {MonologDemoController}
 
 const MonologDemoController = () => {
 
-    const Monolog = () => {
-    }
+    const Monolog = () => {}
     const monologModel = ObservableList([]);
 
     const addView = () => {

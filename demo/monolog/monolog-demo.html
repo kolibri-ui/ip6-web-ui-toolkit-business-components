@@ -11,12 +11,40 @@
 <div class="container">
     <h1>Monolog</h1>
     <p class="demo-text">
-        A Monolog displays Information to a user in a quick and easy fashion. It can be Non-Sticky or Sticky. Besides
+        A Monolog displays Information to a user in a quick and easy fashion. It can be non-sticky or sticky. Besides
         this, it is also possible to display an extended Monolog with additional information about an error happend in
-        the code. This is called a code error Monolog. Try the different Monologs by pushing the buttons below.
+        the code. This is called a code-error Monolog. Try the different Monologs by pushing the buttons below.
     </p>
     <br/>
     <div id="monolog-demo-app-container"></div>
+    <h2>Examples</h2>
+    <p class="demo-text">
+        To use the Monolog Component first create a Controller for the Monolog.
+        <div class="code demo-code mt-10 mb-10">
+            <pre>
+
+               const MonologDemoController = () => {
+
+                const Monolog = () => {}
+                const monologModel = ObservableList([]);
+
+                const addView = () => {
+                    const newMonolog = Monolog();
+                    monologModel.add(newMonolog);
+                    return newMonolog;
+                }
+
+                return {
+                    onMonologAdd: monologModel.onAdd,
+                    addMonolog: addView
+                }
+            }
+
+            </pre>
+        </div>
+
+
+    </p>
 </div>
 
 <script src="monolog-demo-app.js" type="module"></script>
