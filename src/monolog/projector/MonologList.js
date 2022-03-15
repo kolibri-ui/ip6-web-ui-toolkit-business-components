@@ -160,11 +160,11 @@ const MonologList = () => {
                 monologListDiv.appendChild(stackListInfo);
 
                 if (options.sticky) {
-                    stackListInfoNumber.style.display   = 'grid';
-                    stackListInfoCloseAll.style.display = 'grid';
                     options.stack                 = checkStacking(stackListInfo);
                     stackListInfoNumber.innerText = options.stack;
                     if (stackListInfoNumber.innerText > 1) {
+                        stackListInfoNumber.style.display   = 'grid';
+                        stackListInfoCloseAll.style.display = 'grid';
                         stackListInfo.insertBefore(stackListInfoNumber, stackListInfo.firstChild);
                     }
                 }
@@ -175,11 +175,11 @@ const MonologList = () => {
                 monologListDiv.appendChild(stackListSuccess);
 
                 if (options.sticky) {
-                    stackListSuccessNumber.style.display   = 'grid';
-                    stackListSuccessCloseAll.style.display = 'grid';
                     options.stack                    = checkStacking(stackListSuccess);
                     stackListSuccessNumber.innerText = options.stack;
                     if (stackListSuccessNumber.innerText > 1) {
+                        stackListSuccessNumber.style.display   = 'grid';
+                        stackListSuccessCloseAll.style.display = 'grid';
                         stackListSuccess.insertBefore(stackListSuccessNumber, stackListSuccess.firstChild);
                     }
                 }
@@ -190,11 +190,11 @@ const MonologList = () => {
                 monologListDiv.appendChild(stackListWarning);
 
                 if (options.sticky) {
-                    stackListWarningNumber.style.display   = 'grid';
-                    stackListWarningCloseAll.style.display = 'grid';
                     options.stack                    = checkStacking(stackListWarning);
                     stackListWarningNumber.innerText = options.stack;
                     if (stackListWarningNumber.innerText > 1) {
+                        stackListWarningNumber.style.display   = 'grid';
+                        stackListWarningCloseAll.style.display = 'grid';
                         stackListWarning.insertBefore(stackListWarningNumber, stackListWarning.firstChild);
                     }
                 }
@@ -205,11 +205,11 @@ const MonologList = () => {
                 monologListDiv.appendChild(stackListError);
 
                 if (options.sticky) {
-                    stackListErrorNumber.style.display   = 'grid';
-                    stackListErrorCloseAll.style.display = 'grid';
                     options.stack                  = checkStacking(stackListError);
                     stackListErrorNumber.innerText = options.stack;
                     if (stackListErrorNumber.innerText > 1) {
+                        stackListErrorNumber.style.display   = 'grid';
+                        stackListErrorCloseAll.style.display = 'grid';
                         stackListError.insertBefore(stackListErrorNumber, stackListError.firstChild);
                     }
                 }
