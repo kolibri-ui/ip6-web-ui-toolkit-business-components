@@ -67,8 +67,6 @@ const MonologList = () => {
      * @param {String} options.title
      * @param {String} options.message
      * @param {String} options.type
-     * @param {String} [options.stack]
-     * @param {Boolean} [options.sticky]
      * @param {Boolean} [options.attention]
      * @param {String} [options.codeError]
      * @param options
@@ -86,7 +84,6 @@ const MonologList = () => {
      * @param {String} options.title
      * @param {String} options.message
      * @param {String} [options.type]
-     * @param {String} [options.stack]
      * @param {Boolean} [options.sticky]
      * @param options
      */
@@ -101,7 +98,6 @@ const MonologList = () => {
      * @param {String} options.title
      * @param {String} options.message
      * @param {String} [options.type]
-     * @param {String} [options.stack]
      * @param {Boolean} [options.sticky]
      */
     const success = options => {
@@ -115,7 +111,6 @@ const MonologList = () => {
      * @param {String} options.title
      * @param {String} options.message
      * @param {String} [options.type]
-     * @param {String} [options.stack]
      * @param {Boolean} [options.sticky]
      */
     const warning = options => {
@@ -128,7 +123,6 @@ const MonologList = () => {
      * @param {String} options.title
      * @param {String} options.message
      * @param {String} [options.type]
-     * @param {String} [options.stack]
      * @param {Boolean} [options.sticky]
      * @param {Boolean} [options.attention]
      * @param {String} [options.codeError]
@@ -148,7 +142,6 @@ const MonologList = () => {
      * @param {String} options.title
      * @param {String} options.message
      * @param {String} [options.type]
-     * @param {String} [options.stack]
      * @param {Boolean} [options.sticky]
      * @param {Boolean} [options.attention]
      * @param {String} [options.codeError]

@@ -9,7 +9,6 @@ export {Monolog}
  * @param {String} options.title
  * @param {String} options.message
  * @param {String} options.type
- * @param {String} [options.stack]
  * @param {Boolean} [options.sticky]
  * @param {Boolean} [options.attention]
  * @param {String} [options.codeError]
