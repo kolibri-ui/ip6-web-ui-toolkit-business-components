@@ -1,35 +1,27 @@
 :root {
     --text:                       hsla(0, 0%, 20%, 1.0);
     --input-hover:                hsla(0, 0%, 74%, 1.0);
-    --shadow-contrast:            hsla(0, 0%, 88%, 1.0);
     --text-contrast:              hsla(0, 0%, 95%, 1.0);
     --background:                 hsla(0, 0%, 99%, 1.0);
 
     --primary:                    hsla(223, 79%, 45%, 1.0);
-    --primary-background:         hsla(223, 79%, 45%, 0.3);
-    --primary-opac:               hsla(223, 79%, 45%, 0.1);
     --primary-hover:              hsla(233, 79%, 56%, 1.0);
 
+    --success:                    hsla(104, 89%, 28%, 1.0);
     --success-hover:              hsla(103, 87%, 32%, 1.0);
-    --success-background:         hsla(104, 89%, 28%, 0.3);
-
-    --error:                      hsla(0, 79%, 63%, 1.0);
-    --error-hover:                hsla(0, 100%, 70%, 1.0);
-    --error-background:           hsla(0, 79%, 63%, 0.3);
-    --error-monolog-background:   hsla(0, 79%, 93%, 1.0);
 
     --warning:                    hsla(36, 100%, 48%, 1.0);
     --warning-hover:              hsla(34, 97%, 58%, 1.0);
-    --warning-background:         hsla(36, 100%, 48%, 0.3);
-    --warning-monolog-background: hsla(36, 100%, 88%, 1.0);
+    --warning-background:         hsla(36, 100%, 88%, 1.0);
 
+    --error:                      hsla(0, 79%, 63%, 1.0);
+    --error-hover:                hsla(0, 100%, 70%, 1.0);
+    --error-background:           hsla(0, 79%, 93%, 1.0);
 
     --default:                    hsla(0, 0%, 62%, 1.0);
     --default-hover:              hsla(0, 0%, 79%, 1.0);
-    --default-background:         hsla(0, 0%, 62%, 0.3);
-    --success:                    hsla(104, 89%, 28%, 1.0);
-    --border-radius:              0.3125rem;
 
+    --border-radius:              0.3125rem;
 
 }
 
@@ -39,9 +31,6 @@ body {
 
 .monolog-list {
     display: grid;
-  /*  grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(100px, auto);*/
-
     position: fixed;
     width:    25rem;
 }
@@ -54,23 +43,9 @@ body {
     right: 0.625rem;
 }
 
-/*.stack-list-info {
-    !*grid-column: 1 / 4;*!
-    grid-row-start: 1;
-}
-
-.stack-list-success {
-    !*grid-column: 1 / 4;*!
-    grid-row-start: 2;
-}*/
-
 .close-all-stack, .info-number, .success-number, .warning-number, .error-number{
     display: none;
 }
-
-/*.monolog.info:first-child{
-    display: none !important;
-}*/
 
 .stack-number {
     border-radius: 50%;
@@ -84,8 +59,8 @@ body {
     left:          -0.625em;
     top:           -0.625em;
     font-family:   var(--font-serif-bold);
-    margin-bottom: -10px;
-    margin-left:   -20px;
+    margin-bottom: -0.625em;
+    margin-left:   -1.25em;
 }
 
 .info-number {
@@ -119,8 +94,8 @@ body {
     text-align:    center;
     padding:       0.3125em;
     cursor:        pointer;
-    margin-bottom: -10px;
-    margin-left:    -20px;
+    margin-bottom: -0.625em;
+    margin-left:   -1.25em;
 }
 
 
@@ -137,11 +112,6 @@ body {
     margin-bottom:  0.5rem;
     animation:      fadeIn 1s;
 }
-
-/*.stack-number ~ .monolog {
-margin-top: 0 ;
-
-}*/
 
 .monolog.info {
     border-color:     var(--primary);
@@ -160,14 +130,14 @@ margin-top: 0 ;
 .monolog.warning {
     border-color:     var(--warning);
     color:            var(--text);
-    background-color: var(--warning-monolog-background);
+    background-color: var(--warning-background);
     box-shadow:       0 0 0.25rem 0 var(--warning);
 }
 
 .monolog.error, .code-error {
     border-color:     var(--error);
     color:            var(--text);
-    background-color: var(--error-monolog-background);
+    background-color: var(--error-background);
     box-shadow:       0 0 0.25rem 0 var(--error);
 }
 

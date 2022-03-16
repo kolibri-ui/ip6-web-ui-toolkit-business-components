@@ -15,7 +15,8 @@ const options = {
     codeError: undefined
 }
 
-/*** MonologList Tests ***/
+/*** MonologList.js Tests ***/
+
 testSuite.add("monolog-check-list-creation", assert => {
     const monologList = monologListElement.list();
     assert.isTrue(monologList !== undefined);
@@ -52,32 +53,36 @@ testSuite.add("stack-list-info-test", assert => {
     assert.isTrue(stackListInfoCounter.innerText === '3');
 });
 
-/*** Stack 2 success monologues and check if they are placed in the correct stackList ***/
+/*** Stack 2 success monologues and check if the closeAllButton removes all of them ***/
 testSuite.add("stack-list-success-test", assert => {
     const monologList = monologListElement.list();
 
     monologListElement.success(options);
     monologListElement.success(options);
 
-    const monologSuccessElements = monologList.querySelectorAll(".monolog.success");
-    assert.isTrue(monologSuccessElements.length === 2);
+    const successElements = monologList.querySelectorAll(".monolog.success");
+    assert.isTrue(successElements.length === 2);
 
-    const stackListInfo = monologSuccessElements[0].parentElement;
-    assert.isTrue(stackListInfo.classList.contains("stack-list-success"));
+    const stackListSuccess = successElements[0].parentElement;
+    assert.isTrue(stackListSuccess.classList.contains("stack-list-success"));
+
+    stackListSuccess.children[1].click();
+
+    const removedSuccessElements = monologList.querySelectorAll(".monolog.success");
+    assert.isTrue(removedSuccessElements.length === 0);
 
 });
 
+/*** MonologList.js Tests End ***/
 
-/*** MonologList Tests End ***/
 
+/*** Monolog.js Tests ***/
 
-/*** Monolog Tests ***/
 testSuite.add("notification-info-test", assert => {
     options.type   = 'info';
     options.sticky = true;
 
     const monolog = Monolog(options);
-    // monolog.querySelector('.monolog-info');
     assert.isTrue(monolog.classList.contains("info"));
 });
 
@@ -86,7 +91,6 @@ testSuite.add("notification-success-test", assert => {
     options.sticky = true;
 
     const notification = Monolog(options);
-    //  notification.querySelector('.monolog-success');
     assert.isTrue(notification.classList.contains("success"));
 });
 
@@ -95,7 +99,6 @@ testSuite.add("notification-warning-test", assert => {
     options.sticky = true;
 
     const notification = Monolog(options);
-    // notification.querySelector('.monolog-info');
     assert.isTrue(notification.classList.contains("warning"));
 });
 
@@ -104,7 +107,6 @@ testSuite.add("notification-error-test", assert => {
     options.sticky = true;
 
     const notification = Monolog(options);
-    // notification.querySelector('.monolog-info');
     assert.isTrue(notification.classList.contains("error"));
 });
 
@@ -113,10 +115,22 @@ testSuite.add("notification-code-error-test", assert => {
     options.sticky = true;
 
     const notification = Monolog(options);
-    // notification.querySelector('.monolog-info');
     assert.isTrue(notification.classList.contains("code-error"));
 });
 
-/*** Monolog Tests End ***/
+testSuite.add("close-info-monolog-test", assert => {
+    options.type   = 'info';
+    options.sticky = true;
+
+    const monolog      = Monolog(options);
+    const monologClose = monolog.children[1];
+    monologClose.click();
+
+    assert.isTrue(monolog.classList.contains("out"));
+
+});
+
+/*** Monolog.js Tests End ***/
+
 
 testSuite.run();
