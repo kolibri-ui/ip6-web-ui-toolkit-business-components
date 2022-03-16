@@ -12,11 +12,11 @@
 
     --warning:                    hsla(36, 100%, 48%, 1.0);
     --warning-hover:              hsla(34, 97%, 58%, 1.0);
-    --warning-monolog-background: hsla(36, 100%, 88%, 1.0);
+    --warning-background:         hsla(36, 100%, 88%, 1.0);
 
     --error:                      hsla(0, 79%, 63%, 1.0);
     --error-hover:                hsla(0, 100%, 70%, 1.0);
-    --error-monolog-background:   hsla(0, 79%, 93%, 1.0);
+    --error-background:           hsla(0, 79%, 93%, 1.0);
 
     --default:                    hsla(0, 0%, 62%, 1.0);
     --default-hover:              hsla(0, 0%, 79%, 1.0);
@@ -130,14 +130,14 @@ body {
 .monolog.warning {
     border-color:     var(--warning);
     color:            var(--text);
-    background-color: var(--warning-monolog-background);
+    background-color: var(--warning-background);
     box-shadow:       0 0 0.25rem 0 var(--warning);
 }
 
 .monolog.error, .code-error {
     border-color:     var(--error);
     color:            var(--text);
-    background-color: var(--error-monolog-background);
+    background-color: var(--error-background);
     box-shadow:       0 0 0.25rem 0 var(--error);
 }
 
