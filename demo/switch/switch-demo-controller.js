@@ -1,17 +1,17 @@
-import {ObservableList} from "../../src/Kolibri/docs/src/kolibri/observable.js";
-import {Attribute, VALUE} from "../../src/Kolibri/docs/src/kolibri/presentationModel.js";
+import { ObservableList } from "../../src/Kolibri/docs/src/kolibri/observable.js";
+import { Attribute, VALUE } from "../../src/Kolibri/docs/src/kolibri/presentationModel.js";
 
-export {SwitchDemoController}
+export { SwitchDemoController }
 
 const SwitchDemoController = () => {
 
     const SwitchModel = () => {
-        const darkModeAttr          = Attribute(false);
-        const threeState            = Attribute(null);
+        const darkModeAttr = Attribute(false);
+        const threeState   = Attribute(null);
 
         return {
-            isDark          : darkModeAttr          .getObs(VALUE),
-            ThreeState      : threeState            .getObs(VALUE)
+            isDark    : darkModeAttr.getObs(VALUE),
+            ThreeState: threeState.getObs(VALUE)
         }
     }
 
@@ -26,7 +26,7 @@ const SwitchDemoController = () => {
 
     return {
         onSwitchAdd: switchModel.onAdd,
-        addSwitch: addSwitch,
+        addSwitch  : addSwitch,
     }
 }
 

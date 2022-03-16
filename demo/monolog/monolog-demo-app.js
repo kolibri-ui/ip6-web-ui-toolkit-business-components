@@ -1,17 +1,16 @@
-import {MonologDemoController} from "./monolog-demo-controller.js";
-import {DemoView} from "./monolog-demo-view.js";
+import { MonologDemoController } from "./monolog-demo-controller.js";
 import { monologButtonDemoProjector } from "./monolog-button-demo-projector.js";
 
 
-const controller = MonologDemoController();
+const controller  = MonologDemoController();
 const rootElement = document.getElementById('monolog-demo-app-container');
 
-//DemoView(controller, rootElement);
+
 controller.addMonolog();
 
 
-
-const {   infoStickyButton,
+const {
+          infoStickyButton,
           successStickyButton,
           warningStickyButton,
           errorStickyButton,
@@ -20,7 +19,8 @@ const {   infoStickyButton,
           infoButton,
           successButton,
           warningButton,
-          errorButton} = monologButtonDemoProjector(controller, rootElement);
+          errorButton
+      } = monologButtonDemoProjector(controller, rootElement);
 
 document.getElementById("infoStickyButton").appendChild(infoStickyButton);
 document.getElementById("successStickyButton").appendChild(successStickyButton);

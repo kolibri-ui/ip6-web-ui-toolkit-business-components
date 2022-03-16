@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Workday</title>
-    <link rel="shortcut icon" type="image/png"  href="../../src/Kolibri/docs/img/logo/logo-60x54.png"/>
-    <link rel="stylesheet"                      href="../../src/Kolibri/docs/src/examples/WorkingHours.css" />
-    <link rel="stylesheet"                      href="../../src/monolog/css/monolog.css"/>
-    <link rel="stylesheet"                      href="../../src/switch/css/switch.css"/>
+    <link rel="shortcut icon" type="image/png" href="../../src/Kolibri/docs/img/logo/logo-60x54.png"/>
+    <link rel="stylesheet" href="../../src/Kolibri/docs/src/examples/WorkingHours.css"/>
+    <link rel="stylesheet" href="../../src/monolog/css/monolog.css"/>
+    <link rel="stylesheet" href="../../src/switch/css/switch.css"/>
     <style>
-        .switch-label{
-            display: inline-block;
-            height: 39px;
+        .switch-label {
+            display:     inline-block;
+            height:      39px;
             line-height: 19px;
-            position: relative;
-            top: 10px;
+            position:    relative;
+            top:         10px;
         }
     </style>
 </head>
@@ -55,7 +55,7 @@
     </p>
     <p>
         Kolibri allows us to keep two things totally separate: what to display and how to display.
-        The "what" part  with model and business rules is in the
+        The "what" part with model and business rules is in the
         <a href="https://github.com/WebEngineering-FHNW/Kolibri/tree/main/docs/src/examples/workday/dayController.js"
         >dayController</a>. The "how" part with view and binding
         is in the
@@ -75,14 +75,22 @@
 
     <h2>Business Rules</h2>
     <div class="rules">
-        <div>Time values between 0:00 and 24:00, are required, cannot be empty.</div> <div>otherwise invalid</div>
-        <div>AM Start &lt; = AM End.</div>                    <div>automatically enforced</div>
-        <div>AM End &lt; = PM Start.</div>                    <div>automatically enforced</div>
-        <div>PM Start &lt; = PM End.</div>                    <div>automatically enforced</div>
-        <div>Start not earlier than 4:00. </div>              <div>otherwise invalid</div>
-        <div>End not later than 22:00. </div>                 <div>otherwise invalid</div>
-        <div>Lunch break must be at least 40 minutes.</div>   <div>automatically enforced</div>
-        <div>Total time must not exceed 12 hours. </div>      <div>otherwise invalid</div>
+        <div>Time values between 0:00 and 24:00, are required, cannot be empty.</div>
+        <div>otherwise invalid</div>
+        <div>AM Start &lt; = AM End.</div>
+        <div>automatically enforced</div>
+        <div>AM End &lt; = PM Start.</div>
+        <div>automatically enforced</div>
+        <div>PM Start &lt; = PM End.</div>
+        <div>automatically enforced</div>
+        <div>Start not earlier than 4:00.</div>
+        <div>otherwise invalid</div>
+        <div>End not later than 22:00.</div>
+        <div>otherwise invalid</div>
+        <div>Lunch break must be at least 40 minutes.</div>
+        <div>automatically enforced</div>
+        <div>Total time must not exceed 12 hours.</div>
+        <div>otherwise invalid</div>
     </div>
 
 
@@ -113,21 +121,22 @@
         const checkReadOnly   = document.getElementById("checkReadOnly");
         const checkRequired   = document.getElementById("checkRequired");
         checkDisabled.onclick = _ => checkDisabled.checked
-                                     ? workingHoursInput.setAttribute("disabled", "on")                  // one can disable a fieldset
-                                     : workingHoursInput.removeAttribute("disabled");
+            ? workingHoursInput.setAttribute("disabled", "on")                  // one can disable a fieldset
+            : workingHoursInput.removeAttribute("disabled");
 
-        const inputs = () => workingHoursInput.querySelectorAll("input");
+        const inputs          = () => workingHoursInput.querySelectorAll("input");
         checkReadOnly.onclick = _ => checkReadOnly.checked
-                                     ? inputs().forEach(input => input.setAttribute("readonly", true))     // only inputs can be set to readonly
-                                     : inputs().forEach(input => input.removeAttribute("readonly"));
+            ? inputs().forEach(input => input.setAttribute("readonly", true))     // only inputs can be set to readonly
+            : inputs().forEach(input => input.removeAttribute("readonly"));
 
         checkRequired.onclick = _ => checkRequired.checked
-                                     ? inputs().forEach(input => input.setAttribute("required", true))
-                                     : inputs().forEach(input => input.removeAttribute("required"));
+            ? inputs().forEach(input => input.setAttribute("required", true))
+            : inputs().forEach(input => input.removeAttribute("required"));
 
 
     </script>
     <script type="module" src="./starter.js"></script>
 
-</main></body>
+</main>
+</body>
 </html>

@@ -1,15 +1,15 @@
-import {Observable} from "../../src/Kolibri/docs/src/kolibri/observable.js";
+import { Observable } from "../../src/Kolibri/docs/src/kolibri/observable.js";
 
-export {WorkingHoursController}
+export { WorkingHoursController }
 
 const WorkingHoursController = (dayController, monolog) => {
 
 
     const {amStartCtrl, amEndCtrl, pmStartCtrl, pmEndCtrl} = dayController;
-    const hourCtrls = [amStartCtrl, amEndCtrl, pmStartCtrl, pmEndCtrl];
+    const hourCtrls                                        = [amStartCtrl, amEndCtrl, pmStartCtrl, pmEndCtrl];
 
     const formValid = Observable(false);
-    const dark = Observable(false);
+    const dark      = Observable(false);
 
     window.onload = () => {
 

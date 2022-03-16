@@ -1,22 +1,22 @@
-import {Switch} from "../../src/switch/projector/Switch.js";
+import { Switch } from "../../src/switch/projector/Switch.js";
 
-export {DemoSwitch}
+export { DemoSwitch }
 
 
 const DemoSwitch = (observable,
-                    isSlim = false,
+                    isSlim       = false,
                     defaultState = null,
                     isThreeState = false,
-                    required = false,
-                    hover = false,
-                    readOnly = false,
-                    disabled = false) => {
+                    required     = false,
+                    hover        = false,
+                    readOnly     = false,
+                    disabled     = false) => {
 
 
     const options = {
-        state: defaultState,
+        state     : defaultState,
         threeState: isThreeState,
-        slim: isSlim
+        slim      : isSlim
     }
 
     let demoSwitch = Switch(observable, options);
@@ -47,12 +47,12 @@ const DemoSwitch = (observable,
         }
     }
 
-    if(readOnly) {
+    if (readOnly) {
         demoSwitch.classList.add('read-only');
         checkboxElement.readOnly = true;
     }
 
-    if(disabled){
+    if (disabled) {
         checkboxElement.disabled = true;
         demoSwitch.classList.add('disabled');
     }

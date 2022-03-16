@@ -1,10 +1,11 @@
-import {ObservableList} from "../../src/Kolibri/docs/src/kolibri/observable.js";
+import { ObservableList } from "../../src/Kolibri/docs/src/kolibri/observable.js";
 
-export {MonologDemoController}
+export { MonologDemoController }
 
 const MonologDemoController = () => {
 
-    const Monolog = () => {}
+    const Monolog      = () => {
+    }
     const monologModel = ObservableList([]);
 
     const addView = () => {
@@ -15,6 +16,6 @@ const MonologDemoController = () => {
 
     return {
         onMonologAdd: monologModel.onAdd,
-        addMonolog: addView
+        addMonolog  : addView
     }
 }

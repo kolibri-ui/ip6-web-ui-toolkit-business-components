@@ -1,4 +1,4 @@
-export {HrElement}
+export { HrElement }
 
 /**
  * Create a hr Element

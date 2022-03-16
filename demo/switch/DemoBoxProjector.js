@@ -1,4 +1,4 @@
-export {DemoBoxProjector}
+export { DemoBoxProjector }
 
 const DemoBoxProjector = (switchName, elementCode, ...element) => {
     const switchBoxDivElement = document.createElement('div');
