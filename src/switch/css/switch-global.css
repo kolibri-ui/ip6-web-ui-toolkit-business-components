@@ -70,12 +70,11 @@
     /*** SLIM SWITCH ***/
 
     /*** COLORS ***/
-    --slim-default-border-color:                      hsl(0, 10%, 37%);
-    --slim-background-disabled-color:                 hsl(0, 0%, 94%);
+    --slim-main-accent-color:                         hsl(223, 79%, 45%);
+    --slim-border-color:                              hsl(0, 10%, 37%);
     --slim-background-color:                          hsl(0, 0%, 99%);
-    --slim-border-disabled-color:                     hsl(0, 5%, 70%);
-    --slim-off-disabled-color:                        hsl(0, 0%, 87%);
-    --slim-thumb-main-color:                          hsl(223, 79%, 45%);
+    --slim-background-disabled-readonly-color:        hsl(0, 0%, 94%);
+    --slim-border-disabled-readonly-color:            hsl(0, 5%, 70%);
     --slim-arrow-color:                               hsl(223, 10%, 37%);
 
     /*** SIZES / DIMENSIONS ***/
