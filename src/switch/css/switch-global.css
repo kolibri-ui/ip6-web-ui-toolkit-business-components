@@ -4,17 +4,22 @@
 
     /*** COLORS ***/
     --switch-background-color:                         hsl(  0,  0%, 74%);
-    --switch-disabled-color:                           hsl(  0,  0%, 46%);
-    --switch-icon-color:                               hsl(240, 37%, 12%);
-    --switch-thumb-color:                              hsl(223, 79%, 45%);
-    --switch-thumb-background-color:                  hsla(223, 79%, 45%, 0.4);
     --switch-error-color:                              hsl(322, 73%, 52%);
 
-    --neumorph-white-color:                            hsl(0, 0%, 99%);
-    --neumorph-thumb-grey-color:                       hsl(0, 0%, 58%);
-    --neumorph-background-grey-color:                  hsl(0, 1%, 66%);
-    --neumorph-thumb-readonly-grey-color:              hsl(0, 1%, 75%);
-    --neumorph-thumb-disabled-grey-color:              hsl(0, 0%, 85%);
+    --neumorph-on-color:                               hsl(223, 79%, 45%);
+    --neumorph-off-color:                              hsl(0, 0%, 74%);
+    --neumorph-indet-gradient-color:                   linear-gradient(270deg,
+                                                       var(--neumorph-on-color) 50.15%,
+                                                       var(--neumorph-off-color) 50.16%);
+
+    --neumorph-thumb-white-color:                      hsl(0, 0%, 99%);
+    --neumorph-thumb-shadow-color:                     hsl(0, 0%, 58%);
+    --neumorph-hover-focus-shadow-color:               hsl(0, 1%, 66%);
+
+    --neumorph-thumb-readonly-shadow-color:            hsl(0, 1%, 75%);
+    --neumorph-thumb-disabled-shadow-color:            hsl(0, 0%, 85%);
+
+    --neumorph-thumb-indet-color:                      hsl(240, 37%, 12%);
 
     --neumorph-thumb-indet-disabled-color:             hsl(227, 16%, 66%);
     --neumorph-thumb-indet-readonly-color:             hsl(240, 17%, 37%);
@@ -22,41 +27,36 @@
     --neumorph-thumb-invalid-darkpink-color:           hsl(322, 84%, 30%);
     --neumorph-thumb-invalid-lightpink-color:          hsl(322, 100%, 68%);
 
-    --neumorph-on-color:                               hsl(223, 79%, 45%);
-    --neumorph-off-color:                              hsl(0, 0%, 74%);
-    --neumorph-indeterminate-gradient-color:           linear-gradient(270deg,
-                                                       var(--neumorph-on-color) 50.15%,
-                                                       var(--neumorph-off-color) 50.16%);
 
     --neumorph-thumb-disabled-color:                   hsl(  0,  0%, 96%);
     --neumorph-on-disabled-color:                      hsl(223, 57%, 75%);
     --neumorph-off-disabled-color:                     hsl(  0,  0%, 87%);
-    --neumorph-indeterminate-disabled-gradient-color:  linear-gradient(270deg,
+    --neumorph-indet-disabled-gradient-color:          linear-gradient(270deg,
                                                        var(--neumorph-on-disabled-color) 50.15%,
                                                        var(--neumorph-off-disabled-color) 50.16%);
 
     /*** SHADOW EFFECTS ***/
-    --neumorph-thumb-shadow:                          0.0625em 0.125em 0.1875em 0 var(--neumorph-thumb-grey-color)          inset;
-    --neumorph-thumb-shadow-disabled:                 0.0625em 0.125em 0.1875em 0 var(--neumorph-thumb-disabled-grey-color) inset;
-    --neumorph-thumb-shadow-readonly:                 0.0625em 0.125em 0.1875em 0 var(--neumorph-thumb-readonly-grey-color) inset;
+    --neumorph-thumb-shadow:                          0.0625em 0.125em 0.1875em 0 var(--neumorph-thumb-shadow-color)          inset;
+    --neumorph-thumb-shadow-disabled:                 0.0625em 0.125em 0.1875em 0 var(--neumorph-thumb-disabled-shadow-color) inset;
+    --neumorph-thumb-shadow-readonly:                 0.0625em 0.125em 0.1875em 0 var(--neumorph-thumb-readonly-shadow-color) inset;
 
-    --neumorph-thumb-shadow-indet:                     0.1875em  0.0625em 0.625em var(--switch-icon-color),
-                                                      -0.1875em -0.0625em 0.625em var(--neumorph-white-color);
+    --neumorph-thumb-shadow-indet:                     0.1875em  0.0625em 0.625em var(--neumorph-thumb-indet-color),
+                                                      -0.1875em -0.0625em 0.625em var(--neumorph-thumb-white-color);
 
     --neumorph-thumb-shadow-indet-disabled:            0.1875em  0.0625em 0.625em var(--neumorph-thumb-indet-disabled-color),
-                                                      -0.1875em -0.0625em 0.625em var(--neumorph-white-color);
+                                                      -0.1875em -0.0625em 0.625em var(--neumorph-thumb-white-color);
 
     --neumorph-thumb-shadow-indet-readonly:            0.1875em  0.0625em 0.625em var(--neumorph-thumb-indet-readonly-color),
-                                                      -0.1875em -0.0625em 0.625em var(--neumorph-white-color);
+                                                      -0.1875em -0.0625em 0.625em var(--neumorph-thumb-white-color);
 
 
     --neumorph-thumb-shadow-invalid:                   0.1875em  0.0625em 0.625em 0 var(--neumorph-thumb-invalid-darkpink-color),
                                                       -0.1875em -0.0625em 0.625em 0 var(--neumorph-thumb-invalid-lightpink-color);
 
 
-    --neumorph-hover-effect:                           0.125em   0.1875em  0.3125em 0 var(--neumorph-background-grey-color),
+    --neumorph-hover-effect:                           0.125em   0.1875em  0.3125em 0 var(--neumorph-hover-focus-shadow-color),
                                                       -0.0625em -0.1875em  0.375em  0 rgba(234, 234, 240, 1);
-    --neumorph-focus-effect:                           0.25em    0.3125em  0.5em    0 var(--neumorph-background-grey-color),
+    --neumorph-focus-effect:                           0.25em    0.3125em  0.5em    0 var(--neumorph-hover-focus-shadow-color),
                                                       -0.1875em -0.3125em  0.5em    0 rgba(234, 234, 240, 1);
 
     /*** SIZES / DIMENSIONS ***/
@@ -71,7 +71,7 @@
     --slim-icon-size:                                 1.5em;
     --slim-width:                                     5.25em;
     --slim-height:                                    2.375em;
-    --slim-indeterminate:                             var(--background);
+    --slim-indet:                                     var(--background);
     --slim-default-border:                            hsl(0, 10%, 37%);
     --slim-background-disabled:                       hsl(0, 0%, 94%);
     --slim-background:                                hsl(0, 0%, 99%);
@@ -115,7 +115,7 @@
     left:             0.25em;
     bottom:           0.25em;
     border-radius:    50%;
-    background-color: var(--neumorph-white-color);
+    background-color: var(--neumorph-thumb-white-color);
     transition:       .2s;
 }
 
@@ -171,7 +171,7 @@
 States
  */
 .indeterminate {
-    background: var(--neumorph-indeterminate-gradient-color);
+    background: var(--neumorph-indet-gradient-color);
 }
 
 .on {
@@ -191,7 +191,7 @@ States
 }
 
 .disabled > .indeterminate {
-    background: var(--neumorph-indeterminate-disabled-gradient-color);
+    background: var(--neumorph-indet-disabled-gradient-color);
 }
 
 .read-only > .thumb {
@@ -207,7 +207,7 @@ States
 }
 
 .read-only > .indeterminate {
-    background: var(--neumorph-indeterminate-disabled-gradient-color);
+    background: var(--neumorph-indet-disabled-gradient-color);
 }
 
 .disabled {
@@ -238,7 +238,7 @@ States
     top:           37%;
     width:         0.625em;
     height:        0.625em;
-    border:        solid var(--neumorph-white-color);
+    border:        solid var(--neumorph-thumb-white-color);
     opacity:       90%;
     border-width:  0 0.0625em 0.0625em 0;
     border-radius: 0.0625em;

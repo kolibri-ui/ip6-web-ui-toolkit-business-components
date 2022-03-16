@@ -82,7 +82,7 @@
 /** States ***/
 
 .indeterminate.switch-slim {
-    background: var(--slim-indeterminate);
+    background: var(--slim-indet);
 }
 
 
