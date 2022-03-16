@@ -66,13 +66,21 @@
             </li>
         </ul>
     </div>
+
+    You can then emit the monolog ( here info as example) by calling one of the functions you got as a return value from
+    the initialisation of the MonologList Component.
+    <pre class="code demo-code mt-10 mb-10">
+monolog.info({
+    title  : "Some Info",
+    message: "And some Text"
+});</pre>
+    <br/>
     <hr/>
 
     <h2>Monolog Types Examples</h2>
 
-    <h4>Info</h4>
+    <h3>Info</h3>
     <p class="demo-text">
-        A
     </p>
     <div class="demo-monolog">
         <div class="monolog info" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
@@ -92,9 +100,24 @@
             </div>
         </div>
         <div id="infoButton"></div>
+        <div class="gridspan">
+            <h4>sticky</h4>
+            <pre class="code demo-code mt-10 mb-10">
+monolog.info({
+    title : "Some Info",
+    message: "Just a Text.",
+    sticky : true,
+});</pre>
+            <h4>non-sticky</h4>
+            <pre class="code demo-code mt-10 mb-10">
+monolog.info({
+    title : "Some Info",
+    message: "And some Text"
+});</pre>
+        </div>
     </div>
 
-    <h4>Success</h4>
+    <h3>Success</h3>
     <div class="demo-monolog">
         <div class="monolog success" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
             <div class="monolog-icon success" data-id="monolog-icon"></div>
@@ -113,9 +136,24 @@
             </div>
         </div>
         <div id="successButton"></div>
+        <div class="gridspan">
+            <h4>sticky</h4>
+            <pre class="code demo-code mt-10 mb-10">
+monolog.success({
+    title  : "Some Info",
+    message: "Just a Test",
+    sticky : true
+});</pre>
+            <h4>non-sticky</h4>
+            <pre class="code demo-code mt-10 mb-10">
+monolog.success({
+    title  : "Some Info",
+    message: "Just a Test"
+});</pre>
+        </div>
     </div>
 
-    <h4>Warning</h4>
+    <h3>Warning</h3>
     <div class="demo-monolog">
         <div class="monolog warning" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
             <div class="monolog-icon warning" data-id="monolog-icon"></div>
@@ -134,9 +172,24 @@
             </div>
         </div>
         <div id="warningButton"></div>
+        <div class="gridspan">
+            <h4>sticky</h4>
+            <pre class="code demo-code mt-10 mb-10">
+monolog.warning({
+    title  : "Some Warning",
+    message: "Just a Test",
+    sticky : true
+});</pre>
+            <h4>non-sticky</h4>
+            <pre class="code demo-code mt-10 mb-10">
+monolog.warning({
+    title  : "Some Warning",
+    message: "Just a Test"
+});</pre>
+        </div>
     </div>
 
-    <h4>Error</h4>
+    <h3>Error</h3>
     <div class="demo-monolog">
         <div class="monolog error" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
             <div class="monolog-icon error" data-id="monolog-icon"></div>
@@ -155,9 +208,24 @@
             </div>
         </div>
         <div id="errorButton"></div>
+        <div class="gridspan">
+            <h4>sticky</h4>
+            <pre class="code demo-code mt-10 mb-10">
+monolog.error({
+    title  : "Some Error",
+    message: "Just a Test",
+    sticky : true
+});</pre>
+            <h4>non-sticky</h4>
+            <pre class="code demo-code mt-10 mb-10">
+monolog.error({
+    title  : "Some Error",
+    message: "Just a Test"
+});</pre>
+        </div>
     </div>
 
-    <h4>Code-Error</h4>
+    <h3>Code-Error</h3>
     <div class="demo-monolog">
         <div class="monolog code-error" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
             <div class="monolog-icon error" data-id="monolog-icon"></div>
@@ -181,9 +249,24 @@
             </div>
         </div>
         <div id="codeErrorButton"></div>
+        <div class="gridspan">
+            <pre class="code demo-code mt-10 mb-10">
+monolog.error({
+    title    : "Some Code Error",
+    message  : "Ask a developer.",
+    codeError: "Exception in thread \"main\" java.lang.NullPointerException " +
+        "at com.example.myproject.Book.getTitle(Book.java:16) " +
+        "at com.example.myproject.Author.getBookTitles(Author.java:25) " +
+        "at com.example.myproject.Bootstrap.main(Bootstrap.java:14)"
+});</pre>
+        </div>
     </div>
 
-    <h4>Attention</h4>
+    <h3>Attention</h3>
+    <div class="demo-text">
+        You can use the Attention on each type of Monolog, but it makes at most sense on a type of error & sticky.
+    </div>
+    <br/>
     <div class="demo-monolog">
         <div class="monolog error attention" data-type="monolog" style="z-index: 100; margin-top: 0; opacity: 1;">
             <div class="monolog-icon error" data-id="monolog-icon"></div>
@@ -194,6 +277,15 @@
             </div>
         </div>
         <div id="errorStickyAttentionButton"></div>
+        <div class="gridspan">
+            <pre class="code demo-code mt-10 mb-10">
+monolog.error({
+    title    : "Some Error",
+    message  : "Just a Test",
+    sticky   : true,
+    attention: true,
+});</pre>
+        </div>
     </div>
 
 </div>

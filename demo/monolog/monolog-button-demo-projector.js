@@ -53,9 +53,9 @@ const monologButtonDemoProjector = (controller, rootElement) => {
         monolog.error({
             title    : "Some Code Error",
             message  : "Ask a developer.",
-            codeError: "Exception in thread \"main\" java.lang.NullPointerException\n" +
-                "at com.example.myproject.Book.getTitle(Book.java:16)\n" +
-                "at com.example.myproject.Author.getBookTitles(Author.java:25)\n" +
+            codeError: "Exception in thread \"main\" java.lang.NullPointerException " +
+                "at com.example.myproject.Book.getTitle(Book.java:16) " +
+                "at com.example.myproject.Author.getBookTitles(Author.java:25) " +
                 "at com.example.myproject.Bootstrap.main(Bootstrap.java:14)"
         });
     });
