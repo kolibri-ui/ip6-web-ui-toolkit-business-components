@@ -29,11 +29,11 @@
 
 
     --neumorph-thumb-disabled-color:                   hsl(  0,  0%, 96%);
-    --neumorph-on-disabled-color:                      hsl(223, 57%, 75%);
-    --neumorph-off-disabled-color:                     hsl(  0,  0%, 87%);
+    --neumorph-on-disabled-readonly-color:             hsl(223, 57%, 75%);
+    --neumorph-off-disabled-readonly-color:            hsl(  0,  0%, 87%);
     --neumorph-indet-disabled-gradient-color:          linear-gradient(270deg,
-                                                       var(--neumorph-on-disabled-color) 50.15%,
-                                                       var(--neumorph-off-disabled-color) 50.16%);
+                                                       var(--neumorph-on-disabled-readonly-color) 50.15%,
+                                                       var(--neumorph-off-disabled-readonly-color) 50.16%);
 
     /*** SHADOW EFFECTS ***/
     --neumorph-thumb-shadow:                          0.0625em 0.125em 0.1875em 0 var(--neumorph-thumb-shadow-color)          inset;
@@ -68,18 +68,20 @@
 
 
     /*** SLIM SWITCH ***/
+
+    /*** COLORS ***/
+    --slim-default-border-color:                      hsl(0, 10%, 37%);
+    --slim-background-disabled-color:                 hsl(0, 0%, 94%);
+    --slim-background-color:                          hsl(0, 0%, 99%);
+    --slim-border-disabled-color:                     hsl(0, 5%, 70%);
+    --slim-off-disabled-color:                        hsl(0, 0%, 87%);
+    --slim-thumb-main-color:                          hsl(223, 79%, 45%);
+    --slim-arrow-color:                               hsl(223, 10%, 37%);
+
+    /*** SIZES / DIMENSIONS ***/
     --slim-icon-size:                                 1.5em;
     --slim-width:                                     5.25em;
     --slim-height:                                    2.375em;
-    --slim-indet:                                     var(--background);
-    --slim-default-border:                            hsl(0, 10%, 37%);
-    --slim-background-disabled:                       hsl(0, 0%, 94%);
-    --slim-background:                                hsl(0, 0%, 99%);
-    --slim-border-disabled:                           hsl(0, 5%, 70%);
-    --slim-off-disabled:                              hsl(0, 0%, 87%);
-    --slim-thumb-main:                                hsl(223, 79%, 45%);
-
-    --slim-arrow-color:                               hsl(223, 10%, 37%);
     --slim-arrow-start-position:                      2.4375em;
     --slim-arrow-end-position:                        2.625em;
 
@@ -183,11 +185,11 @@ States
 }
 
 .disabled > .off {
-    background: var(--neumorph-off-disabled-color);
+    background: var(--neumorph-off-disabled-readonly-color);
 }
 
 .disabled > .on {
-    background: var(--neumorph-on-disabled-color);
+    background: var(--neumorph-on-disabled-readonly-color);
 }
 
 .disabled > .indeterminate {
@@ -199,11 +201,11 @@ States
 }
 
 .read-only > .off {
-    background: var(--neumorph-off-disabled-color);
+    background: var(--neumorph-off-disabled-readonly-color);
 }
 
 .read-only > .on {
-    background: var(--neumorph-on-disabled-color);
+    background: var(--neumorph-on-disabled-readonly-color);
 }
 
 .read-only > .indeterminate {

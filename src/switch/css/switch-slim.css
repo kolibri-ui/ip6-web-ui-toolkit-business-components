@@ -7,8 +7,8 @@
 .thumb.switch-slim {
     border-width:     0.0625em;
     border-style:     solid;
-    border-color:     var(--slim-default-border);
-    background-color: var(--background);
+    border-color:     var(--slim-default-border-color);
+    background-color: var(--slim-background-color);
 }
 
 
@@ -23,8 +23,8 @@
     width:            2.25em;
     border-width:     0.0625em;
     border-style:     solid;
-    border-color:     var(--slim-thumb-main);
-    background-color: var(--slim-background);
+    border-color:     var(--slim-thumb-main-color);
+    background-color: var(--slim-background-color);
 }
 
 .thumb.switch-slim.off::before {
@@ -82,37 +82,37 @@
 /** States ***/
 
 .indeterminate.switch-slim {
-    background: var(--slim-indet);
+    background: var(--slim-background-color);
 }
 
 
 .focus > .thumb.switch-slim {
     box-shadow:   0 0 0.375em 0 rgba(24, 75, 205, 0.94);
-    border-color: var(--slim-thumb-main);
+    border-color: var(--slim-thumb-main-color);
     outline:      none;
 }
 
 .hover > .thumb.switch-slim {
     box-shadow:   0 0 0.5em 0 rgba(24, 75, 205, 0.6);
-    border-color: var(--slim-thumb-main);
+    border-color: var(--slim-thumb-main-color);
     outline:      none;
 }
 
 .switch.switch-slim:focus {
     box-shadow:   0 0 0.9375em rgba(24, 75, 205, 0.7);
-    border-color: var(--slim-thumb-main);
+    border-color: var(--slim-thumb-main-color);
     outline:      none;
 }
 
 .disabled > .thumb.switch-slim {
-    background-color: var(--slim-background-disabled);
-    border-color:     var(--slim-border-disabled);
+    background-color: var(--slim-background-disabled-color);
+    border-color:     var(--slim-border-disabled-color);
 
 }
 
 .disabled > .thumb.switch-slim::before {
-    background-color: var(--slim-background-disabled);
-    border-color:     var(--slim-border-disabled);
+    background-color: var(--slim-background-disabled-color);
+    border-color:     var(--slim-border-disabled-color);
 }
 
 .disabled > .switch-icon {
@@ -124,12 +124,12 @@
 }
 
 .read-only > .thumb.switch-slim::before {
-    background-color: var(--slim-background-disabled);
+    background-color: var(--slim-background-disabled-color);
 }
 
 .read-only > .thumb.switch-slim {
-    background-color: var(--slim-background-disabled);
-    border-color:     var(--slim-border-disabled);
+    background-color: var(--slim-background-disabled-color);
+    border-color:     var(--slim-border-disabled-color);
 }
 
 .read-only > .switch-icon {
@@ -146,7 +146,7 @@
 }
 
 .required.switch-slim :hover > .thumb.switch-slim {
-    border-color: var(--slim-thumb-main);
+    border-color: var(--slim-thumb-main-color);
     box-shadow:   0 0 0.25em rgba(24, 75, 205, 0.7);
 }
 
