@@ -238,6 +238,7 @@ margin-top: 0 ;
     right:    0;
     height:   2.375rem;
     width:    2.375rem;
+    cursor:   pointer;
 }
 
 .monolog.out {
