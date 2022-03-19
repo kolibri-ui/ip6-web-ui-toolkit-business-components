@@ -7,15 +7,28 @@ import { Switch } from "../../src/switch/projector/Switch.js";
 
 // closest to the using HTML is the only place where we depend on the HTML content
 const workingHoursInput = document.getElementById("workingHoursInput");
-const darkThemeSwitch   = document.getElementById("dark-theme-switch");
+
+const disabledSwitch  = document.getElementById("disabled-switch");
+const readOnlySwitch  = document.getElementById("read-only-switch");
+const requiredSwitch  = document.getElementById("required-switch");
+const darkThemeSwitch = document.getElementById("dark-theme-switch");
+
 
 const dayController = DayController();
 const monolog       = MonologList();
 
-const whController = WorkingHoursController(dayController, monolog);
-const darkTheme    = Switch(whController, {id: "checkDarkTheme", labelText: "Dark Theme"});
+const {disabled, readOnly, required, darkTheme} = WorkingHoursController(dayController, monolog, workingHoursInput);
+
+const disabledControl  = Switch(disabled, {id: "checkDisabled", labelText: "Disabled", slim: true});
+const readOnlyControl  = Switch(readOnly, {id: "checkReadOnly", labelText: "Read Only", slim: true});
+const requiredControl  = Switch(required, {id: "checkRequired", labelText: "Required"});
+const darkThemeControl = Switch(darkTheme, {id: "checkDarkTheme", labelText: "Dark Theme"});
 
 
 workingHoursInput.append(...projectDay(dayController)); // projector pattern
 document.getElementsByTagName('body')[0].append(monolog.list());
-darkThemeSwitch.append(darkTheme);
+
+disabledSwitch.append(disabledControl);
+readOnlySwitch.append(readOnlyControl);
+requiredSwitch.append(requiredControl);
+darkThemeSwitch.append(darkThemeControl);

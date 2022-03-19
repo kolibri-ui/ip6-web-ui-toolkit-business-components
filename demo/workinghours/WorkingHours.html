@@ -7,13 +7,34 @@
     <link rel="stylesheet" href="../../src/Kolibri/docs/src/examples/WorkingHours.css"/>
     <link rel="stylesheet" href="../../src/monolog/css/monolog.css"/>
     <link rel="stylesheet" href="../../src/switch/css/switch.css"/>
+    <link rel="stylesheet" href="../../demo/assets/css/demo-buttons.css"/>
     <style>
         .switch-label {
             display:     inline-block;
-            height:      39px;
-            line-height: 19px;
+            height:      2.4375rem;
+            width:       6.25rem;
+            line-height: 1.1875rem;
             position:    relative;
-            top:         10px;
+            top:         0.625rem;
+        }
+
+        .switch-input-container {
+            display:               grid;
+            grid-template-columns: 50% 50%;
+            column-gap:            10px;
+        }
+
+        /** div reset from Working Hours Example **/
+        div {
+            line-height: 1em;
+            padding:     0;
+        }
+
+        /** Apply the Working Hours Example div rules to the correct Elements **/
+        fieldset > div, .switch-input-container-element div, .rules div {
+            line-height: 1.2em;
+            padding:     0.5em 0 0 0;
+
         }
     </style>
 </head>
@@ -25,26 +46,35 @@
 
     <h1>Workday Projector Test Bench</h1>
 
-    <fieldset name="workingHoursInput" id="workingHoursInput">
-        <legend>Working Hours</legend>
-        <!-- projection will be added here: -->
+    <form name="workinHoursForm" action="#" method="post">
+        <fieldset name="workingHoursInput" id="workingHoursInput">
+            <legend>Working Hours</legend>
 
-    </fieldset>
+            <!-- projection will be added here: -->
 
-    <div>
-        <input type="checkbox" id="checkDisabled">
-        <label for="checkDisabled">Disabled</label>
-    </div>
-    <div>
-        <input type="checkbox" id="checkReadOnly">
-        <label for="checkReadOnly">Read Only</label>
-    </div>
-    <div>
-        <input type="checkbox" id="checkRequired">
-        <label for="checkRequired">Required</label>
-    </div>
-    <div id="dark-theme-switch">
-        <div class="switch-label">Dark Theme</div>
+        </fieldset>
+        <button type="submit" class="button button-default">Submit</button>
+    </form>
+
+    <div class="switch-input-container">
+        <div class="switch-input-container-element">
+            <div id="disabled-switch">
+                <div class="switch-label">Disabled</div>
+            </div>
+
+            <div id="read-only-switch">
+                <div class="switch-label">Read Only</div>
+            </div>
+        </div>
+        <div class="switch-input-container-element">
+            <div id="required-switch">
+                <div class="switch-label">Required</div>
+            </div>
+
+            <div id="dark-theme-switch">
+                <div class="switch-label">Dark Theme</div>
+            </div>
+        </div>
     </div>
 
     <h2>Projecting Work Hours for a Day</h2>
@@ -112,29 +142,10 @@
 
     <h2>Next Step</h2>
     <p>
-        Have a look at the <a href="../workweek/WorkingHours.html">work week</a> where we use
+        Have a look at the <a href="../../src/Kolibri/docs/src/examples/workweek/WorkingHours.html">work week</a> where we use
         multiple day controllers and projectors in an aggregated way.
     </p>
 
-    <script>
-        const checkDisabled   = document.getElementById("checkDisabled");
-        const checkReadOnly   = document.getElementById("checkReadOnly");
-        const checkRequired   = document.getElementById("checkRequired");
-        checkDisabled.onclick = _ => checkDisabled.checked
-            ? workingHoursInput.setAttribute("disabled", "on")                  // one can disable a fieldset
-            : workingHoursInput.removeAttribute("disabled");
-
-        const inputs          = () => workingHoursInput.querySelectorAll("input");
-        checkReadOnly.onclick = _ => checkReadOnly.checked
-            ? inputs().forEach(input => input.setAttribute("readonly", true))     // only inputs can be set to readonly
-            : inputs().forEach(input => input.removeAttribute("readonly"));
-
-        checkRequired.onclick = _ => checkRequired.checked
-            ? inputs().forEach(input => input.setAttribute("required", true))
-            : inputs().forEach(input => input.removeAttribute("required"));
-
-
-    </script>
     <script type="module" src="./starter.js"></script>
 
 </main>
