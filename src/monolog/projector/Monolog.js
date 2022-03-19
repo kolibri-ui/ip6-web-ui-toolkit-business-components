@@ -19,7 +19,7 @@ const Monolog = (options) => {
     const elements = dom(`
         <div class="monolog" data-type="monolog">
             <div class="monolog-icon" data-id="monolog-icon"></div>
-            <div class="monolog-close" aria-label="close"></div>
+            <button class="monolog-close" aria-label="close"></button>
             <div class="monolog-body">
                 <div class="monolog-title"></div>
                 <div class="monolog-subline"></div>

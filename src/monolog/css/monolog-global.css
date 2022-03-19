@@ -1,27 +1,27 @@
 :root {
-    --text:                       hsla(0, 0%, 20%, 1.0);
-    --input-hover:                hsla(0, 0%, 74%, 1.0);
-    --text-contrast:              hsla(0, 0%, 95%, 1.0);
-    --background:                 hsla(0, 0%, 99%, 1.0);
+    --text:               hsla(0, 0%, 20%, 1.0);
+    --input-hover:        hsla(0, 0%, 74%, 1.0);
+    --text-contrast:      hsla(0, 0%, 95%, 1.0);
+    --background:         hsla(0, 0%, 99%, 1.0);
 
-    --primary:                    hsla(223, 79%, 45%, 1.0);
-    --primary-hover:              hsla(233, 79%, 56%, 1.0);
+    --primary:            hsla(223, 79%, 45%, 1.0);
+    --primary-hover:      hsla(233, 79%, 56%, 1.0);
 
-    --success:                    hsla(104, 89%, 28%, 1.0);
-    --success-hover:              hsla(103, 87%, 32%, 1.0);
+    --success:            hsla(104, 89%, 28%, 1.0);
+    --success-hover:      hsla(103, 87%, 32%, 1.0);
 
-    --warning:                    hsla(36, 100%, 48%, 1.0);
-    --warning-hover:              hsla(34, 97%, 58%, 1.0);
-    --warning-background:         hsla(36, 100%, 88%, 1.0);
+    --warning:            hsla(36, 100%, 48%, 1.0);
+    --warning-hover:      hsla(34, 97%, 58%, 1.0);
+    --warning-background: hsla(36, 100%, 88%, 1.0);
 
-    --error:                      hsla(0, 79%, 63%, 1.0);
-    --error-hover:                hsla(0, 100%, 70%, 1.0);
-    --error-background:           hsla(0, 79%, 93%, 1.0);
+    --error:              hsla(0, 79%, 63%, 1.0);
+    --error-hover:        hsla(0, 100%, 70%, 1.0);
+    --error-background:   hsla(0, 79%, 93%, 1.0);
 
-    --default:                    hsla(0, 0%, 62%, 1.0);
-    --default-hover:              hsla(0, 0%, 79%, 1.0);
+    --default:            hsla(0, 0%, 62%, 1.0);
+    --default-hover:      hsla(0, 0%, 79%, 1.0);
 
-    --border-radius:              0.3125rem;
+    --border-radius:      0.3125rem;
 
 }
 
@@ -30,7 +30,7 @@ body {
 }
 
 .monolog-list {
-    display: grid;
+    display:  grid;
     position: fixed;
     width:    25rem;
 }
@@ -43,7 +43,7 @@ body {
     right: 0.625rem;
 }
 
-.close-all-stack, .info-number, .success-number, .warning-number, .error-number{
+.close-all-stack, .info-number, .success-number, .warning-number, .error-number {
     display: none;
 }
 
@@ -203,12 +203,14 @@ body {
 }
 
 .monolog-close {
-    position: absolute;
-    top:      0;
-    right:    0;
-    height:   2.375rem;
-    width:    2.375rem;
-    cursor:   pointer;
+    position:         absolute;
+    top:              0;
+    right:            0;
+    height:           2.375rem;
+    width:            2.375rem;
+    cursor:           pointer;
+    border:           none;
+    background-color: transparent;
 }
 
 .monolog.out {
