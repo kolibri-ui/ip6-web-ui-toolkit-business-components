@@ -31,7 +31,7 @@ const Switch = (observable, options) => {
     // Create all Elements needed for a Switch, depending on option.slim
     const elements = dom(`
         <label class="switch" for="switch-control" data-id="switch-control">
-            <input id="switch-control" name="switch-control" data-type="switch" type="checkbox" role="checkbox" aria-checked="false" value="false">
+            <input id="switch-control" name="switch-control" data-type="switch" type="checkbox" role="checkbox" aria-checked="false">
             <span class="thumb">
                 <span class="arrow arrow-left"  style="display: none;"></span>
                 <span class="arrow arrow-right" style="display: none;"></span>
@@ -127,7 +127,6 @@ const Switch = (observable, options) => {
     }
 
     // set initial values
-    switchInputElement.value = `${options.state}`;
     observable.setValue(options.state);
 
 
