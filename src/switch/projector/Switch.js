@@ -1,8 +1,8 @@
 // noinspection SpellCheckingInspection
 
-import {dom} from "../../Kolibri/docs/src/kolibri/util/dom.js";
+import { dom } from "../../Kolibri/docs/src/kolibri/util/dom.js";
 
-export {Switch}
+export { Switch }
 
 /**
  * Implementation of the Switch Projector.
@@ -53,7 +53,6 @@ const Switch = (observable, options) => {
 
     const switchElements = [switchElement, switchInputElement, thumbElement, arrowLeft, arrowRight, offIcon, onIcon];
 
-
     // Check if slim
     const slimClassName = 'switch-slim';
     if (options.slim) {
@@ -81,6 +80,7 @@ const Switch = (observable, options) => {
         switchInputElement.setAttribute("checked", "true");
         switchInputElement.indeterminate = false;
         switchInputElement.checked       = true;
+        switchInputElement.ariaChecked   = "true";
         observable.setValue(true);
         options.state = true;
 
@@ -99,6 +99,7 @@ const Switch = (observable, options) => {
         switchInputElement.removeAttribute("checked");
         switchInputElement.indeterminate = false;
         switchInputElement.checked       = false;
+        switchInputElement.ariaChecked   = "false";
         observable.setValue(false);
         options.state = false;
 
@@ -115,6 +116,7 @@ const Switch = (observable, options) => {
         switchInputElement.removeAttribute("checked");
         switchInputElement.indeterminate = true;
         switchInputElement.checked       = undefined;
+        switchInputElement.ariaChecked   = "mixed";
         observable.setValue(undefined);
     }
 
@@ -127,6 +129,7 @@ const Switch = (observable, options) => {
     // set initial values
     switchInputElement.value = `${options.state}`;
     observable.setValue(options.state);
+
 
     // set initial view based on options
     if (options.threeState) {
