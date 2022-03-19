@@ -120,6 +120,7 @@ const Switch = (observable, options) => {
         observable.setValue(undefined);
     }
 
+    // Toggle Switch on Spacebar input
     const toggleSwitch = () => {
         if (switchInputElement.indeterminate) {
             setSwitchOn();
