@@ -120,6 +120,14 @@ const Switch = (observable, options) => {
         observable.setValue(undefined);
     }
 
+    const toggleSwitch = () => {
+        if (switchInputElement.indeterminate) {
+            setSwitchOn();
+        } else {
+            (switchInputElement.checked) ? setSwitchOff() : setSwitchOn();
+        }
+    }
+
     // Function to hide the Arrows on the Element.
     const hideArrows = () => {
         arrowLeft.style.display  = 'none';
@@ -244,12 +252,18 @@ const Switch = (observable, options) => {
 
     // Keyboard interaction
     switchElement.onkeyup = e => {
+        console.log(e);
+
         if (!switchInputElement.readOnly) {
             if (e.key === "ArrowRight") {
                 setSwitchOn();
             } else if (e.key === "ArrowLeft") {
                 setSwitchOff();
+            } else if (e.code === "Space") {
+                e.preventDefault();
+                toggleSwitch();
             }
+
 
             if (options.threeState) {
                 if (e.key === "Delete") {
