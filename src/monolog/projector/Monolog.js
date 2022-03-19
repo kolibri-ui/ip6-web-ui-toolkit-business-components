@@ -75,7 +75,7 @@ const Monolog = (options) => {
             setTimeout(() => {
                 monologDiv.remove();
             }, 520);
-        }, 1000);
+        }, 2000);
     } else {
         monologClose.onclick = () => {
             monologDiv.classList.remove('attention');
