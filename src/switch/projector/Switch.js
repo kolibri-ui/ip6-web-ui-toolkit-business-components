@@ -269,7 +269,7 @@ const Switch = (observable, options) => {
                 }
             }
         }
-    }
+    };
 
     return switchElement;
 }
