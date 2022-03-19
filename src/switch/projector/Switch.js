@@ -252,7 +252,6 @@ const Switch = (observable, options) => {
 
     // Keyboard interaction
     switchElement.onkeyup = e => {
-        console.log(e);
 
         if (!switchInputElement.readOnly) {
             if (e.key === "ArrowRight") {
@@ -263,7 +262,6 @@ const Switch = (observable, options) => {
                 e.preventDefault();
                 toggleSwitch();
             }
-
 
             if (options.threeState) {
                 if (e.key === "Delete") {
