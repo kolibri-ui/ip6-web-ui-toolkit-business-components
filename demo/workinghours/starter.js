@@ -4,6 +4,7 @@ import { DayController } from "../../src/Kolibri/docs/src/examples/workday/dayCo
 import { MonologList } from "../../src/monolog/projector/MonologList.js";
 import { WorkingHoursController } from "./controller.js";
 import { Switch } from "../../src/switch/projector/Switch.js";
+import { buttonElement } from "../util/buttonElement.js";
 
 // closest to the using HTML is the only place where we depend on the HTML content
 const workingHoursInput = document.getElementById("workingHoursInput");
@@ -17,7 +18,13 @@ const darkThemeSwitch = document.getElementById("dark-theme-switch");
 const dayController = DayController();
 const monolog       = MonologList();
 
-const {disabled, readOnly, required, darkTheme} = WorkingHoursController(dayController, monolog, workingHoursInput);
+const {
+          disabled,
+          readOnly,
+          required,
+          darkTheme,
+          invalid
+      } = WorkingHoursController(dayController, monolog, workingHoursInput);
 
 const disabledControl  = Switch(disabled, {id: "checkDisabled", labelText: "Disabled", slim: true});
 const readOnlyControl  = Switch(readOnly, {id: "checkReadOnly", labelText: "Read Only", slim: true});

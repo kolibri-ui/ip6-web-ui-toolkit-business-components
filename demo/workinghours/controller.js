@@ -1,4 +1,5 @@
 import { Observable } from "../../src/Kolibri/docs/src/kolibri/observable.js";
+import { Attribute, VALUE } from "../../src/Kolibri/docs/src/kolibri/presentationModel.js";
 
 export { WorkingHoursController }
 
@@ -16,22 +17,7 @@ const WorkingHoursController = (dayController, monolog, workingHoursInput) => {
     const disabled  = Observable(false);
 
 
-    const maxHoursRule = total => {
-        if (total > 12 * 60) {
-            monolog.error({
-                title  : "Business Rule violated",
-                message: "Total time must not exceed 12 hours.",
-                sticky : true
-            });
-        }
-    };
-
-    formValid.onChange(form => {
-        if (form === true) {
-            monolog.success({title: "Form valid", message: "All business rules are valid."});
-        }
-    })
-
+    // Check for not earlier than 04:00 Start Rule
     amStartCtrl.onValueChanged(amStart => {
         if (amStart < 4 * 60) {
 
@@ -40,7 +26,7 @@ const WorkingHoursController = (dayController, monolog, workingHoursInput) => {
             monolog.error({
                 title  : "Business Rule violated",
                 message: "Start can not be earlier than 04:00",
-                sticky: true
+                sticky : true
             });
         } else {
             formValid.setValue(true);
@@ -48,6 +34,7 @@ const WorkingHoursController = (dayController, monolog, workingHoursInput) => {
 
     });
 
+    // Check for no later than 22:00 Rule
     pmEndCtrl.onValueChanged(pmEnd => {
         (pmEnd > 22 * 60)
             ? monolog.error({
@@ -59,44 +46,66 @@ const WorkingHoursController = (dayController, monolog, workingHoursInput) => {
     });
 
 
-    hourCtrls.forEach(ctrl => {
-        ctrl.onValueChanged(() => maxHoursRule(getTotal()));
-    });
-
-    darkTheme.onChange(c => {
-        if (c === true) {
-            document.querySelector("html").classList.add("darkTheme");
-            monolog.info({title: "Changed to Dark Mode"});
-        } else {
-            document.querySelector("html").classList.remove("darkTheme");
-            monolog.info({title: "Changed to Light Mode"});
+    // Check for max of 12 hours Rule
+    onTotalChanged(() => {
+        if (getTotal() > 12 * 60) {
+            monolog.error({
+                title  : "Business Rule violated",
+                message: "Total time must not exceed 12 hours.",
+                sticky : true
+            });
         }
     });
 
+
+    // Switch to light or to darkMode
+    darkTheme.onChange(() => {
+        if (darkTheme.getValue()) {
+            document.querySelector("html").classList.add("darkTheme");
+        } else {
+            document.querySelector("html").classList.remove("darkTheme");
+        }
+    });
+
+
+    // Disable all Elements
     disabled.onChange(() => {
-        disabled.getValue()
-            ? workingHoursInput.setAttribute("disabled", "on")                  // one can disable a fieldset
-            : workingHoursInput.removeAttribute("disabled");
+        if (disabled.getValue()) {
+            workingHoursInput.setAttribute("disabled", "on");
+            monolog.warning({title: "Form is now disabled"});
+        } else {
+            workingHoursInput.removeAttribute("disabled");
+            monolog.info({title: "Form is now enabled"});
+        }
     });
 
+    // Change readOnly State
     readOnly.onChange(() => {
-        readOnly.getValue()
-            ? inputs().forEach(input => input.setAttribute("readonly", true))     // only inputs can be set to readonly
-            : inputs().forEach(input => input.removeAttribute("readonly"));
+        if (readOnly.getValue()) {
+            inputs().forEach(input => input.setAttribute("readonly", true));
+            monolog.warning({title: "Form is now read only"});
+        } else {
+            inputs().forEach(input => input.removeAttribute("readonly"));
+            monolog.info({title: "Form is now editable"});
+        }
     });
 
+    // Change Required State
     required.onChange(() => {
-
-        required.getValue()
-            ? monolog.warning({title: "Toggled required", message: "All Inputs are now required for submiting"})
-            : ""
-
-        required.getValue()
-            ? inputs().forEach(input => input.setAttribute("required", true))
-            : inputs().forEach(input => input.removeAttribute("required"));
+        if (required.getValue()) {
+            inputs().forEach(input => input.setAttribute("required", true));
+            monolog.warning({title: "Inputs are now required for submitting"});
+        } else {
+            inputs().forEach(input => input.removeAttribute("required"));
+            monolog.info({title: "Inputs are now not required for submitting"});
+        }
     });
+
 
     return {
-        disabled, readOnly, required, darkTheme
+        disabled,
+        readOnly,
+        required,
+        darkTheme
     }
 }
