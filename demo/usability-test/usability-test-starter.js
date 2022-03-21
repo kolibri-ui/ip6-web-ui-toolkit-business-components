@@ -15,7 +15,7 @@ document.getElementById("neumorph-switch-on").appendChild(neumorphOnSwitch);
 const neumorphkeyboardOnSwitch = DemoSwitch(Observable(false), false, true, false, false, false);
 document.getElementById("neumorph-switch-on-keyboard").appendChild(neumorphkeyboardOnSwitch);
 
-const neumorphshadowOnSwitch = DemoSwitch(Observable(false), false, true, false, false, false);
+const neumorphshadowOnSwitch = DemoSwitch(Observable(false), false, true, false, false,  true);
 document.getElementById("neumorph-switch-shadow").appendChild(neumorphshadowOnSwitch);
 
 
@@ -31,7 +31,7 @@ document.getElementById("slim-switch-on").appendChild(slimOnSwitch);
 const slimkeyboardOnSwitch = DemoSwitch(Observable(false), true, true, false, false, false);
 document.getElementById("slim-switch-on-keyboard").appendChild(slimkeyboardOnSwitch);
 
-const slimshadowOnSwitch = DemoSwitch(Observable(false), true, true, false, false, false);
+const slimshadowOnSwitch = DemoSwitch(Observable(false), true, true, false, false, true);
 document.getElementById("slim-switch-shadow").appendChild(slimshadowOnSwitch);
 
 
