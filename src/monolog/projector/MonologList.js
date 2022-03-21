@@ -243,7 +243,6 @@ const MonologList = () => {
             codeErrorType = stackListCodeError.querySelectorAll('.monolog.code-error');
         }
 
-        //getMonologTypes();
     }
 
     /**
@@ -262,8 +261,6 @@ const MonologList = () => {
         warningType   = stackList         .querySelectorAll('.monolog.warning');
         errorType     = stackList         .querySelectorAll('.monolog.error');
         codeErrorType = stackList         .querySelectorAll('.monolog.code-error');
-
-      //  getMonologTypes();
 
         if (infoType.length >= 1) {
             stacking(infoType);
