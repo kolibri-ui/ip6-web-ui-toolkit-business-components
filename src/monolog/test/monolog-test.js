@@ -31,11 +31,12 @@ testSuite.add("monolog-check-list-creation", assert => {
 testSuite.add("stack-list-number-test", assert => {
     const monologList = monologListElement.list();
     const stackLists  = monologList.children;
-    assert.isTrue(stackLists.length === 4);
+    assert.isTrue(stackLists.length === 5);
 });
 
 /*** Stack 3 info monologues and check if they are placed in the correct stackList ***/
 testSuite.add("stack-list-info-test", assert => {
+    options.sticky = true;
     const monologList = monologListElement.list();
 
     monologListElement.info(options);
@@ -55,6 +56,7 @@ testSuite.add("stack-list-info-test", assert => {
 
 /*** Stack 2 success monologues and check if the closeAllButton removes all of them ***/
 testSuite.add("stack-list-success-test", assert => {
+    options.sticky = true;
     const monologList = monologListElement.list();
 
     monologListElement.success(options);
@@ -64,13 +66,14 @@ testSuite.add("stack-list-success-test", assert => {
     assert.isTrue(successElements.length === 2);
 
     const stackListSuccess = successElements[0].parentElement;
+
     assert.isTrue(stackListSuccess.classList.contains("stack-list-success"));
 
-    stackListSuccess.children[1].click();
+    stackListSuccess.children[0].dispatchEvent(new Event('mouseover'));
+    stackListSuccess.children[0].click();
 
     const removedSuccessElements = monologList.querySelectorAll(".monolog.success");
     assert.isTrue(removedSuccessElements.length === 0);
-
 });
 
 /*** MonologList.js Tests End ***/
