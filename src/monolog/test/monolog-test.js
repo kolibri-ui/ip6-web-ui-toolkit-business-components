@@ -27,7 +27,7 @@ testSuite.add("monolog-check-list-creation", assert => {
 
 });
 
-/*** Check if there are 4 stackLists created ***/
+/*** Check if there are 5 stackLists created ***/
 testSuite.add("stack-list-number-test", assert => {
     const monologList = monologListElement.list();
     const stackLists  = monologList.children;
