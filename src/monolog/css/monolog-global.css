@@ -43,7 +43,7 @@ body {
     right: 0.625rem;
 }
 
-.close-all-stack, .info-number, .success-number, .warning-number, .error-number {
+.close-all-stack, .info-number, .success-number, .warning-number, .error-number, .code-error-number {
     display: none;
 }
 
@@ -76,7 +76,7 @@ body {
     background: var(--warning);
 }
 
-.error-number {
+.error-number, .code-error-number {
     background: var(--error);
 }
 

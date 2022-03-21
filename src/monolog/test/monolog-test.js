@@ -127,7 +127,6 @@ testSuite.add("close-info-monolog-test", assert => {
     monologClose.click();
 
     assert.isTrue(monolog.classList.contains("out"));
-
 });
 
 /*** Monolog.js Tests End ***/
