@@ -138,3 +138,33 @@ img {
         font-size: 0.6875rem
     }
 }
+
+.switch-icon.on.active {
+    background-color: transparent;
+}
+
+.monolog-question{
+    padding-left: 10em;
+}
+.question{
+    text-align: left;
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+.monolog{
+    width: 25rem;
+    text-align: left;
+}
+
+.question-title.start{
+    font-size: 4em;
+}
+.question-body.start{
+    font-size: 2em;
+}
+
+.slide.start{
+    background-image: url("../../src/Kolibri/docs/img/logo/logo.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
