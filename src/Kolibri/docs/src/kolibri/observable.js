@@ -20,7 +20,7 @@ export {Observable, ObservableList}
  * listeners that do not change after setup.
  * @typedef IObservable<T>
  * @template T
- * @impure   Observables change their inner state (value) and maintain a list of observers that changes over time.    
+ * @impure   Observables change their inner state (value) and maintain a list of observers that changes over time.
  * @property { ()  => T }   getValue - a function that returns the current value
  * @property { (T) => void} setValue - a function that sets a new value, calling all registered {@link onValueChangeCallback}s
  * @property { (callback: onValueChangeCallback<T>) => void } onChange -
@@ -84,7 +84,7 @@ const Observable = value => {
  * Observers that are still registered are not garbage collected before the observable list itself is collected.
  * @typedef IObservableList
  * @template T
- * @impure   Observables change their inner decorated list and maintain two lists of observers that changes over time.  
+ * @impure   Observables change their inner decorated list and maintain two lists of observers that changes over time.
  * @property { (observableListCallback) => void }  onAdd - register an observer that is called whenever an item is added.
  * @property { (observableListCallback) => void }  onDel - register an observer that is called whenever an item is added.
  * @property { (T) => void }  add - add an item to the observable list and notify the observers. Modifies the list.

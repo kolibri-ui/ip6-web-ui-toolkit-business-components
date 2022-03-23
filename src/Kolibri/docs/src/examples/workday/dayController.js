@@ -67,6 +67,7 @@ const DayController = () => {
     amStartCtrl.onValueChanged(am_sequence);
     amEndCtrl  .onValueChanged(am_sequence);
     const pm_sequence = sequenceRule(pmStartCtrl,pmEndCtrl);
+
     pmStartCtrl.onValueChanged(pm_sequence);
     pmEndCtrl  .onValueChanged(pm_sequence);
 
@@ -82,6 +83,7 @@ const DayController = () => {
              checkValidityRules(timeControllers);
          })
      );
+
 
     return /** @type DayControllerType*/ {
         amStartCtrl ,
