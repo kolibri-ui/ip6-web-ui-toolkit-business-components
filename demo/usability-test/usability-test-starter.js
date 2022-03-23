@@ -57,7 +57,7 @@ monologSuccess.list().classList.add("center");
 
 monologSuccess.success({
   title  : "Success",
-  message: "Das Formular wurde erfolgreich gesendedt. Ihre Anfrage wurde bestätigt.",
+  message: "Das Formular wurde erfolgreich gesendet. Ihre Anfrage wurde bestätigt.",
   sticky : true,
 });
 document.getElementById("success-monolog").appendChild(monologSuccess.list());
@@ -107,7 +107,7 @@ monologCompare.info({
 });
 monologCompare.success({
   title  : "Success",
-  message: "Das Formular wurde erfolgreich gesendedt. Ihre Anfrage wurde bestätigt.",
+  message: "Das Formular wurde erfolgreich gesendet. Ihre Anfrage wurde bestätigt.",
   sticky : true,
 });
 monologCompare.warning({
