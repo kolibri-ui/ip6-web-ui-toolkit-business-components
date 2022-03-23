@@ -10,7 +10,7 @@ To run the application on the localhost there are two possibilities:
 * Open the Project in your IDE and start the index.html from the root folder
 * Open your command line, change to the root directory of the Project and run ```npx http-server -c-1``` (needs npm installed). Then follow the instructions printed by the http-server on commandline. Usually open http://1270.0.1:8080 in your Browser.
 
-:exclamation: Hint: It is not possible to directly open the index.html File in a Browser, because of CORS Restrictions applied to the JavaScript Modules.
+:exclamation: It is not possible to directly open the index.html File in a Browser, because of CORS Restrictions applied to the JavaScript Modules.
 
 
 ### Deployed Application on Netlify
