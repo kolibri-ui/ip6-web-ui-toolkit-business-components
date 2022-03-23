@@ -3,19 +3,31 @@
 Bachelor Thesis by Alexander Eser & Florian Thiévent.
 
 ## Developer Documentation
+
+
+### Run Application on localhost
+To run the application on the localhost there are two possibilities:
+* Open the Project in your IDE and start the index.html from the root folder
+* Open your command line, change to the root directory of the Project and run ```npx http-server -c-1``` (needs npm installed). Then follow the instructions printed by the http-server on commandline. Usually open http://1270.0.1:8080 in your Browser.
+
+
 https://ip6-web-ui-toolkit-business-components.netlify.app/  
+
+### Deployed Application on Netlify
+The Masterbranch of the Project will be builded and deployed to Netlify on every push or merge.  
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6ef025d1-1f8f-4299-992c-c0b72d136236/deploy-status)](https://app.netlify.com/sites/ip6-web-ui-toolkit-business-components/deploys)
 
-### Switch
+### Components on Netlify
+#### Switch
 https://ip6-web-ui-toolkit-business-components.netlify.app/demo/switch/switch-demo.html
-### Monolog
+#### Monolog
 https://ip6-web-ui-toolkit-business-components.netlify.app/demo/monolog/monolog-demo.html
-
-## Workday UseCase
-Find the Kolibri Workday Example with the Switch and Monolog Component here:
-
+#### Workday UseCase
 https://ip6-web-ui-toolkit-business-components.netlify.app/demo/workinghours/workinghours
+### Usability Tests
+https://ip6-web-ui-toolkit-business-components.netlify.app/demo/usability-test/usability-test.html
+
 
 ## Tests
 To run the Test, open the allTest.html file
@@ -23,7 +35,7 @@ To run the Test, open the allTest.html file
 ./test/allTest.html
 ```
 
-or you can check the Tests on [Netlify](https://ip6-web-ui-toolkit-business-components.netlify.app/test/alltests)
+or you can check the Tests on Netlify https://ip6-web-ui-toolkit-business-components.netlify.app/test/alltests
 
-### Usability Tests
-https://ip6-web-ui-toolkit-business-components.netlify.app/demo/usability-test/usability-test.html
+
+
