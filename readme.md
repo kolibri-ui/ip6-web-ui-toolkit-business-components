@@ -14,21 +14,25 @@ To run the application on the localhost there are two possibilities:
 
 
 ### Deployed Application on Netlify
-The Masterbranch of the Project will be builded and deployed to Netlify on every push or merge.  
+The Masterbranch of the Project will be builded and deployed to Netlify on every push or merge.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/6ef025d1-1f8f-4299-992c-c0b72d136236/deploy-status)](https://app.netlify.com/sites/ip6-web-ui-toolkit-business-components/deploys)
+> The Netlify Application is suspended. You can Setup it easy by yourself.
+> Create an account on netlify.com and follow the steps to deploy an application. 
+> When deployed, the links are working for /demo/switch-demo.html, /demo/monolog-demo.html, /demo/workinghours/workinghours, /demo/usability-test/usability-test.html, /test/alltests
 
-https://ip6-web-ui-toolkit-business-components.netlify.app/
+~~[![Netlify Status](https://api.netlify.com/api/v1/badges/6ef025d1-1f8f-4299-992c-c0b72d136236/deploy-status)](https://app.netlify.com/sites/ip6-web-ui-toolkit-business-components/deploys)~~
+
+~~https://ip6-web-ui-toolkit-business-components.netlify.app/~~
 
 ### Components on Netlify
 #### Switch
-https://ip6-web-ui-toolkit-business-components.netlify.app/demo/switch/switch-demo.html
+~~https://ip6-web-ui-toolkit-business-components.netlify.app/demo/switch/switch-demo.html~~
 #### Monolog
-https://ip6-web-ui-toolkit-business-components.netlify.app/demo/monolog/monolog-demo.html
+~~https://ip6-web-ui-toolkit-business-components.netlify.app/demo/monolog/monolog-demo.html~~
 #### Workday UseCase
-https://ip6-web-ui-toolkit-business-components.netlify.app/demo/workinghours/workinghours
+~~https://ip6-web-ui-toolkit-business-components.netlify.app/demo/workinghours/workinghours~~
 ### Usability Tests
-https://ip6-web-ui-toolkit-business-components.netlify.app/demo/usability-test/usability-test.html
+~~https://ip6-web-ui-toolkit-business-components.netlify.app/demo/usability-test/usability-test.html~~
 
 
 ## Tests
@@ -37,7 +41,7 @@ To run the Test, open the allTest.html file
 ./test/allTest.html
 ```
 
-or you can check the Tests on Netlify https://ip6-web-ui-toolkit-business-components.netlify.app/test/alltests
+~~or you can check the Tests on Netlify https://ip6-web-ui-toolkit-business-components.netlify.app/test/alltests~~
 
 
 
